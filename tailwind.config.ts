@@ -26,7 +26,11 @@ const config: Config = {
           dark: "#ADB5BD",
           darker: "#6C757D",
           darkest: "#212529", 
-        }
+        },
+        'stat-green-dark': '#15803d',
+        'stat-teal': '#0f766e',
+        'stat-orange': '#ea580c',
+        'stat-blue': '#1d4ed8',
       },
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     siteName: APP_NAME,
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/images/logo_greenti.svg",
         width: 1200,
         height: 630,
         alt: `Logo de ${APP_NAME}`,

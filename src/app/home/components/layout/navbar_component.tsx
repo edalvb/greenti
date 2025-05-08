@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { LogoComponent } from "@/core/components/ui/logo_component";
 import { ButtonComponent } from "@/core/components/ui/button_component";
@@ -90,15 +90,16 @@ const NavLink: React.FC<NavLinkProps> = ({
   <Link
     href={href}
     onClick={onClick}
-    className="flex items-center text-neutral-darker hover:text-primary px-3 py-2 rounded-md text-sm font-medium"
+    className="flex items-center text-neutral-darkest hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
   >
     {children}
-    {hasDropdown && <ChevronDownIcon className="w-4 h-4 ml-1" />}
+    {hasDropdown && <ChevronDownIcon className="w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary" />}
   </Link>
 );
 
 export const NavbarComponent: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { label: "Servicios", href: "#servicios", hasDropdown: true },
@@ -108,27 +109,36 @@ export const NavbarComponent: React.FC = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-white shadow-sm fixed w-full z-50 top-0">
+    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent shadow-none'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <LogoComponent />
+            <LogoComponent className={`${isScrolled ? '' : 'text-white'}`} />
           </div>
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item) => (
               <NavLink
                 key={item.label}
                 href={item.href}
                 hasDropdown={item.hasDropdown}
               >
-                {item.label}
+                <span className={`${isScrolled ? 'text-neutral-darkest' : 'text-white'} hover:text-primary`}>{item.label}</span>
+                {item.hasDropdown && <ChevronDownIcon className={`w-4 h-4 ml-1 ${isScrolled ? 'text-neutral-darkest' : 'text-white'} group-hover:text-primary`} />}
               </NavLink>
             ))}
-            <button className="flex items-center text-neutral-darker hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+            <button className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${isScrolled ? 'text-neutral-darkest' : 'text-white'} hover:text-primary transition-colors`}>
               <GlobeAltIcon className="w-5 h-5 mr-1" />
               ENG
-              <ChevronDownIcon className="w-4 h-4 ml-1" />
+              <ChevronDownIcon className={`w-4 h-4 ml-1 ${isScrolled ? 'text-neutral-darkest' : 'text-white'} group-hover:text-primary`} />
             </button>
           </div>
           <div className="hidden md:block">
@@ -143,7 +153,7 @@ export const NavbarComponent: React.FC = () => {
             <button
               onClick={toggleMobileMenu}
               type="button"
-              className="bg-white inline-flex items-center justify-center p-2 rounded-md text-neutral-dark hover:text-neutral-darker hover:bg-neutral-lightest focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary"
+              className={`${isScrolled || isMobileMenuOpen ? 'bg-white text-neutral-darkest' : 'bg-transparent text-white'} inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary`}
               aria-controls="mobile-menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -159,7 +169,7 @@ export const NavbarComponent: React.FC = () => {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="md:hidden" id="mobile-menu">
+        <div className="md:hidden bg-white shadow-lg" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <NavLink
@@ -168,13 +178,14 @@ export const NavbarComponent: React.FC = () => {
                 hasDropdown={item.hasDropdown}
                 onClick={toggleMobileMenu}
               >
-                {item.label}
+                 <span className='text-neutral-darkest hover:text-primary'>{item.label}</span>
+                 {item.hasDropdown && <ChevronDownIcon className={`w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary`} />}
               </NavLink>
             ))}
-            <button className="w-full flex items-center text-neutral-darker hover:text-primary px-3 py-2 rounded-md text-sm font-medium">
+            <button className="w-full flex items-center text-neutral-darkest hover:text-primary px-3 py-2 rounded-md text-sm font-medium group">
               <GlobeAltIcon className="w-5 h-5 mr-1" />
               ENG
-              <ChevronDownIcon className="w-4 h-4 ml-1" />
+              <ChevronDownIcon className="w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary" />
             </button>
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-light px-5">

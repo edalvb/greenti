@@ -6,6 +6,7 @@ interface LogoComponentProps {
   height?: number | string;
   className?: string;
   href?: string;
+  isScrolled?: boolean; 
 }
 
 export const LogoComponent: React.FC<LogoComponentProps> = ({
@@ -13,18 +14,22 @@ export const LogoComponent: React.FC<LogoComponentProps> = ({
   height = 'auto',
   className = '',
   href = '/',
+  isScrolled = false,
 }) => {
+  const baseGreenColor = isScrolled ? 'text-primary' : 'text-white';
+  const baseTiColor = isScrolled ? 'text-secondary' : 'text-white';
+
   const logoContent = (
     <span
-      className={`font-bold text-3xl text-primary ${className}`}
+      className={`font-bold text-3xl ${className}`}
       style={{ width, height }}
     >
-      Green<span className="text-secondary">TI</span>
+      <span className={baseGreenColor}>Green</span><span className={baseTiColor}>TI</span>
     </span>
   );
 
   if (href) {
-    return <Link href={href}>{logoContent}</Link>;
+    return <Link href={href} legacyBehavior><a>{logoContent}</a></Link>;
   }
 
   return logoContent;
