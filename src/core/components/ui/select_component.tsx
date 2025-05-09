@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface SelectOption {
   value: string | number;
@@ -6,7 +6,8 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
+export interface SelectProps
+  extends React.SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
   options: SelectOption[];
@@ -15,10 +16,24 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
 }
 
 export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({ className, label, error, options, placeholder, containerClassName, name, ...props }, ref) => {
-    const selectId = name || React.useId();
+  (
+    {
+      className,
+      label,
+      error,
+      options,
+      placeholder,
+      containerClassName,
+      name,
+      ...props
+    },
+    ref,
+  ) => {
+    const generatedId = React.useId();
+
+    const selectId = name != null ? generatedId : props.id || undefined;
     return (
-      <div className={`w-full ${containerClassName || ''}`}>
+      <div className={`w-full ${containerClassName || ""}`}>
         {label && (
           <label
             htmlFor={selectId}
@@ -36,17 +51,19 @@ export const SelectComponent = React.forwardRef<HTMLSelectElement, SelectProps>(
         >
           {placeholder && <option value="">{placeholder}</option>}
           {options.map((option) => (
-            <option key={option.value} value={option.value} disabled={option.disabled}>
+            <option
+              key={option.value}
+              value={option.value}
+              disabled={option.disabled}
+            >
               {option.label}
             </option>
           ))}
         </select>
-        {error && (
-          <p className="mt-1 text-xs text-red-600">{error}</p>
-        )}
+        {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
       </div>
     );
-  }
+  },
 );
 
-SelectComponent.displayName = 'SelectComponent';
+SelectComponent.displayName = "SelectComponent";
