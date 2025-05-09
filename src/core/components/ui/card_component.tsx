@@ -1,25 +1,26 @@
-import React from 'react';
+import React from "react";
 
-interface CardComponentProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CardComponentProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   children: React.ReactNode;
   title?: React.ReactNode;
   footer?: React.ReactNode;
-  padding?: 'sm' | 'md' | 'lg' | 'none';
+  padding?: "sm" | "md" | "lg" | "none";
 }
 
 export const CardComponent: React.FC<CardComponentProps> = ({
   children,
-  className = '',
+  className = "",
   title,
   footer,
-  padding = 'md',
+  padding = "md",
   ...props
 }) => {
   const paddingStyles = {
-    sm: 'p-3',
-    md: 'p-6',
-    lg: 'p-8',
-    none: 'p-0'
+    sm: "p-3",
+    md: "p-6",
+    lg: "p-8",
+    none: "p-0",
   };
 
   return (
@@ -28,13 +29,19 @@ export const CardComponent: React.FC<CardComponentProps> = ({
       {...props}
     >
       {title && (
-        <div className={`mb-4 ${padding === 'none' ? 'px-6 pt-6' : ''}`}>
-          {typeof title === 'string' ? <h3 className="text-xl font-semibold leading-none tracking-tight">{title}</h3> : title}
+        <div className={`mb-4 ${padding === "none" ? "px-6 pt-6" : ""}`}>
+          {typeof title === "string" ? (
+            <h3 className="text-xl font-semibold leading-none tracking-tight">
+              {title}
+            </h3>
+          ) : (
+            title
+          )}
         </div>
       )}
       <div>{children}</div>
       {footer && (
-        <div className={`mt-4 ${padding === 'none' ? 'px-6 pb-6' : ''}`}>
+        <div className={`mt-4 ${padding === "none" ? "px-6 pb-6" : ""}`}>
           {footer}
         </div>
       )}
