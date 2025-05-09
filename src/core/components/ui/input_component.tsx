@@ -1,16 +1,23 @@
-import React from 'react';
+import React from "react";
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
   containerClassName?: string;
 }
 
 export const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ className, type, label, error, containerClassName, name, ...props }, ref) => {
-    const inputId = name || React.useId();
+  (
+    { className, type, label, error, containerClassName, name, ...props },
+    ref,
+  ) => {
+    const generatedId = React.useId();
+
+    const inputId = name != null ? generatedId : props.id || undefined;
+
     return (
-      <div className={`w-full ${containerClassName || ''}`}>
+      <div className={`w-full ${containerClassName || ""}`}>
         {label && (
           <label
             htmlFor={inputId}
@@ -27,12 +34,10 @@ export const InputComponent = React.forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           {...props}
         />
-        {error && (
-          <p className="mt-1 text-xs text-red-600">{error}</p>
-        )}
+        {error && <p className="mt-1 text-xs text-red-600">{error}</p>}
       </div>
     );
-  }
+  },
 );
 
-InputComponent.displayName = 'InputComponent';
+InputComponent.displayName = "InputComponent";
