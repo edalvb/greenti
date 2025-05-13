@@ -74,29 +74,6 @@ const ChevronDownIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-interface NavLinkProps {
-  href: string;
-  children: React.ReactNode;
-  hasDropdown?: boolean;
-  onClick?: () => void;
-}
-
-const NavLink: React.FC<NavLinkProps> = ({
-  href,
-  children,
-  hasDropdown,
-  onClick,
-}) => (
-  <Link
-    href={href}
-    onClick={onClick}
-    className="flex items-center text-neutral-darkest hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
-  >
-    {children}
-    {hasDropdown && <ChevronDownIcon className="w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary" />}
-  </Link>
-);
-
 export const NavbarComponent: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -118,31 +95,42 @@ export const NavbarComponent: React.FC = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 top-0 transition-all duration-300 ${isScrolled ? 'bg-white shadow-lg' : 'bg-transparent shadow-none'}`}>
+    <nav
+      className={`fixed w-full z-50 top-0 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "bg-transparent shadow-none"}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <div className="flex items-center">
-            <LogoComponent className={`${isScrolled ? '' : 'text-white'}`} />
+            <LogoComponent isScrolled={isScrolled} />
           </div>
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item) => (
-              <NavLink
+              <Link
                 key={item.label}
                 href={item.href}
-                hasDropdown={item.hasDropdown}
               >
-                <span className={`${isScrolled ? 'text-neutral-darkest' : 'text-white'} hover:text-primary`}>{item.label}</span>
-                {item.hasDropdown && <ChevronDownIcon className={`w-4 h-4 ml-1 ${isScrolled ? 'text-neutral-darkest' : 'text-white'} group-hover:text-primary`} />}
-              </NavLink>
+                <span
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${isScrolled ? "text-neutral-darkest hover:text-primary" : "text-white hover:text-primary/80"}`}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <ChevronDownIcon className="w-4 h-4 ml-1" />
+                  )}
+                </span>
+              </Link>
             ))}
-            <button className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${isScrolled ? 'text-neutral-darkest' : 'text-white'} hover:text-primary transition-colors`}>
+            <button
+              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${isScrolled ? "text-neutral-darkest hover:text-primary" : "text-white hover:text-primary/80"} transition-colors`}
+            >
               <GlobeAltIcon className="w-5 h-5 mr-1" />
               ENG
-              <ChevronDownIcon className={`w-4 h-4 ml-1 ${isScrolled ? 'text-neutral-darkest' : 'text-white'} group-hover:text-primary`} />
+              <ChevronDownIcon
+                className={`w-4 h-4 ml-1 ${isScrolled ? "text-neutral-darkest" : "text-white"} group-hover:text-primary`}
+              />
             </button>
           </div>
           <div className="hidden md:block">
-            <ButtonComponent variant="primary" size="md">
+            <ButtonComponent variant={isScrolled ? "primary" : "outline"} className={!isScrolled ? "border-white text-white hover:bg-white/10" : ""} size="md">
               <IconComponent size={16} className="mr-2">
                 <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </IconComponent>
@@ -153,7 +141,7 @@ export const NavbarComponent: React.FC = () => {
             <button
               onClick={toggleMobileMenu}
               type="button"
-              className={`${isScrolled || isMobileMenuOpen ? 'bg-white text-neutral-darkest' : 'bg-transparent text-white'} inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary`}
+              className={`${isScrolled || isMobileMenuOpen ? "bg-white text-neutral-darkest" : "bg-transparent text-white"} inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary`}
               aria-controls="mobile-menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -172,17 +160,20 @@ export const NavbarComponent: React.FC = () => {
         <div className="md:hidden bg-white shadow-lg" id="mobile-menu">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-              <NavLink
+              <Link
                 key={item.label}
                 href={item.href}
-                hasDropdown={item.hasDropdown}
                 onClick={toggleMobileMenu}
               >
-                 <span className='text-neutral-darkest hover:text-primary'>{item.label}</span>
-                 {item.hasDropdown && <ChevronDownIcon className={`w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary`} />}
-              </NavLink>
+                <span className="block px-3 py-2 rounded-md text-base font-medium text-neutral-darkest hover:text-primary hover:bg-neutral-lightest/50">
+                  {item.label}
+                   {item.hasDropdown && (
+                    <ChevronDownIcon className="w-4 h-4 ml-1 inline" />
+                  )}
+                </span>
+              </Link>
             ))}
-            <button className="w-full flex items-center text-neutral-darkest hover:text-primary px-3 py-2 rounded-md text-sm font-medium group">
+            <button className="w-full flex items-center text-neutral-darkest hover:text-primary px-3 py-2 rounded-md text-base font-medium group">
               <GlobeAltIcon className="w-5 h-5 mr-1" />
               ENG
               <ChevronDownIcon className="w-4 h-4 ml-1 text-neutral-darkest group-hover:text-primary" />

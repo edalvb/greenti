@@ -12,8 +12,8 @@ const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({
   <Link
     href={href}
     className="text-sm text-neutral-light hover:text-primary transition-colors"
-  >
-    {children}
+    legacyBehavior>
+    <a>{children}</a>
   </Link>
 );
 
@@ -145,11 +145,7 @@ export const FooterComponent: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           <div className="md:col-span-2 lg:col-span-1">
-            <LinkIcon className="w-12 h-12 text-primary mb-4" />
-            <p className="text-sm text-neutral-light leading-relaxed">
-              Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius
-              enim eros elementum tristique. Duis cursus.
-            </p>
+            <LogoComponent className="text-primary mb-4" width={100} />
           </div>
 
           <div>
@@ -234,6 +230,8 @@ export const FooterComponent: React.FC = () => {
               key={index}
               src={badge.src}
               alt={badge.alt}
+              width={100}
+              height={50}
               className="h-20 md:h-24 opacity-80"
             />
           ))}
