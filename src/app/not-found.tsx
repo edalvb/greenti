@@ -10,8 +10,8 @@ export default function NotFound() {
         <h1>404</h1>
         <h2>Página no encontrada</h2>
         <p>Lo sentimos, la página que buscas no existe o ha sido movida.</p>
-        <Link href="/">
-          <button>Volver al inicio</button>
+        <Link href="/" legacyBehavior>
+          <a>Volver al inicio</a>
         </Link>
       </div>
       <style jsx>{`
@@ -48,7 +48,8 @@ export default function NotFound() {
           color: var(--secondary-color);
         }
 
-        button {
+        a {
+          display: inline-block;
           padding: 0.75rem 1.5rem;
           font-size: 1rem;
           border: none;
@@ -56,10 +57,11 @@ export default function NotFound() {
           background: var(--primary-color);
           color: #fff;
           cursor: pointer;
+          text-decoration: none;
           transition: background 0.2s ease;
         }
 
-        button:hover {
+        a:hover {
           background: var(--primary-color-dark);
         }
       `}</style>
