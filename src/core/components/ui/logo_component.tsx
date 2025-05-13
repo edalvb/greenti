@@ -31,7 +31,7 @@ export const LogoComponent: React.FC<LogoComponentProps> = ({
 
   if (href) {
     return (
-      <Link href={href} passHref>
+      <Link href={href} passHref legacyBehavior>
         {logoContent}
       </Link>
     );

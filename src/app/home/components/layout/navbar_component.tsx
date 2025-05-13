@@ -5,8 +5,9 @@ import Link from "next/link";
 import { LogoComponent } from "@/core/components/ui/logo_component";
 import { ButtonComponent } from "@/core/components/ui/button_component";
 import { IconComponent } from "@/core/components/ui/icon_component";
+import { IconMenu } from "@tabler/icons-react";
 
-const MenuIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const a = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
@@ -96,7 +97,9 @@ export const NavbarComponent: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-300 ${isScrolled ? "bg-white shadow-lg" : "bg-transparent shadow-none"}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-transparent shadow-none"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -105,12 +108,13 @@ export const NavbarComponent: React.FC = () => {
           </div>
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-              >
+              <Link key={item.label} href={item.href}>
                 <span
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${isScrolled ? "text-neutral-darkest hover:text-primary" : "text-white hover:text-primary/80"}`}
+                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isScrolled
+                      ? "text-neutral-darkest hover:text-primary"
+                      : "text-white hover:text-primary/80"
+                  }`}
                 >
                   {item.label}
                   {item.hasDropdown && (
@@ -120,17 +124,29 @@ export const NavbarComponent: React.FC = () => {
               </Link>
             ))}
             <button
-              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${isScrolled ? "text-neutral-darkest hover:text-primary" : "text-white hover:text-primary/80"} transition-colors`}
+              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${
+                isScrolled
+                  ? "text-neutral-darkest hover:text-primary"
+                  : "text-white hover:text-primary/80"
+              } transition-colors`}
             >
               <GlobeAltIcon className="w-5 h-5 mr-1" />
               ENG
               <ChevronDownIcon
-                className={`w-4 h-4 ml-1 ${isScrolled ? "text-neutral-darkest" : "text-white"} group-hover:text-primary`}
+                className={`w-4 h-4 ml-1 ${
+                  isScrolled ? "text-neutral-darkest" : "text-white"
+                } group-hover:text-primary`}
               />
             </button>
           </div>
           <div className="hidden md:block">
-            <ButtonComponent variant={isScrolled ? "primary" : "outline"} className={!isScrolled ? "border-white text-white hover:bg-white/10" : ""} size="md">
+            <ButtonComponent
+              variant={isScrolled ? "primary" : "outline"}
+              className={
+                !isScrolled ? "border-white text-white hover:bg-white/10" : ""
+              }
+              size="md"
+            >
               <IconComponent size={16} className="mr-2">
                 <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </IconComponent>
@@ -141,7 +157,11 @@ export const NavbarComponent: React.FC = () => {
             <button
               onClick={toggleMobileMenu}
               type="button"
-              className={`${isScrolled || isMobileMenuOpen ? "bg-white text-neutral-darkest" : "bg-transparent text-white"} inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary`}
+              className={`${
+                isScrolled || isMobileMenuOpen
+                  ? "bg-white text-neutral-darkest"
+                  : "bg-transparent text-white"
+              } inline-flex items-center justify-center p-2 rounded-md hover:text-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-lightest focus:ring-primary`}
               aria-controls="mobile-menu"
               aria-expanded={isMobileMenuOpen}
             >
@@ -149,7 +169,7 @@ export const NavbarComponent: React.FC = () => {
               {isMobileMenuOpen ? (
                 <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                <IconMenu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -167,7 +187,7 @@ export const NavbarComponent: React.FC = () => {
               >
                 <span className="block px-3 py-2 rounded-md text-base font-medium text-neutral-darkest hover:text-primary hover:bg-neutral-lightest/50">
                   {item.label}
-                   {item.hasDropdown && (
+                  {item.hasDropdown && (
                     <ChevronDownIcon className="w-4 h-4 ml-1 inline" />
                   )}
                 </span>
