@@ -9,7 +9,7 @@ import { APP_NAME, APP_DESCRIPTION } from "@/core/utils/constants";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-poppins",
 });
 
@@ -59,7 +59,7 @@ export default async function RootLayout({
   const initialData = await homeStore.getInitialData();
 
   return (
-    <html lang="es" className={`${poppins.variable}`}>
+    <html lang="es" className={`${poppins.className}`}>
       <body
         className={`font-sans antialiased bg-neutral-lightest text-neutral-darkest`}
       >
