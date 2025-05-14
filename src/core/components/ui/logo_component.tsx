@@ -10,28 +10,37 @@ interface LogoComponentProps {
 }
 
 export const LogoComponent: React.FC<LogoComponentProps> = ({
-  width = 120,
+  width = 40,
   height = "auto",
   className = "",
   href = "/",
   isScrolled = false,
 }) => {
-  const baseGreenColor = isScrolled ? "text-primary" : "text-white";
-  const baseTiColor = isScrolled ? "text-secondary" : "text-white";
+  const baseGreenColor = isScrolled ? "text-white" : "text-primary";
+  const logo = isScrolled
+    ? "/assets/images/logo_greenti_white.svg"
+    : "/assets/images/logo_greenti.svg";
 
   const logoContent = (
     <span
-      className={`font-bold text-3xl ${className}`}
+      className={`inline-flex items-center font-bold text-3xl ${className}`}
       style={{ width, height }}
     >
-      <span className={baseGreenColor}>Green</span>
-      <span className={baseTiColor}>TI</span>
+      <img
+        src={logo}
+        alt="GreenTI logo"
+        width={width}
+        height={height}
+        className={"mr-2 h-full w-auto" + baseGreenColor}
+      />
+      <span className={baseGreenColor}>GREEN</span>
+      <span className={`${baseGreenColor} font-thin`}>TI</span>
     </span>
   );
 
   if (href) {
     return (
-      <Link href={href} passHref legacyBehavior>
+      <Link href={href}>
         {logoContent}
       </Link>
     );

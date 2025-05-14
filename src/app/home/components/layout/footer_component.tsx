@@ -4,51 +4,18 @@ import { LogoComponent } from "@/core/components/ui/logo_component";
 import { IconComponent } from "@/core/components/ui/icon_component";
 import { SOCIAL_LINKS, CONTACT_INFO } from "@/core/utils/constants";
 import Image from "next/image";
+import { IconBrandLinkedin, IconPhone } from "@tabler/icons-react";
 
-const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({
+const FooterLink: React.FC<{ href: string; label: string }> = ({
   href,
-  children,
+  label,
 }) => (
   <Link
     href={href}
-    className="text-sm text-neutral-light hover:text-primary transition-colors"
-    legacyBehavior>
-    <a>{children}</a>
+    className="text-sm text-white hover:text-white transition-colors"
+  >
+    <span>{label}</span>
   </Link>
-);
-
-const LinkIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    {...props}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"
-    />
-  </svg>
-);
-
-const PhoneIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth={1.5}
-    stroke="currentColor"
-    {...props}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-    />
-  </svg>
 );
 
 const MailIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -93,26 +60,17 @@ const LocationPinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const socialIcons = [
   {
     href: SOCIAL_LINKS.linkedin,
-    icon: (
-      <IconComponent
-        size={20}
-        className="text-neutral-light hover:text-primary transition-colors"
-      >
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-        <rect width="4" height="12" x="2" y="9" />
-        <circle cx="4" cy="4" r="2" />
-      </IconComponent>
-    ),
+    icon: <IconBrandLinkedin />,
   },
   {
     href: SOCIAL_LINKS.facebook,
     icon: (
-      <IconComponent
-        size={20}
-        className="text-neutral-light hover:text-primary transition-colors"
-      >
-        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-      </IconComponent>
+      <Image
+        src="/assets/icons/facebook.svg"
+        alt="Facebook"
+        width={20}
+        height={20}
+      />
     ),
   },
   {
@@ -152,18 +110,16 @@ export const FooterComponent: React.FC = () => {
             <h3 className="text-md font-semibold text-white mb-4">Servicios</h3>
             <ul className="space-y-2">
               <li>
-                <FooterLink href="#desarrollo">
-                  Desarrollo de software
-                </FooterLink>
+                <FooterLink href="#desarrollo" label="Desarrollo de Software" />
               </li>
               <li>
-                <FooterLink href="#diseno-ux-ui">Diseño UX/UI</FooterLink>
+                <FooterLink href="#diseno-ux-ui" label="Diseño UX/UI" />
               </li>
               <li>
-                <FooterLink href="#staffing">Staffing/Outsourcing</FooterLink>
+                <FooterLink href="#staffing" label="Staffing/Outsourcing" />
               </li>
               <li>
-                <FooterLink href="#cursos">Cursos en línea</FooterLink>
+                <FooterLink href="#cursos" label="Cursos en línea" />
               </li>
             </ul>
           </div>
@@ -174,19 +130,19 @@ export const FooterComponent: React.FC = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <FooterLink href="#financiero">Financiero</FooterLink>
+                <FooterLink href="#financiero" label="Financiero" />
               </li>
               <li>
-                <FooterLink href="#retail">Retail</FooterLink>
+                <FooterLink href="#retail" label="Retail" />
               </li>
               <li>
-                <FooterLink href="#servicio">Servicio</FooterLink>
+                <FooterLink href="#servicio" label="Servicio" />
               </li>
               <li>
-                <FooterLink href="#industria">Industria</FooterLink>
+                <FooterLink href="#industria" label="Industria" />
               </li>
               <li>
-                <FooterLink href="#educacion">Educación</FooterLink>
+                <FooterLink href="#educacion" label="Educación" />
               </li>
             </ul>
           </div>
@@ -194,8 +150,10 @@ export const FooterComponent: React.FC = () => {
           <div>
             <h3 className="text-md font-semibold text-white mb-4">Oficina</h3>
             <div className="flex items-start text-sm text-neutral-light">
-              <LocationPinIcon className="w-5 h-5 mr-2 mt-1 flex-shrink-0" />
-              <span>{CONTACT_INFO.address}</span>
+              <LocationPinIcon className="w-5 h-5 mr-2 mt-1 flex-shrink-0 text-white hover:text-white transition-colors" />
+              <span className="text-sm text-white hover:text-white transition-colors">
+                {CONTACT_INFO.address}
+              </span>
             </div>
           </div>
 
@@ -203,19 +161,19 @@ export const FooterComponent: React.FC = () => {
             <h3 className="text-md font-semibold text-white mb-4">Contacto</h3>
             <ul className="space-y-2">
               <li className="flex items-center text-sm text-neutral-light">
-                <PhoneIcon className="w-5 h-5 mr-2 flex-shrink-0" />
+                <IconPhone className="w-5 h-5 mr-2 flex-shrink-0 text-white hover:text-white transition-colors" />
                 <a
                   href={`tel:${CONTACT_INFO.phone.replace(/\s|\(|\)/g, "")}`}
-                  className="hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-white transition-colors"
                 >
                   {CONTACT_INFO.phone}
                 </a>
               </li>
               <li className="flex items-center text-sm text-neutral-light">
-                <MailIcon className="w-5 h-5 mr-2 flex-shrink-0" />
+                <MailIcon className="w-5 h-5 mr-2 flex-shrink-0 text-white hover:text-white transition-colors" />
                 <a
                   href={`mailto:${CONTACT_INFO.email}`}
-                  className="hover:text-primary transition-colors"
+                  className="text-sm text-white hover:text-white transition-colors"
                 >
                   {CONTACT_INFO.email}
                 </a>
@@ -224,37 +182,41 @@ export const FooterComponent: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-neutral-darker/30 pt-8 mb-8 flex flex-col md:flex-row justify-center items-center gap-6">
-          {clutchBadges.map((badge, index) => (
-            <Image
-              key={index}
-              src={badge.src}
-              alt={badge.alt}
-              width={100}
-              height={50}
-              className="h-20 md:h-24 opacity-80"
-            />
-          ))}
+        <div className="pt-8 mb-8 flex justify-end">
+          <div className="flex flex-col items-start order-1 md:order-2 space-y-2">
+            <span className="text-md text-white">Síguenos en:</span>
+            <div className="flex items-center space-x-4">
+              {socialIcons.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="border-t border-neutral-darker/30 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-neutral-light order-2 md:order-1 mt-4 md:mt-0">
+        <div className="border-t border-white/30 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+            {clutchBadges.map((badge, index) => (
+              <Image
+                key={index}
+                src={badge.src}
+                alt={badge.alt}
+                width={100}
+                height={50}
+                className="h-20 md:h-24 opacity-80"
+              />
+            ))}
+          </div>
+          <p className="text-sm text-neutral-light order-2 md:order-1 mt-4 md:mt-0 text-white hover:text-white transition-colors">
             Greenti © {new Date().getFullYear()} Todos los derechos son
             reservados
           </p>
-          <div className="flex items-center space-x-4 order-1 md:order-2">
-            <span className="text-sm text-neutral-light">Síguenos en</span>
-            {socialIcons.map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </footer>
