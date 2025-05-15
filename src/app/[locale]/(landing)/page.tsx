@@ -9,14 +9,14 @@ import { ContactSection } from "@/features/home/infrastructure/components/sectio
 import { WhatsAppCtaSection } from "@/features/home/infrastructure/components/sections/WhatsAppCtaSection";
 import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
 import { getTranslations } from "next-intl/server";
+import { Util } from "@/core/utils/utils";
 
 export async function generateMetadata({
   params,
 }: {
   params: { locale: string };
 }) {
-  const resolvedParams = await params;
-  const locale = resolvedParams.locale;
+  const locale = await Util.getLocale(params);
 
   const tMetadata = await getTranslations({
     locale,

@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { AppProviders } from "@/core/providers/AppProviders";
 import { routing } from "@/core/config/i18n/routing";
 import "../globals.css";
+import { Util } from "@/core/utils/utils";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -18,12 +19,11 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const locale = resolvedParams.locale;
+  const locale = await Util.getLocale(params);
 
   const tGlobal = await getTranslations({ locale, namespace: "Global" });
   const tMetadata = await getTranslations({ locale, namespace: "Metadata" });
-  
+
   const appName = tGlobal("appName");
   const appDescription = tGlobal("appDescription");
 
@@ -106,8 +106,7 @@ export default async function RootLayout({
   children,
   params,
 }: RootLayoutProps) {
-  const resolvedParams = await params;
-  const locale = resolvedParams.locale;
+  const locale = await Util.getLocale(params);
 
   if (!routing.locales.includes(locale as any)) {
     notFound();
