@@ -1,7 +1,5 @@
 export class Util {
-  static async getLocale(
-    params: Promise<{ locale: string }> | { locale: string },
-  ): Promise<string> {
+  static async getLocale(params: any): Promise<string> {
     let resolvedParams: { locale: string };
 
     if (typeof (params as any)?.then === "function") {
