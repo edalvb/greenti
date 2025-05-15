@@ -11,11 +11,7 @@ import { ClientLogosSection } from "@/features/home/infrastructure/components/se
 import { getTranslations } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}) {
+export async function generateMetadata({ params }: any) {
   const locale = await Util.getLocale(params);
 
   const tMetadata = await getTranslations({

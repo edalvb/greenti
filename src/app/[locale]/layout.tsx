@@ -14,11 +14,7 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { locale: string };
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const locale = await Util.getLocale(params);
 
   const tGlobal = await getTranslations({ locale, namespace: "Global" });
@@ -99,7 +95,7 @@ export async function generateStaticParams() {
 
 interface RootLayoutProps {
   children: React.ReactNode;
-  params: { locale: string };
+  params: any;
 }
 
 export default async function RootLayout({
