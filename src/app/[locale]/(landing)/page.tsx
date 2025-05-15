@@ -1,0 +1,48 @@
+import React from "react";
+import { HeroSection } from "@/features/home/infrastructure/components/sections/HeroSection";
+import { HowWeWorkSection } from "@/features/home/infrastructure/components/sections/HowWeWorkSection";
+import { PresenceSection } from "@/features/home/infrastructure/components/sections/PresenceSection";
+import { TestimonialsSection } from "@/features/home/infrastructure/components/sections/TestimonialsSection";
+import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
+import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
+import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
+import { WhatsAppCtaSection } from "@/features/home/infrastructure/components/sections/WhatsAppCtaSection";
+import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+
+  const tMetadata = await getTranslations({
+    locale,
+    namespace: "Metadata",
+  });
+  const tGlobal = await getTranslations({ locale, namespace: "Global" });
+  const appName = tGlobal("appName");
+
+  return {
+    title: tMetadata("landingPageTitle", { appName }),
+    description: tMetadata("landingPageDescription", { appName }),
+  };
+}
+
+export default function LandingPage() {
+  return (
+    <>
+      <HeroSection />
+      <ClientLogosSection />
+      <HowWeWorkSection />
+      <PresenceSection />
+      <TestimonialsSection />
+      <CtaBannerSection />
+      <FaqSection />
+      <ContactSection />
+      <WhatsAppCtaSection />
+    </>
+  );
+}

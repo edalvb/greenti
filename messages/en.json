@@ -1,0 +1,203 @@
+{
+  "Global": {
+    "appName": "GreenTI",
+    "appDescription": "We innovate to boost your business.",
+    "contactUs": "Contact Us",
+    "getAQuote": "Get a Quote",
+    "sendMessage": "Send Message",
+    "sendingMessage": "Sending...",
+    "submit": "Submit",
+    "loading": "Loading...",
+    "readMore": "Read More",
+    "allRightsReserved": "All rights reserved"
+  },
+  "Navbar": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "aboutUs": "About Us",
+    "language": "Language",
+    "currentLanguage": "ENG",
+    "switchToLanguage": "ESP"
+  },
+  "Footer": {
+    "services": "Services",
+    "softwareDevelopment": "Software Development",
+    "uxuiDesign": "UX/UI Design",
+    "staffing": "Staffing/Outsourcing",
+    "onlineCourses": "Online Courses",
+    "portfolio": "Portfolio",
+    "financial": "Financial",
+    "retail": "Retail",
+    "service": "Service",
+    "industry": "Industry",
+    "education": "Education",
+    "office": "Office",
+    "contact": "Contact",
+    "followUs": "Follow us on:",
+    "copyright": "Greenti © {year} All rights reserved",
+    "ClutchGlobalSpring2024": "Clutch Global Award Spring 2024",
+    "ClutchGlobalFall2023": "Clutch Global Award Fall 2023",
+    "Clutch1000Fall2023": "Clutch 1000 Award Fall 2023"
+  },
+  "HeroSection": {
+    "titlePart1": "We innovate to",
+    "titlePart2": "boost your",
+    "titlePart3": "business",
+    "subtitle": "Together with our team of experts, we develop software that redefines our clients' experience.",
+    "stats": {
+      "projects": "Projects",
+      "clients": "Clients",
+      "apps": "Apps",
+      "downloads": "Downloads"
+    }
+  },
+  "HowWeWorkSection": {
+    "title": "This is how we work",
+    "subtitle": "With a focus on efficiency and quality, we leverage the power of the Scrum methodology to manage our scalable teams. By following this agile framework, we ensure smooth collaboration, adaptability, and timely delivery of exceptional application developments.",
+    "processTitle": "Our process involves:",
+    "steps": {
+      "analysis": "Analysis",
+      "design": "Design",
+      "development": "Development",
+      "testing": "Testing",
+      "deployment": "Deployment"
+    }
+  },
+  "PresenceSection": {
+    "title": "Our presence",
+    "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
+    "countries": ["Mexico", "Ecuador", "Peru", "Paraguay", "USA"],
+    "stats": {
+      "clients": "Clients",
+      "projects": "Projects",
+      "countriesLabel": "Countries"
+    },
+    "worldMapAlt": "World map showing Greenti's presence"
+  },
+  "TestimonialsSection": {
+    "title": "What do our clients say?",
+    "projectSummaryTitle": "Project Summary",
+    "sector": "Sector",
+    "country": "Country",
+    "duration": "Duration",
+    "coosofanAppTag": "Financial",
+    "coosofanAppName": "Coosofan",
+    "coosofanAppDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus."
+  },
+  "CtaBannerSection": {
+    "titlePart1": "Are you ready to take your business to the",
+    "titlePart2": "next level?",
+    "subtitle": "Contact us today and discover how our custom software solutions can transform your company.",
+    "buttonText": "Let's talk about your project"
+  },
+  "FaqSection": {
+    "title": "Frequently asked questions",
+    "subtitle": "Still have doubts? Don't worry, here are some Frequently Asked Questions that can help you.",
+    "noFaqsAvailable": "No FAQs available at the moment."
+  },
+  "ContactSection": {
+    "avatarSubtitle": "Maria - Head of Technological Solutions",
+    "intro": "I would love to talk to you about your project or needs.",
+    "instruction": "Complete the form or send us an email at",
+    "availability": "We'll talk in less than 24 hours, or we'll give you a 30% discount on your next project.",
+    "formTitle": "Have an idea? We have the skills.",
+    "formSubtitle": "Fill out our contact form and we will get in touch with you!",
+    "labels": {
+      "fullName": "Full name",
+      "country": "Country",
+      "phoneNumber": "Phone number",
+      "email": "Email",
+      "message": "Tell us about your project",
+      "acceptTerms": "I confirm that I have read and accept the {link} for personal data protection."
+    },
+    "placeholders": {
+      "fullName": "E.g., John Doe",
+      "phoneNumber": "E.g., 987654321",
+      "email": "you@example.com",
+      "message": "Briefly describe your idea or need..."
+    },
+    "termsLinkText": "policies",
+    "successMessage": "Message sent successfully! We will contact you soon.",
+    "errorMessagePrefix": "Error: ",
+    "simulatedError": "Simulated server error.",
+    "countryOptions": {
+      "PE": "Peru (PE)",
+      "US": "United States (US)",
+      "MX": "Mexico (MX)",
+      "EC": "Ecuador (EC)",
+      "PY": "Paraguay (PY)"
+    }
+  },
+  "WhatsAppCtaSection": {
+    "title": "We've enabled our WhatsApp channel",
+    "subtitle": "We are here to assist you and ensure that every interaction is as easy and personalized as you need. 😉 We are ready to help you when you are!",
+    "buttonText": "Chat with us",
+    "whatsappMessage": "Hello GreenTI, I am interested in your services."
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "homeLink": "Back to home"
+  },
+  "Metadata": {
+    "title": "{appName} - {appDescription}",
+    "description": "Experts in custom software development, UX/UI design, and technology staffing to boost your business.",
+    "keywords": "software development, UX/UI design, staffing, outsourcing, greenti, mobile applications, web development",
+    "ogTitle": "{appName} - {appDescription}",
+    "ogDescription": "We transform ideas into innovative digital solutions.",
+    "twitterTitle": "{appName} - {appDescription}",
+    "twitterDescription": "Technological solutions that drive the growth of your company.",
+    "landingPageTitle": "Welcome to {appName}",
+    "landingPageDescription": "Discover how {appName} can transform your business with innovative software solutions."
+  },
+  "ClientLogosSection": {
+    "EasyDropLogo": "EasyDrop Logo",
+    "OmarsaLogo": "Omarsa Logo",
+    "CoosofanLogo": "Coosofan Logo",
+    "HomsRentalsLogo": "Homs Rentals Logo",
+    "AvesaLogo": "Avesa Logo"
+  },
+  "MockData": {
+    "testimonials": {
+      "testimonial1": {
+        "quote": "Working with GreenTI was exceptional. Their team not only demonstrated deep technical knowledge but also a great ability to understand our needs and translate them into an effective and scalable solution. We are very satisfied with the final result and the positive impact it has had on ProWallet.",
+        "authorTitle": "Founder, ProWallet",
+        "projectSector": "Financial",
+        "projectCountry": "Paraguay",
+        "projectDuration": "5 Months"
+      }
+    },
+    "faqItems": {
+      "costQuestion": {
+        "question": "How much does it cost to develop an application with GreenTI?",
+        "answer": "The cost of developing an application varies significantly depending on complexity, features, platforms (iOS, Android, web), design, and development hours. At GreenTI, we offer a free consultation to understand your project and provide a detailed and transparent quote."
+      },
+      "whyGreentiQuestion": {
+        "question": "Why should I choose GreenTI for my software project?",
+        "answer": "Choosing GreenTI means opting for a technology partner committed to innovation and quality. We have a team of experts, proven agile methodologies, and a customer-centric approach to ensure your project not only meets but exceeds your expectations."
+      },
+      "toolsQuestion": {
+        "question": "What technologies and tools do you use in your developments?",
+        "answer": "We use a modern and robust technology stack, adapted to the needs of each project. This includes languages like JavaScript, TypeScript, Python; frameworks like React, Next.js, Node.js, Django; and cutting-edge tools for DevOps, databases, and cloud computing."
+      },
+      "brochureQuestion": {
+        "question": "Do you have a more detailed brochure or portfolio of your services and projects?",
+        "answer": "Of course! We'd be happy to share our corporate brochure and a more extensive project portfolio with you. Please contact us via our form or email, and we'll send it to you shortly."
+      }
+    }
+  },
+  "ValidationErrors": {
+    "formInvalid": "The form contains errors. Please review them.",
+    "nameMinLength": "Name must be at least 2 characters long.",
+    "nameMaxLength": "Name must not exceed 100 characters.",
+    "nameInvalid": "Invalid name.",
+    "countryRequired": "Please select a country.",
+    "phoneMinLength": "Phone number must be at least 5 characters long.",
+    "phoneMaxLength": "Phone number must not exceed 20 characters.",
+    "emailInvalid": "Please enter a valid email address.",
+    "emailRequired": "Email is required.",
+    "messageMinLength": "Message must be at least 10 characters long.",
+    "messageMaxLength": "Message must not exceed 500 characters.",
+    "termsRequired": "You must accept the data protection policies."
+  }
+}

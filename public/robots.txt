@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://edalvb.github.io/greenti/sitemap.xml
