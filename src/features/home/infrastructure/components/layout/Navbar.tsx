@@ -44,18 +44,12 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinkClasses = isScrolled
-    ? "text-white hover:text-primary/80"
-    : "text-secondary hover:text-primary";
-
-  const langButtonClasses = isScrolled
-    ? "text-white hover:text-primary/80"
-    : "text-secondary hover:text-primary";
+  const navLinkClasses = isScrolled ? "text-white " : "text-secondary";
 
   const contactButtonVariant = isScrolled ? "outline" : "primary";
   const contactButtonExtraClasses = isScrolled
-    ? "border-white text-white hover:bg-white hover:text-primary active:bg-white/90 active:text-primary"
-    : "";
+    ? "border-white text-white active:bg-white/90 active:text-primary"
+    : "hover:text-primary/80";
 
   const mobileMenuBg =
     isScrolled || isMobileMenuOpen
@@ -93,7 +87,7 @@ export const Navbar: React.FC = () => {
             ))}
             <button
               onClick={() => changeLanguage(otherLocale)}
-              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${langButtonClasses} transition-colors duration-300`}
+              className={`flex items-center px-3 py-2 rounded-md text-sm font-medium group ${navLinkClasses} transition-colors duration-300`}
               aria-label={`Switch to ${t("switchToLanguage")}`}
             >
               <IconWorld size={20} className="mr-1.5" />

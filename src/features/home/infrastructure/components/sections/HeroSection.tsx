@@ -37,7 +37,7 @@ export const HeroSection: React.FC = () => {
       labelKey: 'stats.apps',
       icon: <IconDeviceMobileCode size={24} className="text-white" />,
       bgColor: 'bg-stat-orange',
-      position: 'top-[70%] left-[60%] md:top-[75%] md:left-[55%] lg:top-[70%] lg:left-[50%]',
+      position: 'top-[70%] left-[60%] md:top-[75%] md:left-[55%] lg:top-[70%] lg:left-[55%]',
     },
     {
       value: '8K+',
@@ -79,7 +79,7 @@ export const HeroSection: React.FC = () => {
           className="
             absolute 
             top-1/2 
-            left-[calc(50%+250px)] 
+            left-[calc(55%+250px)] 
             transform -translate-x-1/2 -translate-y-1/2 
             w-[380px] h-[380px] 
             xl:w-[450px] xl:h-[450px] 

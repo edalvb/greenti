@@ -1,24 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: 147 79% 40%; /* #12B759 */
-  --color-secondary: 206 100% 13%; /* #002140 */
-  --color-accent-light: 150 67% 93%; /* #E6F8EF */
-  --color-accent-default: 147 79% 40%; /* #12B759 */
-  --color-accent-dark: 148 81% 30%; /* #0D8C43 */
+  --color-primary: 147 79% 40%;
+  /* #12B759 */
+  --color-secondary: 206 100% 13%;
+  /* #002140 */
+  --color-accent-light: 150 67% 93%;
+  /* #E6F8EF */
+  --color-accent-default: 147 79% 40%;
+  /* #12B759 */
+  --color-accent-dark: 148 81% 30%;
+  /* #0D8C43 */
 
-  --color-neutral-lightest: 210 17% 98%; /* #F8F9FA */
-  --color-neutral-lighter: 210 16% 93%; /* #E9ECEF */
-  --color-neutral-light: 210 14% 89%; /* #DEE2E6 */
-  --color-neutral-default: 210 14% 82%; /* #CED4DA */
-  --color-neutral-dark: 208 10% 61%; /* #ADB5BD */
-  --color-neutral-darker: 210 9% 45%; /* #6C757D */
-  --color-neutral-darkest: 210 10% 15%; /* #212529 */
+  --color-neutral-lightest: 210 17% 98%;
+  /* #F8F9FA */
+  --color-neutral-lighter: 210 16% 93%;
+  /* #E9ECEF */
+  --color-neutral-light: 210 14% 89%;
+  /* #DEE2E6 */
+  --color-neutral-default: 210 14% 82%;
+  /* #CED4DA */
+  --color-neutral-dark: 208 10% 61%;
+  /* #ADB5BD */
+  --color-neutral-darker: 210 9% 45%;
+  /* #6C757D */
+  --color-neutral-darkest: 210 10% 15%;
+  /* #212529 */
 
   --color-background: var(--color-neutral-lightest);
   --color-foreground: var(--color-neutral-darkest);
 
-  --border-radius: 0.375rem; /* Equivalente a rounded-md de Tailwind por defecto */
+  --border-radius: 0.375rem;
+  /* Equivalente a rounded-md de Tailwind por defecto */
 }
 
 /* Opcional: Modo oscuro si se desea implementar más adelante */
@@ -56,12 +69,15 @@
   .text-primary {
     color: hsl(var(--color-primary));
   }
+
   .bg-primary {
     background-color: hsl(var(--color-primary));
   }
+
   .border-primary {
     border-color: hsl(var(--color-primary));
   }
+
   .ring-primary {
     --tw-ring-color: hsl(var(--color-primary));
   }
@@ -69,9 +85,11 @@
   .text-secondary {
     color: hsl(var(--color-secondary));
   }
+
   .bg-secondary {
     background-color: hsl(var(--color-secondary));
   }
+
   .border-secondary {
     border-color: hsl(var(--color-secondary));
   }
@@ -79,6 +97,7 @@
   .text-accent-default {
     color: hsl(var(--color-accent-default));
   }
+
   .bg-accent-default {
     background-color: hsl(var(--color-accent-default));
   }
@@ -87,14 +106,33 @@
   .bg-neutral-lightest {
     background-color: hsl(var(--color-neutral-lightest));
   }
+
   .text-neutral-darker {
     color: hsl(var(--color-neutral-darker));
   }
+
   .border-neutral-light {
     border-color: hsl(var(--color-neutral-light));
   }
+
   .placeholder-neutral-dark::placeholder {
     color: hsl(var(--color-neutral-dark));
+  }
+
+  .bg-stat-green-dark {
+    background-color: hsl(var(--color-primary));
+  }
+
+  .bg-stat-teal {
+    background-color: #00736C;
+  }
+
+  .bg-stat-orange {
+    background-color: #F6A341;
+  }
+
+  .bg-stat-blue {
+    background-color: #2F5FE3;
   }
 }
 
@@ -103,14 +141,17 @@
   width: 8px;
   height: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background-color: hsl(var(--color-neutral-lighter));
 }
+
 ::-webkit-scrollbar-thumb {
   background-color: hsl(var(--color-neutral-default));
   border-radius: 10px;
   border: 2px solid hsl(var(--color-neutral-lighter));
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(var(--color-neutral-dark));
 }
