@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
-import { Link } from '@/core/config/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 
 export const CtaBannerSection: React.FC = () => {

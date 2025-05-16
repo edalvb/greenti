@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslations, useLocale, Locale } from "next-intl";
-import { Link, useRouter, usePathname } from "@/core/config/i18n/navigation";
+import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import {
@@ -12,7 +12,7 @@ import {
   IconWorld,
   IconMessageCircle,
 } from "@tabler/icons-react";
-import { routing } from "@/core/config/i18n/routing";
+import { routing } from "@/i18n/routing";
 
 interface NavItem {
   labelKey: "services" | "portfolio" | "aboutUs";

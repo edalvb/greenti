@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/core/config/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { Logo } from '@/components/ui/Logo';
 import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconMail, IconMapPin, IconPhone } from '@tabler/icons-react';
 import { CONTACT_INFO, SOCIAL_LINKS } from '@/core/utils/constants';

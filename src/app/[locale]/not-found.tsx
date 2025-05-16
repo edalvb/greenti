@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { Link } from '@/core/config/i18n/navigation';
+import { Link } from '@/i18n/navigation';
 import { Button } from '@/components/ui/Button';
 import { IconAlertTriangle } from '@tabler/icons-react';
 

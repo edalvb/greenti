@@ -8,7 +8,7 @@ import {
 import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { AppProviders } from "@/core/providers/AppProviders";
-import { routing } from "@/core/config/i18n/routing";
+import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { Util } from "@/core/utils/utils";
 

@@ -1,4 +1,4 @@
-import type { routing } from "@/core/config/i18n/routing";
+import type { routing } from "@/i18n/routing";
 import type messages from "../../messages/es.json";
 
 type Messages = typeof messages;

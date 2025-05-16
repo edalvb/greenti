@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
-import { getPathname } from '@/core/config/i18n/navigation';
+import { getPathname } from '@/i18n/navigation';
 import { appConfig } from '@/core/config/appConfig';
-import { routing } from '@/core/config/i18n/routing';
+import { routing } from '@/i18n/routing';
 
 export const dynamic = 'force-static';
 
