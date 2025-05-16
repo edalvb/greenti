@@ -8,7 +8,7 @@ import { FaqSection } from "@/features/home/infrastructure/components/sections/F
 import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 import { WhatsAppCtaSection } from "@/features/home/infrastructure/components/sections/WhatsAppCtaSection";
 import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 
 export async function generateMetadata({ params }: any) {
@@ -27,7 +27,10 @@ export async function generateMetadata({ params }: any) {
   };
 }
 
-export default function LandingPage() {
+export default async function LandingPage({ params }: any) {
+  const locale = await Util.getLocale(params);
+  setRequestLocale(locale);
+
   return (
     <>
       <HeroSection />

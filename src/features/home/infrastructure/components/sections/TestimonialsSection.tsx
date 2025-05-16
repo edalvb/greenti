@@ -91,7 +91,9 @@ export const TestimonialsSection: React.FC = () => {
               className="text-primary/20 absolute top-6 left-6"
             />
             <p className="text-neutral-darker text-lg md:text-xl italic leading-relaxed mt-16 mb-8">
-              {tMockDataTestimonials(`${firstTestimonial.quoteKey}.quote`)}
+              {tMockDataTestimonials(
+                `${firstTestimonial.quoteKey}.quote` as any,
+              )}
             </p>
             <div className="flex items-center">
               {firstTestimonial.authorAvatarUrl && (
@@ -109,7 +111,9 @@ export const TestimonialsSection: React.FC = () => {
                   {firstTestimonial.authorName}
                 </p>
                 <p className="text-sm text-neutral-dark">
-                  {tMockDataTestimonials(`${firstTestimonial.quoteKey}.authorTitle`)}
+                  {tMockDataTestimonials(
+                    `${firstTestimonial.quoteKey}.authorTitle` as any,
+                  )}
                 </p>
               </div>
             </div>
@@ -123,7 +127,7 @@ export const TestimonialsSection: React.FC = () => {
                     {t("sector")}:
                   </span>{" "}
                   {tMockDataTestimonials(
-                    `${firstTestimonial.quoteKey}.projectSector`,
+                    `${firstTestimonial.quoteKey}.projectSector` as any,
                   )}
                 </div>
                 <div>
@@ -131,7 +135,7 @@ export const TestimonialsSection: React.FC = () => {
                     {t("country")}:
                   </span>{" "}
                   {tMockDataTestimonials(
-                    `${firstTestimonial.quoteKey}.projectCountry`,
+                    `${firstTestimonial.quoteKey}.projectCountry` as any,
                   )}
                 </div>
                 <div>
@@ -139,7 +143,7 @@ export const TestimonialsSection: React.FC = () => {
                     {t("duration")}:
                   </span>{" "}
                   {tMockDataTestimonials(
-                    `${firstTestimonial.quoteKey}.projectDuration`,
+                    `${firstTestimonial.quoteKey}.projectDuration` as any,
                   )}
                 </div>
               </div>

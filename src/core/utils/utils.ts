@@ -1,5 +1,7 @@
+import { Locale } from "next-intl";
+
 export class Util {
-  static async getLocale(params: any): Promise<string> {
+  static async getLocale(params: any): Promise<Locale> {
     let resolvedParams: { locale: string };
 
     if (typeof (params as any)?.then === "function") {
@@ -8,6 +10,6 @@ export class Util {
       resolvedParams = params as { locale: string };
     }
 
-    return resolvedParams.locale;
+    return resolvedParams.locale as Locale;
   }
 }

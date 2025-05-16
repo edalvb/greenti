@@ -73,7 +73,7 @@ export const FaqSection: React.FC = () => {
                 {faqItems.map((item, index) => (
                   <AccordionItem
                     key={item.id}
-                    title={tMockDataFaq(`${item.questionKey}.question`)}
+                    title={tMockDataFaq(`${item.questionKey}.question` as any)}
                     isOpen={activeFaqItemId === item.id}
                     onToggle={() => toggleFaqItem(item.id)}
                     className={`bg-white ${index === 0 ? "" : ""} ${
@@ -82,7 +82,7 @@ export const FaqSection: React.FC = () => {
                     titleClassName="px-6 py-5 font-semibold text-secondary hover:bg-neutral-lightest/50 text-base md:text-lg"
                     contentClassName="px-6 pb-6 text-neutral-darker text-sm md:text-base"
                   >
-                    {tMockDataFaq(`${item.questionKey}.answer`)}
+                    {tMockDataFaq(`${item.questionKey}.answer` as any)}
                   </AccordionItem>
                 ))}
               </div>

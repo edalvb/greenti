@@ -7,6 +7,7 @@ const repoName = process.env.REPO_NAME || 'greenti';
 const withNextIntl = createNextIntlPlugin('./src/core/config/i18n/request.ts');
 
 const nextConfig: NextConfig = {
+  output: 'export',
   basePath: isGithubActions ? `/${repoName}` : "",
   assetPrefix: isGithubActions ? `/${repoName}/` : undefined,
   images: {
@@ -15,7 +16,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   reactStrictMode: true,
   typescript: {
-    ignoreBuildErrors: false, 
+    ignoreBuildErrors: false,
   },
   eslint: {
     ignoreDuringBuilds: false,

@@ -1,6 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { Locale, NextIntlClientProvider } from "next-intl";
+import {
+  getMessages,
+  getTranslations,
+  setRequestLocale,
+} from "next-intl/server";
 import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { AppProviders } from "@/core/providers/AppProviders";
@@ -16,12 +20,14 @@ const poppins = Poppins({
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const locale = await Util.getLocale(params);
+  setRequestLocale(locale);
 
   const tGlobal = await getTranslations({ locale, namespace: "Global" });
   const tMetadata = await getTranslations({ locale, namespace: "Metadata" });
 
   const appName = tGlobal("appName");
   const appDescription = tGlobal("appDescription");
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
   return {
     title: {
@@ -35,22 +41,18 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     authors: [
       {
         name: appName,
-        url: process.env.NEXT_PUBLIC_BASE_URL || "https://www.greenti.pe",
+        url: baseUrl,
       },
     ],
-    metadataBase: new URL(
-      process.env.NEXT_PUBLIC_BASE_URL || "https://www.greenti.pe",
-    ),
+    metadataBase: new URL(baseUrl),
     openGraph: {
       title: tMetadata("ogTitle", { appName, appDescription }),
       description: tMetadata("ogDescription"),
-      url: "./",
+      url: `./${locale}`,
       siteName: appName,
       images: [
         {
-          url: `${
-            process.env.NEXT_PUBLIC_BASE_URL || ""
-          }/assets/images/logo_greenti.svg`,
+          url: `/assets/images/logo_greenti.svg`,
           width: 1200,
           height: 630,
           alt: `Logo of ${appName}`,
@@ -63,11 +65,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
       card: "summary_large_image",
       title: tMetadata("twitterTitle", { appName, appDescription }),
       description: tMetadata("twitterDescription"),
-      images: [
-        `${
-          process.env.NEXT_PUBLIC_BASE_URL || ""
-        }/assets/images/logo_greenti.svg`,
-      ],
+      images: [`/assets/images/logo_greenti.svg`],
     },
     icons: {
       icon: "/assets/images/logo_greenti.svg",
@@ -104,10 +102,11 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   const locale = await Util.getLocale(params);
 
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(locale)) {
     notFound();
   }
 
+  setRequestLocale(locale);
   const messages = await getMessages();
 
   return (
