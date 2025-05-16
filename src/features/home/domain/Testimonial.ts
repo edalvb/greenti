@@ -1,14 +1,14 @@
-export interface ProjectSummary {
-  sectorKey: string;
-  countryKey: string;
-  durationKey: string;
+export interface AppShowcase {
+  appNameKey: string;
+  appTagKey: string;
+  appDescriptionKey: string;
+  appMockupImageUrl: string;
 }
 
 export interface Testimonial {
   id: string | number;
-  quoteKey: string;
+  testimonialDataKey: string; 
   authorName: string;
-  authorTitleKey: string;
   authorAvatarUrl?: string;
-  projectSummary: ProjectSummary;
+  appShowcase: AppShowcase;
 }

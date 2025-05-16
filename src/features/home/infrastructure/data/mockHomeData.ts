@@ -4,15 +4,27 @@ import { Testimonial } from '@/features/home/domain/Testimonial';
 export const MOCK_TESTIMONIALS_DATA: Testimonial[] = [
   {
     id: 1,
-    quoteKey: "testimonial1",
+    testimonialDataKey: "testimonial1",
     authorName: "Trac Stephenson",
-    authorTitleKey: "founderProWallet",
     authorAvatarUrl: "/assets/images/testimonial_avatar_stephenson.png", 
-    projectSummary: {
-      sectorKey: "financialSector",
-      countryKey: "paraguay",
-      durationKey: "fiveMonths",
-    },
+    appShowcase: {
+      appNameKey: "coosofanAppName",
+      appTagKey: "coosofanAppTag",
+      appDescriptionKey: "coosofanAppDescription",
+      appMockupImageUrl: "/assets/images/app_mockup_coosofan.png"
+    }
+  },
+  {
+    id: 2,
+    testimonialDataKey: "testimonial1",
+    authorName: "Trac Stephenson 1",
+    authorAvatarUrl: "/assets/images/testimonial_avatar_stephenson.png", 
+    appShowcase: {
+      appNameKey: "coosofanAppName",
+      appTagKey: "coosofanAppTag",
+      appDescriptionKey: "coosofanAppDescription",
+      appMockupImageUrl: "/assets/images/app_mockup_coosofan.png"
+    }
   },
 ];
 
