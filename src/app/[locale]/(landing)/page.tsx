@@ -40,7 +40,6 @@ export default async function LandingPage({ params }: any) {
       <ClientLogosSection />
       <ServicesSection />
       <SectorsSection />
-      <HowWeWorkSection />
       <PresenceSection />
       <TestimonialsSection />
       <CtaBannerSection />

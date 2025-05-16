@@ -64,21 +64,23 @@
     }
   },
   "PresenceSection": {
-    "title": "Our presence",
+    "titlePart1": "Our",
+    "titlePart2": "presence",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
     "countries": [
+      "USA",
       "Mexico",
       "Ecuador",
       "Peru",
-      "Paraguay",
-      "USA"
+      "Paraguay"
     ],
     "stats": {
+      "satisfactionRate": "Customer Satisfaction",
       "clients": "Clients",
-      "projects": "Projects",
-      "countriesLabel": "Countries"
+      "projects": "Projects"
     },
-    "worldMapAlt": "World map showing Greenti's presence"
+    "worldMapAlt": "World map showing Greenti's presence",
+    "countryFlagAlt": "{country} flag"
   },
   "TestimonialsSection": {
     "title": "What do our clients say?",
