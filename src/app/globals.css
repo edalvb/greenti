@@ -31,7 +31,6 @@
   --color-foreground: var(--color-neutral-darkest);
 
   --border-radius: 0.375rem;
-  /* Equivalente a rounded-md de Tailwind por defecto */
 }
 
 /* Opcional: Modo oscuro si se desea implementar más adelante */
@@ -145,6 +144,14 @@
 
   .text-neutral-light {
     color: hsl(var(--color-neutral-light));
+  }
+
+  .text-neutral-dark {
+    color: hsl(var(--color-neutral-dark));
+  }
+
+  .text-neutral-darker {
+    color: hsl(var(--color-neutral-darker));
   }
 }
 

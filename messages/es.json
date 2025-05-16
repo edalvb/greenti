@@ -84,6 +84,11 @@
   },
   "TestimonialsSection": {
     "title": "¿Qué dicen nuestros clientes?",
+    "testimonialsTitle": {
+      "prefix": "¿Qué dicen nuestros ",
+      "highlight": "clientes",
+      "suffix": "?"
+    },
     "projectSummaryTitle": "Resumen del proyecto",
     "sector": "Sector",
     "country": "País",
