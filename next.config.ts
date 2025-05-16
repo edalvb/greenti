@@ -1,13 +1,16 @@
 import type { NextConfig } from "next";
-import createNextIntlPlugin from 'next-intl/plugin';
+import createNextIntlPlugin from "next-intl/plugin";
+import path from "path";
 
-const isGithubActions = process.env.GITHUB_ACTIONS === 'true';
-const repoName = process.env.REPO_NAME || 'greenti';
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+const repoName = process.env.REPO_NAME || "greenti";
 
-const withNextIntl = createNextIntlPlugin('./src/core/config/i18n/request.ts');
+const withNextIntl = createNextIntlPlugin(
+  path.join(__dirname, "src/core/config/i18n/request.ts"),
+);
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   basePath: isGithubActions ? `/${repoName}` : "",
   assetPrefix: isGithubActions ? `/${repoName}/` : undefined,
   images: {
@@ -20,7 +23,7 @@ const nextConfig: NextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: false,
-  }
+  },
 };
 
 export default withNextIntl(nextConfig);
