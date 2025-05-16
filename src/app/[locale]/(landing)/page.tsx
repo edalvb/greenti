@@ -1,5 +1,9 @@
 import React from "react";
 import { HeroSection } from "@/features/home/infrastructure/components/sections/HeroSection";
+import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
+// Import new sections
+import { ServicesSection } from "@/features/home/infrastructure/components/sections/ServicesSection";
+import { SectorsSection } from "@/features/home/infrastructure/components/sections/SectorsSection";
 import { HowWeWorkSection } from "@/features/home/infrastructure/components/sections/HowWeWorkSection";
 import { PresenceSection } from "@/features/home/infrastructure/components/sections/PresenceSection";
 import { TestimonialsSection } from "@/features/home/infrastructure/components/sections/TestimonialsSection";
@@ -7,7 +11,6 @@ import { CtaBannerSection } from "@/features/home/infrastructure/components/sect
 import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
 import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 import { WhatsAppCtaSection } from "@/features/home/infrastructure/components/sections/WhatsAppCtaSection";
-import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 
@@ -35,6 +38,8 @@ export default async function LandingPage({ params }: any) {
     <>
       <HeroSection />
       <ClientLogosSection />
+      <ServicesSection />
+      <SectorsSection />
       <HowWeWorkSection />
       <PresenceSection />
       <TestimonialsSection />

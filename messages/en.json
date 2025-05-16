@@ -66,7 +66,13 @@
   "PresenceSection": {
     "title": "Our presence",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
-    "countries": ["Mexico", "Ecuador", "Peru", "Paraguay", "USA"],
+    "countries": [
+      "Mexico",
+      "Ecuador",
+      "Peru",
+      "Paraguay",
+      "USA"
+    ],
     "stats": {
       "clients": "Clients",
       "projects": "Projects",
@@ -199,5 +205,31 @@
     "messageMinLength": "Message must be at least 10 characters long.",
     "messageMaxLength": "Message must not exceed 500 characters.",
     "termsRequired": "You must accept the data protection policies."
+  },
+  "ServicesSection": {
+    "titlePart1": "Our",
+    "titlePart2": "Services",
+    "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "projectDevelopmentTitle": "Project Development",
+    "projectDevelopmentDescription": "Creation of IT solutions applying different technologies and methodologies.",
+    "uiUxTitle": "UI/UX Design",
+    "uiUxDescription": "We design usable and attractive apps/websites for your users.",
+    "multiplatformAppsTitle": "Multiplatform App Development",
+    "multiplatformAppsDescription": "We develop multiplatform apps (mobile, tablet, web) with Flutter.",
+    "onlineCoursesTitle": "Online Courses",
+    "onlineCoursesDescription": "Specialize in high-demand areas with our 100% live courses."
+  },
+  "SectorsSection": {
+    "titlePart1": "We innovate in these",
+    "titlePart2": "sectors",
+    "financialServicesTitlePart1": "Financial",
+    "financialServicesTitlePart2": "Services",
+    "financialServicesDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "industryCommerceTitlePart1": "Industry",
+    "industryCommerceTitlePart2": "& Commerce",
+    "industryCommerceDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "publicSectorTitlePart1": "Public",
+    "publicSectorTitlePart2": "Sector",
+    "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
   }
 }
