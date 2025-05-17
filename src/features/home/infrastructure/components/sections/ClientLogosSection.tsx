@@ -21,7 +21,7 @@ export const ClientLogosSection: React.FC = () => {
   const t = useTranslations("ClientLogosSection");
 
   return (
-    <section id="client-logos" className="py-12 md:py-16 bg-neutral-lightest">
+    <section id="client-logos" className="py-12 md:py-16 bg-neutral-lightest px-responsive">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap justify-center items-center gap-x-10 gap-y-8 md:gap-x-16 lg:gap-x-20 opacity-80">
           {STATIC_CLIENT_LOGOS.map((logo) => (

@@ -44,7 +44,7 @@ export const ServicesSection: React.FC = () => {
   return (
     <section
       id="nuestros-servicios"
-      className="py-16 md:py-24 bg-neutral-lightest"
+      className="py-16 md:py-24 bg-neutral-lightest px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">

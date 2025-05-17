@@ -48,7 +48,10 @@ export const FaqSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section id="faq" className="py-16 md:py-24 bg-neutral-lightest">
+      <section
+        id="faq"
+        className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
           <p className="mt-4 text-neutral-darker">{tGlobal("loading")}</p>
@@ -58,7 +61,10 @@ export const FaqSection: React.FC = () => {
   }
 
   return (
-    <section id="faq" className="py-16 md:py-24 bg-neutral-lightest">
+    <section
+      id="faq"
+      className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
           <div className="lg:col-span-1">

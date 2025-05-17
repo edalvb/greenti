@@ -73,145 +73,150 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary text-neutral-light pt-16 pb-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 mb-12">
-          <div className="lg:col-span-1">
-            <Link href="/" className="block mb-4 w-14 h-14">
-              <Image
-                src="/assets/images/logo_greenti_white.svg"
-                alt={tGlobal("appName") + " Logo"}
-                width={56}
-                height={56}
-                className="h-auto"
-              />
-            </Link>
-            <p className="text-sm text-neutral-light leading-relaxed">
-              {t("logoDescription")}
-            </p>
-          </div>
+    <footer className="px-responsive">
+      <div className="bg-secondary text-neutral-light pt-16 pb-8 rounded-3xl shadow-2xl mb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 mb-12">
+            <div className="lg:col-span-1">
+              <Link href="/" className="block mb-4 w-14 h-14">
+                <Image
+                  src="/assets/images/logo_greenti_white.svg"
+                  alt={tGlobal("appName") + " Logo"}
+                  width={56}
+                  height={56}
+                  className="h-auto"
+                />
+              </Link>
+              <p className="text-sm text-neutral-light leading-relaxed">
+                {t("logoDescription")}
+              </p>
+            </div>
 
-          <div>
-            <h3 className="text-base font-semibold text-white mb-4">
-              {t("services")}
-            </h3>
-            <ul className="space-y-2.5">
-              <FooterLink href="/#services" label={t("softwareDevelopment")} />
-              <FooterLink href="/#services" label={t("uxuiDesign")} />
-              <FooterLink href="/#services" label={t("staffing")} />
-              <FooterLink href="/#services" label={t("onlineCourses")} />
-            </ul>
-          </div>
+            <div>
+              <h3 className="text-base font-semibold text-white mb-4">
+                {t("services")}
+              </h3>
+              <ul className="space-y-2.5">
+                <FooterLink
+                  href="/#services"
+                  label={t("softwareDevelopment")}
+                />
+                <FooterLink href="/#services" label={t("uxuiDesign")} />
+                <FooterLink href="/#services" label={t("staffing")} />
+                <FooterLink href="/#services" label={t("onlineCourses")} />
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-base font-semibold text-white mb-4">
-              {t("portfolio")}
-            </h3>
-            <ul className="space-y-2.5">
-              <FooterLink href="/#portfolio" label={t("financial")} />
-              <FooterLink href="/#portfolio" label={t("retail")} />
-              <FooterLink href="/#portfolio" label={t("service")} />
-              <FooterLink href="/#portfolio" label={t("industry")} />
-              <FooterLink href="/#portfolio" label={t("education")} />
-            </ul>
-          </div>
+            <div>
+              <h3 className="text-base font-semibold text-white mb-4">
+                {t("portfolio")}
+              </h3>
+              <ul className="space-y-2.5">
+                <FooterLink href="/#portfolio" label={t("financial")} />
+                <FooterLink href="/#portfolio" label={t("retail")} />
+                <FooterLink href="/#portfolio" label={t("service")} />
+                <FooterLink href="/#portfolio" label={t("industry")} />
+                <FooterLink href="/#portfolio" label={t("education")} />
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-base font-semibold text-white mb-4">
-              {t("office")}
-            </h3>
-            <address className="text-sm text-neutral-light not-italic leading-relaxed">
-              {CONTACT_INFO.addressLine1}
-              <br />
-              {CONTACT_INFO.addressLine2}
-            </address>
-          </div>
+            <div>
+              <h3 className="text-base font-semibold text-white mb-4">
+                {t("office")}
+              </h3>
+              <address className="text-sm text-neutral-light not-italic leading-relaxed">
+                {CONTACT_INFO.addressLine1}
+                <br />
+                {CONTACT_INFO.addressLine2}
+              </address>
+            </div>
 
-          <div>
-            <h3 className="text-base font-semibold text-white mb-4">
-              {t("contact")}
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <p className="text-sm text-neutral-light mb-1">
-                  {t("supportChannel")}
-                </p>
-                <a
-                  href={`tel:${CONTACT_INFO.phone.replace(/\s|\(|\)/g, "")}`}
-                  className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
-                >
-                  <IconPhone size={18} className="mr-2 flex-shrink-0" />
-                  {CONTACT_INFO.phone}
-                </a>
-              </li>
-              <li>
-                <p className="text-sm text-neutral-light mb-1">
-                  {t("emailUs")}
-                </p>
-                <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
-                >
-                  <IconMail size={18} className="mr-2 flex-shrink-0" />
-                  {CONTACT_INFO.email}
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <hr className="border-t border-white/20 my-10" />
-
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
-          <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
-            <h3 className="text-base font-semibold text-white mb-3">
-              {t("followUs")}
-            </h3>
-            <div className="flex items-center justify-center md:justify-start space-x-3">
-              {socialIconsData.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="bg-white text-secondary rounded-full p-2.5 transform hover:scale-110 transition-all duration-200"
-                >
-                  <Image
-                    src={social.icon}
-                    alt={social.label}
-                    width={24}
-                    height={24}
-                    className="h-auto w-6"
-                    loading="lazy"
-                  />
-                </a>
-              ))}
+            <div>
+              <h3 className="text-base font-semibold text-white mb-4">
+                {t("contact")}
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <p className="text-sm text-neutral-light mb-1">
+                    {t("supportChannel")}
+                  </p>
+                  <a
+                    href={`tel:${CONTACT_INFO.phone.replace(/\s|\(|\)/g, "")}`}
+                    className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
+                  >
+                    <IconPhone size={18} className="mr-2 flex-shrink-0" />
+                    {CONTACT_INFO.phone}
+                  </a>
+                </li>
+                <li>
+                  <p className="text-sm text-neutral-light mb-1">
+                    {t("emailUs")}
+                  </p>
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
+                  >
+                    <IconMail size={18} className="mr-2 flex-shrink-0" />
+                    {CONTACT_INFO.email}
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center py-4">
-          <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4">
-            {clutchBadgesData.map((badge) => (
-              <div
-                key={badge.altKey}
-                className="transform hover:scale-105 transition-transform"
-              >
-                <Image
-                  src={badge.src}
-                  alt={t(badge.altKey as any)}
-                  width={badge.width}
-                  height={badge.height}
-                  className="opacity-90 hover:opacity-100 transition-opacity"
-                />
+          <hr className="border-t border-white/20 my-10" />
+
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+            <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
+              <h3 className="text-base font-semibold text-white mb-3">
+                {t("followUs")}
+              </h3>
+              <div className="flex items-center justify-center md:justify-start space-x-3">
+                {socialIconsData.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="bg-white text-secondary rounded-full p-2.5 transform hover:scale-110 transition-all duration-200"
+                  >
+                    <Image
+                      src={social.icon}
+                      alt={social.label}
+                      width={24}
+                      height={24}
+                      className="h-auto w-6"
+                      loading="lazy"
+                    />
+                  </a>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
-          <div className="text-center md:text-right">
-            <p className="text-xs text-neutral-light">
-              {t("copyright", { year: currentYear })}
-            </p>
+
+          <div className="flex flex-col md:flex-row justify-between items-center py-4">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4">
+              {clutchBadgesData.map((badge) => (
+                <div
+                  key={badge.altKey}
+                  className="transform hover:scale-105 transition-transform"
+                >
+                  <Image
+                    src={badge.src}
+                    alt={t(badge.altKey as any)}
+                    width={badge.width}
+                    height={badge.height}
+                    className="opacity-90 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="text-center md:text-right">
+              <p className="text-xs text-neutral-light">
+                {t("copyright", { year: currentYear })}
+              </p>
+            </div>
           </div>
         </div>
       </div>

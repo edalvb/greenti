@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Locale, NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import {
   getMessages,
   getTranslations,
@@ -15,7 +15,6 @@ import { Util } from "@/core/utils/utils";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
 });
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
@@ -110,8 +109,10 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${poppins.variable} antialiased`}>
-      <body className="font-sans bg-neutral-lightest text-neutral-darkest min-h-screen flex flex-col">
+    <html lang={locale} className="antialiased">
+      <body
+        className={`${poppins.className} bg-neutral-lightest text-neutral-darkest min-h-screen flex flex-col`}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <AppProviders>{children}</AppProviders>
         </NextIntlClientProvider>

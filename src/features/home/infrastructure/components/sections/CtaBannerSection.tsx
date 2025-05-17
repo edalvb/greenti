@@ -10,7 +10,7 @@ export const CtaBannerSection: React.FC = () => {
   const t = useTranslations('CtaBannerSection');
 
   return (
-    <section id="cta-banner" className="relative py-20 md:py-32 text-white bg-secondary overflow-hidden">
+    <section id="cta-banner" className="relative py-20 md:py-32 text-white bg-secondary overflow-hidden px-responsive">
       <div className="absolute inset-0 z-0 opacity-10">
         <Image
           src="/assets/images/faq_background.png"

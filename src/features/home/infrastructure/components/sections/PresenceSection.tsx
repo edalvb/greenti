@@ -15,7 +15,7 @@ export const PresenceSection: React.FC = () => {
   ];
 
   return (
-    <section id="presence" className="py-16 md:py-24 bg-neutral-lightest">
+    <section id="presence" className="py-16 md:py-24 bg-neutral-lightest px-responsive">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="lg:w-2/5 w-full text-center lg:text-left">

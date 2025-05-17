@@ -165,6 +165,25 @@
   .bg-neutral-lighter {
     background-color: hsl(var(--color-neutral-lighter));
   }
+
+  .px-responsive {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .px-responsive {
+      padding-left: 3.5rem;
+      padding-right: 3.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .px-responsive {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
 }
 
 /* Estilos de scrollbar (opcional) */

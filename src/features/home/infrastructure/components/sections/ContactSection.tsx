@@ -148,7 +148,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-neutral-lightest">
+    <section id="contact" className="py-16 md:py-24 bg-neutral-lightest px-responsive">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="lg:col-span-5 space-y-8">

@@ -37,9 +37,6 @@ const clientLogosData = [
   },
 ];
 
-const STATIC_BACKGROUND_PHONE_MOCKUP_URL =
-  "/assets/images/phone_mockup_credito_static.png";
-
 export const TestimonialsSection: React.FC = () => {
   const t = useTranslations("TestimonialsSection");
   const tTitlePrefix = t("testimonialsTitle.prefix");
@@ -81,7 +78,10 @@ export const TestimonialsSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section id="testimonials" className="py-16 md:py-24 bg-neutral-lightest">
+      <section
+        id="testimonials"
+        className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
           <p className="mt-4 text-neutral-darker">{tGlobal("loading")}</p>
@@ -120,7 +120,7 @@ export const TestimonialsSection: React.FC = () => {
   }
 
   return (
-    <section id="testimonials" className="py-16 md:py-24 bg-neutral-lightest">
+    <section id="testimonials" className="py-16 md:py-24 bg-neutral-lightest px-responsive">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-20 md:mb-24">
           {titleDisplay}
@@ -154,9 +154,8 @@ export const TestimonialsSection: React.FC = () => {
                       )}
                     </p>
 
-                    <div className="flex flex-col justify-between h-full ml-6 sm:ml-8 md:ml-20 lg:ml-16"> 
-                                                                                                                                                          
-                                                                                                                                                                                {/* Author Info */}
+                    <div className="flex flex-col justify-between h-full ml-6 sm:ml-8 md:ml-20 lg:ml-16">
+                      {/* Author Info */}
                       <div className="flex items-center mb-6 mt-auto">
                         {" "}
                         {/* mt-auto pushes this section down if quote text is short */}
