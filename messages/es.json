@@ -21,7 +21,7 @@
   },
   "Footer": {
     "services": "Servicios",
-    "softwareDevelopment": "Desarrollo de Software",
+    "softwareDevelopment": "Desarrollo de software",
     "uxuiDesign": "Diseño UX/UI",
     "staffing": "Staffing/Outsourcing",
     "onlineCourses": "Cursos en línea",
@@ -33,11 +33,16 @@
     "education": "Educación",
     "office": "Oficina",
     "contact": "Contacto",
-    "followUs": "Síguenos en:",
+    "followUs": "Síguenos en",
     "copyright": "Greenti © {year} Todos los derechos son reservados",
     "ClutchGlobalSpring2024": "Reconocimiento Clutch Global Primavera 2024",
     "ClutchGlobalFall2023": "Reconocimiento Clutch Global Otoño 2023",
-    "Clutch1000Fall2023": "Reconocimiento Clutch 1000 Otoño 2023"
+    "Clutch1000Fall2023": "Reconocimiento Clutch 1000 Otoño 2023",
+    "logoDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
+    "supportChannel": "Nuestro canal de soporte",
+    "emailUs": "Escríbanos por correo electrónico",
+    "officeAddressLine1": "Jirón Zorritos 499,",
+    "officeAddressLine2": "Breña - Lima"
   },
   "HeroSection": {
     "titlePart1": "Innovamos para",
@@ -127,12 +132,12 @@
       "acceptTerms": "Confirmo que he leído y acepto las {link} de protección de datos personales."
     },
     "placeholders": {
-      "fullName": "Nombre completo",
-      "phoneNumber": "Número de teléfono",
-      "email": "Correo electrónico",
-      "message": "Cuéntanos sobre tu proyecto"
+      "fullName": "Ej: Juan Pérez",
+      "phoneNumber": "Ej: 987654321",
+      "email": "tu@correo.com",
+      "message": "Describe brevemente tu idea o necesidad..."
     },
-    "termsLinkText": "políticas de protección de datos personales",
+    "termsLinkText": "políticas",
     "successMessage": "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.",
     "errorMessagePrefix": "Error: ",
     "simulatedError": "Error simulado del servidor.",

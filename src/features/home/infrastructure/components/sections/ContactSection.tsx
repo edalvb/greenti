@@ -283,7 +283,7 @@ export const ContactSection: React.FC = () => {
                         href="#politicas"
                         className="font-medium text-primary hover:underline"
                       >
-                        {t("termsLinkText")}
+                        {chunks}
                       </a>
                     ),
                   })}

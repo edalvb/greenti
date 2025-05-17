@@ -161,6 +161,10 @@
   .border-neutral-default {
     border-color: hsl(var(--color-neutral-default));
   }
+
+  .bg-neutral-lighter {
+    background-color: hsl(var(--color-neutral-lighter));
+  }
 }
 
 /* Estilos de scrollbar (opcional) */

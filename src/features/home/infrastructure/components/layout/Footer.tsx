@@ -1,12 +1,11 @@
 "use client";
 
-import React from 'react';
-import Image from 'next/image';
-import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/navigation';
-import { Logo } from '@/components/ui/Logo';
-import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin, IconMail, IconMapPin, IconPhone } from '@tabler/icons-react';
-import { CONTACT_INFO, SOCIAL_LINKS } from '@/core/utils/constants';
+import React from "react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
+import { IconMail, IconPhone } from "@tabler/icons-react";
+import { CONTACT_INFO, SOCIAL_LINKS } from "@/core/utils/constants";
 
 interface FooterLinkProps {
   href: string;
@@ -15,116 +14,205 @@ interface FooterLinkProps {
 
 const FooterLink: React.FC<FooterLinkProps> = ({ href, label }) => (
   <li>
-    <Link href={href} className="text-sm text-neutral-light hover:text-white transition-colors">
+    <Link
+      href={href}
+      className="text-sm text-neutral-light hover:text-white transition-colors"
+    >
       {label}
     </Link>
   </li>
 );
 
-const socialIcons = [
-  { href: SOCIAL_LINKS.linkedin, icon: IconBrandLinkedin, label: 'LinkedIn' },
-  { href: SOCIAL_LINKS.facebook, icon: IconBrandFacebook, label: 'Facebook' },
-  { href: SOCIAL_LINKS.instagram, icon: IconBrandInstagram, label: 'Instagram' },
+const socialIconsData = [
+  {
+    href: SOCIAL_LINKS.linkedin,
+    icon: "/assets/icons/linkedin.svg",
+    label: "LinkedIn",
+  },
+  {
+    href: SOCIAL_LINKS.github,
+    icon: "/assets/icons/github.svg",
+    label: "GitHub",
+  },
+  {
+    href: SOCIAL_LINKS.instagram,
+    icon: "/assets/icons/instagram.svg",
+    label: "Instagram",
+  },
+  {
+    href: SOCIAL_LINKS.tiktok,
+    icon: "/assets/icons/tiktok.svg",
+    label: "TikTok",
+  },
 ];
 
 const clutchBadgesData = [
-  { src: "/assets/images/clutch_badge_1.svg", altKey: "ClutchGlobalSpring2024" },
-  { src: "/assets/images/clutch_badge_2.svg", altKey: "ClutchGlobalFall2023" },
-  { src: "/assets/images/clutch_badge_3.svg", altKey: "Clutch1000Fall2023" },
+  {
+    src: "/assets/images/clutch_badge_1.svg",
+    altKey: "ClutchGlobalSpring2024",
+    width: 105,
+    height: 96,
+  },
+  {
+    src: "/assets/images/clutch_badge_2.svg",
+    altKey: "ClutchGlobalFall2023",
+    width: 105,
+    height: 96,
+  },
+  {
+    src: "/assets/images/clutch_badge_3.svg",
+    altKey: "Clutch1000Fall2023",
+    width: 96,
+    height: 96,
+  },
 ];
 
 export const Footer: React.FC = () => {
-  const t = useTranslations('Footer');
+  const t = useTranslations("Footer");
+  const tGlobal = useTranslations("Global");
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-secondary text-neutral-light pt-16 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
-          <div className="md:col-span-2 lg:col-span-1">
-            <Logo href="/" imgWidth={120} className="mb-4" isScrolled={true} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 mb-12">
+          <div className="lg:col-span-1">
+            <Link href="/" className="block mb-4 w-14 h-14">
+              <Image
+                src="/assets/images/logo_greenti_white.svg"
+                alt={tGlobal("appName") + " Logo"}
+                width={56}
+                height={56}
+                className="h-auto"
+              />
+            </Link>
+            <p className="text-sm text-neutral-light leading-relaxed">
+              {t("logoDescription")}
+            </p>
           </div>
 
           <div>
-            <h3 className="text-md font-semibold text-white mb-4">{t('services')}</h3>
-            <ul className="space-y-2">
-              <FooterLink href="#services" label={t('softwareDevelopment')} />
-              <FooterLink href="#services" label={t('uxuiDesign')} />
-              <FooterLink href="#services" label={t('staffing')} />
-              <FooterLink href="#services" label={t('onlineCourses')} />
+            <h3 className="text-base font-semibold text-white mb-4">
+              {t("services")}
+            </h3>
+            <ul className="space-y-2.5">
+              <FooterLink href="/#services" label={t("softwareDevelopment")} />
+              <FooterLink href="/#services" label={t("uxuiDesign")} />
+              <FooterLink href="/#services" label={t("staffing")} />
+              <FooterLink href="/#services" label={t("onlineCourses")} />
             </ul>
           </div>
 
           <div>
-            <h3 className="text-md font-semibold text-white mb-4">{t('portfolio')}</h3>
-            <ul className="space-y-2">
-              <FooterLink href="#portfolio" label={t('financial')} />
-              <FooterLink href="#portfolio" label={t('retail')} />
-              <FooterLink href="#portfolio" label={t('service')} />
-              <FooterLink href="#portfolio" label={t('industry')} />
-              <FooterLink href="#portfolio" label={t('education')} />
+            <h3 className="text-base font-semibold text-white mb-4">
+              {t("portfolio")}
+            </h3>
+            <ul className="space-y-2.5">
+              <FooterLink href="/#portfolio" label={t("financial")} />
+              <FooterLink href="/#portfolio" label={t("retail")} />
+              <FooterLink href="/#portfolio" label={t("service")} />
+              <FooterLink href="/#portfolio" label={t("industry")} />
+              <FooterLink href="/#portfolio" label={t("education")} />
             </ul>
           </div>
 
           <div>
-            <h3 className="text-md font-semibold text-white mb-4">{t('office')}</h3>
-            <div className="flex items-start text-sm text-neutral-light hover:text-white transition-colors">
-              <IconMapPin size={20} className="mr-2 mt-0.5 flex-shrink-0" />
-              <span>{CONTACT_INFO.address}</span>
-            </div>
+            <h3 className="text-base font-semibold text-white mb-4">
+              {t("office")}
+            </h3>
+            <address className="text-sm text-neutral-light not-italic leading-relaxed">
+              {CONTACT_INFO.addressLine1}
+              <br />
+              {CONTACT_INFO.addressLine2}
+            </address>
           </div>
 
           <div>
-            <h3 className="text-md font-semibold text-white mb-4">{t('contact')}</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center text-sm text-neutral-light hover:text-white transition-colors">
-                <IconPhone size={20} className="mr-2 flex-shrink-0" />
-                <a href={`tel:${CONTACT_INFO.phone.replace(/\s|\(|\)/g, "")}`}>{CONTACT_INFO.phone}</a>
+            <h3 className="text-base font-semibold text-white mb-4">
+              {t("contact")}
+            </h3>
+            <ul className="space-y-3">
+              <li>
+                <p className="text-sm text-neutral-light mb-1">
+                  {t("supportChannel")}
+                </p>
+                <a
+                  href={`tel:${CONTACT_INFO.phone.replace(/\s|\(|\)/g, "")}`}
+                  className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
+                >
+                  <IconPhone size={18} className="mr-2 flex-shrink-0" />
+                  {CONTACT_INFO.phone}
+                </a>
               </li>
-              <li className="flex items-center text-sm text-neutral-light hover:text-white transition-colors">
-                <IconMail size={20} className="mr-2 flex-shrink-0" />
-                <a href={`mailto:${CONTACT_INFO.email}`}>{CONTACT_INFO.email}</a>
+              <li>
+                <p className="text-sm text-neutral-light mb-1">
+                  {t("emailUs")}
+                </p>
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="flex items-center text-sm text-white font-bold hover:opacity-80 transition-opacity"
+                >
+                  <IconMail size={18} className="mr-2 flex-shrink-0" />
+                  {CONTACT_INFO.email}
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="pt-8 mb-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex flex-col items-center md:items-start order-1 md:order-2 space-y-2">
-            <span className="text-md text-white">{t('followUs')}</span>
-            <div className="flex items-center space-x-4">
-              {socialIcons.map((social) => (
+        <hr className="border-t border-white/20 my-10" />
+
+        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+          <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
+            <h3 className="text-base font-semibold text-white mb-3">
+              {t("followUs")}
+            </h3>
+            <div className="flex items-center justify-center md:justify-start space-x-3">
+              {socialIconsData.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="text-neutral-light hover:text-primary transition-colors"
+                  className="bg-white text-secondary rounded-full p-2.5 transform hover:scale-110 transition-all duration-200"
                 >
-                  <social.icon size={24} />
+                  <Image
+                    src={social.icon}
+                    alt={social.label}
+                    width={24}
+                    height={24}
+                    className="h-auto w-6"
+                    loading="lazy"
+                  />
                 </a>
               ))}
             </div>
           </div>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6 order-2 md:order-1 mt-8 md:mt-0">
-            {clutchBadgesData.map((badge) => (
-              <Image
-                key={badge.altKey}
-                src={badge.src}
-                alt={t(badge.altKey as any)}
-                width={100}
-                height={100}
-                className="h-20 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity"
-              />
-            ))}
-          </div>
         </div>
 
-        <div className="border-t border-white/20 pt-8 text-center">
-          <p className="text-sm text-neutral-light">
-            {t('copyright', { year: currentYear })}
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-center py-4">
+          <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4">
+            {clutchBadgesData.map((badge) => (
+              <div
+                key={badge.altKey}
+                className="transform hover:scale-105 transition-transform"
+              >
+                <Image
+                  src={badge.src}
+                  alt={t(badge.altKey as any)}
+                  width={badge.width}
+                  height={badge.height}
+                  className="opacity-90 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="text-center md:text-right">
+            <p className="text-xs text-neutral-light">
+              {t("copyright", { year: currentYear })}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

@@ -33,11 +33,16 @@
     "education": "Education",
     "office": "Office",
     "contact": "Contact",
-    "followUs": "Follow us on:",
+    "followUs": "Follow us on",
     "copyright": "Greenti © {year} All rights reserved",
     "ClutchGlobalSpring2024": "Clutch Global Award Spring 2024",
     "ClutchGlobalFall2023": "Clutch Global Award Fall 2023",
-    "Clutch1000Fall2023": "Clutch 1000 Award Fall 2023"
+    "Clutch1000Fall2023": "Clutch 1000 Award Fall 2023",
+    "logoDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
+    "supportChannel": "Our support channel",
+    "emailUs": "Write to us by email",
+    "officeAddressLine1": "Jirón Zorritos 499,",
+    "officeAddressLine2": "Breña - Lima"
   },
   "HeroSection": {
     "titlePart1": "We innovate to",
@@ -127,12 +132,12 @@
       "acceptTerms": "I confirm that I have read and accept the {link} for personal data protection."
     },
     "placeholders": {
-      "fullName": "Full name",
-      "phoneNumber": "Phone number",
+      "fullName": "E.g., John Doe",
+      "phoneNumber": "E.g., 987654321",
       "email": "you@example.com",
-      "message": "Tell us about your project"
+      "message": "Briefly describe your idea or need..."
     },
-    "termsLinkText": "personal data protection policies",
+    "termsLinkText": "policies",
     "successMessage": "Message sent successfully! We will contact you soon.",
     "errorMessagePrefix": "Error: ",
     "simulatedError": "Simulated server error.",
