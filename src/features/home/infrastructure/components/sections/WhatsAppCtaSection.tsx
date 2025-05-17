@@ -10,7 +10,7 @@ export const WhatsAppCtaSection: React.FC = () => {
   const whatsappLink = `https://wa.me/${CONTACT_INFO.phone.replace(/[^0-9]/g, "")}?text=${encodeURIComponent(t("whatsappMessage"))}`;
 
   return (
-    <section id="whatsapp-cta" className="py-12 md:py-16 bg-neutral-lightest">
+    <section id="whatsapp-cta" className="py-8 md:py-12 bg-neutral-lightest">
       <div className="bg-emerald-50 p-6 md:p-8 rounded-lg shadow-sm">
         <div className="flex justify-between items-center">
           <div>

@@ -159,7 +159,9 @@ export const ContactSection: React.FC = () => {
               >
                 <div className="flex items-center mb-2">
                   <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
-                  <p className="text-lg font-bold text-secondary">Maria</p>
+                  <p className="text-lg font-bold text-secondary">
+                    {t("avatarSubtitle").split(" - ")[0]}
+                  </p>
                 </div>
                 <p className="text-sm text-neutral-darker">
                   {t("avatarSubtitle").split(" - ")[1]}
