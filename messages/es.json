@@ -112,7 +112,10 @@
     "avatarSubtitle": "Maria - Responsable de soluciones tecnológicas",
     "intro": "Me encantaría hablar contigo sobre tu proyecto o necesidades.",
     "instruction": "Completa el formulario o envíanos un email a",
-    "availability": "Hablamos en menos de 24hs, o te hacemos un descuento del 30% en tu próximo proyecto",
+    "availability": {
+      "prefix": "Hablamos en menos de 24hs.",
+      "sufix": " o te hacemos un descuento del 30% en tu próximo proyecto"
+    },
     "formTitle": "¿Tienes una idea? Nosotros tenemos las habilidades.",
     "formSubtitle": "Rellena nuestro formulario de contacto y nos pondremos en contacto ¡contigo!",
     "labels": {
@@ -124,12 +127,12 @@
       "acceptTerms": "Confirmo que he leído y acepto las {link} de protección de datos personales."
     },
     "placeholders": {
-      "fullName": "Ej: Juan Pérez",
-      "phoneNumber": "Ej: 987654321",
-      "email": "tu@correo.com",
-      "message": "Describe brevemente tu idea o necesidad..."
+      "fullName": "Nombre completo",
+      "phoneNumber": "Número de teléfono",
+      "email": "Correo electrónico",
+      "message": "Cuéntanos sobre tu proyecto"
     },
-    "termsLinkText": "políticas",
+    "termsLinkText": "políticas de protección de datos personales",
     "successMessage": "¡Mensaje enviado con éxito! Nos pondremos en contacto contigo pronto.",
     "errorMessagePrefix": "Error: ",
     "simulatedError": "Error simulado del servidor.",

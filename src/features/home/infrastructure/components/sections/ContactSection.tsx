@@ -17,7 +17,20 @@ import {
 import { SubmitContactFormUseCase } from "@/features/home/application/SubmitContactFormUseCase";
 import { container } from "@/core/infrastructure/di/inversify.config";
 import { CONTACT_INFO } from "@/core/utils/constants";
-import { IconMail, IconBrandWhatsapp } from "@tabler/icons-react";
+import { IconBrandWhatsapp, IconHandClick } from "@tabler/icons-react";
+import { WhatsAppCtaSection } from "./WhatsAppCtaSection";
+
+class SelectOptionCountries implements SelectOption {
+  value: string;
+  label: string;
+  urlImage: string;
+
+  constructor(value: string, label: string, urlImage: string) {
+    this.value = value;
+    this.label = label;
+    this.urlImage = urlImage;
+  }
+}
 
 export const ContactSection: React.FC = () => {
   const t = useTranslations("ContactSection");
@@ -35,12 +48,32 @@ export const ContactSection: React.FC = () => {
     Partial<Record<keyof ContactFormDto, string>>
   >({});
 
-  const countryOptions: SelectOption[] = [
-    { value: "PE", label: t("countryOptions.PE") },
-    { value: "US", label: t("countryOptions.US") },
-    { value: "MX", label: t("countryOptions.MX") },
-    { value: "EC", label: t("countryOptions.EC") },
-    { value: "PY", label: t("countryOptions.PY") },
+  const countryOptions: SelectOptionCountries[] = [
+    {
+      value: "PE",
+      label: t("countryOptions.PE"),
+      urlImage: "/assets/icons/peru.svg",
+    },
+    {
+      value: "US",
+      label: t("countryOptions.US"),
+      urlImage: "/assets/icons/usa.svg",
+    },
+    {
+      value: "MX",
+      label: t("countryOptions.MX"),
+      urlImage: "/assets/icons/mexico.svg",
+    },
+    {
+      value: "EC",
+      label: t("countryOptions.EC"),
+      urlImage: "/assets/icons/ecuador.svg",
+    },
+    {
+      value: "PY",
+      label: t("countryOptions.PY"),
+      urlImage: "/assets/icons/paraguay.svg",
+    },
   ];
 
   const {
@@ -48,6 +81,7 @@ export const ContactSection: React.FC = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm<ContactFormDto>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -55,6 +89,8 @@ export const ContactSection: React.FC = () => {
       acceptTerms: false,
     },
   });
+
+  const selectedCountryCode = watch("countryCode");
 
   useEffect(() => {
     const clientSideErrors: Partial<Record<keyof ContactFormDto, string>> = {};
@@ -112,86 +148,119 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white">
+    <section id="contact" className="py-16 md:py-24 bg-neutral-lightest">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-start">
-          <div className="bg-neutral-lightest p-8 md:p-10 rounded-lg text-center lg:text-left shadow-md">
-            <div className="relative mx-auto lg:mx-0 w-28 h-28 md:w-32 md:h-32 mb-6">
-              <Image
-                src="/assets/images/contact_avatar_maria.png"
-                alt={t("avatarSubtitle")}
-                className="rounded-full object-cover border-4 border-white shadow-lg"
-                fill
-                sizes="(max-width: 768px) 112px, 128px"
-              />
-              <div className="absolute bottom-0 right-0 bg-primary p-2.5 rounded-full border-2 border-white shadow-sm">
-                <IconBrandWhatsapp size={20} className="text-white" />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          <div className="lg:col-span-5 space-y-8">
+            <div className="relative">
+              <div
+                className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7"
+                style={{ zIndex: 1 }}
+              >
+                <div className="flex items-center mb-2">
+                  <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
+                  <p className="text-lg font-bold text-secondary">Maria</p>
+                </div>
+                <p className="text-sm text-neutral-darker">
+                  {t("avatarSubtitle").split(" - ")[1]}
+                </p>
+              </div>
+              <div className="absolute -top-8 -left-4 w-24 h-24 md:w-28 md:h-28 bg-transparent">
+                <Image
+                  src="/assets/images/contact_avatar_maria.png"
+                  alt={t("avatarSubtitle")}
+                  className="rounded-3xl object-cover shadow-lg"
+                  fill
+                  sizes="(max-width: 768px) 96px, 112px"
+                />
               </div>
             </div>
-            <p className="text-xs bg-primary/10 text-primary font-semibold inline-block px-3 py-1 rounded-full mb-3">
-              {t("avatarSubtitle")}
-            </p>
-            <p className="text-neutral-darker mb-4 text-lg leading-relaxed">
-              {t("intro")}
-            </p>
-            <p className="text-neutral-darker mb-1">{t("instruction")}</p>
-            <a
-              href={`mailto:${CONTACT_INFO.email}`}
-              className="font-semibold text-primary hover:underline mb-6 block text-lg"
-            >
-              <IconMail size={18} className="inline mr-1.5 align-text-bottom" />
-              {CONTACT_INFO.email}
-            </a>
-            <p className="text-sm text-neutral-dark italic">
-              {t("availability")}
-            </p>
+
+            <div className="mt-40">
+              <p className="text-secondary mt-4 mb-3 text-sm">{t("intro")}</p>
+              <p className="text-secondary mb-1 text-sm">
+                {t("instruction")}{" "}
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
+                >
+                  {CONTACT_INFO.email}
+                </a>
+              </p>
+
+              <p className="text-sm text-secondary mt-6">
+                <span className="font-bold">{t("availability.prefix")}</span>
+                {t("availability.sufix")}
+              </p>
+            </div>
+
+            <WhatsAppCtaSection />
           </div>
 
-          <div>
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
               {t("formTitle")}
             </h2>
-            <p className="text-neutral-darker mb-8">{t("formSubtitle")}</p>
+            <p className="text-neutral-darker mb-8 text-sm">
+              {t("formSubtitle")}
+            </p>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <Input
-                label={t("labels.fullName")}
-                {...register("fullName")}
                 placeholder={t("placeholders.fullName")}
+                {...register("fullName")}
                 error={fieldErrors.fullName}
+                inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 required
               />
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                <Select
-                  label={t("labels.country")}
-                  {...register("countryCode")}
-                  options={countryOptions}
-                  containerClassName="sm:col-span-1"
-                  error={fieldErrors.countryCode}
-                  required
-                />
+              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
+                <div className="sm:col-span-5 relative flex items-center">
+                  <Image
+                    src={
+                      countryOptions.find(
+                        (option) => option.value === selectedCountryCode,
+                      )?.urlImage || ""
+                    }
+                    alt={
+                      countryOptions.find(
+                        (option) => option.value === selectedCountryCode,
+                      )?.label || ""
+                    }
+                    width={20}
+                    height={14}
+                    className="absolute left-3 pointer-events-none z-10"
+                  />
+
+                  <Select
+                    options={countryOptions}
+                    {...register("countryCode")}
+                    error={fieldErrors.countryCode}
+                    selectClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full pl-10"
+                    required
+                  />
+                </div>
                 <Input
-                  label={t("labels.phoneNumber")}
                   type="tel"
-                  {...register("phoneNumber")}
                   placeholder={t("placeholders.phoneNumber")}
-                  containerClassName="sm:col-span-2"
+                  {...register("phoneNumber")}
+                  containerClassName="sm:col-span-7"
+                  inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                   error={fieldErrors.phoneNumber}
                   required
                 />
               </div>
               <Input
-                label={t("labels.email")}
                 type="email"
-                {...register("email")}
                 placeholder={t("placeholders.email")}
+                {...register("email")}
+                inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.email}
                 required
               />
               <Textarea
-                label={t("labels.message")}
-                {...register("message")}
                 rows={4}
                 placeholder={t("placeholders.message")}
+                {...register("message")}
+                textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.message}
                 required
               />
@@ -200,11 +269,11 @@ export const ContactSection: React.FC = () => {
                   id="acceptTerms"
                   type="checkbox"
                   {...register("acceptTerms")}
-                  className="h-4 w-4 text-primary border-neutral-default rounded focus:ring-primary mt-1 cursor-pointer"
+                  className="h-4 w-4 text-primary border-neutral-default rounded focus:ring-primary mt-0.5 cursor-pointer flex-shrink-0"
                 />
                 <label
                   htmlFor="acceptTerms"
-                  className="ml-2 block text-sm text-neutral-darker cursor-pointer"
+                  className="ml-2 block text-xs text-neutral-darker cursor-pointer"
                 >
                   {t.rich("labels.acceptTerms", {
                     link: (chunks) => (
@@ -225,12 +294,12 @@ export const ContactSection: React.FC = () => {
               )}
 
               {formStatus === "error" && formError && (
-                <p className="text-sm text-red-600 bg-red-50 p-3 rounded-md">
+                <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">
                   {formError}
                 </p>
               )}
               {formStatus === "success" && (
-                <p className="text-sm text-green-700 bg-green-50 p-3 rounded-md">
+                <p className="text-sm text-green-700 bg-green-100 p-3 rounded-md">
                   {t("successMessage")}
                 </p>
               )}
@@ -238,9 +307,9 @@ export const ContactSection: React.FC = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full"
+                className="w-full !rounded-full shadow-md hover:shadow-lg transition-shadow font-semibold"
                 isLoading={formStatus === "loading"}
-                disabled={formStatus === "loading"}
+                disabled={formStatus === "loading" || formStatus === "success"}
               >
                 {formStatus === "loading"
                   ? tGlobal("sendingMessage")
@@ -251,5 +320,32 @@ export const ContactSection: React.FC = () => {
         </div>
       </div>
     </section>
+  );
+};
+
+interface ProfileProps {
+  name: string;
+  role: string;
+  imageUrl: string;
+  online?: boolean;
+}
+
+export const ProfileCard: React.FC<ProfileProps> = ({
+  name,
+  role,
+  imageUrl,
+  online = true,
+}) => {
+  return (
+    <div className="profile-card">
+      <div className="profile-avatar">
+        <img src={imageUrl} alt={name} />
+        {online && <span className="status-dot" />}
+      </div>
+      <div className="profile-info">
+        <h3 className="profile-name">{name}</h3>
+        <p className="profile-role">{role}</p>
+      </div>
+    </div>
   );
 };

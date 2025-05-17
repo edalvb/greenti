@@ -112,7 +112,10 @@
     "avatarSubtitle": "Maria - Head of Technological Solutions",
     "intro": "I would love to talk to you about your project or needs.",
     "instruction": "Complete the form or send us an email at",
-    "availability": "We'll talk in less than 24 hours, or we'll give you a 30% discount on your next project.",
+    "availability": {
+      "prefix": "We'll talk in less than 24 hours,",
+      "sufix": " or we'll give you a 30% discount on your next project."
+    },
     "formTitle": "Have an idea? We have the skills.",
     "formSubtitle": "Fill out our contact form and we will get in touch with you!",
     "labels": {
@@ -124,12 +127,12 @@
       "acceptTerms": "I confirm that I have read and accept the {link} for personal data protection."
     },
     "placeholders": {
-      "fullName": "E.g., John Doe",
-      "phoneNumber": "E.g., 987654321",
+      "fullName": "Full name",
+      "phoneNumber": "Phone number",
       "email": "you@example.com",
-      "message": "Briefly describe your idea or need..."
+      "message": "Tell us about your project"
     },
-    "termsLinkText": "policies",
+    "termsLinkText": "personal data protection policies",
     "successMessage": "Message sent successfully! We will contact you soon.",
     "errorMessagePrefix": "Error: ",
     "simulatedError": "Simulated server error.",
