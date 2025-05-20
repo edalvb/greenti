@@ -215,7 +215,7 @@ export const TestimonialsSection: React.FC = () => {
             </AnimatePresence>
           </div>
 
-          <div className="bg-secondary p-6 md:p-8 rounded-btn-cta text-white shadow-xl flex flex-col justify-center lg:col-span-1 overflow-hidden">
+          <div className="relative bg-secondary p-6 md:p-8 rounded-btn-cta text-white shadow-xl flex flex-col justify-center lg:col-span-1 overflow-visible">
             <AnimatePresence initial={false} mode="wait">
               <motion.div
                 key={currentIndex}
@@ -226,17 +226,17 @@ export const TestimonialsSection: React.FC = () => {
                 transition={{ duration: 0.5 }}
                 className="w-full h-full flex flex-col items-center"
               >
-                <div className="relative w-full max-w-[300px] h-[280px] sm:h-[320px] md:h-[350px] lg:h-[400px] mb-4 sm:mb-6 flex items-center justify-center">
-                  <div className="absolute z-10 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[320px] transform transition-transform duration-500 hover:scale-105">
+                <div className="relative overflow-visible w-full max-w-[200px] max-h-[300] h-[230px] sm:h-[250px] md:h-[280px] lg:h-[260px] mb-4 sm:mb-6 flex items-center justify-center">
+                  <div className="absolute z-10 -top-16 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[320px] transform transition-transform duration-500 hover:scale-105">
                     <Image
                       src={currentTestimonial.appShowcase.appMockupImageUrl}
                       alt={
                         t(currentTestimonial.appShowcase.appNameKey as any) +
                         " app mockup"
                       }
-                      width={640}
-                      height={980}
-                      className="object-contain drop-shadow-2xl"
+                      width={300}
+                      height={350}
+                      className="object-contain drop-shadow-2xl max-h-[350px]"
                       priority={currentIndex === 0}
                     />
                   </div>

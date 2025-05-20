@@ -14,6 +14,18 @@ export const MOCK_TESTIMONIALS_DATA: Testimonial[] = [
       appMockupImageUrl: "/assets/images/app_mockup_coosofan.png"
     }
   },
+  {
+    id: 2,
+    testimonialDataKey: "testimonial1",
+    authorName: "Trac Stephenson",
+    authorAvatarUrl: "/assets/images/testimonial_avatar_stephenson.png", 
+    appShowcase: {
+      appNameKey: "coosofanAppName",
+      appTagKey: "coosofanAppTag",
+      appDescriptionKey: "coosofanAppDescription",
+      appMockupImageUrl: "/assets/images/easydrop.webp"
+    }
+  },
 ];
 
 export const MOCK_FAQ_ITEMS_DATA: FaqItem[] = [
