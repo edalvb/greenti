@@ -35,14 +35,13 @@ export const PresenceSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="lg:w-2/5 w-full text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-secondary">{t("titlePart1")}</span>{" "}
+              <span className="text-secondary">{t("titlePart1")}</span>
               <span className="text-primary">{t("titlePart2")}</span>
             </h2>
             <p className="text-neutral-darker mb-8 md:mb-10 leading-relaxed">
               {t("subtitle")}
             </p>
-            <ul className="space-y-4 inline-block text-left lg:mx-0 mx-auto relative">
-              <div className="absolute left-[calc(0.75rem-1px)] top-0 bottom-0 w-px bg-primary/30 -z-10"></div>
+            <ul className="list-none p-0 m-0 inline-block text-left lg:mx-0 mx-auto">
               {countries.map((countryName, index) => {
                 const flagSlug = countryName
                   .toLowerCase()
@@ -52,22 +51,33 @@ export const PresenceSection: React.FC = () => {
                   .replace(/[^a-z0-9_]/g, "");
 
                 return (
-                  <li
-                    key={countryName}
-                    className="flex items-center relative pl-6"
-                  >
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 block w-3 h-3 bg-primary rounded-full border-2 border-presence-section"></span>
-                    <Image
-                      src={`/assets/icons/${flagSlug}.svg`}
-                      alt={t("countryFlagAlt", { country: countryName })}
-                      width={24}
-                      height={16}
-                      className="mr-2.5 object-contain shrink-0"
-                      unoptimized
-                    />
-                    <span className="text-neutral-darker text-sm md:text-base">
-                      {countryName}
-                    </span>
+                  <li key={countryName} className="flex items-start relative">
+                    <div className="flex flex-col items-center mr-[15px] flex-shrink-0">
+                      <div className="w-[18px] h-[18px] bg-primary rounded-full flex-shrink-0 z-10"></div>
+                      <div
+                        className={`w-[2px] h-[35px] ${index === countries.length - 1 ? "invisible" : ""}`}
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(to bottom, hsl(var(--color-primary)) 60%, transparent 60%)",
+                          backgroundSize: "2px 8px",
+                          backgroundRepeat: "repeat-y",
+                        }}
+                      ></div>
+                    </div>
+
+                    <div className="flex items-center relative -top-[5px]">
+                      <Image
+                        src={`/assets/icons/${flagSlug}.svg`}
+                        alt={t("countryFlagAlt", { country: countryName })}
+                        width={32}
+                        height={20}
+                        className="object-cover rounded-[3px] mr-[10px]"
+                        unoptimized
+                      />
+                      <span className="text-lg font-medium text-secondary">
+                        {countryName}
+                      </span>
+                    </div>
                   </li>
                 );
               })}

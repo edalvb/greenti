@@ -8,9 +8,9 @@ import {
 import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { AppProviders } from "@/core/providers/AppProviders";
-import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { Util } from "@/core/utils/utils";
+import { routing } from "@/i18n/routing";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -101,7 +101,7 @@ export default async function RootLayout({
 }: RootLayoutProps) {
   const locale = await Util.getLocale(params);
 
-  if (!routing.locales.includes(locale)) {
+  if (!routing.locales.includes(locale as any)) {
     notFound();
   }
 
