@@ -96,23 +96,29 @@ export const PresenceSection: React.FC = () => {
                 priority
               />
             </div>
-            <div className="flex flex-col sm:flex-row justify-around items-center text-center gap-6 sm:gap-4">
+
+            <div className="flex flex-col sm:flex-row justify-center items-center text-center sm:gap-x-6 md:gap-x-8 lg:gap-x-10">
               {statsData.map((stat, index) => (
                 <React.Fragment key={stat.labelKey}>
-                  <div className="flex flex-col items-center px-2 py-2">
-                    <p className="text-4xl md:text-5xl font-bold text-secondary">
-                      {stat.prefix}
-                      <Counter to={stat.value} suffix={stat.suffix} />
-                    </p>
-                    <p className="text-sm text-neutral-darker mt-1.5 whitespace-nowrap">
-                      {t(stat.labelKey as any)}
-                    </p>
+                  <div className="flex items-center text-center py-2 sm:py-0">
+                    <div className="hidden sm:block w-1 h-16 bg-primary mr-3 md:mr-4"></div>
+
+                    <div>
+                      <p className="text-5xl font-bold text-secondary">
+                        {stat.prefix}
+                        <Counter to={stat.value} suffix={stat.suffix} />
+                      </p>
+                      <p className="text-sm text-neutral-darker mt-1.5">
+                        {t.rich(
+                          stat.labelKey as any,
+                          { br: () => <br /> } as any,
+                        )}
+                      </p>
+                    </div>
                   </div>
+
                   {index < statsData.length - 1 && (
-                    <>
-                      <div className="hidden sm:block w-px h-16 bg-primary/50 mx-2"></div>
-                      <div className="block sm:hidden w-20 h-px bg-primary/30 my-2"></div>
-                    </>
+                    <div className="block sm:hidden w-4/5 max-w-[150px] h-px bg-primary/30 my-4 mx-auto"></div>
                   )}
                 </React.Fragment>
               ))}
