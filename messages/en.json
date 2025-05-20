@@ -110,7 +110,10 @@
   },
   "FaqSection": {
     "title": "Frequently asked questions",
-    "subtitle": "Still have doubts? Don't worry, here are some Frequently Asked Questions that can help you.",
+    "subtitle": {
+      "prefix": "Still have doubts? ",
+      "highlight": "Don't worry, here are some Frequently Asked Questions that can help you."
+    },
     "noFaqsAvailable": "No FAQs available at the moment."
   },
   "ContactSection": {

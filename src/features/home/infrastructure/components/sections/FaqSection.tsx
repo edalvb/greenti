@@ -71,7 +71,10 @@ export const FaqSection: React.FC = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               {t("title")}
             </h2>
-            <p className="text-neutral-darker text-lg">{t("subtitle")}</p>
+            <p className="text-neutral-darker text-lg">
+              <strong>{t("subtitle.prefix")} </strong>
+              <span>{t("subtitle.highlight")}</span>
+            </p>
           </div>
           <div className="lg:col-span-2">
             {faqItems.length > 0 ? (

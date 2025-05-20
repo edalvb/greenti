@@ -110,7 +110,10 @@
   },
   "FaqSection": {
     "title": "Preguntas frecuentes",
-    "subtitle": "¿Aún tienes dudas? No te preocupes, aquí tienes algunas Preguntas Frecuentes que te pueden ayudar.",
+    "subtitle": {
+      "prefix": "¿Aún tienes dudas?",
+      "highlight": "No te preocupes, aquí tienes algunas Preguntas Frecuentes que te pueden ayudar."
+    },
     "noFaqsAvailable": "No hay preguntas frecuentes disponibles en este momento."
   },
   "ContactSection": {
