@@ -35,7 +35,7 @@ export const PresenceSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="lg:w-2/5 w-full text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-secondary">{t("titlePart1")}</span>
+              <span className="text-secondary">{t("titlePart1")} </span>
               <span className="text-primary">{t("titlePart2")}</span>
             </h2>
             <p className="text-neutral-darker mb-8 md:mb-10 leading-relaxed">
