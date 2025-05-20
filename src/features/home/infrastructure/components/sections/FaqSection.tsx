@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
@@ -75,7 +75,7 @@ export const FaqSection: React.FC = () => {
           </div>
           <div className="lg:col-span-2">
             {faqItems.length > 0 ? (
-              <div className="space-y-0 divide-y divide-neutral-light border-t border-b border-neutral-light rounded-lg shadow-sm overflow-hidden bg-white">
+              <div>
                 {faqItems.map((item) => (
                   <AccordionItem
                     key={item.id}
