@@ -15,6 +15,7 @@ export interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   labelClassName?: string;
   selectClassName?: string;
   errorClassName?: string;
+  radius?: "default" | "cta";
 }
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
@@ -31,6 +32,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       selectClassName = "",
       errorClassName = "",
       name,
+      radius = "cta",
       ...props
     },
     ref
@@ -38,8 +40,13 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const generatedId = useId();
     const selectId = id || (name ? `${name}-${generatedId}` : generatedId);
 
+    const radiusStyles = {
+      default: "rounded-md",
+      cta: "rounded-btn-cta",
+    };
+
     const baseSelectStyles =
-      "flex h-10 w-full items-center justify-between rounded-md border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1";
+      `flex h-10 w-full items-center justify-between border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1`;
     
     const errorStateStyles = error ? "border-red-500 focus-visible:ring-red-500" : "border-neutral-light";
 
@@ -56,7 +63,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         <select
           id={selectId}
           name={name}
-          className={`${baseSelectStyles} ${errorStateStyles} ${selectClassName} ${className}`}
+          className={`${baseSelectStyles} ${radiusStyles[radius]} ${errorStateStyles} ${selectClassName} ${className}`}
           ref={ref}
           aria-invalid={!!error}
           aria-describedby={error ? `${selectId}-error` : undefined}

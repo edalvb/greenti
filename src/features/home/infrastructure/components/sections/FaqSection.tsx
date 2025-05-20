@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
@@ -50,7 +50,7 @@ export const FaqSection: React.FC = () => {
     return (
       <section
         id="faq"
-        className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+        className="py-16 md:py-24 bg-presence-section px-responsive"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
@@ -63,7 +63,7 @@ export const FaqSection: React.FC = () => {
   return (
     <section
       id="faq"
-      className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+      className="py-16 md:py-24 bg-presence-section px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
@@ -75,18 +75,17 @@ export const FaqSection: React.FC = () => {
           </div>
           <div className="lg:col-span-2">
             {faqItems.length > 0 ? (
-              <div className="space-y-0 divide-y divide-neutral-light border-t border-b border-neutral-light rounded-lg shadow-sm overflow-hidden">
-                {faqItems.map((item, index) => (
+              <div className="space-y-0 divide-y divide-neutral-light border-t border-b border-neutral-light rounded-lg shadow-sm overflow-hidden bg-white">
+                {faqItems.map((item) => (
                   <AccordionItem
                     key={item.id}
                     title={tMockDataFaq(`${item.questionKey}.question` as any)}
                     isOpen={activeFaqItemId === item.id}
                     onToggle={() => toggleFaqItem(item.id)}
-                    className={`bg-white ${index === 0 ? "" : ""} ${
-                      index === faqItems.length - 1 ? "" : ""
-                    }`}
+                    className="bg-transparent"
                     titleClassName="px-6 py-5 font-semibold text-secondary hover:bg-neutral-lightest/50 text-base md:text-lg"
                     contentClassName="px-6 pb-6 text-neutral-darker text-sm md:text-base"
+                    iconClassName="text-secondary"
                   >
                     {tMockDataFaq(`${item.questionKey}.answer` as any)}
                   </AccordionItem>

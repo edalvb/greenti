@@ -1,12 +1,14 @@
 import React from "react";
 
-interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
+interface CardProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   children: React.ReactNode;
   title?: React.ReactNode;
   footer?: React.ReactNode;
   padding?: "sm" | "md" | "lg" | "none";
-  shadow?: "none" | "sm" | "md" | "lg" | "xl";
+  shadow?: "none" | "sm" | "md" | "lg" | "xl" | "service-card";
   borderColor?: string;
+  backgroundColor?: string;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -15,8 +17,8 @@ export const Card: React.FC<CardProps> = ({
   title,
   footer,
   padding = "md",
-  shadow = "sm",
   borderColor = "border-neutral-light",
+  backgroundColor = "bg-white",
   ...props
 }) => {
   const paddingStyles = {
@@ -26,21 +28,15 @@ export const Card: React.FC<CardProps> = ({
     none: "p-0",
   };
 
-  const shadowStyles = {
-    none: "shadow-none",
-    sm: "shadow-sm",
-    md: "shadow-md",
-    lg: "shadow-lg",
-    xl: "shadow-xl",
-  };
-
   return (
     <div
-      className={`rounded-lg bg-white text-neutral-darkest ${borderColor} ${paddingStyles[padding]} ${shadowStyles[shadow]} ${className}`}
+      className={`rounded-btn-cta shadow-deep ${backgroundColor} ${borderColor} ${paddingStyles[padding]} ${className}`}
       {...props}
     >
       {title && (
-        <div className={`mb-4 ${padding === "none" ? "px-6 pt-6 md:px-8 md:pt-8" : ""}`}>
+        <div
+          className={`mb-4 ${padding === "none" ? "px-6 pt-6 md:px-8 md:pt-8" : ""}`}
+        >
           {typeof title === "string" ? (
             <h3 className="text-xl lg:text-2xl font-semibold leading-none tracking-tight text-secondary">
               {title}
@@ -52,7 +48,9 @@ export const Card: React.FC<CardProps> = ({
       )}
       <div className="text-neutral-darker">{children}</div>
       {footer && (
-        <div className={`mt-4 ${padding === "none" ? "px-6 pb-6 md:px-8 md:pb-8" : ""}`}>
+        <div
+          className={`mt-4 ${padding === "none" ? "px-6 pb-6 md:px-8 md:pb-8" : ""}`}
+        >
           {footer}
         </div>
       )}

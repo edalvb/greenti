@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="px-responsive">
-      <div className="bg-secondary text-neutral-light pt-16 pb-8 rounded-3xl shadow-2xl mb-16">
+      <div className="bg-secondary text-neutral-light pt-16 pb-8 rounded-btn-cta mb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 mb-12">
             <div className="lg:col-span-1">
@@ -98,12 +98,18 @@ export const Footer: React.FC = () => {
               </h3>
               <ul className="space-y-2.5">
                 <FooterLink
-                  href="/#services"
+                  href="/#nuestros-servicios"
                   label={t("softwareDevelopment")}
                 />
-                <FooterLink href="/#services" label={t("uxuiDesign")} />
-                <FooterLink href="/#services" label={t("staffing")} />
-                <FooterLink href="/#services" label={t("onlineCourses")} />
+                <FooterLink
+                  href="/#nuestros-servicios"
+                  label={t("uxuiDesign")}
+                />
+                <FooterLink href="/#nuestros-servicios" label={t("staffing")} />
+                <FooterLink
+                  href="/#nuestros-servicios"
+                  label={t("onlineCourses")}
+                />
               </ul>
             </div>
 
@@ -112,11 +118,11 @@ export const Footer: React.FC = () => {
                 {t("portfolio")}
               </h3>
               <ul className="space-y-2.5">
-                <FooterLink href="/#portfolio" label={t("financial")} />
-                <FooterLink href="/#portfolio" label={t("retail")} />
-                <FooterLink href="/#portfolio" label={t("service")} />
-                <FooterLink href="/#portfolio" label={t("industry")} />
-                <FooterLink href="/#portfolio" label={t("education")} />
+                <FooterLink href="/#testimonials" label={t("financial")} />
+                <FooterLink href="/#testimonials" label={t("retail")} />
+                <FooterLink href="/#testimonials" label={t("service")} />
+                <FooterLink href="/#testimonials" label={t("industry")} />
+                <FooterLink href="/#testimonials" label={t("education")} />
               </ul>
             </div>
 
@@ -164,9 +170,23 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <hr className="border-t border-white/20 my-10" />
-
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 pb-4">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4 order-2 md:order-1">
+              {clutchBadgesData.map((badge) => (
+                <div
+                  key={badge.altKey}
+                  className="transform hover:scale-105 transition-transform h-16 flex items-center"
+                >
+                  <Image
+                    src={badge.src}
+                    alt={t(badge.altKey as any)}
+                    width={badge.width * 0.75}
+                    height={badge.height * 0.75}
+                    className="opacity-90 hover:opacity-100 transition-opacity object-contain"
+                  />
+                </div>
+              ))}
+            </div>
             <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
               <h3 className="text-base font-semibold text-white mb-3">
                 {t("followUs")}
@@ -179,14 +199,14 @@ export const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="bg-white text-secondary rounded-full p-2.5 transform hover:scale-110 transition-all duration-200"
+                    className="bg-social-icon-bg text-white rounded-full p-0 w-[60px] h-[60px] flex items-center justify-center transform hover:scale-110 transition-all duration-200"
                   >
                     <Image
                       src={social.icon}
                       alt={social.label}
-                      width={24}
-                      height={24}
-                      className="h-auto w-6"
+                      width={30}
+                      height={30}
+                      className="h-auto w-[30px]"
                       loading="lazy"
                     />
                   </a>
@@ -195,28 +215,12 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center py-4">
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4">
-              {clutchBadgesData.map((badge) => (
-                <div
-                  key={badge.altKey}
-                  className="transform hover:scale-105 transition-transform"
-                >
-                  <Image
-                    src={badge.src}
-                    alt={t(badge.altKey as any)}
-                    width={badge.width}
-                    height={badge.height}
-                    className="opacity-90 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              ))}
-            </div>
-            <div className="text-center md:text-right">
-              <p className="text-xs text-neutral-light">
-                {t("copyright", { year: currentYear })}
-              </p>
-            </div>
+          <hr className="border-t border-white/20 my-6" />
+
+          <div className="text-center md:text-right py-4">
+            <p className="text-xs text-neutral-light">
+              {t("copyright", { year: currentYear })}
+            </p>
           </div>
         </div>
       </div>

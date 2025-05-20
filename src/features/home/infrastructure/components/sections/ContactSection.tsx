@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/Input";
 import { Select, SelectOption } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
 import {
   ContactFormDto,
   ContactFormSchema,
@@ -17,19 +18,10 @@ import {
 import { SubmitContactFormUseCase } from "@/features/home/application/SubmitContactFormUseCase";
 import { container } from "@/core/infrastructure/di/inversify.config";
 import { CONTACT_INFO } from "@/core/utils/constants";
-import { IconBrandWhatsapp, IconHandClick } from "@tabler/icons-react";
 import { WhatsAppCtaSection } from "./WhatsAppCtaSection";
 
-class SelectOptionCountries implements SelectOption {
-  value: string;
-  label: string;
+interface SelectOptionCountries extends SelectOption {
   urlImage: string;
-
-  constructor(value: string, label: string, urlImage: string) {
-    this.value = value;
-    this.label = label;
-    this.urlImage = urlImage;
-  }
 }
 
 export const ContactSection: React.FC = () => {
@@ -38,7 +30,7 @@ export const ContactSection: React.FC = () => {
   const tGlobal = useTranslations("Global");
 
   const [submitContactFormUseCase] = useState(() =>
-    container.get(SubmitContactFormUseCase),
+    container.get(SubmitContactFormUseCase)
   );
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -82,6 +74,7 @@ export const ContactSection: React.FC = () => {
     formState: { errors },
     reset,
     watch,
+    setValue,
   } = useForm<ContactFormDto>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -98,7 +91,7 @@ export const ContactSection: React.FC = () => {
       const errorKey = errors[key as keyof ContactFormDto]?.message;
       if (errorKey) {
         clientSideErrors[key as keyof ContactFormDto] = tValidation(
-          errorKey as any,
+          errorKey as any
         );
       }
     }
@@ -116,6 +109,8 @@ export const ContactSection: React.FC = () => {
     if (response.success) {
       setFormStatus("success");
       reset();
+      setValue("countryCode", "PE");
+      setValue("acceptTerms", false);
       setTimeout(() => setFormStatus("idle"), 5000);
     } else {
       setFormStatus("error");
@@ -141,7 +136,7 @@ export const ContactSection: React.FC = () => {
         generalError === t(response.messageKey as any) ||
           generalError === t("errorMessagePrefix")
           ? tValidation("formInvalid")
-          : generalError,
+          : generalError
       );
       setFieldErrors(serverErrors);
     }
@@ -154,8 +149,7 @@ export const ContactSection: React.FC = () => {
           <div className="lg:col-span-5 space-y-8">
             <div className="relative">
               <div
-                className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7"
-                style={{ zIndex: 1 }}
+                className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7 z-10"
               >
                 <div className="flex items-center mb-2">
                   <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
@@ -199,7 +193,7 @@ export const ContactSection: React.FC = () => {
             <WhatsAppCtaSection />
           </div>
 
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 rounded-lg shadow-xl">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
               {t("formTitle")}
             </h2>
@@ -212,31 +206,26 @@ export const ContactSection: React.FC = () => {
                 {...register("fullName")}
                 error={fieldErrors.fullName}
                 inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
+                radius="cta"
                 required
               />
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
                 <div className="sm:col-span-5 relative flex items-center">
-                  <Image
-                    src={
-                      countryOptions.find(
-                        (option) => option.value === selectedCountryCode,
-                      )?.urlImage || ""
-                    }
-                    alt={
-                      countryOptions.find(
-                        (option) => option.value === selectedCountryCode,
-                      )?.label || ""
-                    }
-                    width={20}
-                    height={14}
-                    className="absolute left-3 pointer-events-none z-10"
-                  />
-
+                  {selectedCountryCode && countryOptions.find(option => option.value === selectedCountryCode)?.urlImage && (
+                     <Image
+                        src={countryOptions.find(option => option.value === selectedCountryCode)!.urlImage}
+                        alt={countryOptions.find(option => option.value === selectedCountryCode)!.label}
+                        width={20}
+                        height={14}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10"
+                      />
+                  )}
                   <Select
-                    options={countryOptions}
+                    options={countryOptions.map(({value, label}) => ({value, label}))}
                     {...register("countryCode")}
                     error={fieldErrors.countryCode}
-                    selectClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full pl-10"
+                    selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? 'pl-10' : 'pl-3'}`}
+                    radius="cta"
                     required
                   />
                 </div>
@@ -247,6 +236,7 @@ export const ContactSection: React.FC = () => {
                   containerClassName="sm:col-span-7"
                   inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                   error={fieldErrors.phoneNumber}
+                  radius="cta"
                   required
                 />
               </div>
@@ -256,6 +246,7 @@ export const ContactSection: React.FC = () => {
                 {...register("email")}
                 inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.email}
+                radius="cta"
                 required
               />
               <Textarea
@@ -264,36 +255,25 @@ export const ContactSection: React.FC = () => {
                 {...register("message")}
                 textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.message}
+                radius="cta"
                 required
               />
-              <div className="flex items-start">
-                <input
-                  id="acceptTerms"
-                  type="checkbox"
-                  {...register("acceptTerms")}
-                  className="h-4 w-4 text-primary border-neutral-default rounded focus:ring-primary mt-0.5 cursor-pointer flex-shrink-0"
-                />
-                <label
-                  htmlFor="acceptTerms"
-                  className="ml-2 block text-xs text-neutral-darker cursor-pointer"
-                >
-                  {t.rich("labels.acceptTerms", {
-                    link: (chunks) => (
-                      <a
-                        href="#politicas"
-                        className="font-medium text-primary hover:underline"
-                      >
-                        {chunks}
-                      </a>
-                    ),
-                  })}
-                </label>
-              </div>
-              {fieldErrors.acceptTerms && (
-                <p className="text-xs text-red-600 -mt-4 ml-6">
-                  {fieldErrors.acceptTerms}
-                </p>
-              )}
+              <Checkbox 
+                label={t.rich("labels.acceptTerms", {
+                  link: (chunks) => (
+                    <a
+                      href="#politicas"
+                      className="font-medium text-primary hover:underline"
+                    >
+                      {chunks}
+                    </a>
+                  ),
+                })}
+                {...register("acceptTerms")}
+                error={fieldErrors.acceptTerms}
+                checked={watch("acceptTerms")}
+                onChange={(e) => setValue("acceptTerms", e.target.checked, { shouldValidate: true })}
+              />
 
               {formStatus === "error" && formError && (
                 <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">
@@ -309,7 +289,8 @@ export const ContactSection: React.FC = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full !rounded-full shadow-md hover:shadow-lg transition-shadow font-semibold"
+                radius="cta"
+                className="w-full shadow-md hover:shadow-lg transition-shadow font-semibold"
                 isLoading={formStatus === "loading"}
                 disabled={formStatus === "loading" || formStatus === "success"}
               >
@@ -322,32 +303,5 @@ export const ContactSection: React.FC = () => {
         </div>
       </div>
     </section>
-  );
-};
-
-interface ProfileProps {
-  name: string;
-  role: string;
-  imageUrl: string;
-  online?: boolean;
-}
-
-export const ProfileCard: React.FC<ProfileProps> = ({
-  name,
-  role,
-  imageUrl,
-  online = true,
-}) => {
-  return (
-    <div className="profile-card">
-      <div className="profile-avatar">
-        <img src={imageUrl} alt={name} />
-        {online && <span className="status-dot" />}
-      </div>
-      <div className="profile-info">
-        <h3 className="profile-name">{name}</h3>
-        <p className="profile-role">{role}</p>
-      </div>
-    </div>
   );
 };

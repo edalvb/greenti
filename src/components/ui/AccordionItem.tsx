@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 import { IconChevronDown } from '@tabler/icons-react';
 
@@ -11,6 +9,7 @@ interface AccordionItemProps {
   className?: string;
   titleClassName?: string;
   contentClassName?: string;
+  iconClassName?: string;
   iconSize?: number;
 }
 
@@ -22,6 +21,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   className = '',
   titleClassName = '',
   contentClassName = '',
+  iconClassName = 'text-secondary',
   iconSize = 20,
 }) => {
   return (
@@ -36,7 +36,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
           <span className="flex-1">{title}</span>
           <IconChevronDown
             size={iconSize}
-            className={`transform transition-transform duration-200 text-primary ${isOpen ? 'rotate-180' : ''}`}
+            className={`transform transition-transform duration-200 ${iconClassName} ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </h3>

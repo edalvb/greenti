@@ -3,19 +3,34 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { useCounter } from "@/hooks/useCounter";
+import { motion } from "framer-motion";
 
 export const PresenceSection: React.FC = () => {
   const t = useTranslations("PresenceSection");
   const countries = t.raw("countries") as string[];
 
+  const Counter = ({ to, suffix }: { to: number; suffix?: string }) => {
+    const { count, ref } = useCounter(to, { duration: 2, delay: 0.1 });
+    return (
+      <motion.span ref={ref}>
+        {count}
+        {suffix}
+      </motion.span>
+    );
+  };
+
   const statsData = [
-    { value: "90%", labelKey: "stats.satisfactionRate" },
-    { value: "+15", labelKey: "stats.clients" },
-    { value: "+23", labelKey: "stats.projects" },
+    { value: 90, suffix: "%", labelKey: "stats.satisfactionRate" },
+    { value: 15, prefix: "+", labelKey: "stats.clients" },
+    { value: 23, prefix: "+", labelKey: "stats.projects" },
   ];
 
   return (
-    <section id="presence" className="py-16 md:py-24 bg-neutral-lightest px-responsive">
+    <section
+      id="presence"
+      className="py-16 md:py-24 bg-presence-section px-responsive"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="lg:w-2/5 w-full text-center lg:text-left">
@@ -26,7 +41,8 @@ export const PresenceSection: React.FC = () => {
             <p className="text-neutral-darker mb-8 md:mb-10 leading-relaxed">
               {t("subtitle")}
             </p>
-            <ul className="space-y-4 inline-block text-left lg:mx-0 mx-auto">
+            <ul className="space-y-4 inline-block text-left lg:mx-0 mx-auto relative">
+              <div className="absolute left-[calc(0.75rem-1px)] top-0 bottom-0 w-px bg-primary/30 -z-10"></div>
               {countries.map((countryName, index) => {
                 const flagSlug = countryName
                   .toLowerCase()
@@ -36,13 +52,11 @@ export const PresenceSection: React.FC = () => {
                   .replace(/[^a-z0-9_]/g, "");
 
                 return (
-                  <li key={countryName} className="flex items-center">
-                    <div className="flex flex-col items-center mr-3 shrink-0">
-                      <span className="block w-3 h-3 bg-primary rounded-full"></span>
-                      {index < countries.length - 1 && (
-                        <span className="block w-px flex-1 bg-primary/50"></span>
-                      )}
-                    </div>
+                  <li
+                    key={countryName}
+                    className="flex items-center relative pl-6"
+                  >
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 block w-3 h-3 bg-primary rounded-full border-2 border-presence-section"></span>
                     <Image
                       src={`/assets/icons/${flagSlug}.svg`}
                       alt={t("countryFlagAlt", { country: countryName })}
@@ -77,7 +91,8 @@ export const PresenceSection: React.FC = () => {
                 <React.Fragment key={stat.labelKey}>
                   <div className="flex flex-col items-center px-2 py-2">
                     <p className="text-4xl md:text-5xl font-bold text-secondary">
-                      {stat.value}
+                      {stat.prefix}
+                      <Counter to={stat.value} suffix={stat.suffix} />
                     </p>
                     <p className="text-sm text-neutral-darker mt-1.5 whitespace-nowrap">
                       {t(stat.labelKey as any)}

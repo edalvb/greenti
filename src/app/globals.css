@@ -2,58 +2,29 @@
 
 @theme {
   --color-primary: 147 79% 40%;
-  /* #12B759 */
   --color-secondary: 206 100% 13%;
-  /* #002140 */
   --color-accent-light: 150 67% 93%;
-  /* #E6F8EF */
   --color-accent-default: 147 79% 40%;
-  /* #12B759 */
   --color-accent-dark: 148 81% 30%;
-  /* #0D8C43 */
 
-  --color-neutral-lightest: 210 17% 98%;
-  /* #F8F9FA */
+  --color-neutral-lightest: 0 0% 100%;
   --color-neutral-lighter: 210 16% 93%;
-  /* #E9ECEF */
   --color-neutral-light: 210 14% 89%;
-  /* #DEE2E6 */
   --color-neutral-default: 210 14% 82%;
-  /* #CED4DA */
   --color-neutral-dark: 208 10% 61%;
-  /* #ADB5BD */
   --color-neutral-darker: 210 9% 45%;
-  /* #6C757D */
   --color-neutral-darkest: 210 10% 15%;
-  /* #212529 */
 
   --color-background: var(--color-neutral-lightest);
   --color-foreground: var(--color-neutral-darkest);
 
-  --border-radius: 0.375rem;
+  --color-presence-section-bg: 0 0% 94%;
+  --color-whatsapp-icon: 135 65% 50%;
+  --color-social-icon-bg: 210 10% 25%;
+
+  --border-radius-default: 0.375rem;
+  --border-radius-cta: 30px;
 }
-
-/* Opcional: Modo oscuro si se desea implementar más adelante */
-/* 
-.dark {
-  --color-primary: 147 79% 45%; 
-  --color-secondary: 206 100% 18%; 
-  --color-accent-light: 150 67% 20%; 
-  --color-accent-default: 147 79% 45%; 
-  --color-accent-dark: 148 81% 35%;
-
-  --color-neutral-lightest: 210 10% 15%; 
-  --color-neutral-lighter: 210 9% 20%; 
-  --color-neutral-light: 208 10% 25%; 
-  --color-neutral-default: 210 14% 35%; 
-  --color-neutral-dark: 210 14% 50%; 
-  --color-neutral-darker: 210 16% 70%; 
-  --color-neutral-darkest: 210 17% 95%;
-
-  --color-background: var(--color-neutral-lightest);
-  --color-foreground: var(--color-neutral-darkest);
-}
-*/
 
 @layer base {
   body {
@@ -101,7 +72,6 @@
     background-color: hsl(var(--color-accent-default));
   }
 
-  /* Colores neutrales como utilidades */
   .bg-neutral-lightest {
     background-color: hsl(var(--color-neutral-lightest));
   }
@@ -166,6 +136,38 @@
     background-color: hsl(var(--color-neutral-lighter));
   }
 
+  .bg-presence-section {
+    background-color: hsl(var(--color-presence-section-bg));
+  }
+
+  .text-whatsapp-icon {
+    color: hsl(var(--color-whatsapp-icon));
+  }
+
+  .bg-social-icon {
+    background-color: hsl(var(--color-social-icon-bg));
+  }
+
+  .rounded-btn-cta {
+    border-radius: var(--border-radius-cta);
+  }
+
+  .text-neutral-lightest {
+    color: hsl(var(--color-neutral-lightest));
+  }
+
+  .text-neutral-darkest {
+    color: hsl(var(--color-neutral-darkest));
+  }
+
+  .color-whatsapp-cta {
+    color: #E7F0EF
+  }
+
+  .shadow-deep {
+    box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+  }
+
   .px-responsive {
     padding-left: 3rem;
     padding-right: 3rem;
@@ -173,20 +175,19 @@
 
   @media (min-width: 640px) {
     .px-responsive {
-      padding-left: 3.5rem;
-      padding-right: 3.5rem;
+      padding-left: 4.5rem;
+      padding-right: 4.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .px-responsive {
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding-left: 8rem;
+      padding-right: 8rem;
     }
   }
 }
 
-/* Estilos de scrollbar (opcional) */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -205,8 +206,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: hsl(var(--color-neutral-dark));
 }
-
-/* Profile */
 
 .profile-card {
   display: flex;
@@ -237,7 +236,6 @@
   width: 0.75rem;
   height: 0.75rem;
   background: var(--color-primary);
-  /* verde “online” */
   border: 2px solid white;
   border-radius: 9999px;
 }
@@ -252,5 +250,4 @@
   margin: 0;
   font-size: 0.875rem;
   color: #6B7280;
-  /* gris suave */
 }

@@ -34,11 +34,11 @@ export default async function LandingPage({ params }: any) {
   return (
     <>
       <HeroSection />
-      <ClientLogosSection />
       <ServicesSection />
       <SectorsSection />
       <PresenceSection />
       <TestimonialsSection />
+      <ClientLogosSection />
       <CtaBannerSection />
       <FaqSection />
       <ContactSection />

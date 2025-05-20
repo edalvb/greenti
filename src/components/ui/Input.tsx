@@ -7,6 +7,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   labelClassName?: string;
   inputClassName?: string;
   errorClassName?: string;
+  radius?: "default" | "cta";
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -22,6 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       inputClassName = "",
       errorClassName = "",
       name,
+      radius = "cta",
       ...props
     },
     ref
@@ -29,8 +31,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     const generatedId = useId();
     const inputId = id || (name ? `${name}-${generatedId}` : generatedId);
 
+    const radiusStyles = {
+      default: "rounded-md",
+      cta: "rounded-btn-cta",
+    };
+
     const baseInputStyles =
-      "flex h-10 w-full rounded-md border bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50";
+      `flex h-10 w-full border bg-transparent px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-neutral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`;
     
     const errorStateStyles = error ? "border-red-500 focus-visible:ring-red-500" : "border-neutral-light";
 
@@ -48,7 +55,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           id={inputId}
           name={name}
           type={type}
-          className={`${baseInputStyles} ${errorStateStyles} ${inputClassName} ${className}`}
+          className={`${baseInputStyles} ${radiusStyles[radius]} ${errorStateStyles} ${inputClassName} ${className}`}
           ref={ref}
           aria-invalid={!!error}
           aria-describedby={error ? `${inputId}-error` : undefined}
