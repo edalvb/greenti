@@ -13,9 +13,9 @@ export const WhatsAppCtaSection: React.FC = () => {
       href={whatsappLink}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-accent-light p-6 md:p-8 rounded-btn-cta shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer"
+      className="block color-whatsapp-cta p-6 md:p-8 rounded-btn-cta hover:shadow-lg transition-all duration-200 group cursor-pointer"
       whileHover={{ y: -5 }}
-      transition={{ type: "spring", stiffness: 300 }}
+      transition={{ type: "spring", stiffness: 200 }}
     >
       <div className="flex justify-between items-center color-whatsapp-cta">
         <div className="max-w-[calc(100%-70px)]">

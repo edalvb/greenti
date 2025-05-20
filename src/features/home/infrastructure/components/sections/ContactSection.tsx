@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
@@ -30,7 +30,7 @@ export const ContactSection: React.FC = () => {
   const tGlobal = useTranslations("Global");
 
   const [submitContactFormUseCase] = useState(() =>
-    container.get(SubmitContactFormUseCase)
+    container.get(SubmitContactFormUseCase),
   );
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -91,7 +91,7 @@ export const ContactSection: React.FC = () => {
       const errorKey = errors[key as keyof ContactFormDto]?.message;
       if (errorKey) {
         clientSideErrors[key as keyof ContactFormDto] = tValidation(
-          errorKey as any
+          errorKey as any,
         );
       }
     }
@@ -136,64 +136,70 @@ export const ContactSection: React.FC = () => {
         generalError === t(response.messageKey as any) ||
           generalError === t("errorMessagePrefix")
           ? tValidation("formInvalid")
-          : generalError
+          : generalError,
       );
       setFieldErrors(serverErrors);
     }
   };
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-neutral-lightest px-responsive">
+    <section
+      id="contact"
+      className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          <div className="lg:col-span-5 space-y-8">
-            <div className="relative">
-              <div
-                className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7 z-10"
-              >
-                <div className="flex items-center mb-2">
-                  <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
-                  <p className="text-lg font-bold text-secondary">
-                    {t("avatarSubtitle").split(" - ")[0]}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <div className="lg:col-span-7 flex flex-col justify-between">
+            <div className="space-y-8">
+              <div className="relative">
+                <div className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7 z-10">
+                  <div className="flex items-center mb-2">
+                    <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
+                    <p className="text-lg font-bold text-secondary">
+                      {t("avatarSubtitle").split(" - ")[0]}
+                    </p>
+                  </div>
+                  <p className="text-sm text-neutral-darker">
+                    {t("avatarSubtitle").split(" - ")[1]}
                   </p>
                 </div>
-                <p className="text-sm text-neutral-darker">
-                  {t("avatarSubtitle").split(" - ")[1]}
+                <div className="absolute -top-8 -left-4 w-24 h-24 md:w-28 md:h-28 bg-transparent">
+                  <Image
+                    src="/assets/images/contact_avatar_maria.png"
+                    alt={t("avatarSubtitle")}
+                    className="rounded-3xl object-cover shadow-lg"
+                    fill
+                    sizes="(max-width: 768px) 96px, 112px"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-40">
+                <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
+                <p className="text-secondary mb-1 text-sm">
+                  {t("instruction")}{" "}
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
+                  >
+                    {CONTACT_INFO.email}
+                  </a>
+                </p>
+
+                <p className="text-sm text-secondary mt-6">
+                  <span className="font-bold">{t("availability.prefix")}</span>
+                  {t("availability.sufix")}
                 </p>
               </div>
-              <div className="absolute -top-8 -left-4 w-24 h-24 md:w-28 md:h-28 bg-transparent">
-                <Image
-                  src="/assets/images/contact_avatar_maria.png"
-                  alt={t("avatarSubtitle")}
-                  className="rounded-3xl object-cover shadow-lg"
-                  fill
-                  sizes="(max-width: 768px) 96px, 112px"
-                />
-              </div>
             </div>
-
-            <div className="mt-40">
-              <p className="text-secondary mt-4 mb-3 text-sm">{t("intro")}</p>
-              <p className="text-secondary mb-1 text-sm">
-                {t("instruction")}{" "}
-                <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
-                >
-                  {CONTACT_INFO.email}
-                </a>
-              </p>
-
-              <p className="text-sm text-secondary mt-6">
-                <span className="font-bold">{t("availability.prefix")}</span>
-                {t("availability.sufix")}
-              </p>
+            
+            <div className="lg:pr-12">
+              <WhatsAppCtaSection />
             </div>
-
-            <WhatsAppCtaSection />
+            
           </div>
 
-          <div className="lg:col-span-7 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
+          <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
               {t("formTitle")}
             </h2>
@@ -202,7 +208,7 @@ export const ContactSection: React.FC = () => {
             </p>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <Input
-                placeholder={t("placeholders.fullName")}
+                placeholder={t("labels.fullName")}
                 {...register("fullName")}
                 error={fieldErrors.fullName}
                 inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
@@ -211,27 +217,41 @@ export const ContactSection: React.FC = () => {
               />
               <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
                 <div className="sm:col-span-5 relative flex items-center">
-                  {selectedCountryCode && countryOptions.find(option => option.value === selectedCountryCode)?.urlImage && (
-                     <Image
-                        src={countryOptions.find(option => option.value === selectedCountryCode)!.urlImage}
-                        alt={countryOptions.find(option => option.value === selectedCountryCode)!.label}
+                  {selectedCountryCode &&
+                    countryOptions.find(
+                      (option) => option.value === selectedCountryCode,
+                    )?.urlImage && (
+                      <Image
+                        src={
+                          countryOptions.find(
+                            (option) => option.value === selectedCountryCode,
+                          )!.urlImage
+                        }
+                        alt={
+                          countryOptions.find(
+                            (option) => option.value === selectedCountryCode,
+                          )!.label
+                        }
                         width={20}
                         height={14}
                         className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10"
                       />
-                  )}
+                    )}
                   <Select
-                    options={countryOptions.map(({value, label}) => ({value, label}))}
+                    options={countryOptions.map(({ value, label }) => ({
+                      value,
+                      label,
+                    }))}
                     {...register("countryCode")}
                     error={fieldErrors.countryCode}
-                    selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? 'pl-10' : 'pl-3'}`}
+                    selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? "pl-10" : "pl-3"}`}
                     radius="cta"
                     required
                   />
                 </div>
                 <Input
                   type="tel"
-                  placeholder={t("placeholders.phoneNumber")}
+                  placeholder={t("labels.phoneNumber")}
                   {...register("phoneNumber")}
                   containerClassName="sm:col-span-7"
                   inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
@@ -242,7 +262,7 @@ export const ContactSection: React.FC = () => {
               </div>
               <Input
                 type="email"
-                placeholder={t("placeholders.email")}
+                placeholder={t("labels.email")}
                 {...register("email")}
                 inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.email}
@@ -251,14 +271,14 @@ export const ContactSection: React.FC = () => {
               />
               <Textarea
                 rows={4}
-                placeholder={t("placeholders.message")}
+                placeholder={t("labels.message")}
                 {...register("message")}
                 textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                 error={fieldErrors.message}
                 radius="cta"
                 required
               />
-              <Checkbox 
+              <Checkbox
                 label={t.rich("labels.acceptTerms", {
                   link: (chunks) => (
                     <a
@@ -272,7 +292,11 @@ export const ContactSection: React.FC = () => {
                 {...register("acceptTerms")}
                 error={fieldErrors.acceptTerms}
                 checked={watch("acceptTerms")}
-                onChange={(e) => setValue("acceptTerms", e.target.checked, { shouldValidate: true })}
+                onChange={(e) =>
+                  setValue("acceptTerms", e.target.checked, {
+                    shouldValidate: true,
+                  })
+                }
               />
 
               {formStatus === "error" && formError && (

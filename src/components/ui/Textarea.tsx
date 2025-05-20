@@ -1,6 +1,7 @@
 import React, { TextareaHTMLAttributes, forwardRef, useId } from "react";
 
-export interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps
+  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   error?: string;
   containerClassName?: string;
@@ -26,7 +27,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       radius = "cta",
       ...props
     },
-    ref
+    ref,
   ) => {
     const generatedId = useId();
     const textareaId = id || (name ? `${name}-${generatedId}` : generatedId);
@@ -36,10 +37,11 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       cta: "rounded-btn-cta",
     };
 
-    const baseTextareaStyles =
-      `flex min-h-[80px] w-full border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`;
-    
-    const errorStateStyles = error ? "border-red-500 focus-visible:ring-red-500" : "border-neutral-light";
+    const baseTextareaStyles = `resize-none flex min-h-[80px] w-full border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`;
+
+    const errorStateStyles = error
+      ? "border-red-500 focus-visible:ring-red-500"
+      : "border-neutral-light";
 
     return (
       <div className={`w-full ${containerClassName}`}>
@@ -62,8 +64,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           {...props}
         />
         {error && (
-          <p 
-            id={`${textareaId}-error`} 
+          <p
+            id={`${textareaId}-error`}
             className={`mt-1 text-xs text-red-600 ${errorClassName}`}
             role="alert"
           >
@@ -72,6 +74,6 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         )}
       </div>
     );
-  }
+  },
 );
 Textarea.displayName = "Textarea";
