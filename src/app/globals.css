@@ -186,6 +186,21 @@
       padding-right: 8rem;
     }
   }
+
+  /* Custom dashed line utilities */
+  .line-dashed-horizontal-custom {
+    background-image: linear-gradient(to right, #E6E6F1 50%, transparent 50%);
+    background-size: 10px 1px;
+    background-repeat: repeat-x;
+    height: 1px;
+  }
+
+  .line-dashed-vertical-custom {
+    background-image: linear-gradient(to bottom, #E6E6F1 50%, transparent 50%);
+    background-size: 1px 10px;
+    background-repeat: repeat-y;
+    width: 1px;
+  }
 }
 
 ::-webkit-scrollbar {

@@ -41,27 +41,37 @@ export const SectorsSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="relative flex flex-col md:flex-row justify-around items-center gap-8 md:gap-0">
-          <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-primary/30 transform -translate-y-1/2 z-0"></div>
-          {sectors.map((sector, index) => (
-            <React.Fragment key={sector.titlePart1Key}>
-              <div className="bg-white w-64 h-64 md:w-80 md:h-80 rounded-full shadow-deep duration-300 flex flex-col items-center justify-center text-center p-8 relative z-10">
-                <h3 className="text-2xl font-medium text-secondary mb-3">
-                  {t(sector.titlePart1Key as any)}
-                  <br />
-                  <span className="font-bold text-primary text-2xl">
-                    {t(sector.titlePart2Key as any)}
-                  </span>
-                </h3>
-                <p className="text-sm text-neutral-darker leading-relaxed">
-                  {t(sector.descriptionKey as any)}
-                </p>
-              </div>
-              {index < sectors.length - 1 && (
-                <div className="block md:hidden w-0.5 h-10 bg-primary/30 my-4 self-center"></div>
-              )}
-            </React.Fragment>
-          ))}
+        <div className="relative">
+          <div
+            className="hidden md:block absolute top-1/2 left-[10rem] right-[10rem] transform -translate-y-1/2 z-0 line-dashed-horizontal-custom"
+            aria-hidden="true"
+          ></div>
+
+          <div className="relative flex flex-col md:flex-row justify-around items-center gap-16 md:gap-0">
+            {sectors.map((sector, index) => (
+              <React.Fragment key={sector.titlePart1Key}>
+                <div className="bg-white w-64 h-64 md:w-80 md:h-80 rounded-full shadow-deep duration-300 flex flex-col items-center justify-center text-center p-8 relative z-10">
+                  <h3 className="text-2xl font-medium text-secondary mb-3">
+                    {t(sector.titlePart1Key as any)}
+                    <br />
+                    <span className="font-bold text-primary text-2xl">
+                      {t(sector.titlePart2Key as any)}
+                    </span>
+                  </h3>
+                  <p className="text-sm text-neutral-darker leading-relaxed">
+                    {t(sector.descriptionKey as any)}
+                  </p>
+                </div>
+
+                {index < sectors.length - 1 && (
+                  <div
+                    className="block md:hidden h-10 my-4 self-center line-dashed-vertical-custom"
+                    aria-hidden="true"
+                  ></div>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
         </div>
       </div>
     </section>
