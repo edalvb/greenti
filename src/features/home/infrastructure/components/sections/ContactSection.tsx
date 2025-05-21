@@ -278,7 +278,7 @@ export const ContactSection: React.FC = () => {
               />
 
               <div>
-                <label className="inline-flex items-center space-x-2">
+                <label className="inline-flex items-center space-x-2 cursor-pointer">
                   <input
                     type="checkbox"
                     {...register("acceptTerms")}
@@ -291,11 +291,11 @@ export const ContactSection: React.FC = () => {
                     }
                     className={`
                       flex 
-                      h-4 w-4 
+                      w-5 h-5
                       cursor-pointer 
                       items-center 
                       justify-center 
-                      rounded 
+                      rounded-btn-cta 
                       scheme-normal
                       border-2 
                       border-neutral-dark 

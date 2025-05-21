@@ -132,7 +132,7 @@
       "phoneNumber": "Phone number",
       "email": "Email",
       "message": "Tell us about your project",
-      "acceptTerms": "I confirm that I have read and accept the {link} for personal data protection."
+      "acceptTerms": "I confirm that I have read and accept the <link>policies</link> for personal data protection."
     },
     "placeholders": {
       "fullName": "E.g., John Doe",
