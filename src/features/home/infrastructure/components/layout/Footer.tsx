@@ -50,20 +50,20 @@ const clutchBadgesData = [
   {
     src: "/assets/images/clutch_badge_1.svg",
     altKey: "ClutchGlobalSpring2024",
-    width: 105,
-    height: 96,
+    width: 120,
+    height: 103,
   },
   {
     src: "/assets/images/clutch_badge_2.svg",
     altKey: "ClutchGlobalFall2023",
-    width: 105,
-    height: 96,
+    width: 120,
+    height: 103,
   },
   {
     src: "/assets/images/clutch_badge_3.svg",
     altKey: "Clutch1000Fall2023",
-    width: 96,
-    height: 96,
+    width: 128,
+    height: 101,
   },
 ];
 
@@ -171,22 +171,6 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 pb-4">
-            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4 order-2 md:order-1">
-              {clutchBadgesData.map((badge) => (
-                <div
-                  key={badge.altKey}
-                  className="transform hover:scale-105 transition-transform h-16 flex items-center"
-                >
-                  <Image
-                    src={badge.src}
-                    alt={t(badge.altKey as any)}
-                    width={badge.width * 0.75}
-                    height={badge.height * 0.75}
-                    className="opacity-90 hover:opacity-100 transition-opacity object-contain"
-                  />
-                </div>
-              ))}
-            </div>
             <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
               <h3 className="text-base font-semibold text-white mb-3">
                 {t("followUs")}
@@ -199,7 +183,7 @@ export const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="bg-social-icon-bg text-white rounded-full p-0 w-[60px] h-[60px] flex items-center justify-center transform hover:scale-110 transition-all duration-200"
+                    className="bg-social-icon text-white rounded-full p-0 w-[60px] h-[60px] flex items-center justify-center transform hover:scale-110 transition-all duration-200"
                   >
                     <Image
                       src={social.icon}
@@ -218,6 +202,23 @@ export const Footer: React.FC = () => {
           <hr className="border-t border-white/20 my-6" />
 
           <div className="text-center md:text-right py-4">
+            <div className="flex flex-wrap justify-center md:justify-start items-center gap-x-4 gap-y-4 order-2 md:order-1">
+              {clutchBadgesData.map((badge) => (
+                <div
+                  key={badge.altKey}
+                  className="h-[101px] flex items-center justify-center transform hover:scale-105 transition-transform"
+                >
+                  <Image
+                    src={badge.src}
+                    alt={t(badge.altKey as any)}
+                    width={badge.width}
+                    height={badge.height}
+                    className="max-w-full max-h-full object-contain opacity-90 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              ))}
+            </div>
+
             <p className="text-xs text-neutral-light">
               {t("copyright", { year: currentYear })}
             </p>
