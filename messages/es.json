@@ -132,7 +132,7 @@
       "phoneNumber": "Número de teléfono",
       "email": "Correo electrónico",
       "message": "Cuéntanos sobre tu proyecto",
-      "acceptTerms": "Confirmo que he leído y acepto las <link>políticas</link> de protección de datos personales."
+      "acceptTerms": "Confirmo que he leído y acepto las {link} de protección de datos personales."
     },
     "placeholders": {
       "fullName": "Ej: Juan Pérez",
@@ -252,5 +252,17 @@
     "publicSectorTitlePart1": "Sector",
     "publicSectorTitlePart2": "Público",
     "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
+  },
+  "AboutUsSection": {
+    "titlePart1": "Quienes",
+    "titlePart2": "somos",
+    "description": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "discoverMore": "Descubre más",
+    "infoCardTitle1": "Título de sección",
+    "infoCardItem1_1": "Lorem ipsum amet, consectetur",
+    "infoCardItem1_2": "Lorem ipsum amet, consectetur",
+    "infoCardItem1_3": "Lorem ipsum amet, consectetur",
+    "infoCardTitle2": "Título",
+    "infoCardItem2_1": "Lorem ipsum amet"
   }
 }

@@ -132,7 +132,7 @@
       "phoneNumber": "Phone number",
       "email": "Email",
       "message": "Tell us about your project",
-      "acceptTerms": "I confirm that I have read and accept the <link>policies</link> for personal data protection."
+      "acceptTerms": "I confirm that I have read and accept the {link} for personal data protection."
     },
     "placeholders": {
       "fullName": "E.g., John Doe",
@@ -231,8 +231,7 @@
     "titlePart1": "Our",
     "titlePart2": "Services",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
-    "projectDevelopmentTitle": "Project Development",
-    "projectDevelopmentDescription": "Creation of IT solutions applying different technologies and methodologies.",
+    "projectDevelopmentTitle": "Creation of IT solutions applying different technologies and methodologies.",
     "uiUxTitle": "UI/UX Design",
     "uiUxDescription": "We design usable and attractive apps/websites for your users.",
     "multiplatformAppsTitle": "Multiplatform App Development",
@@ -252,5 +251,17 @@
     "publicSectorTitlePart1": "Public",
     "publicSectorTitlePart2": "Sector",
     "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
+  },
+  "AboutUsSection": {
+    "titlePart1": "Who are",
+    "titlePart2": "we",
+    "description": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "discoverMore": "Discover more",
+    "infoCardTitle1": "Section Title",
+    "infoCardItem1_1": "Lorem ipsum amet, consectetur",
+    "infoCardItem1_2": "Lorem ipsum amet, consectetur",
+    "infoCardItem1_3": "Lorem ipsum amet, consectetur",
+    "infoCardTitle2": "Title",
+    "infoCardItem2_1": "Lorem ipsum amet"
   }
 }

@@ -10,6 +10,7 @@ import { FaqSection } from "@/features/home/infrastructure/components/sections/F
 import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
+import { AboutUsSection } from "@/features/home/infrastructure/components/sections/AboutUsSection";
 
 export async function generateMetadata({ params }: any) {
   const locale = await Util.getLocale(params);
@@ -34,6 +35,7 @@ export default async function LandingPage({ params }: any) {
   return (
     <>
       <HeroSection />
+      <AboutUsSection />
       <ServicesSection />
       <SectorsSection />
       <PresenceSection />
