@@ -27,7 +27,7 @@ export const ClientLogosSection: React.FC = () => {
   const carouselItems = STATIC_CLIENT_LOGOS.map((logo) => (
     <div
       key={logo.altKey}
-      className="relative h-8 md:h-10 w-full opacity-80 hover:opacity-100 transition-opacity duration-300"
+      className="relative h-8 md:h-10 w-full opacity-80 group-hover:opacity-100 transition-opacity duration-300" // group-hover on parent for item opacity
     >
       <Image
         src={logo.src}
@@ -46,7 +46,18 @@ export const ClientLogosSection: React.FC = () => {
       className="py-12 md:py-16 bg-neutral-lightest px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <Carousel items={carouselItems} itemWidth={160} gap={80} speed={0.8} />
+        {/* Contenedor para aplicar la máscara de difuminado */}
+        <div
+          className="relative group" // 'group' para que los items puedan reaccionar al hover si es necesario
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+          }}
+        >
+          <Carousel items={carouselItems} itemWidth={160} gap={80} speed={30} />
+        </div>
       </div>
     </section>
   );
