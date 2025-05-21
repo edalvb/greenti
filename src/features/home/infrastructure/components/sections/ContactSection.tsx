@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/Input";
 import { Select, SelectOption } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
-import { Checkbox } from "@/components/ui/Checkbox";
 import {
   ContactFormDto,
   ContactFormSchema,
@@ -277,26 +276,66 @@ export const ContactSection: React.FC = () => {
                 radius="cta"
                 required
               />
-              <Checkbox
-                label={t.rich("labels.acceptTerms", {
-                  link: (chunks) => (
-                    <a
-                      href="#politicas"
-                      className="font-medium text-primary hover:underline"
-                    >
-                      {chunks}
-                    </a>
-                  ),
-                })}
-                {...register("acceptTerms")}
-                error={fieldErrors.acceptTerms}
-                checked={watch("acceptTerms")}
-                onChange={(e) =>
-                  setValue("acceptTerms", e.target.checked, {
-                    shouldValidate: true,
-                  })
-                }
-              />
+
+              <div>
+                <label className="inline-flex items-center space-x-2">
+                  <input
+                    type="checkbox"
+                    {...register("acceptTerms")}
+                    checked={watch("acceptTerms")}
+                    aria-invalid={!!fieldErrors.acceptTerms}
+                    aria-describedby={
+                      fieldErrors.acceptTerms
+                        ? "checkbox-form-error"
+                        : undefined
+                    }
+                    className={`
+                      flex 
+                      h-4 w-4 
+                      cursor-pointer 
+                      items-center 
+                      justify-center 
+                      rounded 
+                      scheme-normal
+                      border-2 
+                      border-neutral-dark 
+                      bg-white 
+                      transition-all 
+                      peer-checked:border-primary 
+                      peer-checked:bg-primary 
+                      peer-focus-visible:ring-2 
+                      peer-focus-visible:ring-primary 
+                      peer-focus-visible:ring-offset-2 
+                      ${fieldErrors.acceptTerms ? "border-red-500" : ""}`}
+                    onChange={(e) => {
+                      setValue("acceptTerms", e.target.checked, {
+                        shouldValidate: true,
+                      });
+                    }}
+                  />
+                  <span className="text-sm">
+                    {t.rich("labels.acceptTerms", {
+                      link: (chunks) => (
+                        <a
+                          href="#politicas"
+                          className="font-medium text-primary hover:underline"
+                        >
+                          {chunks}
+                        </a>
+                      ),
+                    })}
+                  </span>
+                </label>
+              </div>
+              {fieldErrors.acceptTerms && (
+                <p
+                  id="checkbox-form-error"
+                  className={`mt-1 text-xs text-red-600`}
+                  role="alert"
+                >
+                  {fieldErrors.acceptTerms}
+                </p>
+              )}
 
               {formStatus === "error" && formError && (
                 <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">

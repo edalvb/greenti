@@ -1,25 +1,13 @@
 import { z } from "zod";
 
 export const ContactFormSchema = z.object({
-  fullName: z
-    .string()
-    .min(2, "ValidationErrors.nameMinLength")
-    .max(100, "ValidationErrors.nameMaxLength"),
-  countryCode: z.string().min(1, "ValidationErrors.countryRequired"),
-  phoneNumber: z
-    .string()
-    .min(5, "ValidationErrors.phoneMinLength")
-    .max(20, "ValidationErrors.phoneMaxLength"),
-  email: z
-    .string()
-    .email("ValidationErrors.emailInvalid")
-    .min(1, "ValidationErrors.emailRequired"),
-  message: z
-    .string()
-    .min(10, "ValidationErrors.messageMinLength")
-    .max(500, "ValidationErrors.messageMaxLength"),
+  fullName: z.string().min(2, "nameMinLength").max(100, "nameMaxLength"),
+  countryCode: z.string().min(1, "countryRequired"),
+  phoneNumber: z.string().min(5, "phoneMinLength").max(20, "phoneMaxLength"),
+  email: z.string().email("emailInvalid").min(1, "emailRequired"),
+  message: z.string().min(10, "messageMinLength").max(500, "messageMaxLength"),
   acceptTerms: z.boolean().refine((value) => value === true, {
-    message: "ValidationErrors.termsRequired",
+    message: "termsRequired",
   }),
 });
 
