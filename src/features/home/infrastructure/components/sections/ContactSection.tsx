@@ -192,11 +192,10 @@ export const ContactSection: React.FC = () => {
                 </p>
               </div>
             </div>
-            
+
             <div className="lg:pr-12">
               <WhatsAppCtaSection />
             </div>
-            
           </div>
 
           <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
@@ -314,7 +313,7 @@ export const ContactSection: React.FC = () => {
                 type="submit"
                 size="lg"
                 radius="cta"
-                className="w-full shadow-md hover:shadow-lg transition-shadow font-semibold"
+                className="w-full text-white"
                 isLoading={formStatus === "loading"}
                 disabled={formStatus === "loading" || formStatus === "success"}
               >
