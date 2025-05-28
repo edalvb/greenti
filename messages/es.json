@@ -255,14 +255,30 @@
   },
   "AboutUsSection": {
     "titlePart1": "Quienes",
-    "titlePart2": "somos",
-    "description": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
-    "discoverMore": "Descubre más",
-    "infoCardTitle1": "Título de sección",
-    "infoCardItem1_1": "Lorem ipsum amet, consectetur",
-    "infoCardItem1_2": "Lorem ipsum amet, consectetur",
-    "infoCardItem1_3": "Lorem ipsum amet, consectetur",
-    "infoCardTitle2": "Título",
-    "infoCardItem2_1": "Lorem ipsum amet"
+    "titlePart2": "Somos",
+    "description": "En GreenTI, somos más que una empresa de desarrollo de software; somos tu socio estratégico en la transformación digital. Con un equipo apasionado por la innovación y la excelencia, nos dedicamos a crear soluciones tecnológicas a medida que impulsan el crecimiento y la eficiencia de tu negocio. Desde aplicaciones móviles intuitivas hasta sistemas empresariales robustos, nuestro enfoque se centra en entender tus necesidades únicas para ofrecerte resultados que superen tus expectativas.",
+    "discoverMore": "Descubre más sobre nosotros",
+    "infoCardTitle1": "Nuestro Enfoque",
+    "infoCardItem1_1": "Soluciones personalizadas",
+    "infoCardItem1_2": "Tecnología de vanguardia",
+    "infoCardItem1_3": "Colaboración transparente",
+    "infoCardTitle2": "Resultados",
+    "infoCardItem2_1": "+5 años de experiencia"
+  },
+  "AboutUsSectionFigma": {
+    "card1Title": "Explora Nuestra Cultura",
+    "card1Item1": "Innovación constante y creativa.",
+    "card1Item2": "Colaboración y trabajo en equipo.",
+    "card1Item3": "Desarrollo y crecimiento profesional.",
+    "card2Title": "Impacto",
+    "card2Item1Label": "Proyectos Exitosos",
+    "card2Item1Description": "Transformando ideas en realidad digital.",
+    "mainTitlePart1": "Quienes ",
+    "mainTitlePart2": "somos",
+    "mainDescription": "En GreenTI, fusionamos la pasión por la tecnología con un compromiso inquebrantable hacia nuestros clientes. Somos un equipo de innovadores, pensadores y creadores dedicados a construir soluciones de software que no solo resuelven problemas, sino que también inspiran y transforman. Creemos en el poder de la colaboración y la transparencia para forjar el futuro digital, un proyecto a la vez.",
+    "ctaLinkText": "Descubre más",
+    "image1Alt": "Imagen principal de la sección Quiénes Somos mostrando colaboración en oficina.",
+    "image2Alt": "Imagen secundaria de la sección Quiénes Somos con desarrolladores concentrados.",
+    "image3Alt": "Imagen terciaria de la sección Quiénes Somos destacando trabajo individual enfocado."
   }
 }

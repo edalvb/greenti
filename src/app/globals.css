@@ -22,6 +22,11 @@
   --color-whatsapp-icon: 135 65% 50%;
   --color-social-icon-bg: 225 89% 96%;
 
+  --color-decorative-emerald-light: 151 76% 81%;
+  --color-decorative-purple-light: 276 100% 92%;
+  --color-decorative-red-light: 0 93% 89%;
+  --color-decorative-orange-light: 31 100% 91%;
+
   --border-radius-default: 0.375rem;
   --border-radius-cta: 30px;
 }
@@ -120,10 +125,6 @@
     color: hsl(var(--color-neutral-dark));
   }
 
-  .text-neutral-darker {
-    color: hsl(var(--color-neutral-darker));
-  }
-
   .placeholder-neutral-dark {
     color: hsl(var(--color-neutral-dark));
   }
@@ -148,6 +149,22 @@
     background-color: hsl(var(--color-social-icon-bg));
   }
 
+  .bg-decorative-emerald-light {
+    background-color: hsl(var(--color-decorative-emerald-light));
+  }
+
+  .bg-decorative-purple-light {
+    background-color: hsl(var(--color-decorative-purple-light));
+  }
+
+  .bg-decorative-red-light {
+    background-color: hsl(var(--color-decorative-red-light));
+  }
+
+  .bg-decorative-orange-light {
+    background-color: hsl(var(--color-decorative-orange-light));
+  }
+
   .rounded-btn-cta {
     border-radius: var(--border-radius-cta);
   }
@@ -166,6 +183,10 @@
 
   .shadow-deep {
     box-shadow: 0 10px 60px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shadow-figma-card {
+    box-shadow: 0px 30px 90px 0px hsla(206, 100%, 13%, 0.25);
   }
 
   .px-responsive {
@@ -187,7 +208,6 @@
     }
   }
 
-  /* Custom dashed line utilities */
   .line-dashed-horizontal-custom {
     background-image: linear-gradient(to right, #E6E6F1 50%, transparent 50%);
     background-size: 10px 1px;

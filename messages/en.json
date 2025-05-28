@@ -253,15 +253,31 @@
     "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
   },
   "AboutUsSection": {
-    "titlePart1": "Who are",
-    "titlePart2": "we",
-    "description": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
-    "discoverMore": "Discover more",
-    "infoCardTitle1": "Section Title",
-    "infoCardItem1_1": "Lorem ipsum amet, consectetur",
-    "infoCardItem1_2": "Lorem ipsum amet, consectetur",
-    "infoCardItem1_3": "Lorem ipsum amet, consectetur",
-    "infoCardTitle2": "Title",
-    "infoCardItem2_1": "Lorem ipsum amet"
+    "titlePart1": "Who We",
+    "titlePart2": "Are",
+    "description": "At GreenTI, we are more than just a software development company; we are your strategic partner in digital transformation. With a team passionate about innovation and excellence, we are dedicated to creating custom technology solutions that drive the growth and efficiency of your business. From intuitive mobile applications to robust enterprise systems, our focus is on understanding your unique needs to deliver results that exceed your expectations.",
+    "discoverMore": "Discover more about us",
+    "infoCardTitle1": "Our Approach",
+    "infoCardItem1_1": "Customized solutions",
+    "infoCardItem1_2": "Cutting-edge technology",
+    "infoCardItem1_3": "Transparent collaboration",
+    "infoCardTitle2": "Results",
+    "infoCardItem2_1": "+5 years of experience"
+  },
+  "AboutUsSectionFigma": {
+    "card1Title": "Explore Our Culture",
+    "card1Item1": "Constant and creative innovation.",
+    "card1Item2": "Collaboration and teamwork.",
+    "card1Item3": "Professional development and growth.",
+    "card2Title": "Impact",
+    "card2Item1Label": "Successful Projects",
+    "card2Item1Description": "Turning ideas into digital reality.",
+    "mainTitlePart1": "Get to know ",
+    "mainTitlePart2": "GreenTI",
+    "mainDescription": "At GreenTI, we merge a passion for technology with an unwavering commitment to our clients. We are a team of innovators, thinkers, and creators dedicated to building software solutions that not only solve problems but also inspire and transform. We believe in the power of collaboration and transparency to forge the digital future, one project at a time.",
+    "ctaLinkText": "Discover more",
+    "image1Alt": "Main image for the About Us section showing office collaboration.",
+    "image2Alt": "Secondary image for the About Us section with focused developers.",
+    "image3Alt": "Tertiary image for the About Us section highlighting focused individual work."
   }
 }
