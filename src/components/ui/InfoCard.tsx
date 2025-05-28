@@ -5,7 +5,8 @@ interface InfoCardItemProps {
   text: string | React.ReactNode;
 }
 
-interface InfoCardProps extends React.HTMLAttributes<HTMLDivElement> {
+interface InfoCardProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, "title"> {
   title: string | React.ReactNode;
   items: InfoCardItemProps[];
   titleClassName?: string;
@@ -33,7 +34,9 @@ export const InfoCard: React.FC<InfoCardProps> = ({
       className={`rounded-btn-cta shadow-deep p-6 ${backgroundColor} ${className}`}
       {...props}
     >
-      <h3 className={`text-lg font-semibold text-secondary mb-4 ${titleClassName}`}>
+      <h3
+        className={`text-lg font-semibold text-secondary mb-4 ${titleClassName}`}
+      >
         {title}
       </h3>
       <ul className={`space-y-3 ${listClassName}`}>
@@ -42,9 +45,7 @@ export const InfoCard: React.FC<InfoCardProps> = ({
             <div
               className={`${colorIndicatorSize} rounded-full flex-shrink-0 mr-3 ${item.colorClass} ${colorIndicatorClassName}`}
             ></div>
-            <span className="text-sm text-neutral-darker">
-              {item.text}
-            </span>
+            <span className="text-sm text-neutral-darker">{item.text}</span>
           </li>
         ))}
       </ul>
