@@ -240,7 +240,12 @@
     "multiplatformAppsTitle": "Multiplatform App Development",
     "multiplatformAppsDescription": "We develop multiplatform apps (mobile, tablet, web) with Flutter.",
     "onlineCoursesTitle": "Online Courses",
-    "onlineCoursesDescription": "Specialize in high-demand areas with our 100% live courses."
+    "onlineCoursesDescription": "Specialize in high-demand areas with our 100% live courses.",
+    "projectDevelopmentBack": "Project Development",
+    "uiUxBack": "UI/UX Design",
+    "multiplatformAppsBack": "Multiplatform Apps",
+    "onlineCoursesBack": "Online Courses",
+    "discoverMore": "Discover more"
   },
   "SectorsSection": {
     "titlePart1": "We innovate in these",

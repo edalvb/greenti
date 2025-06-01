@@ -3,6 +3,7 @@
 @theme {
   --color-primary: 147 79% 40%;
   --color-secondary: 206 100% 13%;
+  --color-secondary-hsl: 206, 100%, 13%; /* Added for direct HSL usage */
   --color-accent-light: 150 67% 93%;
   --color-accent-default: 147 79% 40%;
   --color-accent-dark: 148 81% 30%;

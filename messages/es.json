@@ -241,7 +241,12 @@
     "multiplatformAppsTitle": "Desarrollo de apps multiplataforma",
     "multiplatformAppsDescription": "Desarrollamos apps multiplataforma (móvil, tablet, web) con Flutter.",
     "onlineCoursesTitle": "Cursos en línea",
-    "onlineCoursesDescription": "Especialízate en las áreas con mayor demanda laboral con nuestros cursos 100% en vivo."
+    "onlineCoursesDescription": "Especialízate en las áreas con mayor demanda laboral con nuestros cursos 100% en vivo.",
+    "projectDevelopmentBack": "Desarrollo de Proyectos",
+    "uiUxBack": "Diseño UI/UX",
+    "multiplatformAppsBack": "Apps Multiplataforma",
+    "onlineCoursesBack": "Cursos En Línea",
+    "discoverMore": "Descubre más"
   },
   "SectorsSection": {
     "titlePart1": "Innovamos en estos",

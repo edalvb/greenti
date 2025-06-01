@@ -1,12 +1,16 @@
 import React from "react";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { FlippableCard } from "@/components/ui/FlippableCard";
+import { IconArrowRight } from "@tabler/icons-react";
 
 interface ServiceItem {
   icon: string;
   titleKey: string;
   descriptionKey: string;
-  backContentKey: string;
+  backgroundImage: string;
+  altTextKey: string;
 }
 
 export const ServicesSection: React.FC = () => {
@@ -17,45 +21,78 @@ export const ServicesSection: React.FC = () => {
       icon: "/assets/icons/development_projets.svg",
       titleKey: "projectDevelopmentTitle",
       descriptionKey: "projectDevelopmentDescription",
-      backContentKey: "projectDevelopmentBack",
+      backgroundImage: "/assets/images/services/service_bg_dev.png",
+      altTextKey: "projectDevelopmentAlt",
     },
     {
-      icon: "/assets/icons/uiux.svg",
+      icon: "/assets/icons/consultant.svg",
       titleKey: "uiUxTitle",
       descriptionKey: "uiUxDescription",
-      backContentKey: "uiUxBack",
+      backgroundImage: "/assets/images/services/service_bg_uiux.png",
+      altTextKey: "uiUxAlt",
     },
     {
-      icon: "/assets/icons/mobile.svg",
+      icon: "/assets/icons/it_staffing.svg",
       titleKey: "multiplatformAppsTitle",
       descriptionKey: "multiplatformAppsDescription",
-      backContentKey: "multiplatformAppsBack",
+      backgroundImage: "/assets/images/services/service_bg_mobile.png",
+      altTextKey: "multiplatformAppsAlt",
     },
     {
       icon: "/assets/icons/teacher.svg",
       titleKey: "onlineCoursesTitle",
       descriptionKey: "onlineCoursesDescription",
-      backContentKey: "onlineCoursesBack",
+      backgroundImage: "/assets/images/services/service_bg_courses.png",
+      altTextKey: "onlineCoursesAlt",
     },
   ];
 
-  const renderCardContent = (icon: string, titleKey: string, descriptionKey: string) => (
-    <div className="flex flex-col items-center text-center p-4 h-full justify-around">
-      <img src={icon} alt={t(titleKey as any)} height={60} className="h-auto mb-4 max-h-[60px]" />
-      <h3 className="text-xl font-semibold my-3">
-        {t(titleKey as any)}
-      </h3>
-      <p className="text-sm leading-relaxed mt-auto">
-        {t(descriptionKey as any)}
-      </p>
+  const renderCardFrontContent = (service: ServiceItem) => (
+    <div className="relative w-full h-full text-white overflow-hidden rounded-btn-cta">
+      <Image
+        src={service.backgroundImage}
+        alt={t(service.titleKey as any)}
+        layout="fill"
+        objectFit="cover"
+        className="absolute inset-0 z-0"
+        priority
+      />
+      <div
+        className="absolute inset-0 z-10"
+        style={{
+          background:
+            "linear-gradient(to bottom, hsla(var(--color-secondary-hsl), 0.1) 15%, hsla(var(--color-secondary-hsl), 1) 88%)",
+        }}
+      />
+      <div className="relative z-20 flex flex-col items-center text-center p-6 h-full">
+        <div className="flex-grow flex flex-col items-center justify-center">
+          <img
+            src={service.icon}
+            alt={t(service.titleKey as any)}
+            width={48}
+            height={48}
+            className="w-12 h-12 mb-4"
+          />
+          <h3 className="text-xl font-bold text-white">
+            {t(service.titleKey as any)}
+          </h3>
+        </div>
+        <Link
+          href="#contact"
+          className="flex items-center text-primary text-base font-semibold underline hover:text-primary/80 transition-colors mt-auto self-start"
+        >
+          {t("discoverMore")}
+          <IconArrowRight size={20} className="ml-2 text-primary" />
+        </Link>
+      </div>
     </div>
   );
 
-  const renderCardBackContent = (backContentKey: string) => (
+  const renderCardBackContent = (descriptionKey: string) => (
     <div className="flex flex-col items-center justify-center text-center p-6 h-full">
-        <p className="text-sm leading-relaxed">
-            {t(backContentKey as any)}
-        </p>
+      <p className="text-sm leading-relaxed text-white">
+        {t(descriptionKey as any)}
+      </p>
     </div>
   );
 
@@ -75,17 +112,18 @@ export const ServicesSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {services.map((service) => {
             return (
               <FlippableCard
                 key={service.titleKey}
-                frontContent={renderCardContent(service.icon, service.titleKey, service.descriptionKey)}
-                backContent={renderCardBackContent(service.backContentKey)}
-                height="380px"
+                frontContent={renderCardFrontContent(service)}
+                backContent={renderCardBackContent(service.descriptionKey)}
+                height="384px"
                 width="100%"
-                frontClassName="bg-white text-secondary border border-neutral-light"
-                backClassName="bg-primary text-white border border-primary"
+                className="min-w-[280px]"
+                frontClassName=""
+                backClassName="bg-secondary text-white"
               />
             );
           })}

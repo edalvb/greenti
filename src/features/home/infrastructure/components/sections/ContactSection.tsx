@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { Input } from "@/components/ui/Input";
 import { Select, SelectOption } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
 import {
   ContactFormDto,
   ContactFormSchema,
@@ -75,6 +76,7 @@ export const ContactSection: React.FC = () => {
     reset,
     watch,
     setValue,
+    control,
   } = useForm<ContactFormDto>({
     resolver: zodResolver(ContactFormSchema),
     defaultValues: {
@@ -252,44 +254,12 @@ export const ContactSection: React.FC = () => {
                 required
               />
 
-              <div>
-                <label className="inline-flex items-center space-x-2 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    {...register("acceptTerms")}
-                    checked={watch("acceptTerms")}
-                    aria-invalid={!!fieldErrors.acceptTerms}
-                    aria-describedby={
-                      fieldErrors.acceptTerms
-                        ? "checkbox-form-error"
-                        : undefined
-                    }
-                    className={`
-                      appearance-none 
-                      flex 
-                      w-5 h-5
-                      cursor-pointer 
-                      items-center 
-                      justify-center 
-                      rounded 
-                      border-2 
-                      border-neutral-dark 
-                      bg-white 
-                      transition-all 
-                      checked:border-primary 
-                      checked:bg-primary 
-                      focus-visible:ring-2 
-                      focus-visible:ring-primary 
-                      focus-visible:ring-offset-2 
-                      ${fieldErrors.acceptTerms ? "border-red-500" : ""}`}
-                    onChange={(e) => {
-                      setValue("acceptTerms", e.target.checked, {
-                        shouldValidate: true,
-                      });
-                    }}
-                  />
-                   <span className="ml-2 text-sm select-none">
-                    {t.rich("labels.acceptTerms", {
+              <Controller
+                name="acceptTerms"
+                control={control}
+                render={({ field, fieldState }) => (
+                  <Checkbox
+                    label={t.rich("labels.acceptTerms", {
                       link: (chunks) => (
                         <a
                           href="#politicas"
@@ -299,18 +269,14 @@ export const ContactSection: React.FC = () => {
                         </a>
                       ),
                     })}
-                  </span>
-                </label>
-              </div>
-              {fieldErrors.acceptTerms && (
-                <p
-                  id="checkbox-form-error"
-                  className={`mt-1 text-xs text-red-600`}
-                  role="alert"
-                >
-                  {fieldErrors.acceptTerms}
-                </p>
-              )}
+                    checked={field.value}
+                    onChange={(e) => field.onChange(e.target.checked)}
+                    error={fieldState.error ? tValidation(fieldState.error.message as any) : undefined}
+                    checkboxClassName="w-5 h-5"
+                    labelClassName="text-sm"
+                  />
+                )}
+              />
 
               {formStatus === "error" && formError && (
                 <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">
