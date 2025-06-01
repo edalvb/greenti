@@ -183,14 +183,14 @@ export const Footer: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={social.label}
-                    className="bg-social-icon text-white rounded-full p-0 w-[60px] h-[60px] flex items-center justify-center transform hover:scale-110 transition-all duration-200"
+                    className="bg-social-icon text-white rounded-full p-0 w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-all duration-200"
                   >
                     <Image
                       src={social.icon}
                       alt={social.label}
-                      width={30}
-                      height={30}
-                      className="h-auto w-[30px]"
+                      width={24}
+                      height={24}
+                      className="h-auto w-6"
                       loading="lazy"
                     />
                   </a>

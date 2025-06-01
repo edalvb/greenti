@@ -14,8 +14,8 @@ export const Logo: React.FC<LogoProps> = ({
   className = "",
   href = "/",
   isScrolled = false,
-  imgWidth = 36,
-  imgHeight = 36,
+  imgWidth = 56,
+  imgHeight = 56,
 }) => {
   const textColorClass = isScrolled ? "text-white" : "text-primary";
   const logoSrc = isScrolled
@@ -24,7 +24,7 @@ export const Logo: React.FC<LogoProps> = ({
 
   const logoContent = (
     <span
-      className={`inline-flex items-center text-2xl font-bold group ${className}`}
+      className={`inline-flex items-center text-3xl font-bold group ${className}`}
     >
       <img
         src={logoSrc}

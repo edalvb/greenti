@@ -18,6 +18,7 @@ import { SubmitContactFormUseCase } from "@/features/home/application/SubmitCont
 import { container } from "@/core/infrastructure/di/inversify.config";
 import { CONTACT_INFO } from "@/core/utils/constants";
 import { WhatsAppCtaSection } from "./WhatsAppCtaSection";
+import { ContactSectionAvatar } from "./ContactSectionAvatar";
 
 interface SelectOptionCountries extends SelectOption {
   urlImage: string;
@@ -146,58 +147,32 @@ export const ContactSection: React.FC = () => {
       id="contact"
       className="py-16 md:py-24 bg-neutral-lightest px-responsive"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
-          <div className="lg:col-span-7 flex flex-col justify-between">
-            <div className="space-y-8">
-              <div className="relative">
-                <div className="absolute bg-white p-3 md:p-4 rounded-3xl shadow-md left-7 top-7 z-10">
-                  <div className="flex items-center mb-2">
-                    <div className="w-2.5 h-2.5 bg-primary rounded-full mr-2"></div>
-                    <p className="text-lg font-bold text-secondary">
-                      {t("avatarSubtitle").split(" - ")[0]}
-                    </p>
-                  </div>
-                  <p className="text-sm text-neutral-darker">
-                    {t("avatarSubtitle").split(" - ")[1]}
-                  </p>
-                </div>
-                <div className="absolute -top-8 -left-4 w-24 h-24 md:w-28 md:h-28 bg-transparent">
-                  <Image
-                    src="/assets/images/contact_avatar_maria.png"
-                    alt={t("avatarSubtitle")}
-                    className="rounded-3xl object-cover shadow-lg"
-                    fill
-                    sizes="(max-width: 768px) 96px, 112px"
-                  />
-                </div>
-              </div>
-
-              <div className="mt-40">
-                <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
-                <p className="text-secondary mb-1 text-sm">
-                  {t("instruction")}{" "}
-                  <a
-                    href={`mailto:${CONTACT_INFO.email}`}
-                    className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
-                  >
-                    {CONTACT_INFO.email}
-                  </a>
-                </p>
-
-                <p className="text-sm text-secondary mt-6">
-                  <span className="font-bold">{t("availability.prefix")}</span>
-                  {t("availability.sufix")}
-                </p>
-              </div>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="lg:pr-8 flex flex-col justify-between h-full pt-8">
+            <div>
+              <ContactSectionAvatar />
+              <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
+              <p className="text-secondary mb-1 text-sm">
+                {t("instruction")}{" "}
+                <a
+                  href={`mailto:${CONTACT_INFO.email}`}
+                  className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
+                >
+                  {CONTACT_INFO.email}
+                </a>
+              </p>
+              <p className="text-sm text-secondary mt-6">
+                <span className="font-bold">{t("availability.prefix")}</span>
+                {t("availability.sufix")}
+              </p>
             </div>
-
-            <div className="lg:pr-12">
+            <div className="mt-8">
               <WhatsAppCtaSection />
             </div>
           </div>
 
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
+          <div className="bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
               {t("formTitle")}
             </h2>
@@ -290,22 +265,22 @@ export const ContactSection: React.FC = () => {
                         : undefined
                     }
                     className={`
+                      appearance-none 
                       flex 
                       w-5 h-5
                       cursor-pointer 
                       items-center 
                       justify-center 
-                      rounded-btn-cta 
-                      scheme-normal
+                      rounded 
                       border-2 
                       border-neutral-dark 
                       bg-white 
                       transition-all 
-                      peer-checked:border-primary 
-                      peer-checked:bg-primary 
-                      peer-focus-visible:ring-2 
-                      peer-focus-visible:ring-primary 
-                      peer-focus-visible:ring-offset-2 
+                      checked:border-primary 
+                      checked:bg-primary 
+                      focus-visible:ring-2 
+                      focus-visible:ring-primary 
+                      focus-visible:ring-offset-2 
                       ${fieldErrors.acceptTerms ? "border-red-500" : ""}`}
                     onChange={(e) => {
                       setValue("acceptTerms", e.target.checked, {
@@ -313,7 +288,7 @@ export const ContactSection: React.FC = () => {
                       });
                     }}
                   />
-                  <span className="text-sm">
+                   <span className="ml-2 text-sm select-none">
                     {t.rich("labels.acceptTerms", {
                       link: (chunks) => (
                         <a

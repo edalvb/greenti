@@ -65,10 +65,10 @@ export const HeroSection: React.FC = () => {
           <p className="text-lg md:text-xl mb-10 block">
             {t("subtitle")}
           </p>
-          <Link href="#contact">
+          <Link href="#contact" passHref>
             <Button
               size="lg"
-              className="px-8 py-3 md:px-10 md:py-3.5 text-white"
+              className="text-white"
             >
               {tGlobal("getAQuote")}
             </Button>

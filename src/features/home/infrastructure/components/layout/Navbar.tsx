@@ -13,7 +13,6 @@ import {
   IconMail,
 } from "@tabler/icons-react";
 import { routing } from "@/i18n/routing";
-import Image from "next/image";
 import { ButtonCta } from "@/components/ui/ButtonCta";
 
 interface NavItem {
@@ -50,7 +49,7 @@ export const Navbar: React.FC = () => {
 
   const contactButtonVariant = isScrolled ? "outline" : "primary";
   const contactButtonExtraClasses = isScrolled
-    ? "border-white text-white active:bg-white/90 active:text-primary"
+    ? "border-white text-white active:bg-white/90 active:text-primary hover:text-white/80"
     : "hover:text-primary/80";
 
   const mobileMenuIconColor = "bg-white text-secondary";
@@ -69,7 +68,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Logo href="/" isScrolled={isScrolled} />
+          <Logo href="/" isScrolled={isScrolled} imgWidth={56} imgHeight={56}/>
 
           <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {navItems.map((item) => (
@@ -98,7 +97,7 @@ export const Navbar: React.FC = () => {
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
-            ></ButtonCta>
+            />
           </div>
 
           <div className="-mr-2 flex md:hidden">
@@ -153,13 +152,14 @@ export const Navbar: React.FC = () => {
             </button>
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-light px-5">
-            <Link href="#contact" onClick={toggleMobileMenu}>
+            <Link href="#contact" onClick={toggleMobileMenu} passHref>
               <Button
                 variant="primary"
                 size="md"
                 radius="cta"
                 className="w-full"
                 icon={<IconMail size={18} />}
+                iconPosition="right"
               >
                 {tGlobal("contactUs")}
               </Button>

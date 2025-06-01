@@ -1,18 +1,12 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Card } from "@/components/ui/Card";
-import {
-  IconStack2,
-  IconWand,
-  IconDeviceMobile,
-  IconSchool,
-} from "@tabler/icons-react";
-import Image from "next/image";
+import { FlippableCard } from "@/components/ui/FlippableCard";
 
 interface ServiceItem {
   icon: string;
   titleKey: string;
   descriptionKey: string;
+  backContentKey: string;
 }
 
 export const ServicesSection: React.FC = () => {
@@ -23,23 +17,47 @@ export const ServicesSection: React.FC = () => {
       icon: "/assets/icons/development_projets.svg",
       titleKey: "projectDevelopmentTitle",
       descriptionKey: "projectDevelopmentDescription",
+      backContentKey: "projectDevelopmentBack",
     },
     {
       icon: "/assets/icons/uiux.svg",
       titleKey: "uiUxTitle",
       descriptionKey: "uiUxDescription",
+      backContentKey: "uiUxBack",
     },
     {
       icon: "/assets/icons/mobile.svg",
       titleKey: "multiplatformAppsTitle",
       descriptionKey: "multiplatformAppsDescription",
+      backContentKey: "multiplatformAppsBack",
     },
     {
       icon: "/assets/icons/teacher.svg",
       titleKey: "onlineCoursesTitle",
       descriptionKey: "onlineCoursesDescription",
+      backContentKey: "onlineCoursesBack",
     },
   ];
+
+  const renderCardContent = (icon: string, titleKey: string, descriptionKey: string) => (
+    <div className="flex flex-col items-center text-center p-4 h-full justify-around">
+      <img src={icon} alt={t(titleKey as any)} height={60} className="h-auto mb-4 max-h-[60px]" />
+      <h3 className="text-xl font-semibold my-3">
+        {t(titleKey as any)}
+      </h3>
+      <p className="text-sm leading-relaxed mt-auto">
+        {t(descriptionKey as any)}
+      </p>
+    </div>
+  );
+
+  const renderCardBackContent = (backContentKey: string) => (
+    <div className="flex flex-col items-center justify-center text-center p-6 h-full">
+        <p className="text-sm leading-relaxed">
+            {t(backContentKey as any)}
+        </p>
+    </div>
+  );
 
   return (
     <section
@@ -60,28 +78,15 @@ export const ServicesSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
           {services.map((service) => {
             return (
-              <Card
+              <FlippableCard
                 key={service.titleKey}
-                className="transition-shadow duration-300 flex flex-col items-center text-center"
-                padding="md"
-                borderColor="border-transparent"
-                backgroundColor="bg-white"
-              >
-                <div className="items-center flex flex-col">
-                  <img
-                    src={service.icon}
-                    alt=""
-                    height={48}
-                    className="h-auto"
-                  />
-                </div>
-                <h3 className="text-xl font-semibold text-secondary my-4">
-                  {t(service.titleKey as any)}
-                </h3>
-                <p className="text-sm text-neutral-darker leading-relaxed mt-auto">
-                  {t(service.descriptionKey as any)}
-                </p>
-              </Card>
+                frontContent={renderCardContent(service.icon, service.titleKey, service.descriptionKey)}
+                backContent={renderCardBackContent(service.backContentKey)}
+                height="380px"
+                width="100%"
+                frontClassName="bg-white text-secondary border border-neutral-light"
+                backClassName="bg-primary text-white border border-primary"
+              />
             );
           })}
         </div>

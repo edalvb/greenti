@@ -13,9 +13,9 @@ interface CarouselProps {
 
 export const Carousel: React.FC<CarouselProps> = ({
   items,
-  itemWidth = 160,
-  gap = 40,
-  speed = 50,
+  itemWidth = 240, 
+  gap = 80, 
+  speed = 30,
   className = '',
   itemClassName = '',
 }) => {
@@ -26,10 +26,10 @@ export const Carousel: React.FC<CarouselProps> = ({
   const scrollPosition = useRef(0);
 
   const fullItemWidth = itemWidth + gap;
-  const duplicatedItems = [...items, ...items];
+  const duplicatedItems = items.length > 0 ? [...items, ...items] : [];
 
   const animateScroll = useCallback(() => {
-    if (contentRef.current && !isHovering) {
+    if (contentRef.current && !isHovering && items.length > 0) {
       scrollPosition.current += speed / 60;
       if (scrollPosition.current >= items.length * fullItemWidth) {
         scrollPosition.current = 0;
@@ -40,13 +40,19 @@ export const Carousel: React.FC<CarouselProps> = ({
   }, [isHovering, items.length, fullItemWidth, speed]);
 
   useEffect(() => {
+    if (items.length === 0) return;
+
     animationFrameId.current = requestAnimationFrame(animateScroll);
     return () => {
       if (animationFrameId.current) {
         cancelAnimationFrame(animationFrameId.current);
       }
     };
-  }, [animateScroll]);
+  }, [animateScroll, items.length]);
+
+  if (items.length === 0) {
+    return null;
+  }
 
   return (
     <div

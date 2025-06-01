@@ -10,21 +10,28 @@ interface ButtonCtaProps {
 
 export const ButtonCta: React.FC<ButtonCtaProps> = ({
   variant = "primary",
-  className = "hover:text-primary/80",
+  className = "",
 }) => {
   const tGlobal = useTranslations("Global");
 
   return (
-    <Link href="#contact">
-      <Button variant={variant} size="md" radius="cta" className={className}>
+    <Link href="#contact" passHref>
+      <Button 
+        variant={variant} 
+        size="md" 
+        radius="cta" 
+        className={className}
+        iconPosition="right"
+        icon={
+          <Image
+            src="/assets/icons/sms.svg"
+            alt=""
+            width={24}
+            height={24}
+          />
+        }
+      >
         <span className="text-white">{tGlobal("contactUs")}</span>
-        <Image
-          src="/assets/icons/sms.svg"
-          alt=""
-          width={24}
-          height={24}
-          style={{ marginLeft: "10px" }}
-        />
       </Button>
     </Link>
   );

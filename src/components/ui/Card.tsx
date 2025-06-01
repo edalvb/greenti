@@ -17,6 +17,7 @@ export const Card: React.FC<CardProps> = ({
   title,
   footer,
   padding = "md",
+  shadow,
   borderColor = "border-neutral-light",
   backgroundColor = "bg-white",
   ...props
@@ -28,9 +29,35 @@ export const Card: React.FC<CardProps> = ({
     none: "p-0",
   };
 
+  let shadowClass = "shadow-deep";
+  if (shadow) {
+    switch (shadow) {
+      case "none":
+        shadowClass = "";
+        break;
+      case "sm":
+        shadowClass = "shadow-sm";
+        break;
+      case "md":
+        shadowClass = "shadow-md";
+        break;
+      case "lg":
+        shadowClass = "shadow-lg";
+        break;
+      case "xl":
+        shadowClass = "shadow-xl";
+        break;
+      case "service-card":
+        shadowClass = "shadow-service-card";
+        break;
+      default:
+        shadowClass = "shadow-deep";
+    }
+  }
+
   return (
     <div
-      className={`rounded-btn-cta shadow-deep ${backgroundColor} ${borderColor} ${paddingStyles[padding]} ${className}`}
+      className={`rounded-btn-cta ${shadowClass} ${backgroundColor} ${borderColor} ${paddingStyles[padding]} ${className}`}
       {...props}
     >
       {title && (

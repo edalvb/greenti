@@ -31,7 +31,7 @@ export const PresenceSection: React.FC = () => {
       id="presence"
       className="py-16 md:py-24 bg-presence-section px-responsive"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
           <div className="lg:w-2/5 w-full text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -43,12 +43,13 @@ export const PresenceSection: React.FC = () => {
             </p>
             <ul className="list-none p-0 m-0 inline-block text-left lg:mx-0 mx-auto">
               {countries.map((countryName, index) => {
-                const flagSlug = countryName
-                  .toLowerCase()
-                  .normalize("NFD")
-                  .replace(/[\u0300-\u036f]/g, "")
-                  .replace(/\s+/g, "_")
-                  .replace(/[^a-z0-9_]/g, "");
+                const flagSlug =
+                  countryName
+                    .toLowerCase()
+                    .normalize("NFD")
+                    .replace(/[\u0300-\u036f]/g, "")
+                    .replace(/\s+/g, "_")
+                    .replace(/[^a-z0-9_]/g, "");
 
                 return (
                   <li key={countryName} className="flex items-start relative">
@@ -74,7 +75,7 @@ export const PresenceSection: React.FC = () => {
                         className="object-cover rounded-[3px] mr-[10px]"
                         unoptimized
                       />
-                      <span className="text-lg font-medium text-secondary">
+                      <span className="text-lg text-neutral-darker leading-relaxed">
                         {countryName}
                       </span>
                     </div>

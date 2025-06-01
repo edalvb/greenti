@@ -150,7 +150,10 @@
       "MX": "México (MX)",
       "EC": "Ecuador (EC)",
       "PY": "Paraguay (PY)"
-    }
+    },
+    "avatarSubtitleName": "Maria",
+    "avatarSubtitleRole": "Responsable de soluciones tecnológicas",
+    "avatarAlt": "Avatar de Maria, responsable de soluciones tecnológicas"
   },
   "WhatsAppCtaSection": {
     "title": "Habilitamos nuestro canal de whatsapp",

@@ -27,7 +27,7 @@ export default function NotFoundPage() {
           <Button
             variant="primary"
             size="lg"
-            className="shadow-md hover:shadow-lg transition-shadow"
+            className="shadow-md hover:shadow-lg transition-shadow text-white"
           >
             {t("homeLink")}
           </Button>

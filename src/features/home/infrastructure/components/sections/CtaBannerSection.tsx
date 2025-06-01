@@ -3,8 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
-import { Button } from "@/components/ui/Button";
 import { motion } from "framer-motion";
 import { useParallax } from "@/hooks/useParallax";
 import { ButtonCta } from "@/components/ui/ButtonCta";
@@ -31,13 +29,10 @@ export const CtaBannerSection: React.FC = () => {
         />
       </motion.div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-10 leading-tight">
           {t("titlePart1")}
           <span className="block text-primary">{t("titlePart2")}</span>
         </h2>
-        <p className="text-lg md:text-xl text-neutral-lightest max-w-2xl mx-auto mb-10">
-          {t("subtitle")}
-        </p>
         <ButtonCta/>
       </div>
     </section>
