@@ -53,7 +53,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative bg-neutral-lightest pt-32 pb-20 md:pt-40 md:pb-28 lg:min-h-[calc(100vh-80px)] flex items-center overflow-hidden px-responsive"
+      className="relative bg-presence-section pt-32 pb-[70px] md:pt-40 lg:min-h-[calc(100vh-80px)] flex items-center overflow-hidden px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-lg text-center md:text-left">
@@ -62,14 +62,9 @@ export const HeroSection: React.FC = () => {
             <span className="block">{t("titlePart2")}</span>
             <span className="block text-primary">{t("titlePart3")}</span>
           </h1>
-          <p className="text-lg md:text-xl mb-10 block">
-            {t("subtitle")}
-          </p>
+          <p className="text-lg md:text-xl mb-10 block">{t("subtitle")}</p>
           <Link href="#contact" passHref>
-            <Button
-              size="lg"
-              className="text-white"
-            >
+            <Button size="lg" className="text-white">
               {tGlobal("getAQuote")}
             </Button>
           </Link>
