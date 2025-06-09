@@ -27,7 +27,7 @@ export const ClientLogosSection: React.FC = () => {
   const carouselItems = STATIC_CLIENT_LOGOS.map((logo) => (
     <div
       key={logo.altKey}
-      className="relative h-16 md:h-20 w-full opacity-80 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
+      className="relative h-16 md:h-20 w-full group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center"
     >
       <Image
         src={logo.src}

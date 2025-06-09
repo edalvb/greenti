@@ -11,6 +11,7 @@ interface ServiceItem {
   descriptionKey: string;
   backgroundImage: string;
   altTextKey: string;
+  href: string;
 }
 
 export const ServicesSection: React.FC = () => {
@@ -23,6 +24,7 @@ export const ServicesSection: React.FC = () => {
       descriptionKey: "projectDevelopmentDescription",
       backgroundImage: "/assets/images/services/service_bg_dev.png",
       altTextKey: "projectDevelopmentAlt",
+      href: "#nuestros-servicios",
     },
     {
       icon: "/assets/icons/consultant.svg",
@@ -30,6 +32,7 @@ export const ServicesSection: React.FC = () => {
       descriptionKey: "uiUxDescription",
       backgroundImage: "/assets/images/services/service_bg_uiux.png",
       altTextKey: "uiUxAlt",
+      href: "#nuestros-servicios",
     },
     {
       icon: "/assets/icons/it_staffing.svg",
@@ -37,6 +40,7 @@ export const ServicesSection: React.FC = () => {
       descriptionKey: "multiplatformAppsDescription",
       backgroundImage: "/assets/images/services/service_bg_mobile.png",
       altTextKey: "multiplatformAppsAlt",
+      href: "#nuestros-servicios",
     },
     {
       icon: "/assets/icons/teacher.svg",
@@ -44,6 +48,7 @@ export const ServicesSection: React.FC = () => {
       descriptionKey: "onlineCoursesDescription",
       backgroundImage: "/assets/images/services/service_bg_courses.png",
       altTextKey: "onlineCoursesAlt",
+      href: "#nuestros-servicios",
     },
   ];
 
@@ -77,13 +82,12 @@ export const ServicesSection: React.FC = () => {
             {t(service.titleKey as any)}
           </h3>
         </div>
-        <Link
-          href="#contact"
-          className="flex items-center text-primary text-base font-semibold underline hover:text-primary/80 transition-colors mt-auto self-start"
+        <div
+          className="flex items-center text-primary text-base font-semibold underline mt-auto self-start"
         >
           {t("discoverMore")}
           <IconArrowRight size={20} className="ml-2 text-primary" />
-        </Link>
+        </div>
       </div>
     </div>
   );
@@ -115,16 +119,17 @@ export const ServicesSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {services.map((service) => {
             return (
-              <FlippableCard
-                key={service.titleKey}
-                frontContent={renderCardFrontContent(service)}
-                backContent={renderCardBackContent(service.descriptionKey)}
-                height="384px"
-                width="100%"
-                className="min-w-[280px]"
-                frontClassName=""
-                backClassName="bg-secondary text-white"
-              />
+              <Link key={service.titleKey} href={service.href} className="block">
+                <FlippableCard
+                  frontContent={renderCardFrontContent(service)}
+                  backContent={renderCardBackContent(service.descriptionKey)}
+                  height="384px"
+                  width="100%"
+                  className="min-w-[280px]"
+                  frontClassName=""
+                  backClassName="bg-secondary text-white"
+                />
+              </Link>
             );
           })}
         </div>

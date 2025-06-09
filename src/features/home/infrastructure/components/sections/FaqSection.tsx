@@ -52,7 +52,7 @@ export const FaqSection: React.FC = () => {
         id="faq"
         className="pd-section bg-presence-section px-responsive"
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-6xl">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
           <p className="mt-4 text-neutral-darker">{tGlobal("loading")}</p>
         </div>
@@ -65,13 +65,13 @@ export const FaqSection: React.FC = () => {
       id="faq"
       className="pd-section bg-presence-section px-responsive"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
           <div className="lg:col-span-1">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4">
               {t("title")}
             </h2>
-            <p className="text-neutral-darker text-lg">
+            <p className="text-neutral-darker text-lg max-w-sm">
               <strong>{t("subtitle.prefix")} </strong>
               <span>{t("subtitle.highlight")}</span>
             </p>

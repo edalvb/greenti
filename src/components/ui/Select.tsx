@@ -46,7 +46,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     };
 
     const baseSelectStyles =
-      `flex h-10 w-full items-center justify-between border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1`;
+      `flex h-14 w-full items-center justify-between border bg-transparent px-3 py-2 text-sm ring-offset-background placeholder:text-neutral-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1`;
     
     const errorStateStyles = error ? "border-red-500 focus-visible:ring-red-500" : "border-neutral-light";
 

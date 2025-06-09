@@ -149,9 +149,9 @@ export const ContactSection: React.FC = () => {
       id="contact"
       className="pd-section bg-neutral-lightest px-responsive"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="lg:pr-8 flex flex-col justify-between h-full pt-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-5 flex flex-col justify-between h-full pt-8">
             <div>
               <ContactSectionAvatar />
               <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
@@ -174,7 +174,9 @@ export const ContactSection: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
+          <div className="hidden lg:block lg:col-span-2"></div>
+
+          <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
             <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
               {t("formTitle")}
             </h2>
@@ -271,7 +273,11 @@ export const ContactSection: React.FC = () => {
                     })}
                     checked={field.value}
                     onChange={(e) => field.onChange(e.target.checked)}
-                    error={fieldState.error ? tValidation(fieldState.error.message as any) : undefined}
+                    error={
+                      fieldState.error
+                        ? tValidation(fieldState.error.message as any)
+                        : undefined
+                    }
                     checkboxClassName="w-5 h-5"
                     labelClassName="text-sm"
                   />

@@ -38,10 +38,10 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeStyles = {
-    sm: "h-[60px] px-2 text-sm",
-    md: "h-[60px] px-4 text-base",
-    lg: "h-[60px] px-6 text-lg",
-    icon: "h-[60px] w-[60px] p-0",
+    sm: "h-11 px-4 text-sm",
+    md: "h-12 px-5 text-base",
+    lg: "h-14 px-6 text-lg",
+    icon: "h-12 w-12 p-0",
   };
 
   const Comp = asChild ? "span" : "button";
