@@ -46,9 +46,16 @@ export const Button: React.FC<ButtonProps> = ({
 
   const Comp = asChild ? "span" : "button";
 
+  let margenIcon = "";
+  if (iconPosition === "left") {
+    margenIcon = size === "sm" ? "mr-1.5" : "mr-2";
+  } else if (iconPosition === "right") {
+    margenIcon = size === "sm" ? "ml-1.5" : "ml-2";
+  }
+
   const iconMarkup = icon ? (
     <span
-      className={`${size === "sm" ? "mr-1.5" : "mr-2"} ${iconPosition === "right" ? (size === "sm" ? "ml-1.5" : "ml-2") : ""} flex-shrink-0`}
+      className={`${margenIcon} flex-shrink-0`}
     >
       {React.cloneElement(icon, {
         size: icon.props.size ?? (size === "lg" ? 24 : size === "md" ? 20 : 18),
