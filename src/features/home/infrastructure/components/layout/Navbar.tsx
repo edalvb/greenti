@@ -45,13 +45,9 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinkClasses = isScrolled ? "text-white " : "text-secondary";
-
-  const contactButtonVariant = isScrolled ? "outline" : "primary";
-  const contactButtonExtraClasses = isScrolled
-    ? "border-white text-white active:bg-white/90 active:text-primary hover:text-white/80"
-    : "hover:text-primary/80";
-
+  const navLinkClasses = "text-secondary";
+  const contactButtonVariant = "primary";
+  const contactButtonExtraClasses = "";
   const mobileMenuIconColor = "bg-white text-secondary";
 
   const changeLanguage = (nextLocale: Locale) => {
@@ -64,14 +60,14 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-4 ${isScrolled ? "bg-primary shadow-lg" : "bg-presence-section"}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-4 ${isScrolled ? "bg-white shadow-lg" : "bg-presence-section"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Logo
               href="/"
-              isScrolled={isScrolled}
+              isScrolled={false}
               imgWidth={56}
               imgHeight={56}
             />
