@@ -64,25 +64,34 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive ${isScrolled ? "bg-primary shadow-lg py-2" : "bg-transparent py-4"}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-4 ${isScrolled ? "bg-primary shadow-lg" : "bg-presence-section"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Logo href="/" isScrolled={isScrolled} imgWidth={56} imgHeight={56}/>
+          <div className="flex items-center">
+            <Logo
+              href="/"
+              isScrolled={isScrolled}
+              imgWidth={56}
+              imgHeight={56}
+            />
+            <div className="hidden md:flex items-center space-x-1 lg:space-x-2 ml-6">
+              {navItems.map((item) => (
+                <Link key={item.labelKey} href={item.href}>
+                  <span
+                    className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${navLinkClasses}`}
+                  >
+                    {t(item.labelKey)}
+                    {item.hasDropdown && (
+                      <IconChevronDown size={16} className="ml-1" />
+                    )}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
 
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            {navItems.map((item) => (
-              <Link key={item.labelKey} href={item.href}>
-                <span
-                  className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${navLinkClasses}`}
-                >
-                  {t(item.labelKey)}
-                  {item.hasDropdown && (
-                    <IconChevronDown size={16} className="ml-1" />
-                  )}
-                </span>
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
             <span
               onClick={() => changeLanguage(otherLocale)}
               className={`cursor-pointer flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${navLinkClasses}`}
@@ -91,15 +100,13 @@ export const Navbar: React.FC = () => {
               <IconWorld size={20} className="mr-1.5" />
               {t("currentLanguage")}
             </span>
-          </div>
-
-          <div className="hidden md:block">
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
             />
           </div>
 
+          {/* Mobile menu button */}
           <div className="-mr-2 flex md:hidden">
             <button
               onClick={toggleMobileMenu}
