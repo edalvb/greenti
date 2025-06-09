@@ -38,9 +38,9 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const sizeStyles = {
-    sm: "h-[60px] px-4 text-sm",
-    md: "h-[60px] px-6 text-base",
-    lg: "h-[60px] px-8 text-lg",
+    sm: "h-[60px] px-2 text-sm",
+    md: "h-[60px] px-4 text-base",
+    lg: "h-[60px] px-6 text-lg",
     icon: "h-[60px] w-[60px] p-0",
   };
 
@@ -58,7 +58,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <Comp
-      className={`cursor-pointer shadow-deep hover:shadow-6xl transform hover:scale-105 transition-all duration-300 min-w-[200px] ${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} rounded-btn-cta ${className}`}
+      className={`cursor-pointer shadow-deep hover:shadow-6xl transform hover:scale-105 transition-all duration-300 min-w-[150px] ${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} rounded-btn-cta ${className}`}
       disabled={disabled || isLoading}
       aria-disabled={disabled || isLoading}
       {...props}
