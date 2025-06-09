@@ -31,7 +31,7 @@ export const SectorsSection: React.FC = () => {
   return (
     <section
       id="sectores-innovacion"
-      className="py-16 md:py-24 bg-white px-responsive"
+      className="pd-section bg-white px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">

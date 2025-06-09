@@ -147,7 +147,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-16 md:py-24 bg-neutral-lightest px-responsive"
+      className="pd-section bg-neutral-lightest px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">

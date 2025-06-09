@@ -43,7 +43,7 @@ export const ClientLogosSection: React.FC = () => {
   return (
     <section
       id="client-logos"
-      className="py-12 md:py-16 bg-neutral-lightest px-responsive"
+      className="pd-section bg-neutral-lightest px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div

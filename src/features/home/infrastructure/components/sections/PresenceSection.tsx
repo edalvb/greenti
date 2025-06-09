@@ -29,7 +29,7 @@ export const PresenceSection: React.FC = () => {
   return (
     <section
       id="presence"
-      className="py-16 md:py-24 bg-presence-section px-responsive"
+      className="pd-section bg-presence-section px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">

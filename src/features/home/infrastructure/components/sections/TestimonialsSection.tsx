@@ -59,7 +59,7 @@ export const TestimonialsSection: React.FC = () => {
     return (
       <section
         id="testimonials"
-        className="py-16 md:py-24 bg-white px-responsive"
+        className="pd-section bg-white px-responsive"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
@@ -116,7 +116,7 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="py-16 md:py-24 bg-white px-responsive"
+      className="pd-section bg-white px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-20 md:mb-24">

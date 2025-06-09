@@ -15,7 +15,7 @@ export const CtaBannerSection: React.FC = () => {
     <section
       id="cta-banner"
       ref={ref}
-      className="relative py-20 md:py-32 text-white bg-secondary overflow-hidden px-responsive"
+      className="relative pd-section text-white bg-secondary overflow-hidden px-responsive"
     >
       <motion.div className="absolute inset-0 z-0 opacity-10" style={{ y }}>
         <Image

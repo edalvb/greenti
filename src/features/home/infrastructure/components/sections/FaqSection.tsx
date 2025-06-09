@@ -50,7 +50,7 @@ export const FaqSection: React.FC = () => {
     return (
       <section
         id="faq"
-        className="py-16 md:py-24 bg-presence-section px-responsive"
+        className="pd-section bg-presence-section px-responsive"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center max-w-6xl">
           <Spinner size="lg" />
@@ -63,7 +63,7 @@ export const FaqSection: React.FC = () => {
   return (
     <section
       id="faq"
-      className="py-16 md:py-24 bg-presence-section px-responsive"
+      className="pd-section bg-presence-section px-responsive"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">

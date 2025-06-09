@@ -222,6 +222,10 @@
     background-repeat: repeat-y;
     width: 1px;
   }
+
+  .pd-section {
+    padding: 100px 0;
+  }
 }
 
 ::-webkit-scrollbar {

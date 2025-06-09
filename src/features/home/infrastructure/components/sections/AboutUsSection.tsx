@@ -78,7 +78,7 @@ export const AboutUsSection: React.FC = () => {
   return (
     <section
       id="about-us"
-      className="w-full bg-white overflow-hidden mx-auto py-16 md:py-24 lg:py-32 container px-4 px-responsive"
+      className="w-full bg-white overflow-hidden mx-auto pd-section container px-4 px-responsive"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 lg:gap-12 xl:gap-20 items-center">
         <div className="lg:col-span-7 relative order-last lg:order-first mt-12 lg:mt-0">
