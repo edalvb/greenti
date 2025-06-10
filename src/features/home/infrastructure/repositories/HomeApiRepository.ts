@@ -13,7 +13,20 @@ import {
 
 @injectable()
 export class HomeApiRepository implements IHomeRepository {
+  private readonly supabaseUrl: string;
+
+  constructor() {
+    this.supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+
+    if (!this.supabaseUrl) {
+      console.error(
+        "Supabase URL or Anon Key is not defined in environment variables.",
+      );
+    }
+  }
+
   public async getInitialHomeData(): Promise<InitialHomeData> {
+    // Se mantiene la carga de datos mock para testimonios y FAQs
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({
@@ -27,32 +40,66 @@ export class HomeApiRepository implements IHomeRepository {
   public async submitContactForm(
     formData: ContactForm,
   ): Promise<ContactFormResponseDto> {
+    if (!this.supabaseUrl) {
+      return {
+        success: false,
+        messageKey: "ContactSection.errorMessagePrefix",
+        errors: { form: "API client is not configured." },
+      };
+    }
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const functionUrl = `${this.supabaseUrl}/functions/v1/contact-form`;
 
-      if (formData.email.includes("error@example.com")) {
+      const response = await fetch(functionUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        console.error("Error from Supabase function:", responseData);
+
+        // Maneja errores de validación de Zod desde el servidor
+        if (responseData.details) {
+          const serverErrors: Record<string, any> = {};
+          responseData.details.forEach((err: any) => {
+            if (err.path && err.path.length > 0) {
+              // El backend ya devuelve un mensaje de error detallado
+              serverErrors[err.path[0]] = err.message;
+            }
+          });
+          return {
+            success: false,
+            messageKey: "ValidationErrors.formInvalid",
+            errors: serverErrors,
+          };
+        }
+
+        // Maneja errores genéricos del servidor
         return {
           success: false,
-          messageKey: "ContactSection.simulatedError",
-          errors: { form: "Simulated server error for this email." },
-        };
-      }
-      if (formData.fullName.toLowerCase().includes("test fail")) {
-        return {
-          success: false,
-          messageKey: "ValidationErrors.formInvalid",
-          errors: { fullName: "ValidationErrors.nameInvalid" },
+          messageKey: "ContactSection.errorMessagePrefix",
+          errors: {
+            form: responseData.error || "An unexpected server error occurred.",
+          },
         };
       }
 
+      // Maneja la respuesta exitosa
       return {
         success: true,
         messageKey: "ContactSection.successMessage",
-        data: { submissionId: Date.now().toString() },
+        data: responseData.data,
       };
     } catch (error) {
+      console.error("Network or fetch error:", error);
       const errorMessage =
-        error instanceof Error ? error.message : "An unexpected error occurred";
+        error instanceof Error ? error.message : "A network error occurred.";
       return {
         success: false,
         messageKey: "ContactSection.errorMessagePrefix",
