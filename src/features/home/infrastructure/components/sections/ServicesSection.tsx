@@ -57,9 +57,9 @@ export const ServicesSection: React.FC = () => {
       <Image
         src={service.backgroundImage}
         alt={t(service.titleKey as any)}
-        layout="fill"
-        objectFit="cover"
-        className="absolute inset-0 z-0"
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        className="absolute inset-0 z-0 object-cover"
         priority
       />
       <div
@@ -82,9 +82,7 @@ export const ServicesSection: React.FC = () => {
             {t(service.titleKey as any)}
           </h3>
         </div>
-        <div
-          className="flex items-center text-primary text-base font-semibold underline mt-auto self-start"
-        >
+        <div className="flex items-center text-primary text-base font-semibold underline mt-auto self-start">
           {t("discoverMore")}
           <IconArrowRight size={20} className="ml-2 text-primary" />
         </div>
@@ -119,7 +117,11 @@ export const ServicesSection: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {services.map((service) => {
             return (
-              <Link key={service.titleKey} href={service.href} className="block">
+              <Link
+                key={service.titleKey}
+                href={service.href}
+                className="block"
+              >
                 <FlippableCard
                   frontContent={renderCardFrontContent(service)}
                   backContent={renderCardBackContent(service.descriptionKey)}
