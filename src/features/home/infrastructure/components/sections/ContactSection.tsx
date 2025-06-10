@@ -260,27 +260,38 @@ export const ContactSection: React.FC = () => {
                 name="acceptTerms"
                 control={control}
                 render={({ field, fieldState }) => (
-                  <Checkbox
-                    label={t.rich("labels.acceptTerms", {
-                      link: (chunks) => (
-                        <a
-                          href="#politicas"
-                          className="font-medium text-primary hover:underline"
-                        >
-                          {chunks}
-                        </a>
-                      ),
-                    })}
-                    checked={field.value}
-                    onChange={(e) => field.onChange(e.target.checked)}
-                    error={
-                      fieldState.error
-                        ? tValidation(fieldState.error.message as any)
-                        : undefined
-                    }
-                    checkboxClassName="w-5 h-5"
-                    labelClassName="text-sm"
-                  />
+                  <div className="space-y-1">
+                    <div className="flex items-start space-x-2.5">
+                      <Checkbox
+                        id="acceptTerms-checkbox"
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        ref={field.ref}
+                        className="mt-0.5"
+                        aria-invalid={!!fieldState.error}
+                      />
+                      <label
+                        htmlFor="acceptTerms-checkbox"
+                        className="text-sm text-neutral-darker"
+                      >
+                        {t.rich("labels.acceptTerms", {
+                          link: (chunks) => (
+                            <a
+                              href="#politicas"
+                              className="font-medium text-primary hover:underline"
+                            >
+                              {chunks}
+                            </a>
+                          ),
+                        })}
+                      </label>
+                    </div>
+                    {fieldState.error && (
+                      <p className="text-xs text-red-600 pl-7 pt-1">
+                        {tValidation(fieldState.error.message as any)}
+                      </p>
+                    )}
+                  </div>
                 )}
               />
 

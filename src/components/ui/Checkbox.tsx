@@ -1,80 +1,32 @@
-import React, { InputHTMLAttributes, forwardRef, useId } from 'react';
-import { IconCheck } from '@tabler/icons-react';
+"use client";
 
-export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
-  label?: React.ReactNode;
-  error?: string;
-  containerClassName?: string;
-  labelClassName?: string;
-  checkboxClassName?: string;
-  errorClassName?: string;
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { CheckIcon } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+
+function Checkbox({
+  className,
+  ...props
+}: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
+  return (
+    <CheckboxPrimitive.Root
+      data-slot="checkbox"
+      className={cn(
+        "peer border-input dark:bg-input/30 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:data-[state=checked]:bg-primary data-[state=checked]:border-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive size-4 shrink-0 rounded-[4px] border shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        className,
+      )}
+      {...props}
+    >
+      <CheckboxPrimitive.Indicator
+        data-slot="checkbox-indicator"
+        className="flex items-center justify-center text-current transition-none"
+      >
+        <CheckIcon className="size-3.5" />
+      </CheckboxPrimitive.Indicator>
+    </CheckboxPrimitive.Root>
+  );
 }
 
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
-  (
-    {
-      className,
-      label,
-      id,
-      error,
-      containerClassName = '',
-      labelClassName = '',
-      checkboxClassName = '',
-      errorClassName = '',
-      name,
-      checked,
-      onChange,
-      ...props
-    },
-    ref
-  ) => {
-    const generatedId = useId();
-    const checkboxId = id || (name ? `${name}-${generatedId}` : generatedId);
-
-    return (
-      <div className={`w-full ${containerClassName}`}>
-        <div className="flex items-start">
-          <div className="relative flex items-center">
-            <input
-              id={checkboxId}
-              name={name}
-              type="checkbox"
-              ref={ref}
-              checked={checked}
-              onChange={onChange}
-              className={`peer sr-only ${checkboxClassName}`}
-              aria-invalid={!!error}
-              aria-describedby={error ? `${checkboxId}-error` : undefined}
-              {...props}
-            />
-            <label
-              htmlFor={checkboxId}
-              className={`flex h-4 w-4 cursor-pointer items-center justify-center rounded border-2 border-neutral-dark bg-white transition-all peer-checked:border-primary peer-checked:bg-primary peer-focus-visible:ring-2 peer-focus-visible:ring-primary peer-focus-visible:ring-offset-2 ${error ? 'border-red-500' : ''}`}
-            >
-              {checked && <IconCheck size={12} className="text-white" strokeWidth={3} />}
-            </label>
-          </div>
-          {label && (
-            <label
-              htmlFor={checkboxId}
-              className={`ml-2 block text-xs text-neutral-darker cursor-pointer select-none ${labelClassName}`}
-            >
-              {label}
-            </label>
-          )}
-        </div>
-        {error && (
-          <p
-            id={`${checkboxId}-error`}
-            className={`mt-1 text-xs text-red-600 ${errorClassName}`}
-            role="alert"
-          >
-            {error}
-          </p>
-        )}
-      </div>
-    );
-  }
-);
-
-Checkbox.displayName = 'Checkbox';
+export { Checkbox };
