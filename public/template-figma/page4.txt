@@ -1,0 +1,146 @@
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Síguenos en
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Contacto
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// (+51) 958346375
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Nuestro canal de soporte
+color: 'rgba(255, 255, 255, 0.80)', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Escríbanos por correo electrónico
+color: 'rgba(255, 255, 255, 0.80)', fontSize: 16, fontFamily: 'Lato', fontWeight: '500', wordWrap: 'break-word'
+---
+// contacto@greenti.pe
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'
+---
+// Greenti © 2025 Todos los derechos son reservados
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Desarrollo de software
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Diseño UX/UI
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Staffing/Outsourcing
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Cursos en línea
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Servicios
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Financiero
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Retail
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Servicio
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Industria
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Educación
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Portafolio
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Jirón Zorritos 499, Breña - Lima
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Oficina
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Contáctanos
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Servicios
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Nosotros
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Portafolio
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// ENG
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Responsable de soluciones tecnológicas
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Maria
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Me encantaría hablar contigo sobre tu proyecto o necesidades.<br/><br/>Completa el formulario o envíanos un email a <br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// contacto@greenti.pe<br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// <br/><br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Hablamos en menos de 24hs.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+//  o te hacemos un descuento del 30% en tu próximo proyecto
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Sign in
+color: 'white', fontSize: 18, fontFamily: 'Sora', fontWeight: '600', wordWrap: 'break-word'
+---
+// Nombre completo
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Correo electrónico
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Cuéntanos sobre tu proyecto
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Número de teléfono
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Perú (PE)
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// ¿Tienes una idea? Nosotros tenemos las habilidades.
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Rellena nuestro formulario de contacto y nos pondremos en contacto ¡contigo!
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Enviar mensaje
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Confirmo que he leído y acepto las
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: '#12B759', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// políticas de protección de datos personales.
+color: '#12B759', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// Habilitamos nuestro canal de whatsapp
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Estamos aquí para atenderte y asegurarnos de que cada interacción sea tan fácil y personalizada como lo necesitas. 😊 ¡Estamos listos para ayudarte cuando tú lo estés!
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// ¿Estamos listo para 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// ayudarte?
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'

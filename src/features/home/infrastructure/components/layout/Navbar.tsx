@@ -60,14 +60,14 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-4 ${isScrolled ? "bg-white shadow-lg" : "bg-presence-section"}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-6 ${isScrolled ? "bg-white shadow-lg" : "bg-presence-section"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className={`flex items-center justify-between h-16 transition-all duration-300 ${!isScrolled ? "bg-white rounded-[90px] px-8 shadow-lg" : ""}`}>
           <div className="flex items-center">
             <Logo
               href="/"
-              isScrolled={false}
+              isScrolled={true}
               imgWidth={56}
               imgHeight={56}
             />

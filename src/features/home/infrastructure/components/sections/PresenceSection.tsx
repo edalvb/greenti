@@ -10,119 +10,237 @@ export const PresenceSection: React.FC = () => {
   const t = useTranslations("PresenceSection");
   const countries = t.raw("countries") as string[];
 
-  const Counter = ({ to, suffix }: { to: number; suffix?: string }) => {
+  const Counter = ({ to, suffix, decimals = 0 }: { to: number; suffix?: string; decimals?: number }) => {
     const { count, ref } = useCounter(to, { duration: 2, delay: 0.1 });
     return (
       <motion.span ref={ref}>
-        {count}
+        {decimals > 0 ? count.toFixed(decimals) : Math.floor(count)}
         {suffix}
       </motion.span>
     );
   };
 
-  const statsData = [
-    { value: 90, suffix: "%", labelKey: "stats.satisfactionRate" },
-    { value: 15, prefix: "+", labelKey: "stats.clients" },
-    { value: 23, prefix: "+", labelKey: "stats.projects" },
-  ];
-
   return (
     <section
       id="presence"
-      className="pd-section bg-presence-section px-responsive"
+      className="pd-section bg-sky-950 px-responsive rounded-[30px] overflow-hidden relative"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-start gap-12 lg:gap-16">
-          <div className="lg:w-2/5 w-full text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              <span className="text-secondary">{t("titlePart1")} </span>
-              <span className="text-primary">{t("titlePart2")}</span>
-            </h2>
-            <p className="text-neutral-darker mb-8 md:mb-10 leading-relaxed">
-              {t("subtitle")}
-            </p>
-            <ul className="list-none p-0 m-0 inline-block text-left lg:mx-0 mx-auto">
-              {countries.map((countryName, index) => {
-                const flagSlug =
-                  countryName
-                    .toLowerCase()
-                    .normalize("NFD")
-                    .replace(/[\u0300-\u036f]/g, "")
-                    .replace(/\s+/g, "_")
-                    .replace(/[^a-z0-9_]/g, "");
+      {/* Container alineado con otros componentes */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* COLUMNA 1: Título + Information Cards */}
+          <div className="lg:col-span-1 w-full space-y-6">
+            {/* Main Title Section */}
+            <div className="mb-8">
+              <h2 className="text-4xl md:text-6xl font-bold mb-2">
+                <span className="text-green-500">{t("titlePart1")}</span>
+              </h2>
+              <div className="text-white text-4xl md:text-6xl font-bold leading-tight">
+                <div>{t("titlePart2")}</div>
+                <div>{t("titlePart3")}</div>
+              </div>
+            </div>
 
-                return (
-                  <li key={countryName} className="flex items-start relative">
-                    <div className="flex flex-col items-center mr-[15px] flex-shrink-0">
-                      <div className="w-[18px] h-[18px] bg-primary rounded-full flex-shrink-0 z-10"></div>
-                      <div
-                        className={`w-[2px] h-[35px] ${index === countries.length - 1 ? "invisible" : ""}`}
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(to bottom, hsl(var(--color-primary)) 60%, transparent 60%)",
-                          backgroundSize: "2px 8px",
-                          backgroundRepeat: "repeat-y",
-                        }}
-                      ></div>
-                    </div>
+            {/* Information Cards */}
+            <div className="bg-white/5 rounded-[30px] p-6 h-40">
+              <h3 className="text-white text-2xl font-bold mb-4">{t("projectSummary.title")}</h3>
+              <p className="text-white text-base font-medium">
+                {t("projectSummary.description")}
+              </p>
+            </div>
+            
+            <div className="bg-white/5 rounded-[30px] p-6 h-40">
+              <h3 className="text-white text-2xl font-bold mb-4">{t("projectSummary.title")}</h3>
+              <p className="text-white text-base font-medium">
+                {t("projectSummary.description")}
+              </p>
+            </div>
+            
+            <div className="bg-white/5 rounded-[30px] p-6 h-40">
+              <h3 className="text-white text-2xl font-bold mb-4">{t("projectSummary.title")}</h3>
+              <p className="text-white text-base font-medium">
+                {t("projectSummary.description")}
+              </p>
+            </div>
+          </div>
 
-                    <div className="flex items-center relative -top-[5px]">
+          {/* COLUMNA 2: Círculos estadísticos UNO DEBAJO DE OTRO */}
+          <div className="lg:col-span-1 w-full flex flex-col items-center justify-center space-y-12 relative">
+            
+            {/* Primer Círculo - Countries */}
+            <div className="w-44 h-44 bg-secondary rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden z-10">
+              <div className="text-center z-10">
+                <div className="text-5xl font-bold text-white mb-2">
+                  <Counter to={5} />
+                </div>
+                <div className="text-sm text-white font-medium leading-tight px-4">
+                  Países <br />posicionados
+                </div>
+              </div>
+              
+              <div className="absolute inset-0">
+                <div className="w-full h-full animate-spin" style={{animationDuration: '20s'}}>
+                  <svg className="w-full h-full" viewBox="0 0 176 176">
+                    <defs>
+                      <path id="circle-main" d="M 88, 88 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+                    </defs>
+                    <text fontSize="12" fill="rgba(255,255,255,0.4)" fontFamily="Poppins">
+                      <textPath href="#circle-main" startOffset="0%">
+                        Nuestra presencia internacional • Nuestra presencia internacional • 
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Segundo Círculo - Projects */}
+            <div className="w-44 h-44 bg-secondary rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden z-10">
+              <div className="text-center z-10">
+                <div className="text-5xl font-bold text-white mb-2">
+                  <Counter to={23} suffix="+" />
+                </div>
+                <div className="text-sm text-white font-medium leading-tight px-4">
+                  Proyectos <br />realizados
+                </div>
+              </div>
+              
+              <div className="absolute inset-0">
+                <div className="w-full h-full animate-spin" style={{animationDuration: '25s'}}>
+                  <svg className="w-full h-full" viewBox="0 0 176 176">
+                    <defs>
+                      <path id="circle-projects-2" d="M 88, 88 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+                    </defs>
+                    <text fontSize="12" fill="rgba(255,255,255,0.4)" fontFamily="Poppins">
+                      <textPath href="#circle-projects-2" startOffset="0%">
+                        Proyectos ejecutados satisfactoriamente • Proyectos ejecutados satisfactoriamente • 
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Tercer Círculo - Satisfaction */}
+            <div className="w-44 h-44 bg-secondary rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden z-10">
+              <div className="text-center z-10">
+                <div className="text-4xl font-bold text-white mb-2">
+                  <Counter to={4.9} decimals={1} />
+                  <span className="text-3xl font-bold">/</span>
+                  <Counter to={5} />
+                </div>
+                <div className="text-sm text-white font-medium leading-tight px-4">
+                  Satisfacción <br />del cliente
+                </div>
+              </div>
+              
+              <div className="absolute inset-0">
+                <div className="w-full h-full animate-spin" style={{animationDuration: '30s'}}>
+                  <svg className="w-full h-full" viewBox="0 0 176 176">
+                    <defs>
+                      <path id="circle-satisfaction-2" d="M 88, 88 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+                    </defs>
+                    <text fontSize="12" fill="rgba(255,255,255,0.4)" fontFamily="Poppins">
+                      <textPath href="#circle-satisfaction-2" startOffset="0%">
+                        Satisfacción de nuestros servicios • Satisfacción de nuestros servicios • 
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* COLUMNA 3: Países alineados + Badges simples */}
+          <div className="lg:col-span-1 w-full flex flex-col justify-between h-full">
+            
+            {/* Countries List - Alineados con "Excelencia..." */}
+            <div className="pt-8">
+              <ul className="list-none p-0 m-0 space-y-4">
+                {countries.map((countryName, index) => {
+                  const flagSlug =
+                    countryName
+                      .toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")
+                      .replace(/\s+/g, "_")
+                      .replace(/[^a-z0-9_]/g, "");
+
+                  return (
+                    <li key={countryName} className="flex items-center relative">
+                      <div className="flex flex-col items-center mr-4 flex-shrink-0">
+                        <div className="w-4 h-4 bg-white rounded-full border border-slate-200 flex-shrink-0 z-10"></div>
+                        {index !== countries.length - 1 && (
+                          <div 
+                            className="w-0.5 h-6 mt-1"
+                            style={{
+                              backgroundImage: "repeating-linear-gradient(to bottom, white 0px, white 3px, transparent 3px, transparent 6px)",
+                            }}
+                          />
+                        )}
+                      </div>
                       <Image
                         src={`/assets/icons/${flagSlug}.svg`}
                         alt={t("countryFlagAlt", { country: countryName })}
-                        width={32}
-                        height={20}
-                        className="object-cover rounded-[3px] mr-[10px]"
+                        width={24}
+                        height={16}
+                        className="object-cover rounded-[3px] mr-3"
                         unoptimized
                       />
-                      <span className="text-lg text-neutral-darker leading-relaxed">
+                      <span className="text-base text-white font-medium">
                         {countryName}
                       </span>
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
-          <div className="lg:w-3/5 w-full">
-            <div className="relative w-full h-64 md:h-80 lg:h-[400px] mb-10 md:mb-12">
+            {/* Mapa mundial - Entre países y badges */}
+            <div className="flex justify-center my-8">
               <Image
                 src="/assets/images/world.svg"
                 alt={t("worldMapAlt")}
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 60vw, 500px"
-                style={{ objectFit: "contain" }}
-                className="opacity-90"
+                width={300}
+                height={200}
+                className="object-contain opacity-60"
                 priority
+                unoptimized
               />
             </div>
 
-            <div className="flex flex-col sm:flex-row justify-center items-center text-center sm:gap-x-6 md:gap-x-8 lg:gap-x-10">
-              {statsData.map((stat, index) => (
-                <React.Fragment key={stat.labelKey}>
-                  <div className="flex items-center text-center py-2 sm:py-0">
-                    <div className="hidden sm:block w-1 h-16 bg-primary mr-3 md:mr-4"></div>
-
-                    <div>
-                      <p className="text-5xl font-bold text-secondary">
-                        {stat.prefix}
-                        <Counter to={stat.value} suffix={stat.suffix} />
-                      </p>
-                      <p className="text-sm text-neutral-darker mt-1.5">
-                        {t.rich(
-                          stat.labelKey as any,
-                          { br: () => <br /> } as any,
-                        )}
-                      </p>
-                    </div>
-                  </div>
-
-                  {index < statsData.length - 1 && (
-                    <div className="block sm:hidden w-4/5 max-w-[150px] h-px bg-primary/30 my-4 mx-auto"></div>
-                  )}
-                </React.Fragment>
-              ))}
+            {/* Recognition Badges - Solo imágenes, sin cards */}
+            <div className="flex flex-wrap justify-start gap-4 mt-12">
+              <Image
+                src="/assets/images/clutch_badge_1.svg"
+                alt="Clutch Badge 1"
+                width={80}
+                height={64}
+                className="object-contain"
+                unoptimized
+              />
+              <Image
+                src="/assets/images/clutch_badge_2.svg"
+                alt="Clutch Badge 2"
+                width={80}
+                height={64}
+                className="object-contain"
+                unoptimized
+              />
+              <Image
+                src="/assets/images/clutch_badge_3.svg"
+                alt="Clutch Badge 3"
+                width={80}
+                height={64}
+                className="object-contain"
+                unoptimized
+              />
+              <div className="w-20 h-16 flex items-center justify-center">
+                <span className="text-white text-xs text-center font-medium opacity-60">
+                  Extra Badge
+                </span>
+              </div>
             </div>
           </div>
         </div>

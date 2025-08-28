@@ -1,0 +1,596 @@
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Síguenos en
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Contacto
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// (+51) 958346375
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Nuestro canal de soporte
+color: 'rgba(255, 255, 255, 0.80)', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Escríbanos por correo electrónico
+color: 'rgba(255, 255, 255, 0.80)', fontSize: 16, fontFamily: 'Lato', fontWeight: '500', wordWrap: 'break-word'
+---
+// contacto@greenti.pe
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '600', wordWrap: 'break-word'
+---
+// Greenti © 2025 Todos los derechos son reservados
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Desarrollo de software
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Diseño UX/UI
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Staffing/Outsourcing
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Cursos en línea
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Servicios
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Financiero
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Retail
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Servicio
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Industria
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Educación
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Portafolio
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Jirón Zorritos 499, Breña - Lima
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Oficina
+color: 'white', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Contáctanos
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Servicios
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Nosotros
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Nuestro trabajo
+color: '#12B759', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// ENG
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Beblis
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Sector
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Turismo y alojamiento
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// País
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// México
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Plataforma
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Mobile / Web
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Beblis
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Britcam landscape
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Coosofan cooperativa
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Easydrop
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Laesystem
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Favesa
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// P
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// y
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// j
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// u
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// d
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// f
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// m
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// 23+<br/>
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Proyectos <br/>realizados
+color: '#002140', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// N
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// u
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// p
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// l
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// 5<br/>
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Países <br/>posicionados
+color: '#002140', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// S
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// f
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// a
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// ó
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// d
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// n
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// u
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// t
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// e
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// r
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// v
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// c
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// i
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// o
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// s
+color: 'rgba(0, 33, 64, 0.40)', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// 4.9
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// /
+color: '#002140', fontSize: 20, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// 5<br/>
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Satisfacción <br/>del cliente
+color: '#002140', fontSize: 12, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Resumen
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// 5
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Tamaño del equipo
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// 8<br/>
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// meses
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Duración del proyecto
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// 5.0
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Calificación
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// El 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// desafío
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// La 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// solución
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Se utilizaron las 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// tecnologías
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// El 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// resultado
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.<br/><br/>Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros  Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Trac Stephenson<br/>
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Fundador, ProWallet
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// “El proyecto fue su prioridad número uno y pensaron en lo que era mejor para él. Somnio siempre hacía excelentes sugerencias sobre cómo mejorar el proyecto desde una perspectiva comercial y de procesos, lo que lo hizo aún mejor y nos acercó a nuestros objetivos”.
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Nuestro 
+color: 'white', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// cliente
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Responsable de soluciones tecnológicas
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Maria
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Me encantaría hablar contigo sobre tu proyecto o necesidades.<br/><br/>Completa el formulario o envíanos un email a <br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// contacto@greenti.pe<br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// <br/><br/>
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Hablamos en menos de 24hs.
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+//  o te hacemos un descuento del 30% en tu próximo proyecto
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Sign in
+color: 'white', fontSize: 18, fontFamily: 'Sora', fontWeight: '600', wordWrap: 'break-word'
+---
+// Nombre completo
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Correo electrónico
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Cuéntanos sobre tu proyecto
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Número de teléfono
+color: '#7D7E8A', fontSize: 16, fontFamily: 'Poppins', fontWeight: '400', wordWrap: 'break-word'
+---
+// Perú (PE)
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// ¿Tienes una idea? Nosotros tenemos las habilidades.
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Rellena nuestro formulario de contacto y nos pondremos en contacto ¡contigo!
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// Enviar mensaje
+color: 'white', fontSize: 16, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Confirmo que he leído y acepto las
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+//  
+color: '#12B759', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// políticas de protección de datos personales.
+color: '#12B759', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', textDecoration: 'underline', wordWrap: 'break-word'
+---
+// Habilitamos nuestro canal de whatsapp
+color: '#002140', fontSize: 24, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// Estamos aquí para atenderte y asegurarnos de que cada interacción sea tan fácil y personalizada como lo necesitas. 😊 ¡Estamos listos para ayudarte cuando tú lo estés!
+color: '#002140', fontSize: 16, fontFamily: 'Poppins', fontWeight: '500', wordWrap: 'break-word'
+---
+// ¿Estás listo para iniciar tu proyecto con 
+color: '#002140', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'
+---
+// nosotros?
+color: '#12B759', fontSize: 56, fontFamily: 'Poppins', fontWeight: '700', wordWrap: 'break-word'

@@ -69,8 +69,9 @@
     }
   },
   "PresenceSection": {
-    "titlePart1": "Nuestra",
-    "titlePart2": "presencia",
+    "titlePart1": "Excelencia.",
+    "titlePart2": "Nuestro respaldo",
+    "titlePart3": "para nuestros clientes",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
     "countries": [
       "USA",
@@ -80,9 +81,13 @@
       "Paraguay"
     ],
     "stats": {
-      "satisfactionRate": "Satisfacción del cliente",
-      "clients": "Clientes",
-      "projects": "Proyectos"
+      "countriesPositioned": "Países <br/>posicionados",
+      "projectsCompleted": "Proyectos <br/>realizados",
+      "clientSatisfaction": "Satisfacción <br/>del cliente"
+    },
+    "projectSummary": {
+      "title": "Resumen del proyecto",
+      "description": "Nuestras tarifas por proyecto varían según los requisitos específicos de cada proyecto, así como de factores como la antigüedad."
     },
     "worldMapAlt": "Mapa mundial mostrando la presencia de Greenti",
     "countryFlagAlt": "Bandera de {country}"
