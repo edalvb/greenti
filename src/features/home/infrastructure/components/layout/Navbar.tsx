@@ -73,7 +73,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
 
-          <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
+          <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navsItems.map((item) => item)}
             
             <ButtonCta
