@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useTranslations, useLocale, Locale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
@@ -14,6 +14,7 @@ import {
 } from "@tabler/icons-react";
 import { routing } from "@/i18n/routing";
 import { ButtonCta } from "@/components/ui/ButtonCta";
+import LanguageDropdown from "@/components/ui/LanguageDropdown";
 
 interface NavItem {
   labelKey: "services" | "portfolio" | "aboutUs";
@@ -30,6 +31,7 @@ export const Navbar: React.FC = () => {
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
 
   const navItems: NavItem[] = [
     { labelKey: "services", href: "#nuestros-servicios", hasDropdown: false },
@@ -50,6 +52,9 @@ export const Navbar: React.FC = () => {
   const contactButtonExtraClasses = "";
   const mobileMenuIconColor = "bg-white text-secondary";
 
+  // Etiqueta para idioma en todo el navbar (ENG/ESP)
+  const currentLocaleLabel = locale === "en" ? "ENG" : locale === "es" ? "ESP" : String(locale).toUpperCase();
+
   const changeLanguage = (nextLocale: Locale) => {
     router.replace(pathname, { locale: nextLocale });
     setIsMobileMenuOpen(false);
@@ -63,14 +68,11 @@ export const Navbar: React.FC = () => {
       className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-6 ${isScrolled ? "bg-white shadow-lg" : "bg-presence-section"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`flex items-center justify-between h-16 transition-all duration-300 ${!isScrolled ? "bg-white rounded-[90px] px-8 shadow-lg" : ""}`}>
+        <div
+          className={`flex items-center justify-between h-16 transition-all duration-300 ${!isScrolled ? "bg-white rounded-[90px] px-8 shadow-lg" : ""}`}
+        >
           <div className="flex items-center">
-            <Logo
-              href="/"
-              isScrolled={true}
-              imgWidth={56}
-              imgHeight={56}
-            />
+            <Logo href="/" isScrolled={true} imgWidth={56} imgHeight={56} />
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2 ml-6">
               {navItems.map((item) => (
                 <Link key={item.labelKey} href={item.href}>
@@ -88,14 +90,11 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
-            <span
-              onClick={() => changeLanguage(otherLocale)}
-              className={`cursor-pointer flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${navLinkClasses}`}
-              aria-label={`Switch to ${t("switchToLanguage")}`}
-            >
-              <IconWorld size={20} className="mr-1.5" />
-              {t("currentLanguage")}
-            </span>
+            <LanguageDropdown
+              onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
+              navLinkClasses={navLinkClasses}
+              variant="desktop"
+            />
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
@@ -146,13 +145,10 @@ export const Navbar: React.FC = () => {
                 </span>
               </Link>
             ))}
-            <button
-              onClick={() => changeLanguage(otherLocale)}
-              className="w-full flex items-center text-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium group hover:bg-neutral-lightest/50"
-            >
-              <IconWorld size={20} className="mr-1.5" />
-              {t("currentLanguage")}
-            </button>
+            <LanguageDropdown
+              onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
+              variant="mobile"
+            />
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-light px-5">
             <Link href="#contact" onClick={toggleMobileMenu} passHref>
@@ -173,3 +169,5 @@ export const Navbar: React.FC = () => {
     </nav>
   );
 };
+
+// DropdownLang fue extraído a un componente reutilizable en '@/components/ui/LanguageDropdown'
