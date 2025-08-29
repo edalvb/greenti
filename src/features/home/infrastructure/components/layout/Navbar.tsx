@@ -73,11 +73,9 @@ export const Navbar: React.FC = () => {
             />
           </div>
 
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 ml-6">
-            {navsItems.map((item) => item)}
-          </div>
-
           <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
+            {navsItems.map((item) => item)}
+            
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
