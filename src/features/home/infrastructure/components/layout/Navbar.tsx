@@ -1,42 +1,30 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { useTranslations, useLocale, Locale } from "next-intl";
-import { Link, useRouter, usePathname } from "@/i18n/navigation";
+import React, { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
-import {
-  IconMenu2,
-  IconX,
-  IconChevronDown,
-  IconWorld,
-  IconMail,
-} from "@tabler/icons-react";
-import { routing } from "@/i18n/routing";
+import { IconMenu2, IconX } from "@tabler/icons-react";
 import { ButtonCta } from "@/components/ui/ButtonCta";
 import LanguageDropdown from "@/components/ui/LanguageDropdown";
+import CustomDropdown from "@/components/ui/CustomDropdown";
 
 interface NavItem {
-  labelKey: "services" | "portfolio" | "aboutUs";
-  href: string;
-  hasDropdown?: boolean;
+  labelKey: "services" | "portfolio" | "aboutUs" | "currentLanguage";
 }
 
 export const Navbar: React.FC = () => {
   const t = useTranslations("Navbar");
   const tGlobal = useTranslations("Global");
-  const locale = useLocale();
-  const router = useRouter();
-  const pathname = usePathname();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileLangOpen, setIsMobileLangOpen] = useState(false);
 
   const navItems: NavItem[] = [
-    { labelKey: "services", href: "#nuestros-servicios", hasDropdown: false },
-    { labelKey: "portfolio", href: "#testimonials", hasDropdown: false },
-    { labelKey: "aboutUs", href: "#presence", hasDropdown: false },
+    { labelKey: "services" },
+    { labelKey: "portfolio" },
+    { labelKey: "aboutUs" },
   ];
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -52,49 +40,44 @@ export const Navbar: React.FC = () => {
   const contactButtonExtraClasses = "";
   const mobileMenuIconColor = "bg-white text-secondary";
 
-  // Etiqueta para idioma en todo el navbar (ENG/ESP)
-  const currentLocaleLabel = locale === "en" ? "ENG" : locale === "es" ? "ESP" : String(locale).toUpperCase();
-
-  const changeLanguage = (nextLocale: Locale) => {
-    router.replace(pathname, { locale: nextLocale });
-    setIsMobileMenuOpen(false);
-  };
-
-  const otherLocale =
-    routing.locales.find((loc) => loc !== locale) || routing.defaultLocale;
+  const navsItems = [
+    ...navItems.map((item) => (
+      <CustomDropdown
+        key={item.labelKey}
+        name={t(item.labelKey)}
+        className={navLinkClasses}
+      />
+    )),
+    <LanguageDropdown
+      onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
+      navLinkClasses={navLinkClasses}
+      variant="desktop"
+    />,
+  ];
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-300 px-responsive py-6 ${isScrolled ? "bg-white shadow-lg" : "bg-presence-section"}`}
+      className={`fixed w-full z-50 top-0 transition-all duration-500 ease-in-out ${isScrolled ? "bg-white shadow-lg py-2" : "bg-presence-section py-6"} px-responsive`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between h-16 transition-all duration-300 ${!isScrolled ? "bg-white rounded-[90px] px-8 shadow-lg" : ""}`}
+          className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-14 px-4" : "h-20 bg-white rounded-[90px] px-8 shadow-lg"}`}
         >
           <div className="flex items-center">
-            <Logo href="/" isScrolled={true} imgWidth={56} imgHeight={56} />
-            <div className="hidden md:flex items-center space-x-1 lg:space-x-2 ml-6">
-              {navItems.map((item) => (
-                <Link key={item.labelKey} href={item.href}>
-                  <span
-                    className={`flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${navLinkClasses}`}
-                  >
-                    {t(item.labelKey)}
-                    {item.hasDropdown && (
-                      <IconChevronDown size={16} className="ml-1" />
-                    )}
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <Logo 
+              href="/" 
+              isScrolled={false} 
+              imgWidth={isScrolled ? 40 : 56} 
+              imgHeight={isScrolled ? 40 : 56}
+              className="transition-all duration-500 ease-in-out"
+            />
+          </div>
+
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2 ml-6">
+            {navsItems.map((item) => item)}
           </div>
 
           <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
-            <LanguageDropdown
-              onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
-              navLinkClasses={navLinkClasses}
-              variant="desktop"
-            />
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
@@ -132,18 +115,11 @@ export const Navbar: React.FC = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-              <Link
+              <CustomDropdown
                 key={item.labelKey}
-                href={item.href}
-                onClick={toggleMobileMenu}
-              >
-                <span className="block px-3 py-2 rounded-md text-base font-medium text-secondary hover:text-primary hover:bg-neutral-lightest/50">
-                  {t(item.labelKey)}
-                  {item.hasDropdown && (
-                    <IconChevronDown size={16} className="ml-1 inline" />
-                  )}
-                </span>
-              </Link>
+                name={t(item.labelKey)}
+                className={navLinkClasses}
+              />
             ))}
             <LanguageDropdown
               onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
@@ -157,7 +133,6 @@ export const Navbar: React.FC = () => {
                 size="md"
                 radius="cta"
                 className="w-full"
-                icon={<IconMail size={18} />}
                 iconPosition="right"
               >
                 {tGlobal("contactUs")}

@@ -4,11 +4,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-primary: 147 82% 42%; /* #12B759 */
+  --color-primary: 146 82% 39%; /* #12B759 */
   --color-secondary: 206 100% 13%; /* #002140 */
   --color-secondary-hsl: 206, 100%, 13%; /* Added for direct HSL usage */
   --color-accent-light: 150 67% 93%;
-  --color-accent-default: 147 82% 42%; /* #12B759 */
+  --color-accent-default: 146 82% 39%; /* #12B759 */
   --color-accent-dark: 148 81% 30%;
 
   --color-neutral-lightest: 0 0% 100%;
