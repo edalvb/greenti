@@ -9,6 +9,7 @@ import { IconMenu2, IconX } from "@tabler/icons-react";
 import { ButtonCta } from "@/components/ui/ButtonCta";
 import LanguageDropdown from "@/components/ui/LanguageDropdown";
 import CustomDropdown from "@/components/ui/CustomDropdown";
+import PortfolioDropdownPanel from "./PortfolioDropdownPanel";
 
 interface NavItem {
   labelKey: "services" | "portfolio" | "aboutUs" | "currentLanguage";
@@ -41,13 +42,29 @@ export const Navbar: React.FC = () => {
   const mobileMenuIconColor = "bg-white text-secondary";
 
   const navsItems = [
-    ...navItems.map((item) => (
-      <CustomDropdown
-        key={item.labelKey}
-        name={t(item.labelKey)}
-        className={navLinkClasses}
-      />
-    )),
+    ...navItems.map((item) => {
+      if (item.labelKey === "portfolio") {
+        return (
+          <CustomDropdown
+            key={item.labelKey}
+            name={t(item.labelKey)}
+            className={navLinkClasses}
+            align="left"
+            menuClassName="min-w-[680px]"
+            ariaLabel={t("portfolio")}
+          >
+            <PortfolioDropdownPanel />
+          </CustomDropdown>
+        );
+      }
+      return (
+        <CustomDropdown
+          key={item.labelKey}
+          name={t(item.labelKey)}
+          className={navLinkClasses}
+        />
+      );
+    }),
     <LanguageDropdown
       onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
       navLinkClasses={navLinkClasses}
@@ -113,11 +130,25 @@ export const Navbar: React.FC = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
-              <CustomDropdown
-                key={item.labelKey}
-                name={t(item.labelKey)}
-                className={navLinkClasses}
-              />
+              item.labelKey === "portfolio" ? (
+                <CustomDropdown
+                  key={item.labelKey}
+                  name={t(item.labelKey)}
+                  className={navLinkClasses}
+                  variant="mobile"
+                  ariaLabel={t("portfolio")}
+                  onToggle={(o) => !o && setIsMobileMenuOpen(true)}
+                >
+                  <PortfolioDropdownPanel />
+                </CustomDropdown>
+              ) : (
+                <CustomDropdown
+                  key={item.labelKey}
+                  name={t(item.labelKey)}
+                  className={navLinkClasses}
+                  variant="mobile"
+                />
+              )
             ))}
             <LanguageDropdown
               onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}

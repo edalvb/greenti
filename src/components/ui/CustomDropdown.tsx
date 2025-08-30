@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, type ReactNode } from "react";
 import { IconChevronDown } from "@tabler/icons-react";
 
 export type DropdownItem = {
@@ -21,6 +21,7 @@ export type CustomDropdownProps = {
   align?: "left" | "right";
   menuClassName?: string;
   onToggle?: (open: boolean) => void;
+  children?: ReactNode;
 };
 
 export const CustomDropdown: React.FC<CustomDropdownProps> = ({
@@ -34,9 +35,11 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   align = "right",
   menuClassName = "w-28",
   onToggle,
+  children,
 }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
+  const hasPanel = (!!items && items.length > 0) || !!children;
 
   const toggle = () => {
     setOpen((v) => {
@@ -69,46 +72,54 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
 
   if (variant === "mobile") {
     return (
-      <div className={`w-full ${className}`}>
+      <div className={`w-full ${className}`} ref={ref}>
         <button
           onClick={toggle}
-          className={`w-full flex items-center justify-between text-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium hover:bg-neutral-lightest/50 ${className}`}
-          aria-haspopup="listbox"
-          aria-expanded={!!items && open}
+          className={`w-full flex items-center justify-between text-secondary hover:text-primary px-3 py-2 rounded-md text-base font-medium hover:bg-neutral-lightest/50`}
+          aria-haspopup={hasPanel ? "menu" : undefined}
+          aria-expanded={hasPanel ? open : undefined}
         >
           <span className="flex items-center gap-1.5">
             {icon}
             {name}
           </span>
-          {!!items && (
+          {hasPanel && (
             <IconChevronDown
               size={18}
               className={`ml-2 transition-transform ${open ? "rotate-180" : ""}`}
             />
           )}
         </button>
-        {!!items && open && items.length > 0 && (
-          <div className="mt-1 ml-9 pr-3" role="listbox" aria-label={ariaLabel}>
-            {items.map((item, idx) => (
-              <button
-                key={`${item.label}-${idx}`}
-                onClick={() => handleItemClick(item.onClick)}
-                disabled={item.disabled}
-                className={`w-full text-left px-3 py-2 rounded-md text-sm ${
-                  item.disabled
-                    ? "text-neutral-400"
-                    : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
-                }`}
-                role="option"
-                aria-selected={false}
-              >
-                <span className="inline-flex items-center gap-2">
-                  {item.icon}
-                  {item.label}
-                </span>
-              </button>
-            ))}
-          </div>
+        {open && hasPanel && (
+          children ? (
+            <div className="mt-1 ml-9 pr-3" role="menu" aria-label={ariaLabel}>
+              {children}
+            </div>
+          ) : (
+            !!items && items.length > 0 && (
+              <div className="mt-1 ml-9 pr-3" role="listbox" aria-label={ariaLabel}>
+                {items.map((item, idx) => (
+                  <button
+                    key={`${item.label}-${idx}`}
+                    onClick={() => handleItemClick(item.onClick)}
+                    disabled={item.disabled}
+                    className={`w-full text-left px-3 py-2 rounded-md text-sm ${
+                      item.disabled
+                        ? "text-neutral-400"
+                        : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
+                    }`}
+                    role="option"
+                    aria-selected={false}
+                  >
+                    <span className="inline-flex items-center gap-2">
+                      {item.icon}
+                      {item.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )
+          )
         )}
       </div>
     );
@@ -120,12 +131,12 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         type="button"
         onClick={toggle}
         className={`flex items-center px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors duration-300 ${navLinkClasses} hover:text-primary`}
-        aria-haspopup="listbox"
-        aria-expanded={!!items && open}
+        aria-haspopup={hasPanel ? "menu" : undefined}
+        aria-expanded={hasPanel ? open : undefined}
       >
         {icon}
         {name}
-        {!!items && (
+        {hasPanel && (
           <IconChevronDown
             size={16}
             className={`ml-1 transition-transform ${open ? "rotate-180" : ""}`}
@@ -133,32 +144,44 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         )}
       </button>
 
-      {!!items && open && items.length > 0 && (
-        <div
-          role="listbox"
-          aria-label={ariaLabel}
-          className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 ${menuClassName} origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
-        >
-          {items.map((item, idx) => (
-            <button
-              key={`${item.label}-${idx}`}
-              role="option"
-              aria-selected={false}
-              onClick={() => handleItemClick(item.onClick)}
-              disabled={item.disabled}
-              className={`block w-full text-left px-3 py-2 text-sm ${
-                item.disabled
-                  ? "text-neutral-400"
-                  : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
-              }`}
+      {open && hasPanel && (
+        children ? (
+          <div
+            role="menu"
+            aria-label={ariaLabel}
+            className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 ${menuClassName} origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
+          >
+            {children}
+          </div>
+        ) : (
+          !!items && items.length > 0 && (
+            <div
+              role="listbox"
+              aria-label={ariaLabel}
+              className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 ${menuClassName} origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
             >
-              <span className="inline-flex items-center gap-2 normal-case">
-                {item.icon}
-                {item.label}
-              </span>
-            </button>
-          ))}
-        </div>
+              {items.map((item, idx) => (
+                <button
+                  key={`${item.label}-${idx}`}
+                  role="option"
+                  aria-selected={false}
+                  onClick={() => handleItemClick(item.onClick)}
+                  disabled={item.disabled}
+                  className={`block w-full text-left px-3 py-2 text-sm ${
+                    item.disabled
+                      ? "text-neutral-400"
+                      : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
+                  }`}
+                >
+                  <span className="inline-flex items-center gap-2 normal-case">
+                    {item.icon}
+                    {item.label}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )
+        )
       )}
     </div>
   );
