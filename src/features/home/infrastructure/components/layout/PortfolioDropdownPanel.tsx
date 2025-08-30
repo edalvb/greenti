@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import RotatingStatCircle from "@/components/ui/RotatingStatCircle";
 
 type Item = {
   name: string;
@@ -45,20 +46,34 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({ 
       <div className="hidden md:block w-px bg-neutral-200" />
       <div className="md:hidden h-px w-full bg-neutral-200" />
 
-      {/* Right: stats mimic from Figma */}
-      <div className="flex flex-col items-center justify-center px-2 md:px-4 w-full md:min-w-[220px] gap-6">
-        <div className="text-center mb-8">
-          <div className="text-3xl font-bold text-secondary leading-none">23+</div>
-          <div className="text-xs text-secondary font-medium">Proyectos<br />realizados</div>
-        </div>
-        <div className="text-center mb-8">
-          <div className="text-3xl font-bold text-secondary leading-none">5</div>
-          <div className="text-xs text-secondary font-medium">Países<br />posicionados</div>
-        </div>
-        <div className="text-center">
-          <div className="text-3xl font-bold text-secondary leading-none">4.9<span className="align-top text-xl">/</span>5</div>
-          <div className="text-xs text-secondary font-medium">Satisfacción<br />del cliente</div>
-        </div>
+      {/* Right: rotating stat circles */}
+      <div className="flex flex-col items-center justify-center px-2 md:px-4 w-full md:min-w-[220px] gap-8">
+        <RotatingStatCircle
+          primary={<span className="text-3xl font-bold text-secondary">23+</span>}
+          subtitle={<span>Proyectos<br />realizados</span>}
+          rotatingText="Proyectos ejecutados satisfactoriamente"
+          animationDuration={22}
+          size="small"
+          theme="light"
+        />
+
+        <RotatingStatCircle
+          primary={<span className="text-3xl font-bold text-secondary">5</span>}
+          subtitle={<span>Países<br />posicionados</span>}
+          rotatingText="Nuestra presencia internacional"
+          animationDuration={20}
+          size="small"
+          theme="light"
+        />
+
+        <RotatingStatCircle
+          primary={<span className="text-2xl font-bold text-secondary">4.9<span className="text-3xl align-top">/</span>5</span>}
+          subtitle={<span>Satisfacción<br />del cliente</span>}
+          rotatingText="Satisfacción de nuestros servicios"
+          animationDuration={24}
+          size="small"
+          theme="light"
+        />
       </div>
     </div>
   );

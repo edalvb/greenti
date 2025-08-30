@@ -9,6 +9,10 @@ export type RotatingStatCircleProps = {
   rotatingText: string;
   /** Duración de la animación de giro en segundos (por defecto 20s) */
   animationDuration?: number;
+  /** Tema visual del componente */
+  theme?: "dark" | "light" | "ligth"; // se acepta "ligth" por compatibilidad con la solicitud
+  /** Tamaño del componente */
+  size?: "small" | "medium" | "large";
 };
 
 export function RotatingStatCircle({
@@ -16,14 +20,44 @@ export function RotatingStatCircle({
   subtitle,
   rotatingText,
   animationDuration = 20,
+  theme = "dark",
+  size = "medium",
 }: RotatingStatCircleProps) {
   const pathId = React.useId();
 
+  // Normalización de tema para aceptar "ligth" y "light"
+  const isLight = theme === "light" || theme === "ligth";
+
+  // Estilos por tamaño
+  const sizeClasses =
+    size === "small"
+      ? {
+          container: "w-32 h-32",
+          subtitle: "text-xs",
+        }
+      : size === "large"
+      ? {
+          container: "w-56 h-56",
+          subtitle: "text-base",
+        }
+      : {
+          container: "w-44 h-44",
+          subtitle: "text-sm",
+        };
+
+  const bgClass = isLight ? "bg-white" : "bg-secondary";
+  const textColorClass = isLight ? "text-gray-900" : "text-white";
+  const rotatingFill = isLight ? "rgba(0,0,0,0.4)" : "rgba(255,255,255,0.4)";
+
   return (
-    <div className="w-44 h-44 bg-secondary rounded-full flex flex-col items-center justify-center text-white relative overflow-hidden z-10">
+    <div
+      className={`${sizeClasses.container} ${bgClass} rounded-full flex flex-col items-center justify-center ${textColorClass} relative overflow-hidden z-10`}
+    >
       <div className="text-center z-10">
         <div className="mb-2">{primary}</div>
-        <div className="text-sm text-white font-medium leading-tight px-4">{subtitle}</div>
+        <div className={`${sizeClasses.subtitle} ${textColorClass} font-medium leading-tight px-4`}>
+          {subtitle}
+        </div>
       </div>
 
       <div className="absolute inset-0 pointer-events-none">
@@ -38,7 +72,7 @@ export function RotatingStatCircle({
                 d="M 88, 88 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
               />
             </defs>
-            <text fontSize="12" fill="rgba(255,255,255,0.4)" fontFamily="Poppins">
+            <text fontSize="12" fill={rotatingFill} fontFamily="Poppins">
               <textPath href={`#${pathId}`} startOffset="0%">
                 {rotatingText} • {rotatingText} •
               </textPath>
