@@ -35,7 +35,6 @@ export default async function LandingPage({ params }: any) {
   return (
     <>
       <HeroSection />
-      <AboutUsSection />
       <ServicesSection />
       <SectorsSection />
       <PresenceSection />

@@ -142,7 +142,7 @@
   }
 
   .bg-presence-section {
-    background-color: hsl(var(--color-presence-section-bg));
+    background: linear-gradient(to bottom, #EEF0EF, #FFFFFF);
   }
 
   .text-whatsapp-icon {
