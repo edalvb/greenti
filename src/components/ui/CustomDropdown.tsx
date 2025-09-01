@@ -157,7 +157,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
           <div
             role="menu"
             aria-label={ariaLabel}
-            className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 ${menuClassName} origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
+            className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-8 ${menuClassName} origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
           >
             {children}
           </div>
@@ -167,7 +167,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             <div
               role="listbox"
               aria-label={ariaLabel}
-              className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-2 ${menuClassName} origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
+              className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-8 ${menuClassName} origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
             >
               {items.map((item, idx) => (
                 <button
