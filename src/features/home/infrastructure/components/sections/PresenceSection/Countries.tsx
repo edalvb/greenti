@@ -102,7 +102,7 @@ const Timeline = ({ itemCount }: { itemCount: number }) => {
 
 export default function Countries({ items = DEFAULT_ITEMS }) {
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
+    <div style={{ width: "100%", position: "relative" }}>
       <Timeline itemCount={items.length} />
 
       {items.map((item, i) => {
