@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative bg-presence-section pb-[70px] md:pt-20 lg:min-h-[calc(100vh-80px)] flex items-center overflow-hidden w-full justify-center"
+      className="relative bg-presence-section pb-[70px] md:pt-40 lg:min-h-[calc(100vh-80px)] flex items-center overflow-hidden w-full justify-center"
     >
       <div className="container z-10">
         <div className="max-w-4xl text-center mx-auto">
