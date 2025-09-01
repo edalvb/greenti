@@ -3,7 +3,7 @@ import { HeroSection } from "@/features/home/infrastructure/components/sections/
 import { ClientLogosSection } from "@/features/home/infrastructure/components/sections/ClientLogosSection";
 import { ServicesSection } from "@/features/home/infrastructure/components/sections/ServicesSection";
 import { SectorsSection } from "@/features/home/infrastructure/components/sections/SectorsSection";
-import { PresenceSection } from "@/features/home/infrastructure/components/sections/PresenceSection";
+import { PresenceSection } from "@/features/home/infrastructure/components/sections/PresenceSection/PresenceSection";
 import { TestimonialsSection } from "@/features/home/infrastructure/components/sections/TestimonialsSection";
 import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
 import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
