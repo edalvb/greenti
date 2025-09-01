@@ -36,8 +36,7 @@ export const LanguageDropdown: React.FC<LanguageDropdownProps> = ({
   const pathname = usePathname();
   const [_, setOpen] = useState(false);
 
-  const labelFor = (loc: string) =>
-    loc === "en" ? "ENG" : loc === "es" ? "ESP" : String(loc).toUpperCase();
+  const labelFor = (loc: string) => String(loc).toUpperCase();
 
   const changeLanguage = (nextLocale: Locale) => {
     router.replace(pathname, { locale: nextLocale });

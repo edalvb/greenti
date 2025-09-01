@@ -79,25 +79,33 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
           aria-haspopup={hasPanel ? "menu" : undefined}
           aria-expanded={hasPanel ? open : undefined}
         >
-          <span className="flex items-center gap-1.5">
+          <span
+            className={`flex items-center gap-1.5 ${open ? "text-primary" : ""}`}
+          >
             {icon}
             {name}
           </span>
           {hasPanel && (
             <IconChevronDown
               size={18}
-              className={`ml-2 transition-transform ${open ? "rotate-180" : ""}`}
+              className={`ml-2 transition-transform ${open ? "rotate-180 text-primary" : ""}`}
             />
           )}
         </button>
-        {open && hasPanel && (
-          children ? (
+        {open &&
+          hasPanel &&
+          (children ? (
             <div className="mt-1 ml-9 pr-3" role="menu" aria-label={ariaLabel}>
               {children}
             </div>
           ) : (
-            !!items && items.length > 0 && (
-              <div className="mt-1 ml-9 pr-3" role="listbox" aria-label={ariaLabel}>
+            !!items &&
+            items.length > 0 && (
+              <div
+                className="mt-1 ml-9 pr-3"
+                role="listbox"
+                aria-label={ariaLabel}
+              >
                 {items.map((item, idx) => (
                   <button
                     key={`${item.label}-${idx}`}
@@ -119,8 +127,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                 ))}
               </div>
             )
-          )
-        )}
+          ))}
       </div>
     );
   }
@@ -134,18 +141,19 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         aria-haspopup={hasPanel ? "menu" : undefined}
         aria-expanded={hasPanel ? open : undefined}
       >
-        {icon}
-        {name}
+        <span className={`${open ? "text-primary" : ""}`}>{icon}</span>
+        <span className={`${open ? "text-primary" : ""}`}>{name}</span>
         {hasPanel && (
           <IconChevronDown
             size={16}
-            className={`ml-1 transition-transform ${open ? "rotate-180" : ""}`}
+            className={`ml-1 transition-transform ${open ? "rotate-180 text-primary" : ""}`}
           />
         )}
       </button>
 
-      {open && hasPanel && (
-        children ? (
+      {open &&
+        hasPanel &&
+        (children ? (
           <div
             role="menu"
             aria-label={ariaLabel}
@@ -154,7 +162,8 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             {children}
           </div>
         ) : (
-          !!items && items.length > 0 && (
+          !!items &&
+          items.length > 0 && (
             <div
               role="listbox"
               aria-label={ariaLabel}
@@ -181,8 +190,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
               ))}
             </div>
           )
-        )
-      )}
+        ))}
     </div>
   );
 };

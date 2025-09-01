@@ -13,7 +13,7 @@
   },
   "Navbar": {
     "services": "Services",
-    "portfolio": "Portfolio",
+    "portfolio": "Our work",
     "aboutUs": "About Us",
     "language": "Language",
     "currentLanguage": "ENG",
@@ -25,7 +25,7 @@
     "uxuiDesign": "UX/UI Design",
     "staffing": "Staffing/Outsourcing",
     "onlineCourses": "Online Courses",
-    "portfolio": "Portfolio",
+    "portfolio": "Our work",
     "financial": "Financial",
     "retail": "Retail",
     "service": "Service",
