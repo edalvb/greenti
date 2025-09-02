@@ -43,7 +43,7 @@ export const PresenceSection: React.FC = () => {
             {/* Main Title Section */}
             <div className="mb-8">
               <h2 className="text-5xl font-bold mb-2">
-                <span className="text-green-500">{t("titlePart1")}</span>
+                <span className="text-primary">{t("titlePart1")}</span>
               </h2>
               <div className="text-white text-5xl font-bold leading-tight">
                 <div>{t("titlePart2")}</div>
