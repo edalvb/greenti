@@ -8,6 +8,7 @@ import {
 import { Poppins } from "next/font/google";
 import { notFound } from "next/navigation";
 import { AppProviders } from "@/core/providers/AppProviders";
+import { Navbar } from "@/features/home/infrastructure/components/layout/Navbar";
 import "../globals.css";
 import { Util } from "@/core/utils/utils";
 import { routing } from "@/i18n/routing";
@@ -114,7 +115,10 @@ export default async function RootLayout({
         className={`${poppins.className} bg-neutral-lightest text-neutral-darkest min-h-screen flex flex-col`}
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AppProviders>{children}</AppProviders>
+          <AppProviders>
+            <Navbar />
+            {children}
+          </AppProviders>
         </NextIntlClientProvider>
       </body>
     </html>
