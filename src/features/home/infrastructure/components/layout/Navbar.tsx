@@ -2,14 +2,15 @@
 
 import React, { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
 import { IconMenu2, IconX } from "@tabler/icons-react";
 import { ButtonCta } from "@/components/ui/ButtonCta";
 import LanguageDropdown from "@/components/ui/LanguageDropdown";
 import CustomDropdown from "@/components/ui/CustomDropdown";
-import PortfolioDropdownPanel from "./PortfolioDropdownPanel";
+import { Item, PortfolioDropdownPanel } from "./PortfolioDropdownPanel";
+import { portfolioProjects, slugify } from "@/features/home/infrastructure/data/portfolioProjects";
 
 interface NavItem {
   labelKey: "services" | "portfolio" | "aboutUs" | "currentLanguage";
@@ -18,6 +19,7 @@ interface NavItem {
 export const Navbar: React.FC = () => {
   const t = useTranslations("Navbar");
   const tGlobal = useTranslations("Global");
+  const router = useRouter();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,6 +43,15 @@ export const Navbar: React.FC = () => {
   const contactButtonExtraClasses = "";
   const mobileMenuIconColor = "bg-white text-secondary";
 
+  const projectsWithHandlers = portfolioProjects.map((p) => ({
+    ...p,
+    onClick: () => {
+      const slug = slugify(p.name);
+  router.push(`/portfolio/${slug}`);
+      setIsMobileMenuOpen(false);
+    },
+  }));
+
   const navsItems = [
     ...navItems.map((item) => {
       if (item.labelKey === "portfolio") {
@@ -53,7 +64,7 @@ export const Navbar: React.FC = () => {
             menuClassName="min-w-[680px]"
             ariaLabel={t("portfolio")}
           >
-            <PortfolioDropdownPanel />
+            <PortfolioDropdownPanel projects={projectsWithHandlers as Item[]} />
           </CustomDropdown>
         );
       }
@@ -66,6 +77,7 @@ export const Navbar: React.FC = () => {
       );
     }),
     <LanguageDropdown
+      key="language"
       onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
       navLinkClasses={navLinkClasses}
       variant="desktop"
@@ -81,10 +93,10 @@ export const Navbar: React.FC = () => {
           className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-14 px-4" : "h-20 bg-white rounded-[90px] px-8 shadow-lg"}`}
         >
           <div className="flex items-center">
-            <Logo 
-              href="/" 
-              isScrolled={false} 
-              imgWidth={isScrolled ? 40 : 56} 
+            <Logo
+              href="/"
+              isScrolled={false}
+              imgWidth={isScrolled ? 40 : 56}
               imgHeight={isScrolled ? 40 : 56}
               className="transition-all duration-500 ease-in-out"
             />
@@ -92,7 +104,7 @@ export const Navbar: React.FC = () => {
 
           <div className="hidden md:flex items-center space-x-4 lg:space-x-6">
             {navsItems.map((item) => item)}
-            
+
             <ButtonCta
               variant={contactButtonVariant}
               className={contactButtonExtraClasses}
@@ -129,7 +141,7 @@ export const Navbar: React.FC = () => {
           id="mobile-menu"
         >
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
+            {navItems.map((item) =>
               item.labelKey === "portfolio" ? (
                 <CustomDropdown
                   key={item.labelKey}
@@ -139,7 +151,7 @@ export const Navbar: React.FC = () => {
                   ariaLabel={t("portfolio")}
                   onToggle={(o) => !o && setIsMobileMenuOpen(true)}
                 >
-                  <PortfolioDropdownPanel />
+                  <PortfolioDropdownPanel projects={projectsWithHandlers as Item[]} />
                 </CustomDropdown>
               ) : (
                 <CustomDropdown
@@ -148,8 +160,8 @@ export const Navbar: React.FC = () => {
                   className={navLinkClasses}
                   variant="mobile"
                 />
-              )
-            ))}
+              ),
+            )}
             <LanguageDropdown
               onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
               variant="mobile"
@@ -173,5 +185,3 @@ export const Navbar: React.FC = () => {
     </nav>
   );
 };
-
-// DropdownLang fue extraído a un componente reutilizable en '@/components/ui/LanguageDropdown'
