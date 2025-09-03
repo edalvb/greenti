@@ -44,7 +44,6 @@ export default async function LandingPage({ params }: any) {
       <ClientLogosSection />
       <CtaBannerSection />
       <FaqSection />
-      <ContactSection />
     </>
   );
 }
