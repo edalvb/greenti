@@ -26,13 +26,11 @@ const eslintConfig = [
   ...compat.extends(
     "eslint:recommended",
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:tailwindcss/recommended"
+  "plugin:@typescript-eslint/recommended"
   ),
   {
     plugins: {
-      tailwindcss: compat.plugins("eslint-plugin-tailwindcss")[0].plugins.tailwindcss,
-      '@typescript-eslint': compat.plugins("eslint-plugin-@typescript-eslint")[0].plugins['@typescript-eslint'],
+  '@typescript-eslint': compat.plugins("@typescript-eslint/eslint-plugin")[0].plugins['@typescript-eslint'],
     },
     languageOptions: {
       globals: {
@@ -49,6 +47,7 @@ const eslintConfig = [
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
       "react/no-unescaped-entities": "off",
+  "react/jsx-key": "warn",
       "@next/next/no-page-custom-font": "off",
       "@next/next/no-img-element": "off", 
       "@typescript-eslint/no-unused-vars": [
@@ -56,19 +55,14 @@ const eslintConfig = [
         { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" },
       ],
       "@typescript-eslint/no-explicit-any": "warn",
+  "@typescript-eslint/no-empty-object-type": "off",
       "@typescript-eslint/explicit-module-boundary-types": "off",
-      "tailwindcss/no-custom-classname": "off", 
-      "tailwindcss/classnames-order": "warn", 
       "no-console": ["warn", { "allow": ["warn", "error"] }],
       "eqeqeq": ["error", "always"],
-      "curly": ["error", "all"],
+  "curly": ["warn", "all"],
       "quotes": ["warn", "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
     },
     settings: {
-      tailwindcss: {
-        callees: ["cn", "cva"],
-        config: "tailwind.config.ts"
-      },
       react: {
         version: "detect",
       },

@@ -7,7 +7,6 @@ import { PresenceSection } from "@/features/home/infrastructure/components/secti
 import { TestimonialsSection } from "@/features/home/infrastructure/components/sections/TestimonialsSection";
 import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
 import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
-import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 import { WeWorksSection } from "@/features/home/infrastructure/components/sections";
