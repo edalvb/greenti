@@ -57,10 +57,7 @@ export const TestimonialsSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section
-        id="testimonials"
-        className="pd-section bg-white px-responsive"
-      >
+      <section id="testimonials" className="pd-section bg-white px-responsive">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
           <p className="mt-4 text-neutral-darker">{tGlobal("loading")}</p>
@@ -75,6 +72,12 @@ export const TestimonialsSection: React.FC = () => {
 
   const currentTestimonial = testimonials[currentIndex];
 
+  // Forzar mostrar solo el rol (antes de la coma), p. ej. "Fundador" en vez de "Fundador, ProWallet"
+  const authorTitleFull = tMockDataTestimonials(
+    `${currentTestimonial.testimonialDataKey}.authorTitle` as any,
+  ) as string;
+  const authorTitleOnly = (authorTitleFull || "").split(",")[0]?.trim();
+
   const titleParts = {
     prefix: t("testimonialsTitle.prefix"),
     highlight: t("testimonialsTitle.highlight"),
@@ -85,7 +88,7 @@ export const TestimonialsSection: React.FC = () => {
     titleParts.prefix && titleParts.highlight && titleParts.suffix ? (
       <>
         {titleParts.prefix}
-        <span className="text-primary">{titleParts.highlight}</span>
+        <span className="text-[#12B759]">{titleParts.highlight}</span>
         {titleParts.suffix}
       </>
     ) : (
@@ -116,155 +119,86 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section
       id="testimonials"
-      className="pd-section bg-white px-responsive"
+      className="pd-section bg-white px-responsive overflow-hidden"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-20 md:mb-24">
+        <h2 className="text-4xl md:text-6xl font-bold text-[#002140] text-center mb-16 md:mb-20 leading-tight">
           {titleDisplay}
         </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-stretch mb-12">
-          <div className="p-6 md:p-8 relative flex flex-col lg:col-span-2">
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={currentIndex}
-                custom={1}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5 }}
-                className="flex flex-col"
-              >
-                <div className="relative mb-6 flex-grow">
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-0 top-4 text-8xl md:text-9xl text-neutral-light opacity-50 font-serif select-none pointer-events-none"
-                  >
-                    “
-                  </span>
-                  <div className="">
-                    <p className="text-secondary text-md md:text-lg italic leading-relaxed py-2 px-16">
-                      {tMockDataTestimonials(
-                        `${currentTestimonial.testimonialDataKey}.quote` as any,
-                      )}
-                    </p>
-                    <div className="flex flex-col justify-between h-full ml-6 sm:ml-8 md:ml-20 lg:ml-16">
-                      <div className="flex items-center mb-6 mt-auto">
-                        {currentTestimonial.authorAvatarUrl && (
+        <div className="mb-12 flex justify-center w-full">
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              key={currentIndex}
+              custom={1}
+              variants={variants}
+              initial="enter"
+              animate="center"
+              exit="exit"
+              transition={{ duration: 0.5 }}
+            >
+              <div className="mb-6 max-w-4xl mx-auto relative">
+                <span
+                  aria-hidden="true"
+                  className="absolute top-4 text-7xl md:text-8xl text-neutral-light opacity-50 font-serif select-none pointer-events-none"
+                >
+                  “
+                </span>
+                <div className="text-center">
+                  <p className="text-[#002140] text-lg md:text-xl italic leading-relaxed py-2 px-6 md:px-16">
+                    {tMockDataTestimonials(
+                      `${currentTestimonial.testimonialDataKey}.quote` as any,
+                    )}
+                  </p>
+                  <div className="flex flex-col justify-center h-full items-center">
+                    <div className="flex items-center mb-6 mt-auto">
+                      {currentTestimonial.authorAvatarUrl && (
+                        <div className="relative mr-4">
+                          {/* Círculo blanco detrás del avatar */}
+                          <div
+                            aria-hidden="true"
+                            className="absolute rounded-full shadow-lg"
+                          />
                           <Image
                             src={currentTestimonial.authorAvatarUrl}
                             alt={currentTestimonial.authorName}
-                            width={50}
-                            height={50}
-                            className="rounded-full mr-4 border-2 border-primary/20"
+                            width={80}
+                            height={80}
+                            className="relative rounded-full border-2 border-primary/20"
                           />
-                        )}
-                        <div>
-                          <p className="font-semibold text-secondary text-md">
-                            {currentTestimonial.authorName}
-                          </p>
-                          <p className="text-sm text-secondary">
-                            {tMockDataTestimonials(
-                              `${currentTestimonial.testimonialDataKey}.authorTitle` as any,
-                            )}
-                          </p>
                         </div>
-                      </div>
-                      <div>
-                        <h4 className="font-semibold text-secondary mb-3 text-md">
-                          {t("projectSummaryTitle")}
-                        </h4>
-                        <div className="grid grid-cols-[max-content_1fr] gap-x-3 gap-y-1 text-sm">
-                          <span className="font-medium text-secondary">
-                            {tSectorLabel}
-                          </span>
-                          <span className="font-bold text-secondary uppercase">
-                            {tMockDataTestimonials(
-                              `${currentTestimonial.testimonialDataKey}.projectSector` as any,
-                            )}
-                          </span>
-                          <span className="font-medium text-secondary">
-                            {tCountryLabel}
-                          </span>
-                          <span className="font-bold text-secondary uppercase">
-                            {tMockDataTestimonials(
-                              `${currentTestimonial.testimonialDataKey}.projectCountry` as any,
-                            )}
-                          </span>
-                          <span className="font-medium text-secondary">
-                            {tDurationLabel}
-                          </span>
-                          <span className="font-bold text-secondary uppercase">
-                            {tMockDataTestimonials(
-                              `${currentTestimonial.testimonialDataKey}.projectDuration` as any,
-                            )}
-                          </span>
-                        </div>
-                      </div>
+                      )}
+                    </div>
+                    <div>
+                      <p className="font-bold text-[#002140] text-base md:text-lg leading-snug">
+                        {currentTestimonial.authorName}
+                      </p>
+                      <p className="text-sm md:text-base text-[#002140]/90">
+                        {authorTitleOnly}
+                      </p>
                     </div>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    className="absolute right-0 top-4 text-8xl md:text-9xl text-neutral-light opacity-50 font-serif select-none pointer-events-none"
-                  >
-                    ”
-                  </span>
                 </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <div className="relative bg-secondary p-6 md:p-8 rounded-btn-cta text-white shadow-xl flex flex-col justify-center lg:col-span-1 overflow-visible">
-            <AnimatePresence initial={false} mode="wait">
-              <motion.div
-                key={currentIndex}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5 }}
-                className="w-full h-full flex flex-col items-center"
-              >
-                <div className="relative overflow-visible w-full max-w-[200px] max-h-[300] h-[230px] sm:h-[250px] md:h-[280px] lg:h-[260px] mb-4 sm:mb-6 flex items-center justify-center">
-                  <div className="absolute z-10 -top-16 w-[90%] sm:w-[85%] md:w-[80%] lg:w-[320px] transform transition-transform duration-500 hover:scale-105">
-                    <Image
-                      src={currentTestimonial.appShowcase.appMockupImageUrl}
-                      alt={
-                        t(currentTestimonial.appShowcase.appNameKey as any) +
-                        " app mockup"
-                      }
-                      width={300}
-                      height={350}
-                      className="object-contain drop-shadow-2xl max-h-[350px]"
-                      priority={currentIndex === 0}
-                    />
-                  </div>
-                </div>
-                <div className="w-full text-center lg:text-left mt-auto pt-4">
-                  <span className="inline-block bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full mb-2">
-                    {t(currentTestimonial.appShowcase.appTagKey as any)}
-                  </span>
-                  <h3 className="text-2xl font-bold mb-2 text-primary">
-                    {t(currentTestimonial.appShowcase.appNameKey as any)}
-                  </h3>
-                  <p className="text-neutral-light text-sm leading-relaxed max-w-sm mx-auto lg:mx-0">
-                    {t(currentTestimonial.appShowcase.appDescriptionKey as any)}
-                  </p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+                <span
+                  aria-hidden="true"
+                  className="absolute right-0 top-4 text-7xl md:text-8xl text-neutral-light opacity-50 font-serif select-none pointer-events-none"
+                >
+                  ”
+                </span>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
 
         {testimonials.length > 1 && (
-          <div className="flex justify-center items-center space-x-2 mb-16">
+          <div className="flex justify-center items-center space-x-4 mb-16">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => handleDotClick(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
-                className={`w-3 h-3 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${currentIndex === index ? "bg-primary" : "bg-neutral-default hover:bg-neutral-dark"}`}
+                aria-current={currentIndex === index}
+                className={`w-6 h-6 rounded-full transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#12B759] focus-visible:ring-offset-2 ${currentIndex === index ? "bg-[#12B759]" : "bg-[#E7F0EF] hover:bg-[#dbe7e5]"}`}
               />
             ))}
           </div>
