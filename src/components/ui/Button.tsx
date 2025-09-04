@@ -65,7 +65,7 @@ export const Button: React.FC<ButtonProps> = ({
 
   return (
     <Comp
-      className={`cursor-pointer shadow-deep hover:shadow-6xl transform hover:scale-105 transition-all duration-300 min-w-[150px] ${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} rounded-btn-cta ${className}`}
+      className={`cursor-pointer hover:shadow-6xl transform hover:scale-105 transition-all duration-300 min-w-[150px] ${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} rounded-btn-cta ${className}`}
       disabled={disabled || isLoading}
       aria-disabled={disabled || isLoading}
       {...props}
