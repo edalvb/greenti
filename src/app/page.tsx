@@ -1,7 +1,15 @@
-import { redirect } from "next/navigation";
-import { defaultLocale } from "@/i18n/routing"; // Ajusta la ruta si es necesario
+"use client";
+import { useEffect } from "react";
+import { defaultLocale } from "@/i18n/routing";
 
-// Esta página solo se renderiza para redirigir al locale por defecto
+// Redirección en cliente para entornos con output: export
 export default function RootPage() {
-  redirect(`/${defaultLocale}`);
+  useEffect(() => {
+    const target = `/${defaultLocale}/`;
+    if (typeof window !== "undefined" && window.location.pathname !== target) {
+      window.location.replace(target);
+    }
+  }, []);
+
+  return null;
 }

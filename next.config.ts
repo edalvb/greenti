@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: isGithubActions ? `/${repoName}` : "",
   assetPrefix: isGithubActions ? `/${repoName}/` : undefined,
+  // Permitir acceder al dev server desde IPs LAN (ej. móvil en la red)
+  // Evita el warning: Cross origin request detected ... configure "allowedDevOrigins"
+  allowedDevOrigins: ["192.168.3.31"],
   images: {
     unoptimized: true,
   },
