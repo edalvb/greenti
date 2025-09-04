@@ -8,11 +8,9 @@ export const projects: Project[] = [
     sector: "Turismo y alojamiento",
     pais: "México",
     Plataforma: ["Mobile", "Web"],
-    image_logo: "/assets/images/client_logo_easydrop.svg",
+    image_logo: "/assets/images/porfolio/beblis_logo.png",
     images: [
-      "/assets/images/app_mockup_coosofan.png",
-      "/assets/images/easydrop.webp",
-      "/assets/images/team_image_hero_overlay.png",
+      "/assets/images/porfolio/beblis_image_portada.png",
     ],
     resume:
       "Beblis es una plataforma que conecta a viajeros con anfitriones locales para experiencias auténticas.",
@@ -27,12 +25,10 @@ export const projects: Project[] = [
     result_description:
       "Beblis ha logrado más de 50,000 descargas en su primer año, con una tasa de retención del 70% y una comunidad activa de usuarios satisfechos.",
     result_images_main: [
-      "/assets/images/app_mockup_coosofan.png",
-      "/assets/images/team_image_hero_overlay.png",
+      "/assets/images/porfolio/beblis_result_image.png",
     ],
     result_images_secondary: [
-      "/assets/images/easydrop.webp",
-      "/assets/images/about-us-developers.jpg",
+      "/assets/images/porfolio/beblis_images_secondary.png",
     ],
     url: "https://www.beblis.com",
     client_testimonial: {
