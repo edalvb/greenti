@@ -1,22 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import React from "react";
 import { setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 import {
   allProjectSlugs,
   getProjectBySlug,
 } from "@/features/portfolio/infrastructure/data/projects";
+import { Project } from "@/features/portfolio/domain/Project";
+import { Portada } from "@/features/home/infrastructure/components/sections/portfolio";
 
 type PageParams = { locale: string; slug: string };
 type PageProps = { params: Promise<PageParams> };
 
-const countryFlagByName: Record<string, string> = {
-  México: "/assets/icons/mexico.svg",
-  Mexico: "/assets/icons/mexico.svg",
-  Ecuador: "/assets/icons/ecuador.svg",
-  Perú: "/assets/icons/peru.svg",
-  Paraguay: "/assets/icons/paraguay.svg",
-  USA: "/assets/icons/usa.svg",
+const technologiesFlagByName: Record<string, string> = {
+  Flutter: "/assets/images/flutter_logo.png",
+  Firebase: "/assets/images/firebase_logo.png",
+  Figma: "/assets/images/figma_logo.png",
+  Python: "/assets/images/python_logo.png",
+  GitHub: "/assets/images/github_logo.png",
 };
 
 export default async function ProjectDetailPage({ params }: PageProps) {
@@ -38,72 +40,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
     );
   }
 
-  const flagSrc = countryFlagByName[project.pais] ?? undefined;
-
   return (
-    <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+    <main className="container md:pt-40 relative mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
       {/* Header */}
-      <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
-        <div className="flex flex-col gap-6">
-          <div className="flex items-center gap-4">
-            {project.image_logo && (
-              <div className="h-14 w-14 rounded-2xl overflow-hidden bg-white shadow">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={project.image_logo}
-                  alt={`${project.name} logo`}
-                  className="h-full w-full object-contain p-2"
-                />
-              </div>
-            )}
-            <div>
-              <div className="flex items-center gap-2">
-                {flagSrc && (
-                  <Image
-                    src={flagSrc}
-                    alt={project.pais}
-                    width={22}
-                    height={14}
-                  />
-                )}
-                <h1 className="text-3xl md:text-4xl font-bold text-secondary">
-                  {project.name}
-                </h1>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl bg-white shadow-[0_10px_60px_rgba(0,33,64,0.15)] p-5 w-full max-w-xs">
-            <ul className="text-sm text-neutral-darker space-y-3">
-              <li className="flex justify-between gap-4">
-                <span className="font-medium text-neutral-dark">Sector</span>
-                <span className="text-right">{project.sector}</span>
-              </li>
-              <li className="flex justify-between gap-4">
-                <span className="font-medium text-neutral-dark">País</span>
-                <span className="text-right">{project.pais}</span>
-              </li>
-              <li className="flex justify-between gap-4">
-                <span className="font-medium text-neutral-dark">
-                  Plataforma
-                </span>
-                <span className="text-right">
-                  {project.plataforma.join(" / ")}
-                </span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-neutral-100 to-white shadow-[0_10px_60px_rgba(0,33,64,0.15)]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.images?.[0] ?? "/assets/images/easydrop.webp"}
-            alt={`${project.name} hero`}
-            className="w-full h-auto object-cover"
-          />
-        </div>
-      </section>
+      <Portada project={project} />
 
       {/* Resumen + métricas */}
       <section className="mt-14 md:mt-20">

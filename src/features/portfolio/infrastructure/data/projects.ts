@@ -9,9 +9,7 @@ export const projects: Project[] = [
     pais: "México",
     Plataforma: ["Mobile", "Web"],
     image_logo: "/assets/images/porfolio/beblis_logo.png",
-    images: [
-      "/assets/images/porfolio/beblis_image_portada.png",
-    ],
+    images: ["/assets/images/porfolio/beblis_image_portada.png"],
     resume:
       "Beblis es una plataforma que conecta a viajeros con anfitriones locales para experiencias auténticas.",
     team_size: 5,
@@ -24,9 +22,7 @@ export const projects: Project[] = [
     technologies: ["Flutter", "Firebase", "Figma", "Python", "GitHub"],
     result_description:
       "Beblis ha logrado más de 50,000 descargas en su primer año, con una tasa de retención del 70% y una comunidad activa de usuarios satisfechos.",
-    result_images_main: [
-      "/assets/images/porfolio/beblis_result_image.png",
-    ],
+    result_images_main: ["/assets/images/porfolio/beblis_result_image.png"],
     result_images_secondary: [
       "/assets/images/porfolio/beblis_images_secondary.png",
     ],
