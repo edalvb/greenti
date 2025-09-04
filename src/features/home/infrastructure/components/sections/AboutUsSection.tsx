@@ -158,7 +158,7 @@ export const AboutUsSection: React.FC = () => {
               titlePart2={t("mainTitlePart2")}
               description={t("mainDescription")}
               ctaLinkText={t("ctaLinkText")}
-              ctaHref="#contact"
+              ctaHref="/contacto"
             />
           </AnimatedElement>
         </div>

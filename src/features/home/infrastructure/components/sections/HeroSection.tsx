@@ -21,7 +21,7 @@ export const HeroSection: React.FC = () => {
           <div className="max-w-2xl mx-auto">
             <p className="text-xl md:text-xl mb-10 block">{t("subtitle")}</p>
           </div>
-          <Link href="#contact" passHref>
+                    <Link href="/contacto" passHref>
             <Button size="lg" className="text-white">
               {tGlobal("getAQuote")}
             </Button>

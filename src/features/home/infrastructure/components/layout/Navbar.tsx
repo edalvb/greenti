@@ -168,7 +168,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-light px-5">
-            <Link href="#contact" onClick={toggleMobileMenu} passHref>
+            <Link href="/contacto" onClick={toggleMobileMenu} passHref>
               <Button
                 variant="primary"
                 size="md"

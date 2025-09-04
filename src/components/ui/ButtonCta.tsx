@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "./Button";
 import { useTranslations } from "next-intl";
 
@@ -14,7 +14,7 @@ export const ButtonCta: React.FC<ButtonCtaProps> = ({
   const tGlobal = useTranslations("Global");
 
   return (
-    <Link href="#contact" passHref>
+    <Link href="/contacto" passHref>
       <Button 
         variant={variant} 
         size="md" 

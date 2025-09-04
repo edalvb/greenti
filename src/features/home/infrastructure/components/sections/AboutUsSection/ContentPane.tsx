@@ -22,8 +22,8 @@ export const ContentPane: React.FC<ContentPaneProps> = ({ className = "" }) => {
       <p className="text-lg text-neutral-darker leading-relaxed mb-8">
         {t("description")}
       </p>
-      <CallToActionLink
-        href="#contact"
+          <CallToActionLink
+            href="/contacto"
         text={t("discoverMore")}
         className="mt-4"
       />
