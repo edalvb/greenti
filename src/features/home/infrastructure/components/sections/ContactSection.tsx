@@ -20,6 +20,7 @@ import { container } from "@/core/infrastructure/di/inversify.config";
 import { CONTACT_INFO } from "@/core/utils/constants";
 import { WhatsAppCtaSection } from "./WhatsAppCtaSection";
 import { ContactSectionAvatar } from "./ContactSectionAvatar";
+import { Footer } from "../layout/Footer";
 
 interface SelectOptionCountries extends SelectOption {
   urlImage: string;
@@ -31,7 +32,7 @@ export const ContactSection: React.FC = () => {
   const tGlobal = useTranslations("Global");
 
   const [submitContactFormUseCase] = useState(() =>
-    container.get(SubmitContactFormUseCase),
+    container.get(SubmitContactFormUseCase)
   );
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -93,7 +94,7 @@ export const ContactSection: React.FC = () => {
       const errorKey = errors[key as keyof ContactFormDto]?.message;
       if (errorKey) {
         clientSideErrors[key as keyof ContactFormDto] = tValidation(
-          errorKey as any,
+          errorKey as any
         );
       }
     }
@@ -138,190 +139,201 @@ export const ContactSection: React.FC = () => {
         generalError === t(response.messageKey as any) ||
           generalError === t("errorMessagePrefix")
           ? tValidation("formInvalid")
-          : generalError,
+          : generalError
       );
       setFieldErrors(serverErrors);
     }
   };
 
   return (
-    <section
-      id="contact"
-      className="pd-section bg-neutral-lightest px-responsive"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5 flex flex-col justify-between h-full pt-8">
-            <div>
-              <ContactSectionAvatar />
-              <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
-              <p className="text-secondary mb-1 text-sm">
-                {t("instruction")}{" "}
-                <a
-                  href={`mailto:${CONTACT_INFO.email}`}
-                  className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
-                >
-                  {CONTACT_INFO.email}
-                </a>
-              </p>
-              <p className="text-sm text-secondary mt-6">
-                <span className="font-bold">{t("availability.prefix")}</span>
-                {t("availability.sufix")}
-              </p>
-            </div>
-            <div className="mt-8">
-              <WhatsAppCtaSection />
-            </div>
+    <>
+      <section
+        id="contact"
+        className="pd-section bg-neutral-lightest px-responsive"
+      >
+        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl text-center px-16 mx-auto mb-20 md:mb-20">
+            <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
+              {t("titlePart1")}{" "}
+              <span className="text-primary">{t("titlePart2")}</span>
+            </h1>
           </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5 flex flex-col justify-between h-full pt-8">
+              <div>
+                <ContactSectionAvatar />
+                <p className="text-secondary mt-4 mb-2 text-sm">{t("intro")}</p>
+                <p className="text-secondary mb-1 text-sm">
+                  {t("instruction")}{" "}
+                  <a
+                    href={`mailto:${CONTACT_INFO.email}`}
+                    className="font-bold text-secondary hover:underline text-sm inline-flex items-center"
+                  >
+                    {CONTACT_INFO.email}
+                  </a>
+                </p>
+                <p className="text-sm text-secondary mt-6">
+                  <span className="font-bold">{t("availability.prefix")}</span>
+                  {t("availability.sufix")}
+                </p>
+              </div>
+              <div className="mt-8">
+                <WhatsAppCtaSection />
+              </div>
+            </div>
 
-          <div className="hidden lg:block lg:col-span-2"></div>
+            <div className="hidden lg:block lg:col-span-2"></div>
 
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
-              {t("formTitle")}
-            </h2>
-            <p className="text-neutral-darker mb-8 text-sm">
-              {t("formSubtitle")}
-            </p>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-              <Input
-                placeholder={t("labels.fullName")}
-                {...register("fullName")}
-                error={fieldErrors.fullName}
-                inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
-                radius="cta"
-                required
-              />
-              <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
-                <div className="sm:col-span-5 relative flex items-center">
-                  {selectedCountryCode &&
-                    countryOptions.find(
-                      (option) => option.value === selectedCountryCode,
-                    )?.urlImage && (
-                      <Image
-                        src={
-                          countryOptions.find(
-                            (option) => option.value === selectedCountryCode,
-                          )!.urlImage
-                        }
-                        alt={
-                          countryOptions.find(
-                            (option) => option.value === selectedCountryCode,
-                          )!.label
-                        }
-                        width={20}
-                        height={14}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10"
-                      />
-                    )}
-                  <Select
-                    options={countryOptions.map(({ value, label }) => ({
-                      value,
-                      label,
-                    }))}
-                    {...register("countryCode")}
-                    error={fieldErrors.countryCode}
-                    selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? "pl-10" : "pl-3"}`}
+            <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
+              <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
+                {t("formTitle")}
+              </h2>
+              <p className="text-neutral-darker mb-8 text-sm">
+                {t("formSubtitle")}
+              </p>
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <Input
+                  placeholder={t("labels.fullName")}
+                  {...register("fullName")}
+                  error={fieldErrors.fullName}
+                  inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
+                  radius="cta"
+                  required
+                />
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
+                  <div className="sm:col-span-5 relative flex items-center">
+                    {selectedCountryCode &&
+                      countryOptions.find(
+                        (option) => option.value === selectedCountryCode
+                      )?.urlImage && (
+                        <Image
+                          src={
+                            countryOptions.find(
+                              (option) => option.value === selectedCountryCode
+                            )!.urlImage
+                          }
+                          alt={
+                            countryOptions.find(
+                              (option) => option.value === selectedCountryCode
+                            )!.label
+                          }
+                          width={20}
+                          height={14}
+                          className="absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none z-10"
+                        />
+                      )}
+                    <Select
+                      options={countryOptions.map(({ value, label }) => ({
+                        value,
+                        label,
+                      }))}
+                      {...register("countryCode")}
+                      error={fieldErrors.countryCode}
+                      selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? "pl-10" : "pl-3"}`}
+                      radius="cta"
+                      required
+                    />
+                  </div>
+                  <Input
+                    type="tel"
+                    placeholder={t("labels.phoneNumber")}
+                    {...register("phoneNumber")}
+                    containerClassName="sm:col-span-7"
+                    inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
+                    error={fieldErrors.phoneNumber}
                     radius="cta"
                     required
                   />
                 </div>
                 <Input
-                  type="tel"
-                  placeholder={t("labels.phoneNumber")}
-                  {...register("phoneNumber")}
-                  containerClassName="sm:col-span-7"
+                  type="email"
+                  placeholder={t("labels.email")}
+                  {...register("email")}
                   inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
-                  error={fieldErrors.phoneNumber}
+                  error={fieldErrors.email}
                   radius="cta"
                   required
                 />
-              </div>
-              <Input
-                type="email"
-                placeholder={t("labels.email")}
-                {...register("email")}
-                inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
-                error={fieldErrors.email}
-                radius="cta"
-                required
-              />
-              <Textarea
-                rows={4}
-                placeholder={t("labels.message")}
-                {...register("message")}
-                textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
-                error={fieldErrors.message}
-                radius="cta"
-                required
-              />
+                <Textarea
+                  rows={4}
+                  placeholder={t("labels.message")}
+                  {...register("message")}
+                  textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
+                  error={fieldErrors.message}
+                  radius="cta"
+                  required
+                />
 
-              <Controller
-                name="acceptTerms"
-                control={control}
-                render={({ field, fieldState }) => (
-                  <div className="space-y-1">
-                    <div className="flex items-start space-x-2.5">
-                      <Checkbox
-                        id="acceptTerms-checkbox"
-                        checked={field.value}
-                        onCheckedChange={field.onChange}
-                        ref={field.ref}
-                        className="mt-0.5"
-                        aria-invalid={!!fieldState.error}
-                      />
-                      <label
-                        htmlFor="acceptTerms-checkbox"
-                        className="text-sm text-neutral-darker"
-                      >
-                        {t.rich("labels.acceptTerms", {
-                          link: (chunks) => (
-                            <a
-                              href="#politicas"
-                              className="font-medium text-primary hover:underline"
-                            >
-                              {chunks}
-                            </a>
-                          ),
-                        })}
-                      </label>
+                <Controller
+                  name="acceptTerms"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <div className="space-y-1">
+                      <div className="flex items-start space-x-2.5">
+                        <Checkbox
+                          id="acceptTerms-checkbox"
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                          ref={field.ref}
+                          className="mt-0.5"
+                          aria-invalid={!!fieldState.error}
+                        />
+                        <label
+                          htmlFor="acceptTerms-checkbox"
+                          className="text-sm text-neutral-darker"
+                        >
+                          {t.rich("labels.acceptTerms", {
+                            link: (chunks) => (
+                              <a
+                                href="#politicas"
+                                className="font-medium text-primary hover:underline"
+                              >
+                                {chunks}
+                              </a>
+                            ),
+                          })}
+                        </label>
+                      </div>
+                      {fieldState.error && (
+                        <p className="text-xs text-red-600 pl-7 pt-1">
+                          {tValidation(fieldState.error.message as any)}
+                        </p>
+                      )}
                     </div>
-                    {fieldState.error && (
-                      <p className="text-xs text-red-600 pl-7 pt-1">
-                        {tValidation(fieldState.error.message as any)}
-                      </p>
-                    )}
-                  </div>
+                  )}
+                />
+
+                {formStatus === "error" && formError && (
+                  <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">
+                    {formError}
+                  </p>
                 )}
-              />
+                {formStatus === "success" && (
+                  <p className="text-sm text-green-700 bg-green-100 p-3 rounded-md">
+                    {t("successMessage")}
+                  </p>
+                )}
 
-              {formStatus === "error" && formError && (
-                <p className="text-sm text-red-600 bg-red-100 p-3 rounded-md">
-                  {formError}
-                </p>
-              )}
-              {formStatus === "success" && (
-                <p className="text-sm text-green-700 bg-green-100 p-3 rounded-md">
-                  {t("successMessage")}
-                </p>
-              )}
-
-              <Button
-                type="submit"
-                size="lg"
-                radius="cta"
-                className="w-full text-white"
-                isLoading={formStatus === "loading"}
-                disabled={formStatus === "loading" || formStatus === "success"}
-              >
-                {formStatus === "loading"
-                  ? tGlobal("sendingMessage")
-                  : tGlobal("sendMessage")}
-              </Button>
-            </form>
+                <Button
+                  type="submit"
+                  size="lg"
+                  radius="cta"
+                  className="w-full text-white"
+                  isLoading={formStatus === "loading"}
+                  disabled={
+                    formStatus === "loading" || formStatus === "success"
+                  }
+                >
+                  {formStatus === "loading"
+                    ? tGlobal("sendingMessage")
+                    : tGlobal("sendMessage")}
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <Footer />
+    </>
   );
 };
