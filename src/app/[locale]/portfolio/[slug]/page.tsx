@@ -206,94 +206,48 @@ export const Resume = ({
   const teamSize = (length_team ?? lenght_team ?? "").toString();
   const ratingValue = (rating ?? raiting ?? "").toString();
 
+  // Mantiene sólo propiedades necesarias (la fuente ya está global)
   const base: React.CSSProperties = {
-    color: "#002140",
-    fontFamily: "Poppins",
     wordWrap: "break-word",
   };
 
   const stat = (v: React.ReactNode, label: string, sub?: React.ReactNode) => (
-    <div style={{ textAlign: "center" }}>
-      <div
-        style={{
-          width: 200,
-          height: 200,
-          borderRadius: 9999,
-          border: "2px #E6E6F1 solid",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <div
-          style={{
-            width: 160,
-            height: 160,
-            borderRadius: 9999,
-            border: "2px #E6E6F1 solid",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div style={{ ...base, fontSize: 56, fontWeight: 700 }}>{v}</div>
+    <div className="text-center">
+      <div className="w-[200px] h-[200px] rounded-full border-2 border-neutral-light flex items-center justify-center">
+        <div className="w-[160px] h-[160px] rounded-full border-2 border-neutral-light flex flex-col items-center justify-center">
+          <div className="text-secondary font-bold" style={{ fontSize: 56 }}>
+            {v}
+          </div>
           {sub && (
-            <div style={{ ...base, fontSize: 16, fontWeight: 700 }}>{sub}</div>
+            <div className="text-secondary font-bold mt-1 text-base">{sub}</div>
           )}
         </div>
       </div>
-      <div style={{ ...base, fontSize: 24, fontWeight: 700, marginTop: 16 }}>
-        {label}
-      </div>
+      <div className="text-secondary font-bold mt-4 text-2xl">{label}</div>
     </div>
   );
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16 md:mb-24 relative">
       <div>
-        <div
-          style={{
-            left: 0,
-            top: 0,
-            ...base,
-            fontSize: 56,
-            fontWeight: 700,
-          }}
-        >
+        <h3 className="text-secondary font-bold" style={{ fontSize: 56 }}>
           Resumen
-        </div>
-        <div
-          style={{
-            left: 0,
-            top: 104,
-            width: 544,
-            textAlign: "justify",
-            ...base,
-            fontSize: 16,
-            fontWeight: 500,
-          }}
+        </h3>
+        <p
+          className="text-secondary mt-4 text-base font-medium max-w-[544px] text-justify"
+          style={base}
         >
           {resume_content}
-        </div>
+        </p>
       </div>
 
-      <div
-        style={{
-          right: 0,
-          top: 0,
-          display: "flex",
-          gap: 24,
-          alignItems: "flex-start",
-        }}
-        className=""
-      >
+      <div className="flex gap-6 md:gap-8 items-start">
         {stat(teamSize, "Tamaño del equipo")}
         {stat(project_duration, "Duración del proyecto", "meses")}
         {stat(
           ratingValue,
           "Calificación",
-          <IconStarFilled size={24} color="#FFB800" />,
+          <IconStarFilled size={24} className="text-amber-400" />,
         )}
       </div>
     </section>
