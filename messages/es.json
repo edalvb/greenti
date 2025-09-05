@@ -73,13 +73,7 @@
     "titlePart2": "Nuestro respaldo",
     "titlePart3": "para nuestros clientes",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
-    "countries": [
-      "USA",
-      "México",
-      "Ecuador",
-      "Perú",
-      "Paraguay"
-    ],
+    "countries": ["USA", "México", "Ecuador", "Perú", "Paraguay"],
     "stats": {
       "countriesPositioned": "Países <br/>posicionados",
       "projectsCompleted": "Proyectos <br/>realizados",
@@ -122,6 +116,8 @@
     "noFaqsAvailable": "No hay preguntas frecuentes disponibles en este momento."
   },
   "ContactSection": {
+    "titlePart1": "¿Estas listo para",
+    "titlePart2": "ayudarte?",
     "avatarSubtitle": "Maria - Responsable de soluciones tecnológicas",
     "intro": "Me encantaría hablar contigo sobre tu proyecto o necesidades.",
     "instruction": "Completa el formulario o envíanos un email a",

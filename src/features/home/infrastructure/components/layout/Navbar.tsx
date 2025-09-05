@@ -10,7 +10,10 @@ import { ButtonCta } from "@/components/ui/ButtonCta";
 import LanguageDropdown from "@/components/ui/LanguageDropdown";
 import CustomDropdown from "@/components/ui/CustomDropdown";
 import { Item, PortfolioDropdownPanel } from "./PortfolioDropdownPanel";
-import { portfolioProjects, slugify } from "@/features/home/infrastructure/data/portfolioProjects";
+import {
+  portfolioProjects,
+  slugify,
+} from "@/features/home/infrastructure/data/portfolioProjects";
 
 interface NavItem {
   labelKey: "services" | "portfolio" | "aboutUs" | "currentLanguage";
@@ -47,7 +50,7 @@ export const Navbar: React.FC = () => {
     ...p,
     onClick: () => {
       const slug = slugify(p.name);
-  router.push(`/portfolio/${slug}`);
+      router.push(`/portfolio/${slug}`);
       setIsMobileMenuOpen(false);
     },
   }));
@@ -151,7 +154,9 @@ export const Navbar: React.FC = () => {
                   ariaLabel={t("portfolio")}
                   onToggle={(o) => !o && setIsMobileMenuOpen(true)}
                 >
-                  <PortfolioDropdownPanel projects={projectsWithHandlers as Item[]} />
+                  <PortfolioDropdownPanel
+                    projects={projectsWithHandlers as Item[]}
+                  />
                 </CustomDropdown>
               ) : (
                 <CustomDropdown
@@ -160,7 +165,7 @@ export const Navbar: React.FC = () => {
                   className={navLinkClasses}
                   variant="mobile"
                 />
-              ),
+              )
             )}
             <LanguageDropdown
               onMobileMenuToggle={(open) => setIsMobileMenuOpen(open)}
@@ -168,7 +173,7 @@ export const Navbar: React.FC = () => {
             />
           </div>
           <div className="pt-4 pb-3 border-t border-neutral-light px-5">
-            <Link href="#contact" onClick={toggleMobileMenu} passHref>
+            <Link href="/contact" onClick={toggleMobileMenu} passHref>
               <Button
                 variant="primary"
                 size="md"

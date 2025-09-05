@@ -1,6 +1,7 @@
-import Link from "next/link";
+//import Link from "next/link";
 import { Button } from "./Button";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 interface ButtonCtaProps {
   variant?: "primary" | "outline";
@@ -14,11 +15,11 @@ export const ButtonCta: React.FC<ButtonCtaProps> = ({
   const tGlobal = useTranslations("Global");
 
   return (
-    <Link href="#contact" passHref>
-      <Button 
-        variant={variant} 
-        size="md" 
-        radius="cta" 
+    <Link href="/contact" passHref>
+      <Button
+        variant={variant}
+        size="md"
+        radius="cta"
         className={className}
         iconPosition="right"
       >
