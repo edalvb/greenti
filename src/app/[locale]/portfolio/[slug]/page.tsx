@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { setRequestLocale } from "next-intl/server";
@@ -7,8 +6,8 @@ import {
   allProjectSlugs,
   getProjectBySlug,
 } from "@/features/portfolio/infrastructure/data/projects";
-import { Project } from "@/features/portfolio/domain/Project";
 import { Portada } from "@/features/home/infrastructure/components/sections/portfolio";
+import { IconStarFilled } from "@tabler/icons-react";
 
 type PageParams = { locale: string; slug: string };
 type PageProps = { params: Promise<PageParams> };
@@ -45,36 +44,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       {/* Header */}
       <Portada project={project} />
 
-      {/* Resumen + métricas */}
-      <section className="mt-14 md:mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
-          <div className="lg:col-span-2">
-            <h2 className="text-2xl md:text-3xl font-bold text-neutral-darker mb-3">
-              Resumen
-            </h2>
-            <p className="text-neutral-dark leading-relaxed">
-              {project.resume}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-3 gap-6 lg:gap-4">
-            <StatCircle
-              label="Tamaño del equipo"
-              value={String(project.team_size)}
-            />
-            <StatCircle
-              label="Duración del proyecto"
-              value={`${project.project_duration_months}`}
-              suffix="meses"
-            />
-            <StatCircle
-              label="Calificación"
-              value={`${project.rating.toFixed(1)}`}
-              suffix="★"
-            />
-          </div>
-        </div>
-      </section>
+      {/* Estadísticas */}
+      <Resume
+        resume_content={project.resume}
+        length_team={project.team_size}
+        project_duration={project.project_duration_months}
+        rating={project.rating}
+      />
 
       {/* Desafío / Solución */}
       <section className="mt-16 md:mt-24 space-y-14">
@@ -205,3 +181,121 @@ export async function generateStaticParams() {
   // Export all possible slugs so SSG works with output: 'export'
   return allProjectSlugs();
 }
+
+// Tipado y corrección de nombres para el componente Resume (pendiente de uso futuro)
+export interface ResumeProps {
+  resume_content?: string;
+  // Nombres correctos
+  length_team?: string | number;
+  project_duration?: string | number;
+  rating?: string | number;
+  // Soporte retro‑compatibilidad (typos previos)
+  lenght_team?: string | number; // typo histórico
+  raiting?: string | number; // typo histórico
+}
+
+export const Resume = ({
+  resume_content = "",
+  length_team,
+  project_duration = "",
+  rating,
+  // typos legacy admitidos
+  lenght_team,
+  raiting,
+}: ResumeProps): React.JSX.Element => {
+  const teamSize = (length_team ?? lenght_team ?? "").toString();
+  const ratingValue = (rating ?? raiting ?? "").toString();
+
+  const base: React.CSSProperties = {
+    color: "#002140",
+    fontFamily: "Poppins",
+    wordWrap: "break-word",
+  };
+
+  const stat = (v: React.ReactNode, label: string, sub?: React.ReactNode) => (
+    <div style={{ textAlign: "center" }}>
+      <div
+        style={{
+          width: 200,
+          height: 200,
+          borderRadius: 9999,
+          border: "2px #E6E6F1 solid",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            width: 160,
+            height: 160,
+            borderRadius: 9999,
+            border: "2px #E6E6F1 solid",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ ...base, fontSize: 56, fontWeight: 700 }}>{v}</div>
+          {sub && (
+            <div style={{ ...base, fontSize: 16, fontWeight: 700 }}>{sub}</div>
+          )}
+        </div>
+      </div>
+      <div style={{ ...base, fontSize: 24, fontWeight: 700, marginTop: 16 }}>
+        {label}
+      </div>
+    </div>
+  );
+
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16 md:mb-24 relative">
+      <div>
+        <div
+          style={{
+            left: 0,
+            top: 0,
+            ...base,
+            fontSize: 56,
+            fontWeight: 700,
+          }}
+        >
+          Resumen
+        </div>
+        <div
+          style={{
+            left: 0,
+            top: 104,
+            width: 544,
+            textAlign: "justify",
+            ...base,
+            fontSize: 16,
+            fontWeight: 500,
+          }}
+        >
+          {resume_content}
+        </div>
+      </div>
+
+      <div
+        style={{
+          right: 0,
+          top: 0,
+          display: "flex",
+          gap: 24,
+          alignItems: "flex-start",
+        }}
+        className=""
+      >
+        {stat(teamSize, "Tamaño del equipo")}
+        {stat(project_duration, "Duración del proyecto", "meses")}
+        {stat(
+          ratingValue,
+          "Calificación",
+          <IconStarFilled size={24} color="#FFB800" />,
+        )}
+      </div>
+    </section>
+  );
+};
