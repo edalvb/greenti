@@ -9,7 +9,6 @@ export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   return (
     <div className="flex flex-col min-h-screen bg-presence-section ">
       <main className="flex-grow">{children}</main>
-      <Footer />
     </div>
   );
 }
