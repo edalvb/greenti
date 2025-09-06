@@ -122,6 +122,8 @@
     "noFaqsAvailable": "No FAQs available at the moment."
   },
   "ContactSection": {
+  "titlePart1": "Are you ready for us to",
+  "titlePart2": "help you?",
     "avatarSubtitle": "Maria - Head of Technological Solutions",
     "intro": "I would love to talk to you about your project or needs.",
     "instruction": "Complete the form or send us an email at",
