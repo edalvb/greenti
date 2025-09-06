@@ -1,6 +1,9 @@
 export interface ClientTestimonial {
   quote: string;
   author: string;
+  position: string;
+  company: string;
+  avatar_url: string;
 }
 
 // Clase basada en la definición proporcionada por el usuario

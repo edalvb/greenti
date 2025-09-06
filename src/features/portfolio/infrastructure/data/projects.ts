@@ -31,6 +31,9 @@ export const projects: Project[] = [
       quote:
         "Trabajar con el equipo de desarrollo fue una experiencia increíble. Entendieron nuestras necesidades y entregaron una plataforma que superó nuestras expectativas.",
       author: "Ana Martínez, CEO de Beblis",
+      avatar_url: "/assets/images/testimonial_avatar_stephenson.png",
+      company: "Beblis",
+      position: "CEO",
     },
   }),
 ];

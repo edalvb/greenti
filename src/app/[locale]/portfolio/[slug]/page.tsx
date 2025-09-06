@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
@@ -13,7 +12,9 @@ import {
   Solution,
   Technologies,
   Results,
+  Testimonial,
 } from "@/features/home/infrastructure/components/sections/portfolio";
+import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 
 type PageParams = { locale: string; slug: string };
 type PageProps = { params: Promise<PageParams> };
@@ -67,25 +68,10 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       />
 
       {/* Testimonio y enlace */}
-      <section className="mt-16 md:mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-        <blockquote className="lg:col-span-2 rounded-2xl bg-white p-6 shadow-[0_10px_60px_rgba(0,33,64,0.10)]">
-          <p className="text-lg md:text-xl text-neutral-darker leading-relaxed">
-            “{project.client_testimonial.quote}”
-          </p>
-          <footer className="mt-3 text-sm text-neutral-dark">
-            — {project.client_testimonial.author}
-          </footer>
-        </blockquote>
-        <div>
-          <Link
-            href={project.url}
-            target="_blank"
-            className="inline-flex items-center justify-center rounded-full bg-secondary px-6 py-3 text-white hover:opacity-90"
-          >
-            Visitar proyecto
-          </Link>
-        </div>
-      </section>
+      <Testimonial data={project.client_testimonial} />
+
+      {/* Contacto */}
+      <ContactSection />
     </main>
   );
 }

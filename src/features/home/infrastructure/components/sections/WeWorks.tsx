@@ -5,7 +5,6 @@ import {
   VerticalTimelineItem,
 } from "@/components/ui/VerticalTimeline";
 import { IconCalendar, IconCrown, IconTrophy } from "@tabler/icons-react";
-import { MailIcon } from "lucide-react";
 import Image from "next/image";
 
 export const WeWorksSection = () => {
