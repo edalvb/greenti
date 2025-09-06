@@ -11,8 +11,8 @@ import {
   Portada,
   Resume,
   Solution,
+  Technologies,
 } from "@/features/home/infrastructure/components/sections/portfolio";
-import { IconStarFilled } from "@tabler/icons-react";
 
 type PageParams = { locale: string; slug: string };
 type PageProps = { params: Promise<PageParams> };
@@ -56,7 +56,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       <Solution description={project.solution} />
 
       {/* Tecnologías */}
-      <Technologyes technologies={project.technologies} />
+      <Technologies technologies={project.technologies} />
 
       {/* Resultados */}
       <section className="mt-16 md:mt-24">
@@ -124,31 +124,3 @@ export async function generateStaticParams() {
   // Export all possible slugs so SSG works with output: 'export'
   return allProjectSlugs();
 }
-
-const technologiesFlagByName: Record<string, string> = {
-  Flutter: "/assets/images/flutter_logo.png",
-  Firebase: "/assets/images/firebase_logo.png",
-  Figma: "/assets/images/figma_logo.png",
-  Python: "/assets/images/python_logo.png",
-  GitHub: "/assets/images/github_logo.png",
-};
-
-const Technologyes = (props: { technologies: string[] }) => {
-  return (
-    <section className="mt-16 md:mt-24">
-      <h3 className="text-2xl md:text-3xl font-bold text-neutral-darker">
-        Se utilizaron las <span className="text-green-600">tecnologías</span>
-      </h3>
-      <div className="mt-6 flex flex-wrap gap-3">
-        {props.technologies.map((tech) => (
-          <span
-            key={tech}
-            className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm text-neutral-darker shadow-sm"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
-    </section>
-  );
-};
