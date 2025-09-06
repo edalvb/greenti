@@ -12,6 +12,7 @@ import {
   Resume,
   Solution,
   Technologies,
+  Results,
 } from "@/features/home/infrastructure/components/sections/portfolio";
 
 type PageParams = { locale: string; slug: string };
@@ -59,42 +60,11 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       <Technologies technologies={project.technologies} />
 
       {/* Resultados */}
-      <section className="mt-16 md:mt-24">
-        <h3 className="text-2xl md:text-3xl font-bold text-green-600 mb-4">
-          El resultado
-        </h3>
-        <div className="prose max-w-none">
-          <p className="text-neutral-dark leading-relaxed">
-            {project.result_description}
-          </p>
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {project.result_images_main.map((src, idx) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={idx}
-              src={src}
-              alt={`Resultado ${idx + 1}`}
-              className="rounded-2xl shadow-[0_10px_40px_rgba(0,33,64,0.12)] w-full h-auto object-cover"
-            />
-          ))}
-        </div>
-
-        {project.result_images_secondary.length > 0 && (
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {project.result_images_secondary.map((src, idx) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                key={idx}
-                src={src}
-                alt={`Resultado secundario ${idx + 1}`}
-                className="rounded-xl border border-neutral-100 w-full h-auto object-cover"
-              />
-            ))}
-          </div>
-        )}
-      </section>
+      <Results
+        description={project.result_description}
+        images={project.result_images_main}
+        images_secondary={project.result_images_secondary || []}
+      />
 
       {/* Testimonio y enlace */}
       <section className="mt-16 md:mt-24 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
