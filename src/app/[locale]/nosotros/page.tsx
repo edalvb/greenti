@@ -44,7 +44,7 @@ export default async function NosotrosPage({ params }: any) {
         </section>
 
         {/* Brand Section */}
-        <section className="text-center max-w-4xl mx-auto">
+        <section className="text-center max-w-4xl mx-auto mb-32">
           <h2 className="text-primary text-5xl md:text-6xl font-bold mb-8">{t("brand.title")}</h2>
           <p className="text-secondary text-base md:text-lg font-medium leading-relaxed">{t("brand.paragraph")}</p>
         </section>

@@ -32,16 +32,17 @@ export function RotatingStatCircle({
   const sizeClasses =
     size === "small"
       ? {
-          container: "w-32 h-32",
+          // Usamos solo width y forzamos 1:1 con aspect-square para evitar ovalados
+          container: "w-32",
           subtitle: "text-xs",
         }
       : size === "large"
       ? {
-          container: "w-56 h-56",
+          container: "w-56",
           subtitle: "text-base",
         }
       : {
-          container: "w-44 h-44",
+          container: "w-44",
           subtitle: "text-sm",
         };
 
@@ -51,7 +52,7 @@ export function RotatingStatCircle({
 
   return (
     <div
-      className={`${sizeClasses.container} ${bgClass} rounded-full flex flex-col items-center justify-center ${textColorClass} relative overflow-hidden z-10`}
+  className={`${sizeClasses.container} aspect-square shrink-0 ${bgClass} rounded-full flex flex-col items-center justify-center ${textColorClass} relative overflow-hidden z-10`}
     >
       <div className="text-center z-10">
         <div className="mb-2">{primary}</div>
