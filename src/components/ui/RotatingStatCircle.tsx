@@ -25,6 +25,10 @@ export function RotatingStatCircle({
 }: RotatingStatCircleProps) {
   const pathId = React.useId();
 
+  // Circunferencia del círculo (radio = 70 unidades en el path SVG)
+  const radius = 70;
+  const circumference = 2 * Math.PI * radius;
+
   // Normalización de tema para aceptar "ligth" y "light"
   const isLight = theme === "light" || theme === "ligth";
 
@@ -71,9 +75,18 @@ export function RotatingStatCircle({
               <path
                 id={pathId}
                 d="M 88, 88 m -70, 0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0"
+                // Normalizamos la longitud del path para que coincida con la circunferencia calculada
+                pathLength={circumference}
               />
             </defs>
-            <text fontSize="12" fill={rotatingFill} fontFamily="Poppins">
+            {/* Forzamos que el texto ocupe toda la longitud del path distribuyendo el espaciado */}
+            <text
+              fontSize="12"
+              fill={rotatingFill}
+              fontFamily="Poppins"
+              lengthAdjust="spacing"
+              textLength={circumference}
+            >
               <textPath href={`#${pathId}`} startOffset="0%">
                 {rotatingText} • {rotatingText} •
               </textPath>

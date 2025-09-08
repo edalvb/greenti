@@ -5,6 +5,7 @@ import AboutStats from "@/features/about/components/AboutStats";
 import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
 import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
 import { Footer } from "@/features/home/infrastructure/components/layout/Footer";
+import { IconCrown } from "@tabler/icons-react";
 
 export async function generateMetadata({ params }: any) {
   const locale = await Util.getLocale(params);
@@ -70,12 +71,12 @@ export default async function NosotrosPage({ params }: any) {
               {t("coreValues.title1")} <span className="text-primary">{t("coreValues.title2")}</span>
             </h2>
           </div>
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-20">
             {Object.entries(values).map(([key, value]) => (
               <div key={key} className="relative pl-20">
                 <div className="w-16 h-16 rounded-full bg-primary absolute left-0 top-0 flex items-center justify-center text-white font-bold text-sm">
                   {/* Simple icon placeholder */}
-                  <span>{value.title.charAt(0)}</span>
+                  <IconCrown />
                 </div>
                 <h3 className="text-secondary text-2xl font-bold mb-3">{value.title}</h3>
                 <p className="text-secondary text-base font-medium leading-relaxed">{value.text}</p>
