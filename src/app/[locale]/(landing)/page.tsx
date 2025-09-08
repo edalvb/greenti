@@ -10,6 +10,7 @@ import { FaqSection } from "@/features/home/infrastructure/components/sections/F
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 import { WeWorksSection } from "@/features/home/infrastructure/components/sections";
+import { TripleCircleWrapper } from "@/features/home/infrastructure/components/sections/TripleCircleWrapper";
 
 
 export async function generateMetadata({ params }: any) {
@@ -36,9 +37,11 @@ export default async function LandingPage({ params }: any) {
     <>
       <HeroSection />
       <ServicesSection />
-      <SectorsSection />
-      <PresenceSection />
-      <WeWorksSection />
+      <TripleCircleWrapper>
+        <SectorsSection />
+        <PresenceSection />
+        <WeWorksSection />
+      </TripleCircleWrapper>
       <TestimonialsSection />
       <ClientLogosSection />
       <CtaBannerSection />
