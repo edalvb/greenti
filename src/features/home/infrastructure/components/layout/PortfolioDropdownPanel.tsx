@@ -51,6 +51,12 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
         </ul>
       </div>
 
+      {/* Divider (horizontal en mobile, vertical en desktop) */}
+      <div
+        aria-hidden="true"
+        className="w-full h-px bg-black/10 md:h-auto md:w-px md:self-stretch md:bg-gradient-to-b md:from-black/5 md:via-black/10 md:to-black/5"
+      />
+
       {/* Right: rotating stat circles */}
       <div className="flex flex-col col-span-6 items-center justify-center px-2 md:px-4 w-full gap-8">
         <RotatingStatCircle
