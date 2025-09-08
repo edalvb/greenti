@@ -2,6 +2,9 @@ import React from "react";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Util } from "@/core/utils/utils";
 import AboutStats from "@/features/about/components/AboutStats";
+import { FaqSection } from "@/features/home/infrastructure/components/sections/FaqSection";
+import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
+import { Footer } from "@/features/home/infrastructure/components/layout/Footer";
 
 export async function generateMetadata({ params }: any) {
   const locale = await Util.getLocale(params);
@@ -40,6 +43,12 @@ export default async function NosotrosPage({ params }: any) {
           </div>
         </section>
 
+        {/* Brand Section */}
+        <section className="text-center max-w-4xl mx-auto">
+          <h2 className="text-primary text-5xl md:text-6xl font-bold mb-8">{t("brand.title")}</h2>
+          <p className="text-secondary text-base md:text-lg font-medium leading-relaxed">{t("brand.paragraph")}</p>
+        </section>
+
         {/* Mission / Vision */}
         <section className="mb-24">
           <div className="grid lg:grid-cols-2 gap-16">
@@ -75,11 +84,11 @@ export default async function NosotrosPage({ params }: any) {
           </div>
         </section>
 
-        {/* Brand Section */}
-        <section className="text-center max-w-4xl mx-auto">
-          <h2 className="text-primary text-5xl md:text-6xl font-bold mb-8">{t("brand.title")}</h2>
-          <p className="text-secondary text-base md:text-lg font-medium leading-relaxed">{t("brand.paragraph")}</p>
-        </section>
+        <CtaBannerSection />
+
+        <FaqSection />
+
+        <Footer />
       </div>
     </main>
   );
