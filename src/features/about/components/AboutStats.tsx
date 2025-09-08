@@ -28,8 +28,8 @@ export const AboutStats: React.FC = () => {
         src={`/assets/images/clutch_badge_${index}.svg`}
         alt={`Clutch badge ${index}`}
         width={160}
-        height={48}
-        className="h-12 w-auto"
+        height={103}
+        className="w-auto"
         onError={() => setHidden(true)}
         priority={false}
       />
@@ -63,7 +63,7 @@ export const AboutStats: React.FC = () => {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-6">
-        {[1, 2, 3, 4].map((i) => (
+        {[1, 2, 3].map((i) => (
           <ClutchBadge key={i} index={i} />
         ))}
       </div>
