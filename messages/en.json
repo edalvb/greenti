@@ -295,5 +295,44 @@
     "image1Alt": "Main image for the About Us section showing office collaboration.",
     "image2Alt": "Secondary image for the About Us section with focused developers.",
     "image3Alt": "Tertiary image for the About Us section highlighting focused individual work."
+  },
+  "AboutPage": {
+    "pageTitle": "About {appName}",
+    "pageDescription": "Learn more about the team and values driving {appName}.",
+    "hero": {
+      "line1": "Every project",
+      "line2": "starts with a",
+      "highlight": "passionate team",
+      "paragraph": "With GREENTI, you get more than just people executing; you get experts who anticipate, challenge ideas and build with you. We work as one team with one goal: overcoming your data challenges so you can scale operations and unlock your business potential."
+    },
+    "brand": {
+      "title": "Greenti",
+      "paragraph": "With GREENTI, you get more than just people executing; you get experts who anticipate, challenge ideas and build alongside you. We act as one team to overcome your technological challenges and help you scale sustainably."
+    },
+    "mission": {
+      "title": "Mission",
+      "text": "Drive sustainable growth for our clients by crafting custom software solutions that create measurable impact."
+    },
+    "vision": {
+      "title": "Vision",
+      "text": "Be the preferred strategic technology partner in LATAM for organizations scaling through continuous innovation."
+    },
+    "coreValues": {
+      "title1": "Our core",
+      "title2": "values",
+      "values": {
+        "passion": { "title": "Passion", "text": "We love what we do—it shows in every delivery." },
+        "empathy": { "title": "Empathy", "text": "We listen to align solutions with real goals." },
+        "quality": { "title": "Quality", "text": "Processes and standards that ensure excellence." },
+        "teamSynergy": { "title": "Team synergy", "text": "Collaboration multiplies outcomes." },
+        "trust": { "title": "Trust", "text": "Transparent, long‑term relationships." },
+        "clearCommunication": { "title": "Clear communication", "text": "Timely, understandable information for better decisions." }
+      }
+    },
+    "stats": {
+      "countries": "Countries positioned",
+      "projects": "Projects delivered",
+      "satisfaction": "Client satisfaction"
+    }
   }
 }

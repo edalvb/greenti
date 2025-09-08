@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter } from "@/i18n/navigation";
 import { Logo } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
@@ -22,15 +22,16 @@ interface NavItem {
 export const Navbar: React.FC = () => {
   const t = useTranslations("Navbar");
   const tGlobal = useTranslations("Global");
+  const locale = useLocale();
   const router = useRouter();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems: NavItem[] = [
-    { labelKey: "services" },
-    { labelKey: "portfolio" },
-    { labelKey: "aboutUs" },
+  { labelKey: "services" },
+  { labelKey: "portfolio" },
+  { labelKey: "aboutUs" },
   ];
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -69,6 +70,18 @@ export const Navbar: React.FC = () => {
           >
             <PortfolioDropdownPanel projects={projectsWithHandlers as Item[]} />
           </CustomDropdown>
+        );
+      }
+      if (item.labelKey === "aboutUs") {
+        const aboutHref = locale === "es" ? "/nosotros" : "/about-us";
+        return (
+          <Link
+            key={item.labelKey}
+            href={aboutHref}
+            className={`flex items-center px-3 py-2 rounded-md text-sm font-semibold tracking-wide transition-colors duration-300 ${navLinkClasses} hover:text-primary`}
+          >
+            {t(item.labelKey)}
+          </Link>
         );
       }
       return (

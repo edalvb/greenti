@@ -289,5 +289,44 @@
     "image1Alt": "Imagen principal de la sección Quiénes Somos mostrando colaboración en oficina.",
     "image2Alt": "Imagen secundaria de la sección Quiénes Somos con desarrolladores concentrados.",
     "image3Alt": "Imagen terciaria de la sección Quiénes Somos destacando trabajo individual enfocado."
+  },
+  "AboutPage": {
+    "pageTitle": "Sobre {appName}",
+    "pageDescription": "Conoce más sobre el equipo y valores que impulsan a {appName}.",
+    "hero": {
+      "line1": "Todo proyecto",
+      "line2": "nace con un",
+      "highlight": "equipo apasionado",
+      "paragraph": "Con GREENTI, obtienes más que solo personas que hacen; obtienes expertos que anticipan, desafían ideas y construyen contigo. Trabajamos como un solo equipo, unidos por un mismo objetivo: superar tus desafíos de datos para que puedas escalar tus operaciones y liberar todo el potencial de tu negocio."
+    },
+    "brand": {
+      "title": "Greenti",
+      "paragraph": "Con GREENTI, obtienes más que solo personas que hacen; obtienes expertos que anticipan, desafían ideas y construyen contigo. Trabajamos como un solo equipo, unidos por un mismo objetivo: superar tus desafíos tecnológicos para que puedas escalar tus operaciones y liberar todo el potencial de tu negocio."
+    },
+    "mission": {
+      "title": "Misión",
+      "text": "Impulsar el crecimiento sostenible de nuestros clientes creando soluciones de software a medida que generan impacto real y medible."
+    },
+    "vision": {
+      "title": "Visión",
+      "text": "Ser el aliado tecnológico estratégico preferido en Latinoamérica para organizaciones que buscan escalar mediante innovación continua."
+    },
+    "coreValues": {
+      "title1": "Nuestros valores",
+      "title2": "fundamentales",
+      "values": {
+        "passion": { "title": "Pasión", "text": "Amamos lo que hacemos y se nota en cada entrega." },
+        "empathy": { "title": "Empatía", "text": "Escuchamos para alinear soluciones con objetivos reales." },
+        "quality": { "title": "Calidad", "text": "Procesos y estándares que aseguran excelencia." },
+        "teamSynergy": { "title": "Sinergia de equipo", "text": "La colaboración multiplica resultados." },
+        "trust": { "title": "Confianza", "text": "Relaciones transparentes y de largo plazo." },
+        "clearCommunication": { "title": "Comunicación clara", "text": "Información oportuna y entendible para decidir mejor." }
+      }
+    },
+    "stats": {
+      "countries": "Países posicionados",
+      "projects": "Proyectos realizados",
+      "satisfaction": "Satisfacción del cliente"
+    }
   }
 }
