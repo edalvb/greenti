@@ -10,7 +10,7 @@ import React, { useRef, useState, useLayoutEffect } from "react";
 export const TripleCircleWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
   const sectionRefs = useRef<HTMLDivElement[]>([]);
-  const [metrics, setMetrics] = useState({ first: 0, last: 0, wrapper: 0 });
+  const [metrics, setMetrics] = useState({ first: 0, last: 0, wrapper: 0, width: 0 });
 
   // Asegura refs indexadas
   const enhanceChildren = React.Children.map(children, (child, idx) => {
@@ -33,8 +33,9 @@ export const TripleCircleWrapper: React.FC<React.PropsWithChildren> = ({ childre
     const measure = () => {
       const first = sectionRefs.current[0]?.offsetHeight || 0;
       const last = sectionRefs.current[sectionRefs.current.length - 1]?.offsetHeight || 0;
-      const wrapper = wrapperRef.current?.offsetHeight || 0;
-      setMetrics({ first, last, wrapper });
+  const wrapper = wrapperRef.current?.offsetHeight || 0;
+  const width = wrapperRef.current?.offsetWidth || 0;
+  setMetrics({ first, last, wrapper, width });
     };
 
     measure();
@@ -49,14 +50,16 @@ export const TripleCircleWrapper: React.FC<React.PropsWithChildren> = ({ childre
     };
   }, [children]);
 
-  const { first, last, wrapper } = metrics;
+  const { first, last, wrapper, width } = metrics;
   // Cálculo: círculo comienza en mitad del primero y termina en mitad del último.
   // Altura útil = wrapper - first/2 - last/2
   const circleHeight = Math.max(0, wrapper - first / 2 - last / 2);
   // Para mantener forma circular, usamos el menor entre ancho disponible y circleHeight (limitado) y centramos.
   // Damos un factor para pantallas anchas.
   const idealDiameter = circleHeight; // circleHeight ya expresa distancia vertical objetivo
-  const diameter = idealDiameter; // se puede ajustar luego con factor si se desea más ancho
+  // Forzar que el diámetro no sea menor al 120% del ancho del contenedor para mayor presencia visual.
+  const minWidthDiameter = width * 1.2;
+  const diameter = Math.max(idealDiameter, minWidthDiameter);
   const circleTop = first / 2; // offset desde arriba del wrapper
 
   return (
