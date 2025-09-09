@@ -22,7 +22,7 @@ export const Portada = (p: {
   const flag = countryFlagByName[props.pais] ?? undefined;
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-center">
+    <section className="grid grid-cols-1 pt-40 lg:grid-cols-3 gap-8 md:gap-12 items-center bg-presence-section">
       <div className="lg:col-span-1">
         <ClientBadge
           logo={props.image_logo}

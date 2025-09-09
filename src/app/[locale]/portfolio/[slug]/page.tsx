@@ -29,7 +29,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   if (!project) {
     return (
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <main className="container mx-auto">
         <h1 className="text-2xl font-semibold text-secondary">
           Proyecto no encontrado
         </h1>
@@ -39,7 +39,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="container md:pt-40 relative mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16">
+    <main className="container relative mx-auto">
       {/* Header */}
       <Portada project={project} />
 
