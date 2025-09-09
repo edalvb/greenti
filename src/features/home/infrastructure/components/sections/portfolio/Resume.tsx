@@ -28,8 +28,8 @@ export const Resume = ({
 
   const stat = (v: React.ReactNode, label: string, sub?: React.ReactNode) => (
     <div className="text-center flex flex-col items-center" aria-label={label}>
-      <div className="w-36 h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full border-2 border-neutral-light flex items-center justify-center">
-        <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-neutral-light flex flex-col items-center justify-center">
+      <div className="w-36 h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full border-2 border-dotted border-neutral-light flex items-center justify-center">
+        <div className="w-28 h-28 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-2 border-dotted border-neutral-light flex flex-col items-center justify-center">
           <div className="text-secondary font-bold text-4xl md:text-5xl lg:text-6xl leading-none">
             {v}
           </div>

@@ -37,6 +37,7 @@ const config: Config = {
         "stat-teal": "#0f766e",
         "stat-orange": "#ea580c",
         "stat-blue": "#1d4ed8",
+        "light-gray": "#FAFAFA",
       },
       fontFamily: {
         sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],

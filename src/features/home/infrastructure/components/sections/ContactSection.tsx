@@ -20,7 +20,6 @@ import { container } from "@/core/infrastructure/di/inversify.config";
 import { CONTACT_INFO } from "@/core/utils/constants";
 import { WhatsAppCtaSection } from "./WhatsAppCtaSection";
 import { ContactSectionAvatar } from "./ContactSectionAvatar";
-import { Footer } from "../layout/Footer";
 
 interface SelectOptionCountries extends SelectOption {
   urlImage: string;
@@ -333,7 +332,6 @@ export const ContactSection: React.FC = () => {
           </div>
         </div>
       </section>
-      <Footer />
     </>
   );
 };

@@ -1,4 +1,4 @@
-export { Portada } from "./Portada";
+export * from "./PortfolioPortada";
 export { Resume } from "./Resume";
 export { Challenge } from "./Challenge";
 export { Solution } from "./Solution";

@@ -20,6 +20,7 @@ export const ButtonCta: React.FC<ButtonCtaProps> = ({
         variant={variant}
         size="md"
         radius="cta"
+        style={{ borderRadius: 12 }}
         className={className}
         iconPosition="right"
       >

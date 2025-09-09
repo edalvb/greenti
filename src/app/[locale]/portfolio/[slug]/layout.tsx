@@ -1,5 +1,5 @@
-import React from "react";
 import { Footer } from "@/features/home/infrastructure/components/layout/Footer";
+import React from "react";
 
 interface PortfolioLayoutProps {
   children: React.ReactNode;
@@ -7,8 +7,9 @@ interface PortfolioLayoutProps {
 
 export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen bg-presence-section ">
+    <div className="min-h-screen flex flex-col max-w-screen-xl mx-auto px-4 md:px-6">
       <main className="flex-grow">{children}</main>
+      <Footer />
     </div>
   );
 }

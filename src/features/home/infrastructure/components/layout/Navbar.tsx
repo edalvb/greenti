@@ -165,7 +165,6 @@ export const Navbar: React.FC = () => {
                   className={navLinkClasses}
                   variant="mobile"
                   ariaLabel={t("portfolio")}
-                  onToggle={(o) => !o && setIsMobileMenuOpen(true)}
                 >
                   <PortfolioDropdownPanel
                     projects={projectsWithHandlers as Item[]}
