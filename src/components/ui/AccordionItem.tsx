@@ -25,7 +25,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   iconSize = 20,
 }) => {
   return (
-    <div className={`rounded-btn-cta my-4 bg-neutral-lightest`}>
+    <div className={`rounded-btn-cta my-4 bg-[#FAFAFA]`}>
       <h3>
         <button
           type="button"
