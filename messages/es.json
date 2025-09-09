@@ -38,7 +38,7 @@
     "ClutchGlobalSpring2024": "Reconocimiento Clutch Global Primavera 2024",
     "ClutchGlobalFall2023": "Reconocimiento Clutch Global Otoño 2023",
     "Clutch1000Fall2023": "Reconocimiento Clutch 1000 Otoño 2023",
-    "logoDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
+    "logoDescription": "Somos tu socio estratégico en tecnología, transformando ideas en soluciones digitales que impulsan el crecimiento de tu negocio.",
     "supportChannel": "Nuestro canal de soporte",
     "emailUs": "Escríbanos por correo electrónico",
     "officeAddressLine1": "Jirón Zorritos 499,",
@@ -234,7 +234,7 @@
   "ServicesSection": {
     "titlePart1": "Nuestros",
     "titlePart2": "servicios",
-    "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "subtitle": "Somos tu socio estratégico en tecnología. Desde el desarrollo hasta la consultoría especializada, te acompañamos en cada etapa de tu proyecto para garantizar resultados excepcionales.",
     "projectDevelopmentTitle": "Desarrollo de software",
     "projectDevelopmentDescription": "Creación de soluciones informáticas aplicando distintas tecnologías y metodologías.",
     "uiUxTitle": "Consultoría",
@@ -254,13 +254,13 @@
     "titlePart2": "sectores",
     "financialServicesTitlePart1": "Servicios",
     "financialServicesTitlePart2": "Financieros",
-    "financialServicesDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "financialServicesDescription": "Aceleramos la transformación digital financiera con tecnologías que mejoran la experiencia del usuario. Creamos ecosistemas digitales seguros y eficientes para instituciones y clientes.",
     "industryCommerceTitlePart1": "Industria",
     "industryCommerceTitlePart2": "y Comercio",
-    "industryCommerceDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "industryCommerceDescription": "Digitalizamos industria y comercio con tecnologías que conectan procesos, personas y datos. Creamos ecosistemas digitales que transforman la forma de hacer negocios.",
     "publicSectorTitlePart1": "Sector",
     "publicSectorTitlePart2": "Público",
-    "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
+    "publicSectorDescription": "Transformamos el sector público con soluciones que promueven transparencia y eficiencia. Creamos plataformas que facilitan servicios y fomentan participación ciudadana."
   },
   "AboutUsSection": {
     "titlePart1": "Quienes",
@@ -315,12 +315,30 @@
       "title1": "Nuestros valores",
       "title2": "fundamentales",
       "values": {
-        "passion": { "title": "Pasión", "text": "Amamos lo que hacemos y se nota en cada entrega." },
-        "empathy": { "title": "Empatía", "text": "Escuchamos para alinear soluciones con objetivos reales." },
-        "quality": { "title": "Calidad", "text": "Procesos y estándares que aseguran excelencia." },
-        "teamSynergy": { "title": "Sinergia de equipo", "text": "La colaboración multiplica resultados." },
-        "trust": { "title": "Confianza", "text": "Relaciones transparentes y de largo plazo." },
-        "clearCommunication": { "title": "Comunicación clara", "text": "Información oportuna y entendible para decidir mejor." }
+        "passion": {
+          "title": "Pasión",
+          "text": "Amamos lo que hacemos y se nota en cada entrega."
+        },
+        "empathy": {
+          "title": "Empatía",
+          "text": "Escuchamos para alinear soluciones con objetivos reales."
+        },
+        "quality": {
+          "title": "Calidad",
+          "text": "Procesos y estándares que aseguran excelencia."
+        },
+        "teamSynergy": {
+          "title": "Sinergia de equipo",
+          "text": "La colaboración multiplica resultados."
+        },
+        "trust": {
+          "title": "Confianza",
+          "text": "Relaciones transparentes y de largo plazo."
+        },
+        "clearCommunication": {
+          "title": "Comunicación clara",
+          "text": "Información oportuna y entendible para decidir mejor."
+        }
       }
     },
     "stats": {

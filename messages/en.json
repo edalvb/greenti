@@ -38,7 +38,7 @@
     "ClutchGlobalSpring2024": "Clutch Global Award Spring 2024",
     "ClutchGlobalFall2023": "Clutch Global Award Fall 2023",
     "Clutch1000Fall2023": "Clutch 1000 Award Fall 2023",
-    "logoDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
+    "logoDescription": "We are your strategic technology partner, transforming ideas into digital solutions that drive your business growth.",
     "supportChannel": "Our support channel",
     "emailUs": "Write to us by email",
     "officeAddressLine1": "Jirón Zorritos 499,",
@@ -73,13 +73,7 @@
     "titlePart2": "Our support",
     "titlePart3": "for our clients",
     "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.",
-    "countries": [
-      "USA",
-      "Mexico",
-      "Ecuador",
-      "Peru",
-      "Paraguay"
-    ],
+    "countries": ["USA", "Mexico", "Ecuador", "Peru", "Paraguay"],
     "stats": {
       "countriesPositioned": "Countries <br/>positioned",
       "projectsCompleted": "Projects <br/>completed",
@@ -122,8 +116,8 @@
     "noFaqsAvailable": "No FAQs available at the moment."
   },
   "ContactSection": {
-  "titlePart1": "Are you ready for us to",
-  "titlePart2": "help you?",
+    "titlePart1": "Are you ready for us to",
+    "titlePart2": "help you?",
     "avatarSubtitle": "Maria - Head of Technological Solutions",
     "intro": "I would love to talk to you about your project or needs.",
     "instruction": "Complete the form or send us an email at",
@@ -240,9 +234,9 @@
   "ServicesSection": {
     "titlePart1": "Our",
     "titlePart2": "Services",
-    "subtitle": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "subtitle": "We are your strategic technology partner. From development to specialized consulting, we support you through every stage of your project to ensure exceptional results.",
     "projectDevelopmentTitle": "Software development",
-  "projectDevelopmentDescription": "Creation of software solutions applying different technologies and methodologies.",
+    "projectDevelopmentDescription": "Creation of software solutions applying different technologies and methodologies.",
     "uiUxTitle": "Consulting",
     "uiUxDescription": "We design usable and attractive apps/websites for your users.",
     "multiplatformAppsTitle": "IT Staffing",
@@ -260,13 +254,13 @@
     "titlePart2": "sectors",
     "financialServicesTitlePart1": "Financial",
     "financialServicesTitlePart2": "Services",
-    "financialServicesDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "financialServicesDescription": "We accelerate the digital transformation of finance with technologies that improve the user experience. We create secure and efficient digital ecosystems for institutions and clients.",
     "industryCommerceTitlePart1": "Industry",
     "industryCommerceTitlePart2": "& Commerce",
-    "industryCommerceDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus.",
+    "industryCommerceDescription": "We digitize industry and commerce with technologies that connect processes, people, and data. We create digital ecosystems that transform the way business is done.",
     "publicSectorTitlePart1": "Public",
     "publicSectorTitlePart2": "Sector",
-    "publicSectorDescription": "Lorem ipsum amet, consectetur adipiscing elit. Suspendis varius enim eros elementum tristique. Duis cursus.elementum tristique. Duis cursus."
+    "publicSectorDescription": "We transform the public sector with solutions that promote transparency and efficiency. We create platforms that facilitate services and foster citizen participation."
   },
   "AboutUsSection": {
     "titlePart1": "Who We",
@@ -321,12 +315,30 @@
       "title1": "Our core",
       "title2": "values",
       "values": {
-        "passion": { "title": "Passion", "text": "We love what we do—it shows in every delivery." },
-        "empathy": { "title": "Empathy", "text": "We listen to align solutions with real goals." },
-        "quality": { "title": "Quality", "text": "Processes and standards that ensure excellence." },
-        "teamSynergy": { "title": "Team synergy", "text": "Collaboration multiplies outcomes." },
-        "trust": { "title": "Trust", "text": "Transparent, long‑term relationships." },
-        "clearCommunication": { "title": "Clear communication", "text": "Timely, understandable information for better decisions." }
+        "passion": {
+          "title": "Passion",
+          "text": "We love what we do—it shows in every delivery."
+        },
+        "empathy": {
+          "title": "Empathy",
+          "text": "We listen to align solutions with real goals."
+        },
+        "quality": {
+          "title": "Quality",
+          "text": "Processes and standards that ensure excellence."
+        },
+        "teamSynergy": {
+          "title": "Team synergy",
+          "text": "Collaboration multiplies outcomes."
+        },
+        "trust": {
+          "title": "Trust",
+          "text": "Transparent, long‑term relationships."
+        },
+        "clearCommunication": {
+          "title": "Clear communication",
+          "text": "Timely, understandable information for better decisions."
+        }
       }
     },
     "stats": {
