@@ -14,10 +14,12 @@ export type Item = {
 
 export type PortfolioDropdownPanelProps = {
   projects?: Item[];
+  onRequestClose?: () => void;
 };
 
 export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
   projects = [],
+  onRequestClose,
 }) => {
   return (
     <div className="flex flex-col md:flex-row gap-6 md:gap-8 p-4 md:p-6 rounded-2xl bg-white shadow-[0_10px_60px_rgba(0,33,64,0.15)]">
@@ -29,7 +31,10 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
               <Button
                 className="flex gap-4 w-full justify-start text-left bg-transparent hover:bg-white"
                 variant="ghost"
-                onClick={p.onClick}
+                onClick={() => {
+                  p.onClick?.();
+                  onRequestClose?.();
+                }}
               >
                 <span
                   className={`w-[50px] h-[50px] rounded-[10px] overflow-hidden flex items-center justify-center ${p.bgClass ?? ""} bg-white ring-1 ring-black/5`}

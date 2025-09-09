@@ -40,6 +40,9 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const hasPanel = (!!items && items.length > 0) || !!children;
+  // For mobile: keep panel mounted briefly to allow close animation
+  const [mountedMobilePanel, setMountedMobilePanel] = useState(false);
+  const closeTimeoutRef = useRef<number | null>(null);
 
   const toggle = () => {
     setOpen((v) => {
@@ -60,6 +63,29 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
     document.addEventListener("mousedown", onClickOutside);
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [variant, onToggle]);
+
+  // Manage mount/unmount for mobile animations
+  useEffect(() => {
+    if (variant !== "mobile") return;
+    if (open) {
+      if (closeTimeoutRef.current) {
+        window.clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+      setMountedMobilePanel(true);
+    } else {
+      // Delay unmount to allow exit transition
+      closeTimeoutRef.current = window.setTimeout(() => {
+        setMountedMobilePanel(false);
+      }, 180);
+    }
+    return () => {
+      if (closeTimeoutRef.current) {
+        window.clearTimeout(closeTimeoutRef.current);
+        closeTimeoutRef.current = null;
+      }
+    };
+  }, [open, variant]);
 
   const handleItemClick = (cb?: () => void) => {
     try {
@@ -92,12 +118,42 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             />
           )}
         </button>
-        {open &&
+        {mountedMobilePanel &&
           hasPanel &&
           (children ? (
-            <div className="mt-1 ml-9 pr-3" role="menu" aria-label={ariaLabel}>
-              {children}
-            </div>
+            <>
+              <div
+                className="relative z-50 mt-1 ml-9 pr-3"
+                role="menu"
+                aria-label={ariaLabel}
+              >
+                <div
+                  className={`transform transition-all duration-200 ease-out ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
+                >
+                  {(() => {
+                    const onRequestClose = () => {
+                      setOpen(false);
+                      onToggle?.(false);
+                    };
+                    return React.isValidElement(children)
+                      ? React.cloneElement(children as React.ReactElement<any>, {
+                          onRequestClose,
+                        })
+                      : children;
+                  })()}
+                </div>
+              </div>
+              {/* Backdrop to close on outside tap */}
+              <button
+                type="button"
+                aria-hidden="true"
+                className="fixed inset-0 z-40 bg-transparent"
+                onClick={() => {
+                  setOpen(false);
+                  onToggle?.(false);
+                }}
+              />
+            </>
           ) : (
             !!items &&
             items.length > 0 && (
@@ -159,7 +215,18 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             aria-label={ariaLabel}
             className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-8 ${menuClassName} origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
           >
-            {children}
+            {(() => {
+              // If the panel is a React element, inject an onRequestClose prop to allow it to close the dropdown.
+              const onRequestClose = () => {
+                setOpen(false);
+                onToggle?.(false);
+              };
+              return React.isValidElement(children)
+                ? React.cloneElement(children as React.ReactElement<any>, {
+                    onRequestClose,
+                  })
+                : children;
+            })()}
           </div>
         ) : (
           !!items &&
