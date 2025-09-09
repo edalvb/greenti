@@ -5,7 +5,7 @@ interface PortfolioPortadaClientInfoProps {
   className?: string;
 }
 
-const PortfolioPortadaClientInfo: React.FC<PortfolioPortadaClientInfoProps> = ({
+export const PortfolioPortadaClientInfo: React.FC<PortfolioPortadaClientInfoProps> = ({
   sector,
   pais,
   plataforma,

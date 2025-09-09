@@ -1,5 +1,6 @@
 import { Project } from "@/features/portfolio/domain/Project";
 import Image from "next/image";
+import { PortfolioPortadaClientInfo } from "./PortfolioPortadaClientInfo";
 
 const countryFlagByName: Record<string, string> = {
   México: "/assets/icons/mexico.svg",
