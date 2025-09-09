@@ -167,37 +167,38 @@ export const Footer: React.FC = () => {
                   </a>
                 </li>
               </ul>
-            </div>
-          </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-8 pb-4">
-            <div className="text-center md:text-left order-1 md:order-2 md:ml-auto">
-              <h3 className="text-base font-semibold text-white mb-3">
-                {t("followUs")}
-              </h3>
-              <div className="flex items-center justify-center md:justify-start space-x-3">
-                {socialIconsData.map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="bg-social-icon text-white rounded-full p-0 w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-all duration-200"
-                  >
-                    <Image
-                      src={social.icon}
-                      alt={social.label}
-                      width={24}
-                      height={24}
-                      className="h-auto w-6"
-                      loading="lazy"
-                    />
-                  </a>
-                ))}
+              {/* Follow Us moved here under Contact */}
+              <div className="mt-8">
+                <h3 className="text-base font-semibold text-white mb-3">
+                  {t("followUs")}
+                </h3>
+                <div className="flex items-center space-x-3">
+                  {socialIconsData.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      className="bg-social-icon text-white rounded-full p-0 w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-all duration-200"
+                    >
+                      <Image
+                        src={social.icon}
+                        alt={social.label}
+                        width={24}
+                        height={24}
+                        className="h-auto w-6"
+                        loading="lazy"
+                      />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
+
+          {/* spacing retained by hr below */}
 
           <hr className="border-t border-white/20 my-6" />
 
