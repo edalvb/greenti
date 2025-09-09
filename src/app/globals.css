@@ -36,6 +36,10 @@
 }
 
 @layer base {
+  html {
+    /* Evita el fondo blanco visible en overscroll (iOS/Android) */
+    background-color: hsl(var(--color-neutral-lighter));
+  }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig'1, 'calt'1;
