@@ -57,7 +57,7 @@ export const TestimonialsSection: React.FC = () => {
 
   if (isLoading) {
     return (
-      <section id="testimonials" className="pd-section bg-white px-responsive">
+      <section id="testimonials" className="pd-section bg-white px-responsive pt-10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Spinner size="lg" />
           <p className="mt-4 text-neutral-darker">{tGlobal("loading")}</p>
@@ -121,7 +121,7 @@ export const TestimonialsSection: React.FC = () => {
       id="testimonials"
       className="pd-section bg-white px-responsive overflow-hidden"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-20">
         <h2 className="text-4xl md:text-6xl font-bold text-[#002140] text-center mb-16 md:mb-20 leading-tight">
           {titleDisplay}
         </h2>
