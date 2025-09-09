@@ -28,7 +28,7 @@ export const Portada = (p: {
           flagCountry={flag}
           nameClient={props.name}
         />
-        <ClientInfo
+        <PortfolioPortadaClientInfo
           sector={props.sector}
           pais={props.pais}
           plataforma={props.plataforma}
@@ -65,34 +65,6 @@ const ClientBadge = (props: {
           </span>
         </div>
       </div>
-    </div>
-  );
-};
-
-const ClientInfo = (props: {
-  sector: string;
-  pais: string;
-  plataforma: string[];
-}) => {
-  return (
-    <div
-      className="rounded-2xl p-5 w-full max-w-xs mt-6"
-      style={{ backgroundColor: "#F3F4F6" }}
-    >
-      <ul className="text-sm text-neutral-darker space-y-3">
-        <li className="flex justify-between gap-4">
-          <span className="font-medium text-neutral-dark">Sector</span>
-          <span className="text-right">{props.sector}</span>
-        </li>
-        <li className="flex justify-between gap-4">
-          <span className="font-medium text-neutral-dark">País</span>
-          <span className="text-right">{props.pais}</span>
-        </li>
-        <li className="flex justify-between gap-4">
-          <span className="font-medium text-neutral-dark">Plataforma</span>
-          <span className="text-right">{props.plataforma.join(" / ")}</span>
-        </li>
-      </ul>
     </div>
   );
 };
