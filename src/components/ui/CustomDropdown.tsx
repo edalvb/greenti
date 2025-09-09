@@ -40,9 +40,12 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   const hasPanel = (!!items && items.length > 0) || !!children;
-  // For mobile: keep panel mounted briefly to allow close animation
+
+  // Animations mount control
   const [mountedMobilePanel, setMountedMobilePanel] = useState(false);
-  const closeTimeoutRef = useRef<number | null>(null);
+  const mobileCloseTimeoutRef = useRef<number | null>(null);
+  const [mountedDesktopPanel, setMountedDesktopPanel] = useState(false);
+  const desktopCloseTimeoutRef = useRef<number | null>(null);
 
   const toggle = () => {
     setOpen((v) => {
@@ -52,6 +55,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
     });
   };
 
+  // Close on outside click (desktop only)
   useEffect(() => {
     if (variant !== "desktop") return;
     const onClickOutside = (e: MouseEvent) => {
@@ -64,25 +68,46 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [variant, onToggle]);
 
-  // Manage mount/unmount for mobile animations
+  // Desktop mount/unmount for animation
+  useEffect(() => {
+    if (variant !== "desktop") return;
+    if (open) {
+      if (desktopCloseTimeoutRef.current) {
+        window.clearTimeout(desktopCloseTimeoutRef.current);
+        desktopCloseTimeoutRef.current = null;
+      }
+      setMountedDesktopPanel(true);
+    } else {
+      desktopCloseTimeoutRef.current = window.setTimeout(() => {
+        setMountedDesktopPanel(false);
+      }, 180);
+    }
+    return () => {
+      if (desktopCloseTimeoutRef.current) {
+        window.clearTimeout(desktopCloseTimeoutRef.current);
+        desktopCloseTimeoutRef.current = null;
+      }
+    };
+  }, [open, variant]);
+
+  // Mobile mount/unmount for animation
   useEffect(() => {
     if (variant !== "mobile") return;
     if (open) {
-      if (closeTimeoutRef.current) {
-        window.clearTimeout(closeTimeoutRef.current);
-        closeTimeoutRef.current = null;
+      if (mobileCloseTimeoutRef.current) {
+        window.clearTimeout(mobileCloseTimeoutRef.current);
+        mobileCloseTimeoutRef.current = null;
       }
       setMountedMobilePanel(true);
     } else {
-      // Delay unmount to allow exit transition
-      closeTimeoutRef.current = window.setTimeout(() => {
+      mobileCloseTimeoutRef.current = window.setTimeout(() => {
         setMountedMobilePanel(false);
       }, 180);
     }
     return () => {
-      if (closeTimeoutRef.current) {
-        window.clearTimeout(closeTimeoutRef.current);
-        closeTimeoutRef.current = null;
+      if (mobileCloseTimeoutRef.current) {
+        window.clearTimeout(mobileCloseTimeoutRef.current);
+        mobileCloseTimeoutRef.current = null;
       }
     };
   }, [open, variant]);
@@ -96,6 +121,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
     }
   };
 
+  // MOBILE VARIANT
   if (variant === "mobile") {
     return (
       <div className={`w-full ${className}`} ref={ref}>
@@ -105,9 +131,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
           aria-haspopup={hasPanel ? "menu" : undefined}
           aria-expanded={hasPanel ? open : undefined}
         >
-          <span
-            className={`flex items-center gap-1.5 ${open ? "text-primary" : ""}`}
-          >
+          <span className={`flex items-center gap-1.5 ${open ? "text-primary" : ""}`}>
             {icon}
             {name}
           </span>
@@ -118,17 +142,15 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
             />
           )}
         </button>
-        {mountedMobilePanel &&
-          hasPanel &&
-          (children ? (
+
+        {mountedMobilePanel && hasPanel && (
+          children ? (
             <>
-              <div
-                className="relative z-50 mt-1 ml-9 pr-3"
-                role="menu"
-                aria-label={ariaLabel}
-              >
+              <div className="relative z-50 mt-1 ml-9 pr-3" role="menu" aria-label={ariaLabel}>
                 <div
-                  className={`transform transition-all duration-200 ease-out ${open ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
+                  className={`transform transition-all duration-200 ease-out ${
+                    open ? "opacity-100 translate-y-0 drop-shadow-xl" : "opacity-0 -translate-y-1 drop-shadow-md"
+                  }`}
                 >
                   {(() => {
                     const onRequestClose = () => {
@@ -136,9 +158,7 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                       onToggle?.(false);
                     };
                     return React.isValidElement(children)
-                      ? React.cloneElement(children as React.ReactElement<any>, {
-                          onRequestClose,
-                        })
+                      ? React.cloneElement(children as React.ReactElement<any>, { onRequestClose })
                       : children;
                   })()}
                 </div>
@@ -155,22 +175,15 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
               />
             </>
           ) : (
-            !!items &&
-            items.length > 0 && (
-              <div
-                className="mt-1 ml-9 pr-3"
-                role="listbox"
-                aria-label={ariaLabel}
-              >
+            !!items && items.length > 0 && (
+              <div className="mt-1 ml-9 pr-3" role="listbox" aria-label={ariaLabel}>
                 {items.map((item, idx) => (
                   <button
                     key={`${item.label}-${idx}`}
                     onClick={() => handleItemClick(item.onClick)}
                     disabled={item.disabled}
                     className={`w-full text-left px-3 py-2 rounded-md text-sm ${
-                      item.disabled
-                        ? "text-neutral-400"
-                        : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
+                      item.disabled ? "text-neutral-400" : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
                     }`}
                     role="option"
                     aria-selected={false}
@@ -183,11 +196,13 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
                 ))}
               </div>
             )
-          ))}
+          )
+        )}
       </div>
     );
   }
 
+  // DESKTOP VARIANT
   return (
     <div className={`relative ${className}`} ref={ref}>
       <button
@@ -200,64 +215,67 @@ export const CustomDropdown: React.FC<CustomDropdownProps> = ({
         <span className={`${open ? "text-primary" : ""}`}>{icon}</span>
         <span className={`${open ? "text-primary" : ""}`}>{name}</span>
         {hasPanel && (
-          <IconChevronDown
-            size={16}
-            className={`ml-1 transition-transform ${open ? "rotate-180 text-primary" : ""}`}
-          />
+          <IconChevronDown size={16} className={`ml-1 transition-transform ${open ? "rotate-180 text-primary" : ""}`} />
         )}
       </button>
 
-      {open &&
-        hasPanel &&
-        (children ? (
+      {mountedDesktopPanel && hasPanel && (
+        children ? (
           <div
             role="menu"
             aria-label={ariaLabel}
             className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-8 ${menuClassName} origin-top-right rounded-2xl bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
           >
-            {(() => {
-              // If the panel is a React element, inject an onRequestClose prop to allow it to close the dropdown.
-              const onRequestClose = () => {
-                setOpen(false);
-                onToggle?.(false);
-              };
-              return React.isValidElement(children)
-                ? React.cloneElement(children as React.ReactElement<any>, {
-                    onRequestClose,
-                  })
-                : children;
-            })()}
+            <div
+              className={`transform transition-all duration-200 ease-out ${
+                open ? "opacity-100 translate-y-0 drop-shadow-xl" : "opacity-0 -translate-y-1 drop-shadow-md"
+              }`}
+            >
+              {(() => {
+                const onRequestClose = () => {
+                  setOpen(false);
+                  onToggle?.(false);
+                };
+                return React.isValidElement(children)
+                  ? React.cloneElement(children as React.ReactElement<any>, { onRequestClose })
+                  : children;
+              })()}
+            </div>
           </div>
         ) : (
-          !!items &&
-          items.length > 0 && (
+          !!items && items.length > 0 && (
             <div
               role="listbox"
               aria-label={ariaLabel}
               className={`absolute ${align === "left" ? "left-0" : "right-0"} mt-8 ${menuClassName} origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none z-50`}
             >
-              {items.map((item, idx) => (
-                <button
-                  key={`${item.label}-${idx}`}
-                  role="option"
-                  aria-selected={false}
-                  onClick={() => handleItemClick(item.onClick)}
-                  disabled={item.disabled}
-                  className={`block w-full text-left px-3 py-2 text-sm ${
-                    item.disabled
-                      ? "text-neutral-400"
-                      : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
-                  }`}
-                >
-                  <span className="inline-flex items-center gap-2 normal-case">
-                    {item.icon}
-                    {item.label}
-                  </span>
-                </button>
-              ))}
+              <div
+                className={`transform transition-all duration-200 ease-out ${
+                  open ? "opacity-100 translate-y-0 drop-shadow-xl" : "opacity-0 -translate-y-1 drop-shadow-md"
+                }`}
+              >
+                {items.map((item, idx) => (
+                  <button
+                    key={`${item.label}-${idx}`}
+                    role="option"
+                    aria-selected={false}
+                    onClick={() => handleItemClick(item.onClick)}
+                    disabled={item.disabled}
+                    className={`block w-full text-left px-3 py-2 text-sm ${
+                      item.disabled ? "text-neutral-400" : "text-secondary hover:text-primary hover:bg-neutral-lightest/50"
+                    }`}
+                  >
+                    <span className="inline-flex items-center gap-2 normal-case">
+                      {item.icon}
+                      {item.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           )
-        ))}
+        )
+      )}
     </div>
   );
 };
