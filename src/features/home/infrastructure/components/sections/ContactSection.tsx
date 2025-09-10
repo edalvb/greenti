@@ -157,7 +157,7 @@ export const ContactSection: React.FC = () => {
               <span className="text-primary">{t("titlePart2")}</span>
             </h1>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-start max-w-5xl mx-auto">
             <div className="lg:col-span-5 flex flex-col justify-between h-full pt-8">
               <div>
                 <ContactSectionAvatar />
@@ -181,9 +181,11 @@ export const ContactSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="hidden lg:block lg:col-span-2"></div>
+            {/* Columna separadora para centrar el layout en desktop */}
+            <div className="hidden lg:block lg:col-span-1"></div>
 
-            <div className="lg:col-span-5 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
+            {/* Formulario más estrecho y centrado dentro del grid */}
+            <div className="lg:col-span-6 bg-white p-6 sm:p-8 md:p-10 rounded-btn-cta shadow-deep">
               <h2 className="text-2xl md:text-3xl font-bold text-secondary mb-2">
                 {t("formTitle")}
               </h2>
@@ -196,7 +198,7 @@ export const ContactSection: React.FC = () => {
                   {...register("fullName")}
                   error={fieldErrors.fullName}
                   inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
-                  radius="cta"
+                  radius="default"
                   required
                 />
                 <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6">
@@ -229,7 +231,7 @@ export const ContactSection: React.FC = () => {
                       {...register("countryCode")}
                       error={fieldErrors.countryCode}
                       selectClassName={`bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark w-full ${selectedCountryCode ? "pl-10" : "pl-3"}`}
-                      radius="cta"
+                      radius="default"
                       required
                     />
                   </div>
@@ -240,7 +242,7 @@ export const ContactSection: React.FC = () => {
                     containerClassName="sm:col-span-7"
                     inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                     error={fieldErrors.phoneNumber}
-                    radius="cta"
+                    radius="default"
                     required
                   />
                 </div>
@@ -250,7 +252,7 @@ export const ContactSection: React.FC = () => {
                   {...register("email")}
                   inputClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                   error={fieldErrors.email}
-                  radius="cta"
+                  radius="default"
                   required
                 />
                 <Textarea
@@ -259,7 +261,7 @@ export const ContactSection: React.FC = () => {
                   {...register("message")}
                   textareaClassName="bg-neutral-lightest/50 border-neutral-default placeholder-neutral-dark"
                   error={fieldErrors.message}
-                  radius="cta"
+                  radius="default"
                   required
                 />
 
