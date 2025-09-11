@@ -88,7 +88,7 @@ export function RotatingStatCircle({
               textLength={circumference}
             >
               <textPath href={`#${pathId}`} startOffset="0%">
-                {rotatingText} • {rotatingText} •
+                {rotatingText}&nbsp;
               </textPath>
             </text>
           </svg>
