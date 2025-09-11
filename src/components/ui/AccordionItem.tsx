@@ -1,5 +1,6 @@
 import React from 'react';
 import { IconChevronDown } from '@tabler/icons-react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 
 interface AccordionItemProps {
   title: React.ReactNode;
@@ -24,6 +25,7 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
   iconClassName = 'text-secondary',
   iconSize = 20,
 }) => {
+  const prefersReducedMotion = useReducedMotion();
   return (
     <div className={`rounded-btn-cta my-4 bg-[#FAFAFA]`}>
       <h3>
@@ -36,15 +38,30 @@ export const AccordionItem: React.FC<AccordionItemProps> = ({
           <span className="flex-1">{title}</span>
           <IconChevronDown
             size={iconSize}
-            className={`transform transition-transform duration-200 ${iconClassName} ${isOpen ? 'rotate-180' : ''}`}
+            className={`transform transition-transform duration-300 ease-out ${iconClassName} ${isOpen ? 'rotate-180' : ''}`}
           />
         </button>
       </h3>
-      {isOpen && (
-        <div className={`py-4 text-neutral-darker ${contentClassName}`}>
-          {children}
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { height: 'auto', opacity: 1 },
+              collapsed: { height: 0, opacity: 0 },
+            }}
+            transition={prefersReducedMotion ? { duration: 0 } : { duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <div className={`py-4 text-neutral-darker ${contentClassName}`}>
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
