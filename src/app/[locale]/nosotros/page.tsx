@@ -6,6 +6,7 @@ import { FaqSection } from "@/features/home/infrastructure/components/sections/F
 import { CtaBannerSection } from "@/features/home/infrastructure/components/sections/CtaBannerSection";
 import { Footer } from "@/features/home/infrastructure/components/layout/Footer";
 import { IconCrown } from "@tabler/icons-react";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 export async function generateMetadata({ params }: any) {
   const locale = await Util.getLocale(params);
@@ -27,7 +28,8 @@ export default async function NosotrosPage({ params }: any) {
 
   return (
     <main className="min-h-screen bg-white pt-40 pb-24 px-responsive">
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-screen-xl px-4 md:px-6">
+      <Breadcrumbs className="mb-6" />
         {/* Hero */}
         <section className="grid lg:grid-cols-2 gap-12 items-start mb-24">
           <div className="space-y-4">

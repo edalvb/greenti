@@ -150,7 +150,7 @@ export const ContactSection: React.FC = () => {
         id="contact"
         className="pd-section bg-neutral-lightest px-responsive"
       >
-        <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto pb-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl text-center px-16 mx-auto mb-20 md:mb-20">
             <h1 className="text-4xl md:text-5xl font-bold text-secondary mb-6">
               {t("titlePart1")}{" "}

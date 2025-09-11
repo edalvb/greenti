@@ -15,6 +15,7 @@ import {
   Testimonial,
 } from "@/features/home/infrastructure/components/sections/portfolio";
 import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
+import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
 type PageParams = { locale: string; slug: string };
 type PageProps = { params: Promise<PageParams> };
@@ -30,6 +31,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   if (!project) {
     return (
       <main className="container mx-auto">
+        <Breadcrumbs className="mt-24 mb-4" />
         <h1 className="text-2xl font-semibold text-secondary">
           Proyecto no encontrado
         </h1>
@@ -40,8 +42,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <main className="container relative mx-auto">
-      {/* Header */}
-      <Portada project={project} />
+      <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-presence-section pt-40">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-6">
+          <Breadcrumbs currentLabel={project.name} className="mb-6" />
+        </div>
+        {/* Header */}
+        <Portada project={project} />
+      </div>
 
       {/* Estadísticas */}
       <Resume

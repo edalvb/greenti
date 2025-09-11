@@ -74,7 +74,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer>
-      <div className="bg-secondary text-neutral-light pt-16 pb-8 rounded-btn-cta mb-16">
+      <div className="bg-secondary text-neutral-light pt-16 pb-8 rounded-btn-cta mb-16 max-w-screen-2xl mx-auto">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1.5fr] gap-8 mb-12">
             <div className="lg:col-span-1">

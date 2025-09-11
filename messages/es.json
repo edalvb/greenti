@@ -347,4 +347,12 @@
       "satisfaction": "Satisfacción del cliente"
     }
   }
+  ,
+  "Breadcrumbs": {
+    "ariaLabel": "Ruta de navegación",
+    "home": "Inicio",
+    "portfolio": "Portafolio",
+    "aboutUs": "Nosotros",
+    "contact": "Contacto"
+  }
 }

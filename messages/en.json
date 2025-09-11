@@ -347,4 +347,12 @@
       "satisfaction": "Client satisfaction"
     }
   }
+  ,
+  "Breadcrumbs": {
+    "ariaLabel": "Breadcrumb",
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "aboutUs": "About Us",
+    "contact": "Contact"
+  }
 }
