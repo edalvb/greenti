@@ -63,7 +63,10 @@ export const TripleCircleWrapper: React.FC<React.PropsWithChildren> = ({ childre
   const circleTop = first / 2; // offset desde arriba del wrapper
 
   return (
-    <div ref={wrapperRef} className="relative w-full">
+    <div
+      ref={wrapperRef}
+      className="relative w-full max-w-full min-w-0 overflow-x-hidden overflow-y-visible overscroll-x-none"
+    >
       {circleHeight > 0 && (
         <div
           aria-hidden

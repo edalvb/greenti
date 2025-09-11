@@ -7,8 +7,8 @@ interface LandingLayoutProps {
 
 export default function LandingLayout({ children }: LandingLayoutProps) {
   return (
-    <div className="flex flex-col min-h-screen max-w-screen-xl mx-auto px-4 md:px-6">
-      <main className="flex-grow">{children}</main>
+    <div className="flex flex-col min-h-screen overflow-x-hidden overscroll-x-none">
+      <main className="flex-grow min-w-0">{children}</main>
       <Footer />
     </div>
   );

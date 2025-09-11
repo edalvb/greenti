@@ -39,12 +39,20 @@
   html {
     /* Evita el fondo blanco visible en overscroll (iOS/Android) */
     background-color: hsl(var(--color-neutral-lighter));
+    /* Bloquea cualquier scroll horizontal global */
+    overflow-x: hidden; /* usar 'clip' si todo target soporta */
+    overscroll-behavior-x: none;
+    /* Reserva espacio para la barra de scroll y evita reflow lateral */
+    scrollbar-gutter: stable both-edges;
   }
   body {
     @apply bg-background text-foreground;
     font-feature-settings: 'rlig'1, 'calt'1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Evita barras de desplazamiento horizontales causadas por componentes full-bleed */
+    overflow-x: hidden; /* usar 'clip' si todo target soporta */
+    overscroll-behavior-x: none;
   }
 }
 
