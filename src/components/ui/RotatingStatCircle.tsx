@@ -60,7 +60,7 @@ export function RotatingStatCircle({
     >
       <div className="text-center z-10">
         <div>{primary}</div>
-        <div className={`${sizeClasses.subtitle} ${textColorClass} font-medium leading-tight px-4`}>
+        <div className={`${sizeClasses.subtitle} ${textColorClass} font-medium leading-tight px-6`}>
           {subtitle}
         </div>
       </div>
