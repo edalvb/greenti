@@ -14,6 +14,7 @@ import {
   Results,
   Testimonial,
 } from "@/features/home/infrastructure/components/sections/portfolio";
+import { FlowArrow } from "@/features/home/infrastructure/components/sections/portfolio";
 import { ContactSection } from "@/features/home/infrastructure/components/sections/ContactSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
@@ -41,7 +42,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   }
 
   return (
-    <main className="container relative mx-auto">
+    <main id="project-main" className="container relative mx-auto">
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen bg-presence-section pt-40">
         <div className="max-w-screen-xl mx-auto px-4 md:px-6">
           <Breadcrumbs currentLabel={project.name} className="mb-6" />
@@ -49,6 +50,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         {/* Header */}
         <Portada project={project} />
       </div>
+
+      {/* Flecha de flujo entre secciones (overlay SVG) */}
+      <FlowArrow />
 
       {/* Estadísticas */}
       <Resume
@@ -64,15 +68,15 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       {/* Solución */}
       <Solution description={project.solution} />
 
-      {/* Tecnologías */}
-      <Technologies technologies={project.technologies} />
-
       {/* Resultados */}
       <Results
         description={project.result_description}
         images={project.result_images_main}
         images_secondary={project.result_images_secondary || []}
       />
+
+      {/* Tecnologías */}
+      <Technologies technologies={project.technologies} />
 
       {/* Testimonio y enlace */}
       <Testimonial data={project.client_testimonial} />

@@ -1,0 +1,165 @@
+"use client";
+
+import React, { useEffect, useMemo, useRef, useState } from "react";
+
+// Dibuja una flecha verde punteada enlazando Challenge -> Solution -> (debajo de Results, encima de Technologies) -> Testimonial
+// Estrategia:
+// - Calcula puntos clave leyendo boundingClientRect de elementos identificados por IDs dentro de main#project-main
+// - Genera un path SVG con líneas y curvas suaves entre segmentos dominantes H/V
+// - Usa z-index y pointer-events-none para no interferir con interacción
+
+function getEl<T extends HTMLElement>(selector: string): T | null {
+  return document.querySelector(selector) as T | null;
+}
+
+function useRects() {
+  const [rects, setRects] = useState<{
+    main: DOMRect | null;
+    pChallenge: DOMRect | null;
+    sectionSolution: DOMRect | null;
+    sectionResults: DOMRect | null;
+    sectionTechnologies: DOMRect | null;
+    sectionTestimonial: DOMRect | null;
+  }>({
+    main: null,
+    pChallenge: null,
+    sectionSolution: null,
+    sectionResults: null,
+    sectionTechnologies: null,
+    sectionTestimonial: null,
+  });
+
+  const measure = () => {
+    const main = getEl<HTMLElement>("main#project-main");
+    const pChallenge = getEl<HTMLElement>(
+      "#challenge p.text-secondary.leading-relaxed"
+    );
+    const sectionSolution = getEl<HTMLElement>("#solution");
+    const sectionResults = getEl<HTMLElement>("#results");
+    const sectionTechnologies = getEl<HTMLElement>("#technologies");
+    const sectionTestimonial = getEl<HTMLElement>("#testimonial");
+
+    setRects({
+      main: main ? main.getBoundingClientRect() : null,
+      pChallenge: pChallenge ? pChallenge.getBoundingClientRect() : null,
+      sectionSolution: sectionSolution
+        ? sectionSolution.getBoundingClientRect()
+        : null,
+      sectionResults: sectionResults ? sectionResults.getBoundingClientRect() : null,
+      sectionTechnologies: sectionTechnologies
+        ? sectionTechnologies.getBoundingClientRect()
+        : null,
+      sectionTestimonial: sectionTestimonial
+        ? sectionTestimonial.getBoundingClientRect()
+        : null,
+    });
+  };
+
+  useEffect(() => {
+    measure();
+    const ro = new ResizeObserver(() => measure());
+    const main = getEl<HTMLElement>("main#project-main");
+    if (main) ro.observe(main);
+    window.addEventListener("resize", measure);
+    window.addEventListener("scroll", measure, { passive: true });
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+      window.removeEventListener("scroll", measure);
+    };
+  }, []);
+
+  return rects;
+}
+
+function toLocal(point: { x: number; y: number }, container: DOMRect) {
+  return { x: point.x - container.left, y: point.y - container.top };
+}
+
+function pathCmd(points: { x: number; y: number }[]) {
+  if (!points.length) return "";
+  const d: string[] = ["M", points[0].x.toFixed(1), points[0].y.toFixed(1)];
+  for (let i = 1; i < points.length; i++) {
+    d.push("L", points[i].x.toFixed(1), points[i].y.toFixed(1));
+  }
+  return d.join(" ");
+}
+
+export function FlowArrow() {
+  const rects = useRects();
+
+  const svgData = useMemo(() => {
+    const { main, pChallenge, sectionSolution, sectionResults, sectionTechnologies, sectionTestimonial } = rects;
+    if (!main || !pChallenge || !sectionSolution || !sectionResults || !sectionTechnologies || !sectionTestimonial) {
+      return null;
+    }
+
+    // Puntos clave siguiendo el recorrido solicitado
+    // 1) Origen: parte izquierda del <p> en Challenge
+    const origin = toLocal({ x: pChallenge.left, y: pChallenge.top + pChallenge.height / 2 }, main);
+
+    // 2) Descenso inicial: baja en línea recta hasta un poco debajo de Challenge
+    const down1 = { x: origin.x, y: origin.y + 60 };
+
+    // 3) Cruce horizontal: hacia la derecha, cruzando entre Challenge y Solution, hasta extremo derecho del contenedor
+    const rightEdge = main.width - 16; // padding visual
+    const cross = { x: rightEdge, y: down1.y };
+
+    // 4) Descenso vertical desde ahí
+    // Bajamos hasta DEBAJO de Results (unos px extra)
+    const belowResultsY = sectionResults.bottom - main.top + 20; // 20px por debajo
+    const down2 = { x: cross.x, y: belowResultsY };
+
+    // 5) Retorno hacia la izquierda por DEBAJO de Results y por ENCIMA de Technologies
+    const aboveTechnologiesY = sectionTechnologies.top - main.top - 20; // 20px por encima de Technologies
+    const leftEdge = 16; // padding visual
+    // Asegurar que el tramo H vaya entre ambos (si hay solape, usa belowResultsY)
+    const midY = belowResultsY <= aboveTechnologiesY
+      ? (belowResultsY + aboveTechnologiesY) / 2
+      : belowResultsY;
+    const leftRun = { x: leftEdge, y: midY };
+
+    // 6) Trayecto final: baja un poco más y luego hacia la derecha hasta Testimonial
+    const down3 = { x: leftRun.x, y: sectionTestimonial.top - main.top - 16 };
+    const endX = Math.min(sectionTestimonial.left - main.left + 24, main.width - 24);
+    const toTestimonial = { x: endX, y: down3.y };
+
+    const points = [origin, down1, cross, down2, leftRun, down3, toTestimonial];
+
+    return {
+      width: main.width,
+      height: Math.max(main.height, toTestimonial.y + 50),
+      d: pathCmd(points),
+    };
+  }, [rects]);
+
+  if (!svgData) return null;
+
+  return (
+    <div
+      className="pointer-events-none absolute inset-0 z-[5]"
+      aria-hidden="true"
+    >
+      <svg
+        width={svgData.width}
+        height={svgData.height}
+        viewBox={`0 0 ${svgData.width} ${svgData.height}`}
+        className="block"
+      >
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L6,3 z" fill="#16a34a" />
+          </marker>
+        </defs>
+        <path
+          d={svgData.d}
+          fill="none"
+          stroke="#16a34a"
+          strokeWidth={3}
+          strokeDasharray="6 6"
+          markerEnd="url(#arrowhead)"
+        />
+      </svg>
+    </div>
+  );
+}
