@@ -3,8 +3,11 @@ import Image from "next/image";
 
 export const Testimonial = (props: { data: ClientTestimonial }) => {
   return (
-    <section id="testimonial" className="relative z-[2] mt-20">
-      <div className="mb-6 max-w-4xl mx-auto relative container p-6 sm:p-8 lg:p-10 rounded-[30px] bg-secondary">
+    <section className="relative z-[2] mt-20">
+      <div
+        id="testimonial"
+        className="mb-6 max-w-4xl mx-auto relative container p-6 sm:p-8 lg:p-10 rounded-[30px] bg-secondary"
+      >
         <div>
           <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
             <span className="text-white">Nuestro </span>

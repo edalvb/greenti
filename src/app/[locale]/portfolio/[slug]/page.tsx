@@ -68,15 +68,15 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       {/* Solución */}
       <Solution description={project.solution} />
 
+      {/* Tecnologías */}
+      <Technologies technologies={project.technologies} />
+
       {/* Resultados */}
       <Results
         description={project.result_description}
         images={project.result_images_main}
         images_secondary={project.result_images_secondary || []}
       />
-
-      {/* Tecnologías */}
-      <Technologies technologies={project.technologies} />
 
       {/* Testimonio y enlace */}
       <Testimonial data={project.client_testimonial} />
