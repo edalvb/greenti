@@ -42,7 +42,7 @@ export const AboutStats: React.FC = () => {
         />
         <RotatingStatCircle
           primary={
-            <span className="text-2xl font-bold text-secondary">
+            <span className="text-3xl font-bold text-secondary">
               <Counter to={4.9} decimals={1} />
               <span className="text-xl align-top">/</span>
               <Counter to={5} />
@@ -76,7 +76,7 @@ const Stats = (p: {
   return (
     <RotatingStatCircle
       primary={
-        <span className="text-4xl font-bold text-secondary">
+        <span className="text-3xl font-bold text-secondary">
           <Counter to={p.counterTo || 0} />
         </span>
       }

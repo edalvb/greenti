@@ -121,7 +121,7 @@ export const PresenceSection: React.FC = () => {
             {/* Tercer Círculo - Satisfaction */}
             <RotatingStatCircle
               primary={
-                <span className="text-4xl font-bold">
+                <span className="text-5xl font-bold">
                   <Counter to={4.9} decimals={1} />
                   <span className="text-3xl font-bold">/</span>
                   <Counter to={5} />

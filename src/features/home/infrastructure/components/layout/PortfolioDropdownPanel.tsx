@@ -66,7 +66,7 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
       <div className="flex flex-col col-span-6 items-center justify-center px-2 md:px-4 w-full gap-8">
         <RotatingStatCircle
           primary={
-            <span className="text-2xl font-bold text-secondary">23+</span>
+            <span className="text-3xl font-bold text-secondary">23+</span>
           }
           subtitle={
             <span>
@@ -82,7 +82,7 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
         />
 
         <RotatingStatCircle
-          primary={<span className="text-2xl font-bold text-secondary">5</span>}
+          primary={<span className="text-3xl font-bold text-secondary">5</span>}
           subtitle={
             <span className="text-center text-clip">
               Países
@@ -98,7 +98,7 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
 
         <RotatingStatCircle
           primary={
-            <span className="text-2xl font-bold text-secondary">
+            <span className="text-3xl font-bold text-secondary">
               4.9<span className="text-xl align-top">/</span>5
             </span>
           }
