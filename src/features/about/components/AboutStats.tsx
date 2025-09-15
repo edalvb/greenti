@@ -15,11 +15,10 @@ export const AboutStats: React.FC = () => {
     if (hidden) return null;
     return (
       <Image
-        src={`/assets/images/clutch_badge_${index}.svg`}
+        src={`/assets/images/clutch_badge/clutch_badge_0${index}.png`}
         alt={`Clutch badge ${index}`}
-        width={160}
-        height={103}
-        className="w-auto"
+        width={130}
+        height={130}
         onError={() => setHidden(true)}
         priority={false}
       />
@@ -58,7 +57,7 @@ export const AboutStats: React.FC = () => {
       </div>
 
       <div className="flex flex-wrap items-center justify-center gap-6">
-        {[1, 2, 3].map((i) => (
+        {[1, 2, 3, 4].map((i) => (
           <ClutchBadge key={i} index={i} />
         ))}
       </div>
