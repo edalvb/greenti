@@ -49,7 +49,7 @@ export const Resume = ({
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 mb-16 md:mb-24 relative">
       <div>
-        <h3 className="text-secondary font-bold text-3xl md:text-5xl lg:text-[56px] leading-tight">
+        <h3 className="text-secondary font-bold text-3xl md:text-5xl leading-tight">
           Resumen
         </h3>
         <p

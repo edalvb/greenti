@@ -11,7 +11,7 @@ const technologiesFlagByName: Record<string, string> = {
 export const Technologies = (props: { technologies: string[] }) => {
   return (
     <section id="technologies" className="relative z-[1] mt-16 md:mt-24 flex flex-col items-center text-center">
-      <h3 className="text-2xl md:text-3xl font-bold">
+      <h3 className="text-3xl md:text-5xl font-bold">
         Se utilizaron las <span className="text-green-600">tecnologías</span>
       </h3>
       <div className="mt-6 flex flex-wrap gap-12">

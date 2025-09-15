@@ -14,7 +14,7 @@ export const Results = ({
   <section id="results" className="relative z-[1] mt-16 md:mt-24">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
       <div>
-        <h3 className="text-2xl md:text-3xl font-bold mb-4">
+        <h3 className="text-3xl md:text-5xl font-bold mb-4">
           <span className="text-secondary">El </span>
           <span className="text-primary">resultado</span>
         </h3>
