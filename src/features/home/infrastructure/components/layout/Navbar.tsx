@@ -102,18 +102,18 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 top-0 transition-all duration-500 ease-in-out ${isScrolled ? "bg-white shadow-lg py-2" : "py-6"} px-responsive`}
+      className={`fixed w-full z-50 top-0 transition-all duration-500 ease-in-out ${isScrolled ? "bg-white shadow-lg py-3" : "py-8"} px-responsive`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-14 px-4" : "h-20 bg-white rounded-[90px] px-8 shadow-lg"}`}
+          className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-16 px-4" : "h-24 bg-white rounded-[90px] px-8 shadow-lg"}`}
         >
           <div className="flex items-center">
             <Logo
               href="/"
               isScrolled={false}
-              imgWidth={isScrolled ? 40 : 56}
-              imgHeight={isScrolled ? 40 : 56}
+              imgWidth={isScrolled ? 48 : 72}
+              imgHeight={isScrolled ? 48 : 72}
               className="transition-all duration-500 ease-in-out"
             />
           </div>
