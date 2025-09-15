@@ -198,7 +198,7 @@ export function FlowArrow() {
           d={svgData.d}
           fill="none"
           stroke="#16a34a"
-          strokeWidth={3}
+          strokeWidth={5}
           strokeDasharray="6 6"
           strokeLinecap="round"
           strokeLinejoin="round"
