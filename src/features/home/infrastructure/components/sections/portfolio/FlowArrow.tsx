@@ -88,14 +88,46 @@ function toLocal(point: { x: number; y: number }, container: DOMRect) {
   return { x: point.x - container.left, y: point.y - container.top };
 }
 
-function pathCmd(points: { x: number; y: number }[]) {
-  if (!points.length) return "";
-  const d: string[] = ["M", points[0].x.toFixed(1), points[0].y.toFixed(1)];
-  for (let i = 1; i < points.length; i++) {
-    d.push("L", points[i].x.toFixed(1), points[i].y.toFixed(1));
-  }
-  return d.join(" ");
+function pathCmd(points: { x: number; y: number }[], radius: number): string {
+    if (points.length < 2) return "";
+
+    let d = `M ${points[0].x.toFixed(1)} ${points[0].y.toFixed(1)}`;
+
+    for (let i = 1; i < points.length - 1; i++) {
+        const p0 = points[i - 1];
+        const p1 = points[i];
+        const p2 = points[i + 1];
+
+        const dx1 = p1.x - p0.x;
+        const dy1 = p1.y - p0.y;
+        const len1 = Math.sqrt(dx1 * dx1 + dy1 * dy1);
+
+        const dx2 = p2.x - p1.x;
+        const dy2 = p2.y - p1.y;
+        const len2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+
+        const cornerRadius = Math.min(radius, len1 / 2, len2 / 2);
+
+        if (cornerRadius < 1) {
+            d += ` L ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}`;
+            continue;
+        }
+
+        const startCurveX = p1.x - (dx1 / len1) * cornerRadius;
+        const startCurveY = p1.y - (dy1 / len1) * cornerRadius;
+
+        const endCurveX = p1.x + (dx2 / len2) * cornerRadius;
+        const endCurveY = p1.y + (dy2 / len2) * cornerRadius;
+
+        d += ` L ${startCurveX.toFixed(1)} ${startCurveY.toFixed(1)}`;
+        d += ` Q ${p1.x.toFixed(1)} ${p1.y.toFixed(1)}, ${endCurveX.toFixed(1)} ${endCurveY.toFixed(1)}`;
+    }
+
+    d += ` L ${points[points.length - 1].x.toFixed(1)} ${points[points.length - 1].y.toFixed(1)}`;
+
+    return d;
 }
+
 
 export function FlowArrow() {
   const rects = useRects();
@@ -105,6 +137,8 @@ export function FlowArrow() {
     if (!main || !sectionChallenge || !pChallenge || !sectionSolution || !sectionResults || !sectionTechnologies || !sectionTestimonial || !testimonialCard) {
       return null;
     }
+
+    const cornerRadius = 20; // <-- Puedes ajustar este valor
 
     // Puntos clave siguiendo el recorrido solicitado
     // 1) Origen: parte izquierda del <p> en Challenge, pero desplazamos un poco más a la IZQUIERDA del Challenge
@@ -164,7 +198,7 @@ export function FlowArrow() {
     return {
       width: main.width,
       height: Math.max(main.height, toTestimonial.y + 50),
-      d: pathCmd(points),
+      d: pathCmd(points, cornerRadius),
     };
   }, [rects]);
 
