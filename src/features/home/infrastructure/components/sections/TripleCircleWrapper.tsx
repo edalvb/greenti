@@ -57,15 +57,20 @@ export const TripleCircleWrapper: React.FC<React.PropsWithChildren> = ({ childre
   // Para mantener forma circular, usamos el menor entre ancho disponible y circleHeight (limitado) y centramos.
   // Damos un factor para pantallas anchas.
   const idealDiameter = circleHeight; // circleHeight ya expresa distancia vertical objetivo
-  // Forzar que el diámetro no sea menor al 120% del ancho del contenedor para mayor presencia visual.
-  const minWidthDiameter = width * 1.2;
+
+  // Ajuste responsivo del diámetro. En pantallas pequeñas, el multiplicador es mayor
+  // para asegurar que el círculo siga siendo un elemento de fondo prominente.
+  const diameterMultiplier = width < 768 ? 1.8 : 1.2;
+
+  // Forzar que el diámetro no sea menor a un % del ancho del contenedor para mayor presencia visual.
+  const minWidthDiameter = width * diameterMultiplier;
   const diameter = Math.max(idealDiameter, minWidthDiameter);
   const circleTop = first / 2; // offset desde arriba del wrapper
 
   return (
     <div
       ref={wrapperRef}
-      className="relative w-full max-w-full min-w-0 overflow-x-hidden overflow-y-visible overscroll-x-none"
+      className="relative w-full max-w-full min-w-0"
     >
       {circleHeight > 0 && (
         <div
