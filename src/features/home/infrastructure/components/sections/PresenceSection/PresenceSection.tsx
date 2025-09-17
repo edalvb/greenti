@@ -81,7 +81,7 @@ export const PresenceSection: React.FC = () => {
           </div>
 
           {/* COLUMNA 2: Círculos estadísticos UNO DEBAJO DE OTRO */}
-          <div className="lg:col-span-1 w-full flex flex-col items-center justify-center space-y-12 relative">
+          <div className="lg:col-span-1 w-full flex flex-col items-center justify-center space-y-12 relative border-r-white/20 border-r-1">
             {/* Primer Círculo - Countries */}
             <RotatingStatCircle
               primary={
