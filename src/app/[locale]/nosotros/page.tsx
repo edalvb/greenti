@@ -27,7 +27,7 @@ export default async function NosotrosPage({ params }: any) {
   const values = (t as any).raw("coreValues.values") as Record<string, { title: string; text: string }>;
 
   return (
-    <main className="min-h-screen bg-white pt-40 pb-24 px-responsive">
+    <main className="min-h-screen bg-presence-section pt-40 pb-24 px-responsive">
       <div className="container mx-auto max-w-screen-xl px-4 md:px-6">
       <Breadcrumbs className="mb-6" />
         {/* Hero */}
