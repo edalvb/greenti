@@ -104,7 +104,7 @@ export const Navbar: React.FC = () => {
     <nav
       className={`fixed w-full z-50 top-0 transition-all duration-500 ease-in-out ${isScrolled ? "bg-white shadow-lg py-3" : "py-8"} px-responsive`}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container max-w-screen-xl mx-auto px-4 md:px-6">
         <div
           className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-16 px-4" : "h-24 bg-white rounded-[90px] px-8 shadow-lg"}`}
         >
