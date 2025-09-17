@@ -106,7 +106,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="container max-w-screen-xl mx-auto px-4 md:px-6">
         <div
-          className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-16 px-4" : "h-24 bg-white rounded-[90px] px-8 shadow-lg"}`}
+          className={`flex items-center justify-between transition-all duration-500 ease-in-out ${isScrolled ? "h-16 px-4" : "h-24"}`}
         >
           <div className="flex items-center">
             <Logo
