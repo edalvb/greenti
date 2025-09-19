@@ -36,15 +36,13 @@ export const PortfolioDropdownPanel: React.FC<PortfolioDropdownPanelProps> = ({
                   onRequestClose?.();
                 }}
               >
-                <span
-                  className={`w-[50px] h-[50px] rounded-[10px] overflow-hidden flex items-center justify-center ${p.bgClass ?? ""} bg-white ring-1 ring-black/5`}
-                >
+                <span>
                   <Image
                     src={p.iconSrc}
                     alt=""
                     width={36}
                     height={36}
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </span>
                 <span className="text-secondary text-sm md:text-base font-medium">
