@@ -16,284 +16,62 @@ interface VerticalTimelineProps {
   labelIWantAdvice?: string;
 }
 
+// Timeline vertical responsive con Tailwind
 export const VerticalTimeline = (prop: VerticalTimelineProps) => {
+  const steps: VerticalTimelineItem[] = [prop.step1, prop.step2, prop.step3];
+
   return (
-    <div style={{ width: "100%", height: "100%", position: "relative" }}>
-      <Button
-        onClick={prop.onIWantAdvice}
-        style={{
-          left: 92,
-          top: 727,
-          position: "absolute",
-          textAlign: "center",
-          color: "white",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "700",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.labelIWantAdvice}
-      </Button>
-      <div
-        style={{
-          width: 60,
-          height: 60,
-          left: 0,
-          top: 0,
-          position: "absolute",
-          background: "#12B759",
-          overflow: "hidden",
-          borderRadius: 90,
-        }}
-      >
+    <div className="w-full">
+      <div className="relative">
+        {/* Línea vertical continua detrás de los pasos */}
         <div
-          style={{
-            width: 24,
-            height: 24,
-            left: 18,
-            top: 18,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {prop.step1.icon}
+          className="pointer-events-none absolute left-7 sm:left-8 top-7 sm:top-8 bottom-12 border-l-2 border-dashed border-[#E6E6F1]"
+          aria-hidden="true"
+        />
+
+        <div className="flex flex-col gap-8 sm:gap-10">
+          {steps.map((step, idx) => (
+            <div key={idx} className="relative pl-16 sm:pl-20">
+              {/* Icono */}
+              <div className="absolute left-0 top-0 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#12B759] flex items-center justify-center overflow-hidden">
+                <div className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center">
+                  {step.icon}
+                </div>
+              </div>
+
+              {/* Contenido */}
+              <div className="pt-1">
+                {step.labelStep && (
+                  <div className="text-[#002140] text-sm sm:text-base font-medium">
+                    {step.labelStep}
+                  </div>
+                )}
+                {step.title && (
+                  <div className="text-[#002140] text-xl sm:text-2xl md:text-3xl font-bold mt-1">
+                    {step.title}
+                  </div>
+                )}
+                {step.concept && (
+                  <div className="text-[#002140] text-base sm:text-lg font-medium mt-3 max-w-prose">
+                    {step.concept}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+
+          {/* Pie con línea horizontal conectada y botón */}
+          <div className="relative pl-16 sm:pl-20 pt-2">
+            <div
+              className="pointer-events-none absolute left-7 sm:left-8 top-1/2 -translate-y-1/2 w-14 border-t-2 border-dashed border-[#E6E6F1]"
+              aria-hidden="true"
+            />
+            <Button onClick={prop.onIWantAdvice} className="text-white ml-4">
+              {prop.labelIWantAdvice}
+            </Button>
+          </div>
         </div>
       </div>
-      <div
-        style={{
-          width: 53,
-          left: 86,
-          top: 0,
-          position: "absolute",
-          textAlign: "center",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step1.labelStep}
-      </div>
-      <div
-        style={{
-          width: 282,
-          left: 86,
-          top: 29,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 24,
-          fontFamily: "Poppins",
-          fontWeight: "700",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step1.title}
-      </div>
-      <div
-        style={{
-          width: 663,
-          left: 86,
-          top: 75,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step1.concept}
-      </div>
-      <div
-        style={{
-          width: 60,
-          height: 60,
-          left: 0,
-          top: 251,
-          position: "absolute",
-          background: "#12B759",
-          overflow: "hidden",
-          borderRadius: 90,
-        }}
-      >
-        <div
-          style={{
-            width: 24,
-            height: 24,
-            left: 18,
-            top: 18,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {prop.step2.icon}
-        </div>
-      </div>
-      <div
-        style={{
-          width: 57,
-          left: 86,
-          top: 251,
-          position: "absolute",
-          textAlign: "center",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step2.labelStep}
-      </div>
-      <div
-        style={{
-          width: 282,
-          left: 86,
-          top: 280,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 24,
-          fontFamily: "Poppins",
-          fontWeight: "700",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step2.title}
-      </div>
-      <div
-        style={{
-          width: 663,
-          left: 86,
-          top: 326,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step2.concept}
-      </div>
-      <div
-        style={{
-          width: 60,
-          height: 60,
-          left: 0,
-          top: 502,
-          position: "absolute",
-          background: "#12B759",
-          overflow: "hidden",
-          borderRadius: 90,
-        }}
-      >
-        <div
-          style={{
-            width: 24,
-            height: 24,
-            left: 18,
-            top: 18,
-            position: "absolute",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          {prop.step3.icon}
-        </div>
-      </div>
-      <div
-        style={{
-          width: 57,
-          left: 86,
-          top: 502,
-          position: "absolute",
-          textAlign: "center",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step3.labelStep}
-      </div>
-      <div
-        style={{
-          width: 282,
-          left: 86,
-          top: 531,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 24,
-          fontFamily: "Poppins",
-          fontWeight: "700",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step3.title}
-      </div>
-      <div
-        style={{
-          width: 663,
-          left: 86,
-          top: 577,
-          position: "absolute",
-          color: "#002140",
-          fontSize: 16,
-          fontFamily: "Poppins",
-          fontWeight: "500",
-          wordWrap: "break-word",
-        }}
-      >
-        {prop.step3.concept}
-      </div>
-      <div
-        style={{
-          width: 0,
-          height: 187,
-          left: 28,
-          top: 62,
-          position: "absolute",
-          borderLeft: "2px dashed #E6E6F1",
-        }}
-      ></div>
-      <div
-        style={{
-          width: 0,
-          height: 187,
-          left: 28,
-          top: 313,
-          position: "absolute",
-          borderLeft: "2px dashed #E6E6F1",
-        }}
-      ></div>
-      <div
-        style={{
-          width: 0,
-          height: 187,
-          left: 28,
-          top: 564,
-          position: "absolute",
-          borderLeft: "2px dashed #E6E6F1",
-        }}
-      ></div>
-      <div
-        style={{
-          width: 55,
-          height: 0,
-          left: 31,
-          top: 751,
-          position: "absolute",
-          borderTop: "2px dashed #E6E6F1",
-        }}
-      ></div>
     </div>
   );
 };
