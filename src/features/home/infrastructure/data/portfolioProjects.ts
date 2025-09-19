@@ -20,12 +20,12 @@ export const portfolioProjects: PortfolioProject[] = [
   },
   {
     name: "Britcam landscape",
-    iconSrc: "/assets/images/client_logo_omarsa.svg",
+    iconSrc: "/assets/images/porfolio/britcam_logo.png",
     bgClass: "bg-[#E8E2D5]",
   },
   {
     name: "Coosofan cooperativa",
-    iconSrc: "/assets/images/porfolio/cosofan_logo.png",
+    iconSrc: "/assets/images/porfolio/coosofan_logo.png",
     bgClass: "bg-[#00964B]",
   },
   {

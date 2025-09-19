@@ -18,7 +18,9 @@ export const Results = ({
           <span className="text-secondary">El </span>
           <span className="text-primary">resultado</span>
         </h3>
-        <p className="text-secondary leading-relaxed">{description}</p>
+        <p className="text-secondary leading-relaxed whitespace-pre-line">
+          {description}
+        </p>
       </div>
 
       {/* Contenedor de imágenes principales, ocupan todo el ancho disponible de la segunda columna */}
