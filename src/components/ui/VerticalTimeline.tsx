@@ -25,7 +25,7 @@ export const VerticalTimeline = (prop: VerticalTimelineProps) => {
       <div className="relative">
         {/* Línea vertical continua detrás de los pasos */}
         <div
-          className="pointer-events-none absolute left-7 sm:left-8 top-7 sm:top-8 bottom-12 border-l-2 border-dashed border-[#E6E6F1]"
+          className="pointer-events-none absolute left-7 sm:left-8 top-7 sm:top-8 bottom-6 border-l-2 border-dashed border-[#E6E6F1]"
           aria-hidden="true"
         />
 
@@ -61,7 +61,7 @@ export const VerticalTimeline = (prop: VerticalTimelineProps) => {
           ))}
 
           {/* Pie con línea horizontal conectada y botón */}
-          <div className="relative pl-16 sm:pl-20 pt-2">
+          <div className="relative pl-16 sm:pl-20 h-12 flex items-center">
             <div
               className="pointer-events-none absolute left-7 sm:left-8 top-1/2 -translate-y-1/2 w-14 border-t-2 border-dashed border-[#E6E6F1]"
               aria-hidden="true"
