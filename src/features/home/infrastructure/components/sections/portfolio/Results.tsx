@@ -45,7 +45,7 @@ export const Results = ({
         {images_secondary.map((src, idx) => (
           <div
             key={idx}
-            className="relative w-full overflow-hidden rounded-xl aspect-square md:aspect-[4/5]"
+            className="relative w-full overflow-hidden rounded-xl aspect-[2/5] md:aspect-[1/2]"
           >
             <Image
               src={src}
